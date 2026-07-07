@@ -53,6 +53,7 @@
   }
   navLabels();
   window.addEventListener("hashchange", navLabels);
+  window.addEventListener("i18nchange", navLabels);
   const _setLang = window.setLang;
   window.setLang = v => { _setLang(v); navLabels(); };
 })();

@@ -223,8 +223,8 @@ function bridgeSVG() {
   const walkerX = 30 + (W - 70) * clamp(studiedCount() / Math.max(ALL_IDS.length, 1), 0, 1);
   let s = `<svg viewBox="0 0 ${W} ${H}" style="width:100%;height:auto;display:block" role="img">`;
   s += `<rect x="0" y="0" width="${W}" height="${H}" rx="12" fill="var(--sky-bg,#dbeaf5)"/>`;
-  s += `<rect x="0" y="${deckY + 22}" width="${W}" height="${H - deckY - 22}" fill="#9fc4d8" opacity=".8"/>`;
-  s += `<path d="M0 ${deckY + 26} q 40 -6 80 0 t 80 0 t 80 0 t 80 0 t 80 0 t 80 0 t 80 0 t 80 0" stroke="#7fb0c9" fill="none" stroke-width="2" opacity=".7"/>`;
+  s += `<rect x="0" y="${deckY + 22}" width="${W}" height="${H - deckY - 22}" fill="var(--water,#9fc4d8)" opacity=".85"/>`;
+  s += `<path d="M0 ${deckY + 26} q 40 -6 80 0 t 80 0 t 80 0 t 80 0 t 80 0 t 80 0 t 80 0 t 80 0" stroke="var(--water,#7fb0c9)" fill="none" stroke-width="2" opacity=".6"/>`;
   /* far shorelines */
   s += `<path d="M0 ${deckY + 24} L 46 ${deckY + 6} L 92 ${deckY + 24} Z" fill="#b9a77f" opacity=".85"/>`;
   s += `<path d="M${W - 96} ${deckY + 24} L ${W - 40} ${deckY + 2} L ${W} ${deckY + 24} Z" fill="#a99464" opacity=".9"/>`;
@@ -248,7 +248,7 @@ function bridgeSVG() {
   if (deckP > 0.03) s += `<g transform="translate(${Math.min(walkerX, deckEnd - 6)} ${deckY - 7})"><circle cx="0" cy="-4" r="2.6" fill="#26282f"/><rect x="-1.7" y="-2" width="3.4" height="6" rx="1.6" fill="#26282f"/></g>`;
   if (p >= 0.999) s += `<g transform="translate(${W - 44} ${tTop - 4})"><line x1="0" y1="0" x2="0" y2="16" stroke="#555" stroke-width="1.6"/><path d="M0 1 L 13 4.5 L 0 8 Z" fill="var(--jade)"/></g>`;
   /* fog */
-  s += `<rect x="0" y="0" width="${W}" height="${H}" rx="12" fill="#e8ecef" opacity="${fog}" class="fogband"/>`;
+  s += `<rect x="0" y="0" width="${W}" height="${H}" rx="12" fill="var(--fogc,#e8ecef)" opacity="${fog}" class="fogband"/>`;
   s += `</svg>`;
   return s;
 }

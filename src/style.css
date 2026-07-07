@@ -22,6 +22,9 @@
   --red: #c94444;
   --amber: #d97c0b;
   --chip: #efe7d3;
+  --sky-bg: #dbeaf5;
+  --water: #9fc4d8;
+  --fogc: #e8ecef;
   --shadow: 0 1px 2px rgba(60,45,20,.06), 0 8px 24px -12px rgba(60,45,20,.25);
   --shadow-lg: 0 2px 4px rgba(60,45,20,.08), 0 18px 44px -16px rgba(60,45,20,.35);
   --radius: 16px;
@@ -40,6 +43,9 @@
   --gold: #d4b054;
   --gold-bg: #2a2a1e;
   --chip: #29314466;
+  --sky-bg: #1c2a3e;
+  --water: #27405a;
+  --fogc: #39404f;
   --jade: #4aae6c;
   --sky: #5b93d0;
   --red: #e06666;
@@ -314,9 +320,9 @@ a { color: var(--sky); }
 /* ---- toast ---- */
 #toast {
   position: fixed; left: 50%; bottom: 96px; transform: translateX(-50%) translateY(20px);
-  background: var(--navy); color: #f3efe4; border-radius: 999px; padding: 9px 20px;
+  background: var(--navy); color: #f3efe4; border-radius: 18px; padding: 9px 20px;
   font-size: .85rem; font-weight: 700; opacity: 0; transition: all .25s ease; z-index: 80;
-  pointer-events: none; white-space: nowrap; box-shadow: var(--shadow-lg);
+  pointer-events: none; max-width: calc(100vw - 32px); text-align: center; box-shadow: var(--shadow-lg);
 }
 #toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 

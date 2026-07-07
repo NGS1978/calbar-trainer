@@ -29,6 +29,10 @@ for (const file of files) {
     if (deck[k] === undefined) errs.push(`missing top-level "${k}"`);
   }
   if (typeof deck.mcqTested !== 'boolean') errs.push('mcqTested must be boolean');
+  if (deck.subject !== undefined) {
+    if (!/^[a-z0-9]+$/.test(deck.subject)) errs.push(`subject "${deck.subject}" must be [a-z0-9]+ (used in inline handlers and as a map key)`);
+    if (deck.subject !== path.basename(file, '.json')) errs.push(`subject "${deck.subject}" must equal the filename slug "${path.basename(file, '.json')}"`);
+  }
   const topics = {};
   const types = { basic: 0, cloze: 0, mcq: 0 };
   for (const c of deck.cards || []) {

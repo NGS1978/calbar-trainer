@@ -337,8 +337,10 @@ function vStudy() {
   const pct = Math.round(100 * (1 - remaining / Math.max(session.initTotal, 1)));
   const flagged = st && st.flag;
 
-  const bearState = session.lastG ? (session.lastG >= 3 ? "nod" : "wince") : "idle";
-  session.lastG = null;
+  /* bear reaction survives the MCQ shuffle re-render (bindStudy) via _bear */
+  let bearState = "idle";
+  if (session.lastG) { bearState = session.lastG >= 3 ? "nod" : "wince"; session._bear = bearState; session.lastG = null; }
+  else if (session._bear) { bearState = session._bear; session._bear = null; }
   let h = `
   <div class="study-top">
     <button onclick="exitStudy()" title="${esc(t("study.exit"))}">✕</button>
@@ -716,9 +718,18 @@ window.deckToggleNew = (subj) => {
   if (!S.settings.deckOff[subj]) delete S.settings.deckOff[subj];
   save(); toast(t(deckNewOff(subj) ? "toast.deckoff" : "toast.deckon")); route();
 };
-window.modSusp = (id) => { const c = cs(id); c.susp = !c.susp; save(); toast(t(c.susp ? "toast.suspended" : "toast.unsuspended")); closeModal(); route(); };
-window.modFlag = (id) => { const c = cs(id); c.flag = !c.flag; save(); toast(t(c.flag ? "toast.flagged" : "toast.unflagged")); closeModal(); route(); };
-window.modReset = (id) => { delete S.cards[id]; save(); toast(t("toast.reset")); closeModal(); route(); };
+/* re-render current view but keep search text + scroll position (modal card actions) */
+function refreshInPlace() {
+  const srch = document.getElementById("srch");
+  const q = srch ? srch.value : null;
+  const y = window.scrollY;
+  route();
+  if (q) { const s2 = document.getElementById("srch"); if (s2) { s2.value = q; doSearch(q); } }
+  window.scrollTo(0, y);
+}
+window.modSusp = (id) => { const c = cs(id); c.susp = !c.susp; save(); toast(t(c.susp ? "toast.suspended" : "toast.unsuspended")); closeModal(); refreshInPlace(); };
+window.modFlag = (id) => { const c = cs(id); c.flag = !c.flag; save(); toast(t(c.flag ? "toast.flagged" : "toast.unflagged")); closeModal(); refreshInPlace(); };
+window.modReset = (id) => { delete S.cards[id]; save(); toast(t("toast.reset")); closeModal(); refreshInPlace(); };
 
 /* ============================ STATS ============================ */
 function vStats() {
@@ -773,7 +784,8 @@ function vStats() {
 
 /* ============== 判例徽章 cabinet ============== */
 function cabinetPanel() {
-  evaluateBadges();
+  const fresh = evaluateBadges();
+  if (fresh.length) setTimeout(() => announceBadges(fresh), 400);
   const zh = S.settings.lang === "zh";
   const earned = Object.keys(S.badges || {}).length;
   let h = `<div class="panel"><h3>🏅 ${esc(t("cab.title"))}<span class="sub">${earned}/${BADGES.length}</span></h3>
@@ -1081,6 +1093,7 @@ window.closeModal = () => { const m = $("#modalbg"); if (m) m.remove(); };
 window.nav = nav;
 
 document.addEventListener("keydown", e => {
+  if (e.repeat) return;                                    // held key must not machine-gun grades
   if (e.target.tagName === "INPUT" || e.target.tagName === "SELECT" || e.target.tagName === "TEXTAREA") return;
   const h = (location.hash || "#home").slice(1);
   if (h.startsWith("triage/") && tri) {
@@ -1104,7 +1117,9 @@ document.addEventListener("keydown", e => {
 document.addEventListener("visibilitychange", () => { if (document.hidden) { tickTime(); save(true); } });
 window.addEventListener("pagehide", () => { tickTime(); save(true); });
 /* another tab wrote newer state → adopt it instead of clobbering it later */
-window.addEventListener("storage", e => { if (e.key === LS_KEY && e.newValue) { S = load(); applyTheme(); route(); } });
+window.addEventListener("storage", e => {
+  if (e.key === LS_KEY && e.newValue) { S = load(); applyTheme(); route(); window.dispatchEvent(new Event("i18nchange")); }
+});
 
 applyTheme();
 route();

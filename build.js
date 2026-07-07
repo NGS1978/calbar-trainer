@@ -26,7 +26,11 @@ if (skipped && !process.argv.includes("--loose")) {
 const nCards = decks.reduce((n, d) => n + d.cards.length, 0);
 
 let html = R("src/template.html");
-const put = (tag, content) => { html = html.replace(tag, () => content); };
+const put = (tag, content) => {
+  let n = 0;
+  html = html.replace(tag, () => { n++; return content; });
+  if (n !== 1) { console.error(`✗ placeholder ${tag} replaced ${n}× (expected exactly 1)`); process.exit(1); }
+};
 put("/*__STYLE__*/", R("src/style.css"));
 /* <-escape so card text can never smuggle a </script> into the built page */
 put("/*__DATA__*/", "window.DECKS=" + JSON.stringify(decks).replace(/</g, "\\u003c") + ";");
@@ -36,6 +40,10 @@ put("/*__UI__*/", R("src/app-ui.js"));
 /* placeholder nav labels (replaced at runtime by language) */
 put("__NAV_HOME__", "首页"); put("__NAV_BROWSE__", "题库");
 put("__NAV_STATS__", "统计"); put("__NAV_SET__", "设置");
+
+/* no placeholder may survive (e.g. card text that swallowed a substitution) */
+const leftover = html.match(/\/\*__[A-Z_]+__\*\/|__NAV_[A-Z]+__/);
+if (leftover) { console.error(`✗ unreplaced placeholder in output: ${leftover[0]}`); process.exit(1); }
 
 const out = path.join(__dirname, "index.html");
 fs.writeFileSync(out, html);

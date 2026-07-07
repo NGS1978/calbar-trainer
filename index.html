@@ -32,6 +32,9 @@
   --red: #c94444;
   --amber: #d97c0b;
   --chip: #efe7d3;
+  --sky-bg: #dbeaf5;
+  --water: #9fc4d8;
+  --fogc: #e8ecef;
   --shadow: 0 1px 2px rgba(60,45,20,.06), 0 8px 24px -12px rgba(60,45,20,.25);
   --shadow-lg: 0 2px 4px rgba(60,45,20,.08), 0 18px 44px -16px rgba(60,45,20,.35);
   --radius: 16px;
@@ -50,6 +53,9 @@
   --gold: #d4b054;
   --gold-bg: #2a2a1e;
   --chip: #29314466;
+  --sky-bg: #1c2a3e;
+  --water: #27405a;
+  --fogc: #39404f;
   --jade: #4aae6c;
   --sky: #5b93d0;
   --red: #e06666;
@@ -324,9 +330,9 @@ a { color: var(--sky); }
 /* ---- toast ---- */
 #toast {
   position: fixed; left: 50%; bottom: 96px; transform: translateX(-50%) translateY(20px);
-  background: var(--navy); color: #f3efe4; border-radius: 999px; padding: 9px 20px;
+  background: var(--navy); color: #f3efe4; border-radius: 18px; padding: 9px 20px;
   font-size: .85rem; font-weight: 700; opacity: 0; transition: all .25s ease; z-index: 80;
-  pointer-events: none; white-space: nowrap; box-shadow: var(--shadow-lg);
+  pointer-events: none; max-width: calc(100vw - 32px); text-align: center; box-shadow: var(--shadow-lg);
 }
 #toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
@@ -478,6 +484,10 @@ function load() {
       s.settings = Object.assign({}, DEFAULT_SETTINGS, s.settings);
       s.cards = s.cards || {}; s.days = s.days || {}; s.xp = s.xp || 0;
       s.topics = s.topics || {}; s.diag = s.diag || {}; s.badges = s.badges || {}; s.flags = s.flags || {};
+      for (const k of Object.keys(s.days)) {          // older/hand-edited backups may lack fields
+        const v = s.days[k] || {};
+        s.days[k] = { r: v.r || 0, ok: v.ok || 0, n: v.n || 0, q: v.q || 0, ms: v.ms || 0, xp: v.xp || 0 };
+      }
       return s;
     }
   } catch (e) { console.warn("state load failed", e); }
@@ -687,7 +697,7 @@ function buildQuiz(nQ, subject) {
   const pool = quizPool(subject);
   const scored = pool.map(id => {
     const c = peek(id);
-    const r = c && c.st === 2 ? retrievability((now() - c.last) / DAY, c.s) : (c && c.st > 0 ? 0.55 : 0.35);
+    const r = c && c.st === 2 ? retrievability(Math.max(0, (now() - c.last) / DAY), c.s) : (c && c.st > 0 ? 0.55 : 0.35);
     return { id, k: r + Math.random() * 0.3 };
   });
   scored.sort((a, b) => a.k - b.k);
@@ -1166,8 +1176,8 @@ function bridgeSVG() {
   const walkerX = 30 + (W - 70) * clamp(studiedCount() / Math.max(ALL_IDS.length, 1), 0, 1);
   let s = `<svg viewBox="0 0 ${W} ${H}" style="width:100%;height:auto;display:block" role="img">`;
   s += `<rect x="0" y="0" width="${W}" height="${H}" rx="12" fill="var(--sky-bg,#dbeaf5)"/>`;
-  s += `<rect x="0" y="${deckY + 22}" width="${W}" height="${H - deckY - 22}" fill="#9fc4d8" opacity=".8"/>`;
-  s += `<path d="M0 ${deckY + 26} q 40 -6 80 0 t 80 0 t 80 0 t 80 0 t 80 0 t 80 0 t 80 0 t 80 0" stroke="#7fb0c9" fill="none" stroke-width="2" opacity=".7"/>`;
+  s += `<rect x="0" y="${deckY + 22}" width="${W}" height="${H - deckY - 22}" fill="var(--water,#9fc4d8)" opacity=".85"/>`;
+  s += `<path d="M0 ${deckY + 26} q 40 -6 80 0 t 80 0 t 80 0 t 80 0 t 80 0 t 80 0 t 80 0 t 80 0" stroke="var(--water,#7fb0c9)" fill="none" stroke-width="2" opacity=".6"/>`;
   /* far shorelines */
   s += `<path d="M0 ${deckY + 24} L 46 ${deckY + 6} L 92 ${deckY + 24} Z" fill="#b9a77f" opacity=".85"/>`;
   s += `<path d="M${W - 96} ${deckY + 24} L ${W - 40} ${deckY + 2} L ${W} ${deckY + 24} Z" fill="#a99464" opacity=".9"/>`;
@@ -1191,7 +1201,7 @@ function bridgeSVG() {
   if (deckP > 0.03) s += `<g transform="translate(${Math.min(walkerX, deckEnd - 6)} ${deckY - 7})"><circle cx="0" cy="-4" r="2.6" fill="#26282f"/><rect x="-1.7" y="-2" width="3.4" height="6" rx="1.6" fill="#26282f"/></g>`;
   if (p >= 0.999) s += `<g transform="translate(${W - 44} ${tTop - 4})"><line x1="0" y1="0" x2="0" y2="16" stroke="#555" stroke-width="1.6"/><path d="M0 1 L 13 4.5 L 0 8 Z" fill="var(--jade)"/></g>`;
   /* fog */
-  s += `<rect x="0" y="0" width="${W}" height="${H}" rx="12" fill="#e8ecef" opacity="${fog}" class="fogband"/>`;
+  s += `<rect x="0" y="0" width="${W}" height="${H}" rx="12" fill="var(--fogc,#e8ecef)" opacity="${fog}" class="fogband"/>`;
   s += `</svg>`;
   return s;
 }
@@ -1675,8 +1685,10 @@ function vStudy() {
   const pct = Math.round(100 * (1 - remaining / Math.max(session.initTotal, 1)));
   const flagged = st && st.flag;
 
-  const bearState = session.lastG ? (session.lastG >= 3 ? "nod" : "wince") : "idle";
-  session.lastG = null;
+  /* bear reaction survives the MCQ shuffle re-render (bindStudy) via _bear */
+  let bearState = "idle";
+  if (session.lastG) { bearState = session.lastG >= 3 ? "nod" : "wince"; session._bear = bearState; session.lastG = null; }
+  else if (session._bear) { bearState = session._bear; session._bear = null; }
   let h = `
   <div class="study-top">
     <button onclick="exitStudy()" title="${esc(t("study.exit"))}">✕</button>
@@ -2054,9 +2066,18 @@ window.deckToggleNew = (subj) => {
   if (!S.settings.deckOff[subj]) delete S.settings.deckOff[subj];
   save(); toast(t(deckNewOff(subj) ? "toast.deckoff" : "toast.deckon")); route();
 };
-window.modSusp = (id) => { const c = cs(id); c.susp = !c.susp; save(); toast(t(c.susp ? "toast.suspended" : "toast.unsuspended")); closeModal(); route(); };
-window.modFlag = (id) => { const c = cs(id); c.flag = !c.flag; save(); toast(t(c.flag ? "toast.flagged" : "toast.unflagged")); closeModal(); route(); };
-window.modReset = (id) => { delete S.cards[id]; save(); toast(t("toast.reset")); closeModal(); route(); };
+/* re-render current view but keep search text + scroll position (modal card actions) */
+function refreshInPlace() {
+  const srch = document.getElementById("srch");
+  const q = srch ? srch.value : null;
+  const y = window.scrollY;
+  route();
+  if (q) { const s2 = document.getElementById("srch"); if (s2) { s2.value = q; doSearch(q); } }
+  window.scrollTo(0, y);
+}
+window.modSusp = (id) => { const c = cs(id); c.susp = !c.susp; save(); toast(t(c.susp ? "toast.suspended" : "toast.unsuspended")); closeModal(); refreshInPlace(); };
+window.modFlag = (id) => { const c = cs(id); c.flag = !c.flag; save(); toast(t(c.flag ? "toast.flagged" : "toast.unflagged")); closeModal(); refreshInPlace(); };
+window.modReset = (id) => { delete S.cards[id]; save(); toast(t("toast.reset")); closeModal(); refreshInPlace(); };
 
 /* ============================ STATS ============================ */
 function vStats() {
@@ -2111,7 +2132,8 @@ function vStats() {
 
 /* ============== 判例徽章 cabinet ============== */
 function cabinetPanel() {
-  evaluateBadges();
+  const fresh = evaluateBadges();
+  if (fresh.length) setTimeout(() => announceBadges(fresh), 400);
   const zh = S.settings.lang === "zh";
   const earned = Object.keys(S.badges || {}).length;
   let h = `<div class="panel"><h3>🏅 ${esc(t("cab.title"))}<span class="sub">${earned}/${BADGES.length}</span></h3>
@@ -2419,6 +2441,7 @@ window.closeModal = () => { const m = $("#modalbg"); if (m) m.remove(); };
 window.nav = nav;
 
 document.addEventListener("keydown", e => {
+  if (e.repeat) return;                                    // held key must not machine-gun grades
   if (e.target.tagName === "INPUT" || e.target.tagName === "SELECT" || e.target.tagName === "TEXTAREA") return;
   const h = (location.hash || "#home").slice(1);
   if (h.startsWith("triage/") && tri) {
@@ -2442,7 +2465,9 @@ document.addEventListener("keydown", e => {
 document.addEventListener("visibilitychange", () => { if (document.hidden) { tickTime(); save(true); } });
 window.addEventListener("pagehide", () => { tickTime(); save(true); });
 /* another tab wrote newer state → adopt it instead of clobbering it later */
-window.addEventListener("storage", e => { if (e.key === LS_KEY && e.newValue) { S = load(); applyTheme(); route(); } });
+window.addEventListener("storage", e => {
+  if (e.key === LS_KEY && e.newValue) { S = load(); applyTheme(); route(); window.dispatchEvent(new Event("i18nchange")); }
+});
 
 applyTheme();
 route();
@@ -2461,6 +2486,7 @@ setTimeout(() => { if (!storageOk) toast(t("toast.storage")); }, 1200);
   }
   navLabels();
   window.addEventListener("hashchange", navLabels);
+  window.addEventListener("i18nchange", navLabels);
   const _setLang = window.setLang;
   window.setLang = v => { _setLang(v); navLabels(); };
 })();

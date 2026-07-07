@@ -33,6 +33,10 @@ function load() {
       s.settings = Object.assign({}, DEFAULT_SETTINGS, s.settings);
       s.cards = s.cards || {}; s.days = s.days || {}; s.xp = s.xp || 0;
       s.topics = s.topics || {}; s.diag = s.diag || {}; s.badges = s.badges || {}; s.flags = s.flags || {};
+      for (const k of Object.keys(s.days)) {          // older/hand-edited backups may lack fields
+        const v = s.days[k] || {};
+        s.days[k] = { r: v.r || 0, ok: v.ok || 0, n: v.n || 0, q: v.q || 0, ms: v.ms || 0, xp: v.xp || 0 };
+      }
       return s;
     }
   } catch (e) { console.warn("state load failed", e); }
@@ -242,7 +246,7 @@ function buildQuiz(nQ, subject) {
   const pool = quizPool(subject);
   const scored = pool.map(id => {
     const c = peek(id);
-    const r = c && c.st === 2 ? retrievability((now() - c.last) / DAY, c.s) : (c && c.st > 0 ? 0.55 : 0.35);
+    const r = c && c.st === 2 ? retrievability(Math.max(0, (now() - c.last) / DAY), c.s) : (c && c.st > 0 ? 0.55 : 0.35);
     return { id, k: r + Math.random() * 0.3 };
   });
   scored.sort((a, b) => a.k - b.k);
