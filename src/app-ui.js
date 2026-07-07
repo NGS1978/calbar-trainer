@@ -16,7 +16,7 @@ function applyTheme() {
 matchMedia("(prefers-color-scheme: dark)").addEventListener("change", applyTheme);
 
 /* ---------- router ---------- */
-const routes = { home: vHome, study: vStudy, quiz: vQuiz, browse: vBrowse, deck: vDeck, stats: vStats, settings: vSettings, method: vMethod, guide: vGuide };
+const routes = { home: vHome, study: vStudy, quiz: vQuiz, browse: vBrowse, deck: vDeck, stats: vStats, settings: vSettings, method: vMethod, guide: vGuide, triage: vTriage };
 function nav(h) { location.hash = "#" + h; }
 function route() {
   const h = (location.hash || "#home").slice(1);
@@ -25,7 +25,7 @@ function route() {
   const m = document.getElementById("modalbg"); if (m) m.remove();
   tickTime();
   $("#view").innerHTML = fn(arg) || "";
-  const tab = { home: "home", study: "home", quiz: "home", browse: "browse", deck: "browse", stats: "stats", settings: "set", method: "set", guide: "set" }[name] || "home";
+  const tab = { home: "home", study: "home", quiz: "home", browse: "browse", deck: "browse", triage: "browse", stats: "stats", settings: "set", method: "set", guide: "set" }[name] || "home";
   document.querySelectorAll(".nav button").forEach(b => b.classList.toggle("on", b.dataset.tab === tab));
   renderTopbar();
   window.scrollTo(0, 0);
@@ -53,16 +53,17 @@ function vHome() {
   const tot = totals();
   const fresh = !Object.keys(S.cards).length && doneToday === 0;
 
+  const freshBadges = evaluateBadges();
+  setTimeout(() => announceBadges(freshBadges), 500);
+
   const ringR = 34, circ = 2 * Math.PI * ringR;
   let h = `
   <div class="hero">
-    <svg class="bridge" width="72" height="40" viewBox="0 0 72 40" fill="none">
-      <path d="M2 38 V14 M70 38 V14 M2 16 C 20 30, 52 30, 70 16" stroke="#f0842a" stroke-width="3" stroke-linecap="round"/>
-      <path d="M2 22 V38 M70 22 V38 M12 38 v-9 M24 38 v-13 M36 38 v-14 M48 38 v-13 M60 38 v-9" stroke="#f0842a" stroke-width="2" opacity=".7"/>
-    </svg>
+    <div class="bearwrap">${bearSVG(streak() > 0 || doneToday > 0 ? "greet" : "doze", 86)}</div>
     <h2>${esc(t("home.exam"))}</h2>
     <div class="count"><b>${daysToExam()}</b><span>${esc(t("home.days"))} · ${esc(S.settings.examDate)}</span></div>
     <div class="sub">California Bar Exam · 加州律师执照考试</div>
+    <div class="bubble">💬 ${esc(greetLine())}</div>
   </div>`;
 
   if (fresh) h += `
@@ -77,8 +78,8 @@ function vHome() {
   <div class="cta-row">
     <button class="cta main" id="cta-review" ${due ? "" : "disabled"}>
       <span class="n">${due}<span class="unit">${esc(t("u.cards"))}</span></span>
-      <span class="t">▶ ${esc(t("home.review"))}</span>
-      <span class="d">${due ? esc(t("home.due")) : esc(t("home.nodue"))}</span>
+      <span class="t">⚖️ ${esc(t("home.review"))}</span>
+      <span class="d">${due ? esc(t("court.due")) : esc(t("court.clear"))}</span>
     </button>
     <button class="cta" id="cta-new" ${newAvail ? "" : "disabled"}>
       <span class="n">${newAvail}</span>
@@ -91,6 +92,8 @@ function vHome() {
       <span class="d">${esc(t("home.quizd"))}</span>
     </button>
   </div>
+
+  ${diagPanel()}
 
   <div class="panel">
     <div class="goalrow">
@@ -109,6 +112,13 @@ function vHome() {
         <span class="tiny" style="color:${pace.onTrack ? "var(--jade)" : "var(--amber)"}">${esc(pace.onTrack ? t("pace.ontrack") : t("pace.behind"))}</span>
       </div>
     </div>
+  </div>
+
+  ${radarPanel()}
+
+  <div class="panel"><h3>🌉 ${esc(t("bridge.title"))}<span class="sub">${Math.round(journeyP() * 100)}%</span></h3>
+    ${bridgeSVG()}
+    <div class="tiny" style="margin-top:8px;text-align:center">${esc(t("bridge.crossed"))} ${Math.round(journeyP() * 100)}%${retention30() !== null ? ` · ${esc(t("bridge.fog"))} ${Math.round(retention30() * 100)}% — ${esc(t("bridge.fogline"))}` : ""}</div>
   </div>
 
   <div class="panel"><h3>📚 ${esc(t("home.subjects"))}<span class="sub">${tot.studied}/${tot.total}</span></h3>`;
@@ -132,6 +142,159 @@ function vHome() {
   });
   return h;
 }
+
+/* ============== home sub-panels: diagnostic + radar ============== */
+function diagPanel() {
+  if (S.settings.hideDiag) return "";
+  const undone = DECKS.filter(d => !diagDone(d.subject) && quizPool(d.subject).length >= 8);
+  const done = DECKS.filter(d => diagDone(d.subject));
+  if (!undone.length) return "";
+  let h = `<div class="panel"><h3>🧪 ${esc(t("diag.title"))}<span class="sub" style="cursor:pointer" onclick="setOpt('hideDiag',true)">${esc(t("diag.hide"))} ✕</span></h3>
+    <div class="tiny" style="margin-bottom:8px">${esc(t("diag.desc"))}</div>
+    <div class="diagchips">`;
+  for (const d of undone) h += `<button class="btn" style="padding:6px 10px" onclick="startDiag('${d.subject}')">${d.emoji} ${esc(deckName(d))} · ${esc(t("diag.start"))}</button>`;
+  h += `</div>`;
+  if (done.length) h += `<div class="tiny" style="margin-top:8px">✓ ${done.map(d => `${esc(deckName(d))} ${Number(S.diag[d.subject].p) || 0}%`).join(" · ")}</div>`;
+  return h + `</div>`;
+}
+let radarCache = [];
+function radarPanel() {
+  const weak = topicStats().slice(0, 3);
+  radarCache = weak;
+  let h = `<div class="panel"><h3>📡 ${esc(t("radar.title"))}</h3>`;
+  if (!weak.length) return h + `<div class="tiny">${esc(t("radar.empty"))}</div></div>`;
+  weak.forEach((w, i) => {
+    const label = S.settings.lang === "zh" ? w.topicZh : w.topic;
+    h += `
+    <div class="subj">
+      <span class="em">${DECK[w.deck].emoji}</span>
+      <div class="nm"><b>${esc(label)}</b><span>${esc(deckName(DECK[w.deck]))} · ${w.n} ${esc(t("stats.reviews"))}</span></div>
+      <div class="bar"><i style="width:${Math.round(w.acc * 100)}%;background:${w.acc < 0.6 ? "var(--red)" : "var(--amber)"}"></i></div>
+      <span class="pc">${Math.round(w.acc * 100)}%</span>
+      <button class="btn" style="padding:4px 12px;flex:none" onclick="startDrillIdx(${i})">${esc(t("radar.drill"))}</button>
+    </div>`;
+  });
+  return h + `</div>`;
+}
+window.startDrillIdx = (i) => { const w = radarCache[i]; if (w) startDrill(w.deck, w.topic); };
+window.startDrill = (deck, topic) => {
+  const q = buildTopicDrill(deck, topic, 12);
+  if (q.length < 3) { toast(t("radar.empty")); return; }
+  session = { mode: "drill", queue: q, initTotal: q.length, done: 0, ok: 0, att: 0, xp0: S.xp, revealed: false, snap: null, zh: S.settings.zhFirst };
+  nav("study");
+};
+
+/* ============== A. diagnostic flow (rides the quiz view) ============== */
+window.startDiag = (subj) => {
+  const ids = buildDiag(subj);
+  if (ids.length < 8) { toast(t("quiz.notready")); return; }
+  quiz = { mode: "diag", subject: subj, ids, idx: 0, right: 0, rightIds: [], wrongIds: [], answered: false, pick: null, shuffle: shuffleArr([0, 1, 2, 3]), xp0: S.xp, zh: false };
+  nav("quiz");
+};
+function diagResults() {
+  if (!quiz.applied) {
+    quiz.applied = applyDiag(quiz.subject, quiz.rightIds, quiz.wrongIds);
+    addXP(30); save();
+    const fresh = evaluateBadges();
+    setTimeout(() => announceBadges(fresh), 700);
+  }
+  const r = quiz.applied, d = DECK[quiz.subject];
+  const zh = S.settings.lang === "zh";
+  const weakList = r.weak.map(tp => {
+    const card = d.cards.find(c => c.topic === tp);
+    return esc(zh && card ? card.topicZh : tp);
+  }).join("、");
+  const h = `
+  <div class="summary">
+    <div class="big">🧪</div>
+    <h2>${d.emoji} ${esc(deckName(d))} · ${esc(t("diag.result"))}</h2>
+    <div class="sumgrid">
+      <div class="cell"><b>${quiz.right}/${quiz.ids.length}</b><span>${esc(t("sum.correct"))}</span></div>
+      <div class="cell"><b>${r.seeded}</b><span>${esc(t("diag.seeded"))}</span></div>
+      <div class="cell"><b>${r.p}%</b><span>${esc(t("diag.title"))}</span></div>
+    </div>
+    ${r.seeded ? "" : `<p class="tiny">${esc(t("diag.fresh"))}</p>`}
+    ${r.weak.length ? `<p class="tiny">🎯 ${esc(t("diag.weakt"))}: ${weakList}</p>` : ""}
+    <button class="btn primary" style="width:100%;padding:14px" onclick="exitQuiz()">${esc(t("sum.back"))}</button>
+  </div>`;
+  setTimeout(confetti, 150);
+  return h;
+}
+
+/* ============== B. fast triage ============== */
+let tri = null;
+function vTriage(subj) {
+  const d = DECK[subj];
+  if (!d) { setTimeout(() => nav("browse")); return ""; }
+  if (!tri || tri.subj !== subj) {
+    const ids = d.cards.map(c => c.id).filter(id => { const s = peek(id); return (!s || s.st === 0) && !isSusp(id); });
+    tri = { subj, ids, idx: 0, known: 0, learn: 0, zh: S.settings.zhFirst, last: null };
+  }
+  if (tri.idx >= tri.ids.length) {
+    const h = `
+    <div class="summary">
+      <div class="big">🗂</div>
+      <h2>${d.emoji} ${esc(t("triage.title"))}</h2>
+      <div class="sumgrid" style="grid-template-columns:1fr 1fr">
+        <div class="cell"><b>${tri.known}</b><span>✅ ${esc(t("triage.sumKnown"))}</span></div>
+        <div class="cell"><b>${tri.learn}</b><span>📖 ${esc(t("triage.sumLearn"))}</span></div>
+      </div>
+      <button class="btn primary" style="width:100%;padding:14px" onclick="tri=null;nav('deck/${subj}')">${esc(t("sum.back"))}</button>
+    </div>`;
+    return h;
+  }
+  const c = CARD[tri.ids[tri.idx]];
+  return `
+  <div class="study-top">
+    <button onclick="exitTriage()" title="${esc(t("triage.exit"))}">✕</button>
+    <div class="prog"><i style="width:${Math.round(100 * tri.idx / tri.ids.length)}%"></i></div>
+    <span class="cnt">${tri.idx + 1} / ${tri.ids.length}</span>
+    <button onclick="triUndo()" title="${esc(t("triage.undo"))}">↩︎</button>
+  </div>
+  <div class="qcard">
+    <div class="chips">
+      <span class="chip">${DECK[c.deck].emoji} ${esc(deckName(DECK[c.deck]))}</span>
+      <span class="chip">${esc(S.settings.lang === "zh" ? c.topicZh : c.topic)}</span>
+      <span class="chip">🗂 ${esc(t("triage.title"))}</span>
+    </div>
+    <div class="qtext">${c.type === "cloze" ? clozeQ(c.q, true) : esc(c.q)}</div>
+    ${tri.zh ? `<div class="zh-hint">${esc(c.qZh)}</div>` : ""}
+    <button class="hintbtn" onclick="triZh()">${tri.zh ? esc(t("study.zhHide")) : "🀄 " + esc(t("study.zhHint"))}</button>
+  </div>
+  <div class="actionbar"><div class="tri-btns">
+    <button class="tri-known" onclick="triMark(true)">✅ ${esc(t("triage.known"))}<small>${S.settings.lang === "zh" ? "进入复习轨道" : "onto the review track"}</small></button>
+    <button class="tri-learn" onclick="triMark(false)">📖 ${esc(t("triage.learn"))}<small>${S.settings.lang === "zh" ? "保持为新卡" : "stays a new card"}</small></button>
+  </div></div>
+  <div class="kbd-hint">1 = ${esc(t("triage.known"))} · 2 = ${esc(t("triage.learn"))}</div>`;
+}
+window.triZh = () => { tri.zh = !tri.zh; route(); };
+window.triMark = (known) => {
+  if (!tri || tri.idx >= tri.ids.length) return;
+  const id = tri.ids[tri.idx];
+  const st0 = peek(id);
+  if (st0 && st0.st !== 0) {           // studied since the list was built — never clobber live state
+    tri.idx++; tri.last = null; route(); return;
+  }
+  tri.last = { id, known, prev: st0 ? JSON.parse(JSON.stringify(st0)) : undefined };
+  if (known) { seedCard(id, 15, false); addXP(2); tri.known++; }
+  else tri.learn++;
+  tri.idx++;
+  save();
+  route();
+};
+window.triUndo = () => {
+  if (!tri || !tri.last || tri.idx === 0) return;
+  tri.idx--;
+  if (tri.last.known) {
+    if (tri.last.prev) S.cards[tri.last.id] = tri.last.prev;   // restore e.g. a flagged-but-new entry
+    else delete S.cards[tri.last.id];
+    tri.known--; S.xp = Math.max(0, S.xp - 2);
+  } else tri.learn--;
+  tri.last = null;
+  save(); route();
+};
+window.exitTriage = () => { const s = tri ? tri.subj : null; tri = null; nav(s ? "deck/" + s : "browse"); };
+window.startTriage = (subj) => { tri = null; nav("triage/" + subj); };
 
 /* ============================ STUDY ============================ */
 function startReview(subject) {
@@ -174,9 +337,12 @@ function vStudy() {
   const pct = Math.round(100 * (1 - remaining / Math.max(session.initTotal, 1)));
   const flagged = st && st.flag;
 
+  const bearState = session.lastG ? (session.lastG >= 3 ? "nod" : "wince") : "idle";
+  session.lastG = null;
   let h = `
   <div class="study-top">
     <button onclick="exitStudy()" title="${esc(t("study.exit"))}">✕</button>
+    <span class="bearmini">${bearSVG(bearState, 26)}</span>
     <div class="prog"><i style="width:${pct}%"></i></div>
     <span class="cnt">${remaining}</span>
     <button onclick="undoLast()" title="${esc(t("study.undo"))}">↩︎</button>
@@ -252,7 +418,7 @@ function bindStudy() {
 }
 function rerenderStudy() { $("#view").innerHTML = vStudy(); bindStudy(); }
 window.toggleZh = () => { session.zh = !session.zh; rerenderStudy(); };
-window.reveal = () => { session.revealed = true; rerenderStudy(); };
+window.reveal = () => { session.revealed = true; sfx("flip"); rerenderStudy(); };
 window.pickOpt = (orig) => {
   if (session.revealed) return;
   const id = session.cur || currentId(), c = CARD[id];
@@ -279,8 +445,9 @@ window.doGrade = (g) => {
     session.queue.splice(pos, 0, id);
   } else session.done++;
   session.revealed = false; session.mcqPick = null; session.shuffle = null; session.cur = null;
+  session.lastG = g;
   const after = today().r + today().n + today().q;
-  if (before < S.settings.dailyGoal && after >= S.settings.dailyGoal) { confetti(); toast(t("toast.goalhit")); }
+  if (before < S.settings.dailyGoal && after >= S.settings.dailyGoal) { confetti(); toast(t("toast.goalhit")); sfx("chime"); }
   rerenderStudy();
 };
 window.undoLast = () => {
@@ -301,12 +468,16 @@ window.toggleFlag = (id) => {
 };
 function studySummary() {
   save(true);
+  const fresh = evaluateBadges();
   const acc = session.att ? Math.round(100 * session.ok / session.att) : 0;
   const xp = S.xp - session.xp0;
+  const line = personaLine(acc >= 80 ? "doneHi" : acc >= 55 ? "doneMid" : "doneLow");
   const h = `
   <div class="summary">
-    <div class="big">${acc >= 80 ? "🏆" : acc >= 60 ? "🎉" : "💪"}</div>
-    <h2>${esc(t("sum.title"))}</h2>
+    <div class="adjourn-bear">${bearSVG("adjourn", 96)}</div>
+    <h2 class="adjourn">🔨 ${esc(t("court.adjourn"))}</h2>
+    <div class="seal-wrap"><div class="seal"><span>今日</span><span>已结</span></div></div>
+    <p class="tiny persona-line">💬 ${esc(line)}</p>
     <div class="sumgrid">
       <div class="cell"><b>${session.done}</b><span>${esc(t("sum.reviewed"))}</span></div>
       <div class="cell"><b>${acc}%</b><span>${esc(t("sum.correct"))}</span></div>
@@ -316,7 +487,7 @@ function studySummary() {
     <div style="height:8px"></div>
     ${dueList().length ? `<button class="btn" style="width:100%;padding:12px" onclick="startReview()">${esc(t("sum.more"))} (${dueList().length})</button>` : ""}
   </div>`;
-  setTimeout(confetti, 150);
+  setTimeout(() => { confetti(); sfx("gavel"); setTimeout(() => sfx("stamp"), 500); announceBadges(fresh); }, 200);
   return h;
 }
 
@@ -345,7 +516,7 @@ window.startQuiz = () => {
 };
 function vQuiz() {
   if (!quiz) { setTimeout(() => nav("home")); return ""; }
-  if (quiz.idx >= quiz.ids.length) return quizResults();
+  if (quiz.idx >= quiz.ids.length) return quiz.mode === "diag" ? diagResults() : quizResults();
   const id = quiz.ids[quiz.idx], c = CARD[id];
   const pct = Math.round(100 * quiz.idx / quiz.ids.length);
   let h = `
@@ -358,6 +529,7 @@ function vQuiz() {
     <div class="chips">
       <span class="chip">${DECK[c.deck].emoji} ${esc(deckName(DECK[c.deck]))}</span>
       <span class="chip">${esc(S.settings.lang === "zh" ? c.topicZh : c.topic)}</span>
+      ${quiz.mode === "diag" ? `<span class="chip" style="color:var(--sky)">🧪 ${esc(t("diag.chip"))}</span>` : ""}
     </div>
     <div class="qtext">${esc(c.q)}</div>
     ${quiz.zh ? `<div class="zh-hint">${esc(c.qZh)}</div>` : ""}
@@ -393,6 +565,13 @@ window.quizPick = (orig) => {
   quiz.pick = orig; quiz.answered = true;
   tickTime();
   const correct = orig === c.answer;
+  if (quiz.mode === "diag") {
+    /* diagnostic: no scheduling side-effects mid-run — applyDiag settles everything at the end */
+    if (correct) { quiz.right++; quiz.rightIds.push(id); } else quiz.wrongIds.push(id);
+    sfx(correct ? "chime" : "stamp");
+    $("#view").innerHTML = vQuiz();
+    return;
+  }
   let graded = false;
   if (correct) { quiz.right++; graded = quizHit(id); }
   else { quiz.wrongIds.push(id); graded = quizMiss(id); }
@@ -410,10 +589,14 @@ window.exitQuiz = () => { quiz = null; save(true); nav("home"); };
 function quizResults() {
   const n = quiz.ids.length, sc = Math.round(100 * quiz.right / n);
   const xp = S.xp - quiz.xp0;
+  if (quiz.right === n && n >= 10 && !(S.flags && S.flags.perfectQuiz)) { S.flags = S.flags || {}; S.flags.perfectQuiz = ymd(); save(); }
+  const fresh = evaluateBadges();
+  const line = personaLine(sc >= 80 ? "doneHi" : sc >= 55 ? "doneMid" : "doneLow");
   const h = `
   <div class="summary">
     <div class="big">${sc >= 80 ? "🏆" : sc >= 60 ? "🎯" : "📖"}</div>
-    <h2>${esc(t("quiz.score"))}: ${quiz.right} / ${n}</h2>
+    <h2>⚖️ ${esc(t("court.verdict"))}: ${quiz.right} / ${n}</h2>
+    <p class="tiny persona-line">💬 ${esc(line)}</p>
     <div class="sumgrid">
       <div class="cell"><b>${sc}%</b><span>${esc(t("sum.correct"))}</span></div>
       <div class="cell"><b>${quiz.wrongIds.length}</b><span>${esc(t("quiz.wrong"))}</span></div>
@@ -422,7 +605,8 @@ function quizResults() {
     ${quiz.wrongIds.length ? `<p class="tiny">📥 ${esc(t("quiz.wrongAdded"))}</p>` : ""}
     <button class="btn primary" style="width:100%;padding:14px" onclick="exitQuiz()">${esc(t("sum.back"))}</button>
   </div>`;
-  if (sc >= 80) setTimeout(confetti, 150);
+  if (sc >= 80) setTimeout(() => { confetti(); sfx("gavel"); }, 150);
+  setTimeout(() => announceBadges(fresh), 600);
   return h;
 }
 
@@ -482,8 +666,11 @@ function vDeck(subj) {
     <h3>${d.emoji} ${esc(deckName(d))}<span class="sub">${st.total} ${esc(t("browse.total"))} · ${Math.round(st.mastery * 100)}%</span></h3>
     <div class="rowbtns" style="margin:2px 0 8px">
       ${st.due ? `<button class="btn primary" onclick="deckReview('${subj}')">▶ ${esc(t("deck.review"))} (${st.due})</button>` : ""}
-      <button class="btn${off ? "" : ""}" onclick="deckToggleNew('${subj}')">${esc(off ? t("deck.resume") : t("deck.pause"))}</button>
-    </div>`;
+      ${!diagDone(subj) && quizPool(subj).length >= 8 ? `<button class="btn" onclick="startDiag('${subj}')">🧪 ${esc(t("diag.title"))}</button>` : ""}
+      ${st.neu > 0 ? `<button class="btn" onclick="startTriage('${subj}')">🗂 ${esc(t("triage.title"))} (${st.neu})</button>` : ""}
+      <button class="btn" onclick="deckToggleNew('${subj}')">${esc(off ? t("deck.resume") : t("deck.pause"))}</button>
+    </div>
+    ${diagDone(subj) ? `<div class="tiny" style="margin-bottom:6px">🧪 ${esc(t("diag.done"))}: ${Number(S.diag[subj].p) || 0}% · ${esc(String(S.diag[subj].date || ""))}</div>` : ""}`;
   const byTopic = {};
   for (const c of d.cards) { (byTopic[S.settings.lang === "zh" ? c.topicZh : c.topic] = byTopic[S.settings.lang === "zh" ? c.topicZh : c.topic] || []).push(c.id); }
   for (const [topic, ids] of Object.entries(byTopic)) {
@@ -564,11 +751,12 @@ function vStats() {
 
   return `
   <div class="panel" style="display:flex;align-items:center;gap:12px">
-    <span style="font-size:2rem">${r.emoji}</span>
-    <div style="flex:1"><b>${esc(r.name)}</b><br>
+    <span class="statbear">${bearSVG("idle", 54)}</span>
+    <div style="flex:1"><b>${r.emoji} ${esc(r.name)}</b><br>
       <span class="tiny">${S.xp} XP${r.next ? ` · ${nextXp} XP → ${esc(S.settings.lang === "zh" ? r.next[1] : r.next[2])}` : " · MAX"}</span></div>
     <span class="pill streak">🔥 ${streak()}</span>
   </div>
+  ${cabinetPanel()}
   <div class="statgrid">
     <div class="cell"><b>${d.r + d.n + d.q}</b><span>${esc(t("stats.today"))} · ${Math.round(d.ms / 60000)} ${esc(t("stats.time"))}</span></div>
     <div class="cell"><b>${w.c}</b><span>${esc(t("stats.week"))} · ${Math.round(w.ms / 60000)} ${esc(t("stats.time"))}</span></div>
@@ -582,6 +770,36 @@ function vStats() {
     <div class="minibars">${barVals.map(v => `<i style="height:${Math.max(3, Math.round(100 * v / maxC))}%" title="${v}"></i>`).join("")}</div>
   </div>`;
 }
+
+/* ============== 判例徽章 cabinet ============== */
+function cabinetPanel() {
+  evaluateBadges();
+  const zh = S.settings.lang === "zh";
+  const earned = Object.keys(S.badges || {}).length;
+  let h = `<div class="panel"><h3>🏅 ${esc(t("cab.title"))}<span class="sub">${earned}/${BADGES.length}</span></h3>
+  <div class="tiny" style="margin-bottom:8px">${esc(t("cab.sub"))}</div><div class="cabinet">`;
+  for (const b of BADGES) {
+    const got = (S.badges || {})[b[0]];
+    h += `<button class="medal ${b[7] === "stamp" ? "stampstyle" : ""} ${got ? "" : "locked"}" onclick="openBadge('${b[0]}')">
+      <span class="mico">${got ? b[1] : "🔒"}</span><span class="mname">${esc(zh ? b[2] : b[3])}</span>
+    </button>`;
+  }
+  return h + `</div></div>`;
+}
+window.openBadge = (id) => {
+  const b = BADGES.find(x => x[0] === id); if (!b) return;
+  const zh = S.settings.lang === "zh";
+  const got = (S.badges || {})[id];
+  showModal(`
+    <div style="text-align:center;padding:6px 0">
+      <div style="font-size:3rem">${got ? b[1] : "🔒"}</div>
+      <h3 style="justify-content:center;margin:6px 0">${esc(zh ? b[2] : b[3])}</h3>
+      ${b[4] !== "—" ? `<div style="font-family:var(--font-serif);font-weight:700">${esc(b[4])}</div>` : ""}
+      <div class="muted" style="font-size:.9rem;margin-top:4px">${esc(zh ? b[5] : b[6])}</div>
+      <div class="tiny" style="margin-top:8px">${got ? "✓ " + esc(got) : esc(t("cab.locked"))}</div>
+      <div class="rowbtns" style="justify-content:center"><button class="btn" onclick="closeModal()">${esc(t("card.close"))}</button></div>
+    </div>`);
+};
 
 /* ============================ SETTINGS ============================ */
 function vSettings() {
@@ -612,6 +830,16 @@ function vSettings() {
         <button class="${s.zhFirst ? "on" : ""}" onclick="setOpt('zhFirst',true)">ON</button>
         <button class="${!s.zhFirst ? "on" : ""}" onclick="setOpt('zhFirst',false)">OFF</button>
       </span></div>
+    <div class="setrow"><span class="lab">🎲 ${esc(t("set.intake"))}</span>
+      <span class="seg">
+        <button class="${s.intake !== "even" ? "on" : ""}" onclick="setOpt('intake','smart')">${esc(t("set.intake.smart"))}</button>
+        <button class="${s.intake === "even" ? "on" : ""}" onclick="setOpt('intake','even')">${esc(t("set.intake.even"))}</button>
+      </span></div>
+    <div class="setrow"><span class="lab">🔊 ${esc(t("set.sound"))}<small>${esc(t("set.soundd"))}</small></span>
+      <span class="seg">
+        <button class="${s.sound ? "on" : ""}" onclick="setOpt('sound',true);sfx('gavel')">ON</button>
+        <button class="${!s.sound ? "on" : ""}" onclick="setOpt('sound',false)">OFF</button>
+      </span></div>
   </div>
   <div class="panel">
     <div class="setrow" style="cursor:pointer" onclick="nav('guide')"><span class="lab">📖 ${esc(t("set.guide"))}</span><span>→</span></div>
@@ -622,7 +850,7 @@ function vSettings() {
     <div class="setrow" style="cursor:pointer;color:var(--red)" onclick="doReset()"><span class="lab">🗑 ${esc(t("set.reset"))}</span><span>→</span></div>
   </div>
   <div class="panel tiny">
-    <b>Ron 的加州律考通 · Ron's CalBar Trainer</b> · v1.1 · ${ALL_IDS.length} cards<br><br>
+    <b>Ron 的加州律考通 · Ron's CalBar Trainer</b> · v1.2 · ${ALL_IDS.length} cards<br><br>
     内容由 AI 辅助编写，供复习记忆使用；规则表述以官方资料及你的课程讲义为准，发现疑问请用 ⚑ 标记并查证。<br>
     Content is AI-assisted and for memorization practice; verify anything doubtful against official sources (flag with ⚑).<br><br>
     进度保存在本机浏览器 (localStorage)。换设备或清缓存前请先「导出学习进度」。<br>
@@ -747,6 +975,21 @@ function vGuide() {
       <li><b>考试日期</b>：算法据此压缩考前间隔，保证每张卡考前再见一面。</li>
       <li><b>目标保持率</b>：调高=复习更频繁更保险；备考后期可调到 92-95%。</li>
     </ul>
+    <h4>🧪 考过的人从这里开始：摸底与分拣</h4>
+    <ul>
+      <li><b>摸底测试</b>（首页或科目页）：每科 12 题。答得好（≥50%），该科大部分卡直接按「已会」进入复习轨道，错题所在专题保留为新卡重学——不用从零刷 1108 张。</li>
+      <li><b>快速分拣</b>（科目页）：只看题面，按「已掌握 / 要学」秒分。已掌握的卡片直接排进复习；判断权完全在你。</li>
+      <li><b>弱项优先</b>：默认设置下，新卡自动多发弱科目、少发强科目（设置里可改回均衡轮换）。</li>
+    </ul>
+    <h4>📡 弱项雷达</h4>
+    <p>系统按<b>专题</b>（不只科目）统计你的复习与演练正确率，首页列出当前最弱的三个专题，点「练」立即针对性加练一轮。做过摸底、复习越多，雷达越准。</p>
+    <h4>🐻 金熊法官、徽章与金门大桥</h4>
+    <ul>
+      <li><b>金熊法官</b>坐在首页陪你——随你的段位升级法袍，答对点头、答错也只是心疼一下。</li>
+      <li><b>判例徽章</b>（统计页）：里程碑以你正在学的著名判例命名——收集徽章本身就是复习。</li>
+      <li><b>金门大桥</b>随总进度一段段建成，记忆保持率越高、桥上的雾越散。走到对岸 = 应试就绪。</li>
+      <li>完成一轮 = <b>休庭</b>盖章仪式；音效默认关闭，设置里可开。</li>
+    </ul>
     <h4>💾 进度备份与离线使用</h4>
     <ul>
       <li>进度只存<b>本机浏览器</b>。请每周「导出学习进度」备份一次；换设备/换浏览器用「导入」。</li>
@@ -797,6 +1040,21 @@ function vGuide() {
       <li><b>Exam date</b> drives the interval cap — every card is guaranteed a final pre-exam appearance.</li>
       <li><b>Target retention</b>: higher = more frequent reviews; consider 92-95% in the final months.</li>
     </ul>
+    <h4>🧪 Repeat takers start here: diagnostic & triage</h4>
+    <ul>
+      <li><b>Placement diagnostic</b> (home or deck page): 12 questions per subject. Score ≥50% and most of that deck is pre-scheduled as known review material — missed topics stay as new cards. No grinding through 1,108 cards you already know.</li>
+      <li><b>Fast triage</b> (deck page): question-only, snap "know / learn" sorting — you keep full control.</li>
+      <li><b>Weakest-first intake</b>: by default new cards flow faster from your weak subjects (Settings can restore even rotation).</li>
+    </ul>
+    <h4>📡 Weakness radar</h4>
+    <p>Accuracy is tracked per <b>topic</b>, not just per subject. The home screen names your three weakest topics with a one-tap Drill. The more you review (and diagnose), the sharper it gets.</p>
+    <h4>🐻 Judge Bear, badges & the bridge</h4>
+    <ul>
+      <li><b>Judge Bear</b> keeps you company — his robes upgrade with your rank; he nods at good recalls and merely winces at lapses.</li>
+      <li><b>Case badges</b> (Stats): milestones named after landmark cases you're literally studying — collecting them is revising.</li>
+      <li><b>The Golden Gate</b> builds span by span with your progress; higher retention lifts the fog. Reaching the far shore = exam-ready.</li>
+      <li>Every finished session gets a <b>Court adjourned</b> seal ceremony; sounds are off by default (Settings).</li>
+    </ul>
     <h4>💾 Backup & offline</h4>
     <ul>
       <li>Progress lives in <b>this browser only</b>. Export weekly; import on a new device.</li>
@@ -825,6 +1083,11 @@ window.nav = nav;
 document.addEventListener("keydown", e => {
   if (e.target.tagName === "INPUT" || e.target.tagName === "SELECT" || e.target.tagName === "TEXTAREA") return;
   const h = (location.hash || "#home").slice(1);
+  if (h.startsWith("triage/") && tri) {
+    if (e.key === "1") triMark(true);
+    else if (e.key === "2") triMark(false);
+    return;
+  }
   if (h === "study" && session) {
     const id = session.cur || currentId(); if (!id) return;
     const c = CARD[id];

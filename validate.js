@@ -41,6 +41,7 @@ for (const file of files) {
     for (const k of ['topic', 'topicZh', 'q', 'qZh', 'explainZh']) {
       if (!c[k] || typeof c[k] !== 'string' || !c[k].trim()) errs.push(`${id}: missing ${k}`);
     }
+    if (c.topic && /['"\\]/.test(c.topic)) errs.push(`${id}: topic must not contain quotes/backslashes`);
     if (c.type === 'mcq') {
       if (!Array.isArray(c.choices) || c.choices.length !== 4) errs.push(`${id}: mcq needs exactly 4 choices`);
       if (typeof c.answer !== 'number' || c.answer < 0 || c.answer > 3) errs.push(`${id}: mcq answer must be 0-3`);

@@ -31,6 +31,7 @@ put("/*__STYLE__*/", R("src/style.css"));
 /* <-escape so card text can never smuggle a </script> into the built page */
 put("/*__DATA__*/", "window.DECKS=" + JSON.stringify(decks).replace(/</g, "\\u003c") + ";");
 put("/*__CORE__*/", R("src/app-core.js"));
+put("/*__FEATURES__*/", R("src/app-features.js"));
 put("/*__UI__*/", R("src/app-ui.js"));
 /* placeholder nav labels (replaced at runtime by language) */
 put("__NAV_HOME__", "首页"); put("__NAV_BROWSE__", "题库");

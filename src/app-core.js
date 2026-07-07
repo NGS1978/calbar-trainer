@@ -21,7 +21,8 @@ const ALL_IDS = DECKS.flatMap(d => d.cards.map(c => c.id));
 const LS_KEY = "cbt1";
 const DEFAULT_SETTINGS = {
   lang: "zh", examDate: "2027-02-23", newPerDay: 20, dailyGoal: 60,
-  retention: 0.9, theme: "auto", zhFirst: false, quizN: 10, deckOff: {}
+  retention: 0.9, theme: "auto", zhFirst: false, quizN: 10, deckOff: {},
+  sound: false, intake: "smart", hideDiag: false
 };
 let S = load();
 function load() {
@@ -31,10 +32,11 @@ function load() {
       const s = JSON.parse(raw);
       s.settings = Object.assign({}, DEFAULT_SETTINGS, s.settings);
       s.cards = s.cards || {}; s.days = s.days || {}; s.xp = s.xp || 0;
+      s.topics = s.topics || {}; s.diag = s.diag || {}; s.badges = s.badges || {}; s.flags = s.flags || {};
       return s;
     }
   } catch (e) { console.warn("state load failed", e); }
-  return { v: 1, cards: {}, days: {}, xp: 0, settings: Object.assign({}, DEFAULT_SETTINGS) };
+  return { v: 1, cards: {}, days: {}, xp: 0, topics: {}, diag: {}, badges: {}, flags: {}, settings: Object.assign({}, DEFAULT_SETTINGS) };
 }
 let saveT = null, storageOk = true;
 function flushSave() {
@@ -167,6 +169,7 @@ function grade(id, g) {
     }
     today().r++; if (g >= 2) today().ok++;
     addXP(g === 1 ? 2 : 10);
+    if (typeof recordTopic === "function") recordTopic(id, g >= 2);   // 弱项雷达 signal
   }
   if (!isFinite(c.due)) c.due = t0 + DAY;             // belt-and-braces: never persist NaN scheduling
   c.last = t0; c.reps++;
@@ -219,6 +222,7 @@ function newRemainingByDeck() {
 }
 function newQuotaLeft() { return Math.max(0, S.settings.newPerDay - today().n); }
 function buildNewQueue(n) {
+  if (S.settings.intake !== "even" && typeof buildNewQueueWeighted === "function") return buildNewQueueWeighted(n);
   const byDeck = newRemainingByDeck(), queue = [];
   const order = DECKS.map(d => d.subject).filter(s => byDeck[s].length);
   let i = 0;
@@ -345,6 +349,18 @@ const I18N = {
     "toast.reset": "已重置", "toast.undone": "已撤销", "toast.goalhit": "今日目标达成！🎉", "toast.nonew": "今日新卡额度已用完",
     "toast.storage": "⚠️ 无法保存进度（浏览器存储不可用）",
     "box.explain": "解析", "box.ca": "CALIFORNIA 加州区别", "box.mn": "MNEMONIC 记忆钩", "card.lapses": "遗忘",
+    "court.due": "宗案卷待审", "court.clear": "今日庭审已毕 ✓", "court.adjourn": "休庭 · COURT ADJOURNED", "court.verdict": "陪审团裁决",
+    "diag.title": "摸底测试", "diag.desc": "考过几次？每科 12 题摸个底——答得好的科目，卡片直接按'已会'排期，不用从零学。",
+    "diag.start": "测", "diag.done": "已摸底", "diag.hide": "不再显示", "diag.chip": "摸底",
+    "diag.result": "摸底结果", "diag.seeded": "张卡已按你的水平预排期", "diag.weakt": "待补强专题", "diag.fresh": "该科将从新卡正常学起",
+    "triage.title": "快速分拣", "triage.known": "已掌握", "triage.learn": "要学", "triage.undo": "撤销",
+    "triage.desc": "只看题面，秒判'会/不会'——已掌握的卡直接进入复习轨道。",
+    "triage.sumKnown": "已掌握", "triage.sumLearn": "待学", "triage.exit": "结束分拣",
+    "radar.title": "弱项雷达", "radar.drill": "练", "radar.empty": "信号积累中——先做些复习、演练或摸底测试",
+    "bridge.title": "通往金门", "bridge.crossed": "已跨越", "bridge.fog": "记忆保持率", "bridge.fogline": "雾正在散去",
+    "cab.title": "判例徽章", "cab.sub": "里程碑即判例——收集即复习", "cab.locked": "未解锁",
+    "set.sound": "音效", "set.soundd": "翻卡、法槌与印章（默认关闭）",
+    "set.intake": "新卡顺序", "set.intake.smart": "弱项优先", "set.intake.even": "均衡轮换",
     "pace.remaining": "未学新卡", "pace.finish": "按当前速度学完还需", "pace.suggest": "建议每日新卡",
     "pace.ontrack": "进度良好 — 考前将有充足纯复习期", "pace.behind": "偏慢 — 建议提高每日新卡量",
     "method.title": "如何用好这个应用",
@@ -388,6 +404,18 @@ const I18N = {
     "toast.reset": "Reset", "toast.undone": "Undone", "toast.goalhit": "Daily goal reached! 🎉", "toast.nonew": "New-card quota used up for today",
     "toast.storage": "⚠️ Cannot save progress (browser storage unavailable)",
     "box.explain": "EXPLANATION", "box.ca": "CALIFORNIA RULE", "box.mn": "MNEMONIC", "card.lapses": "lapses",
+    "court.due": "case files on the docket", "court.clear": "Docket clear ✓", "court.adjourn": "COURT ADJOURNED", "court.verdict": "Jury Verdict",
+    "diag.title": "Placement Diagnostic", "diag.desc": "Sat it before? Take 12 questions per subject — strong subjects get pre-scheduled as known instead of starting from zero.",
+    "diag.start": "Test", "diag.done": "Diagnosed", "diag.hide": "Hide this", "diag.chip": "Diagnostic",
+    "diag.result": "Diagnostic Result", "diag.seeded": "cards pre-scheduled to your level", "diag.weakt": "Topics to rebuild", "diag.fresh": "This subject starts fresh as new cards",
+    "triage.title": "Fast Triage", "triage.known": "I know this", "triage.learn": "Need to learn", "triage.undo": "Undo",
+    "triage.desc": "Question-only, snap judgment — cards you know go straight onto the review track.",
+    "triage.sumKnown": "known", "triage.sumLearn": "to learn", "triage.exit": "Finish triage",
+    "radar.title": "Weakness Radar", "radar.drill": "Drill", "radar.empty": "Gathering signal — do some reviews, a quiz, or a diagnostic first",
+    "bridge.title": "Road to the Golden Gate", "bridge.crossed": "crossed", "bridge.fog": "retention", "bridge.fogline": "the fog is lifting",
+    "cab.title": "Case Badges", "cab.sub": "Milestones as landmark cases — collecting is revising", "cab.locked": "Locked",
+    "set.sound": "Sounds", "set.soundd": "Card flips, gavel & seal (off by default)",
+    "set.intake": "New-card order", "set.intake.smart": "Weakest first", "set.intake.even": "Even rotation",
     "pace.remaining": "unseen cards", "pace.finish": "days to finish at current pace", "pace.suggest": "suggested new/day",
     "pace.ontrack": "On track — ample pure-review runway before the exam", "pace.behind": "Behind — consider raising new cards per day",
     "method.title": "How to use this app well",

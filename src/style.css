@@ -132,7 +132,6 @@ a { color: var(--sky); }
   background: radial-gradient(circle at 30% 30%, rgba(240,132,42,.55), transparent 65%);
   filter: blur(6px);
 }
-.hero .bridge { position: absolute; right: 14px; top: 12px; opacity: .5; }
 .hero h2 { font-size: 1.02rem; font-weight: 700; letter-spacing: .5px; }
 .hero .count { display: flex; align-items: baseline; gap: 8px; margin: 6px 0 2px; position: relative; z-index: 1; }
 .hero .count b { font-size: 2.6rem; font-family: var(--font-serif); color: #ffd9a8; line-height: 1.1; }
@@ -321,10 +320,90 @@ a { color: var(--sky); }
 }
 #toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
+/* ---- Judge Bear 金熊法官 ---- */
+.bearwrap { position: absolute; right: 12px; top: 10px; z-index: 1; filter: drop-shadow(0 3px 6px rgba(0,0,0,.3)); }
+.hero { padding-right: 104px; }
+.bear .bear-head { transform-origin: 50px 46px; animation: bearbreathe 4.2s ease-in-out infinite; }
+@keyframes bearbreathe { 0%,100% { transform: translateY(0); } 50% { transform: translateY(1.6px); } }
+.bear .eye { animation: bearblink 5.4s infinite; }
+@keyframes bearblink { 0%, 94%, 100% { transform: scaleY(1); } 96.5% { transform: scaleY(.08); } }
+.bear .eye { transform-origin: center; transform-box: fill-box; }
+.bear.doze .eye { opacity: 0; animation: none; }
+.bear.doze .lid { opacity: 1 !important; }
+.bear.doze .zzz { opacity: 1; animation: zfloat 2.6s ease-in-out infinite; }
+@keyframes zfloat { 0%,100% { transform: translateY(0); opacity: .5; } 50% { transform: translateY(-4px); opacity: 1; } }
+.bear.greet .bear-head { animation: bearnodhead .9s ease-in-out 1, bearbreathe 4.2s ease-in-out .9s infinite; }
+.bear.nod .bear-head { animation: bearnodhead .65s ease-in-out 1, bearbreathe 4.2s ease-in-out .7s infinite; }
+@keyframes bearnodhead { 0%,100% { transform: rotate(0); } 30% { transform: rotate(4deg) translateY(2px); } 65% { transform: rotate(-2deg); } }
+.bear.wince .bear-head { animation: bearwince .6s ease-in-out 1, bearbreathe 4.2s ease-in-out .65s infinite; }
+.bear.wince .lid { opacity: 1 !important; }
+@keyframes bearwince { 0%,100% { transform: rotate(0); } 40% { transform: rotate(-3.5deg) translateY(1.5px); } }
+.bear .bear-arm { transform-origin: 73px 80px; }
+.bear.adjourn .bear-arm { animation: gavelswing 1s ease-in-out 1; }
+@keyframes gavelswing { 0%,100% { transform: rotate(0); } 30% { transform: rotate(-38deg); } 48% { transform: rotate(8deg); } 62% { transform: rotate(-14deg); } 78% { transform: rotate(3deg); } }
+.bearmini { display: inline-flex; width: 26px; flex: none; }
+.bearmini .bear { overflow: visible; }
+.statbear { flex: none; }
+.bubble {
+  position: relative; z-index: 1; margin-top: 10px; font-size: .82rem; line-height: 1.5;
+  background: rgba(255,255,255,.13); border-radius: 10px; padding: 7px 11px; font-style: italic;
+}
+
+/* ---- 休庭 seal ---- */
+.adjourn { letter-spacing: 2px; font-size: 1.25rem; }
+.adjourn-bear { display: flex; justify-content: center; }
+.seal-wrap { display: flex; justify-content: center; margin: 10px 0 2px; }
+.seal {
+  width: 78px; height: 78px; border: 4px solid #c23a2b; border-radius: 10px;
+  display: grid; grid-template-columns: 1fr 1fr; align-items: center; justify-items: center;
+  color: #c23a2b; font-weight: 900; font-size: 1.05rem; font-family: var(--font-serif);
+  transform: rotate(-6deg); opacity: .92;
+  animation: stampin .45s cubic-bezier(.2, 1.6, .4, 1) 1;
+  box-shadow: inset 0 0 0 2px rgba(194,58,43,.25);
+}
+.seal span { writing-mode: vertical-rl; letter-spacing: 4px; }
+@keyframes stampin { 0% { transform: rotate(-6deg) scale(2.1); opacity: 0; } 60% { transform: rotate(-6deg) scale(.94); opacity: 1; } 100% { transform: rotate(-6deg) scale(1); } }
+.persona-line { margin: 10px auto 0; max-width: 420px; }
+
+/* ---- cabinet 判例徽章 ---- */
+.cabinet { display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 8px; }
+.medal {
+  border: 1px solid var(--card-edge); border-radius: 12px; padding: 10px 4px 8px;
+  display: flex; flex-direction: column; align-items: center; gap: 3px; background: var(--chip);
+  transition: transform .08s;
+}
+.medal:active { transform: scale(.95); }
+.medal .mico { font-size: 1.5rem; }
+.medal .mname { font-size: .64rem; font-weight: 700; color: var(--ink-soft); text-align: center; line-height: 1.25; }
+.medal.stampstyle { border: 2px solid #c23a2b55; background: color-mix(in srgb, #c23a2b 6%, var(--card)); }
+.medal.locked { opacity: .45; filter: grayscale(1); }
+
+/* ---- triage ---- */
+.tri-btns { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.tri-btns button {
+  border-radius: 14px; padding: 14px 8px; color: #fff; font-weight: 800; font-size: 1rem;
+  box-shadow: var(--shadow-lg); display: flex; flex-direction: column; gap: 2px; align-items: center;
+  transition: transform .06s;
+}
+.tri-btns button:active { transform: scale(.95); }
+.tri-btns small { font-weight: 600; font-size: .66rem; opacity: .85; }
+.tri-known { background: linear-gradient(160deg, #43a463, #2f8f4e); }
+.tri-learn { background: linear-gradient(160deg, #4a86c9, #2f6fb3); }
+
+/* ---- diag + radar + bridge ---- */
+.diagchips { display: flex; flex-wrap: wrap; gap: 7px; }
+.fogband { animation: fogdrift 9s ease-in-out infinite; }
+@keyframes fogdrift { 0%,100% { transform: translateX(0); } 50% { transform: translateX(6px); } }
+
 @media (max-width: 420px) {
   .qtext { font-size: 1.08rem; }
   .cta .n { font-size: 1.35rem; }
   .hero .count b { font-size: 2.2rem; }
+  .hero { padding-right: 80px; }
+  .bearwrap { transform: scale(.76); transform-origin: top right; right: 8px; top: 8px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bear .bear-head, .bear .eye, .fogband, .zzz, .grade.suggest, .bear .bear-arm { animation: none !important; }
 }
 @media (min-width: 700px) {
   .nav { position: sticky; border-radius: 16px; margin: 10px auto 0; max-width: 660px; border: 1px solid var(--card-edge); }
