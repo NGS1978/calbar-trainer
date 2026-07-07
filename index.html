@@ -89,7 +89,7 @@ a { color: var(--sky); }
 .topbar {
   position: sticky; top: 0; z-index: 40;
   display: flex; align-items: center; gap: 10px;
-  padding: 10px 2px;
+  padding: calc(10px + env(safe-area-inset-top)) 2px 10px;
   background: color-mix(in srgb, var(--bg) 86%, transparent);
   backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
 }
@@ -255,8 +255,10 @@ a { color: var(--sky); }
 .opt { overflow-wrap: break-word; }
 .opt:not(:disabled):hover { border-color: var(--poppy); }
 .opt:not(:disabled):active { transform: scale(.985); border-color: var(--poppy); }
-.opt.sel-right { border-color: var(--jade); background: color-mix(in srgb, var(--jade) 12%, var(--card)); }
-.opt.sel-wrong { border-color: var(--red); background: color-mix(in srgb, var(--red) 10%, var(--card)); }
+.opt.sel-right { border-color: var(--jade); background: color-mix(in srgb, var(--jade) 12%, var(--card)); animation: optpop .28s ease; }
+.opt.sel-wrong { border-color: var(--red); background: color-mix(in srgb, var(--red) 10%, var(--card)); animation: optshake .3s ease; }
+@keyframes optpop { 0% { transform: scale(1); } 40% { transform: scale(1.025); } 100% { transform: scale(1); } }
+@keyframes optshake { 0%, 100% { transform: none; } 25% { transform: translateX(-4px); } 60% { transform: translateX(3px); } 85% { transform: translateX(-1px); } }
 .opt.reveal-right { border-color: var(--jade); }
 .opt:disabled { cursor: default; }
 
@@ -415,6 +417,11 @@ a { color: var(--sky); }
 .tri-known { background: linear-gradient(160deg, #43a463, #2f8f4e); }
 .tri-learn { background: linear-gradient(160deg, #4a86c9, #2f6fb3); }
 
+/* ---- all-done celebration card ---- */
+.donecard { text-align: center; border-left: 4px solid var(--jade); }
+.donecard .dc-emoji { font-size: 2.2rem; margin-bottom: 4px; }
+.donecard b { font-size: 1.05rem; }
+
 /* ---- diag + radar + bridge ---- */
 .diagchips { display: flex; flex-wrap: wrap; gap: 7px; }
 .fogband { animation: fogdrift 9s ease-in-out infinite; }
@@ -482,7 +489,7 @@ const LS_KEY = "cbt1";
 const DEFAULT_SETTINGS = {
   lang: "zh", examDate: "2027-02-23", newPerDay: 20, dailyGoal: 60,
   retention: 0.9, theme: "auto", zhFirst: false, quizN: 10, deckOff: {},
-  sound: false, intake: "smart", hideDiag: false
+  sound: true, intake: "smart", hideDiag: false
 };
 let S = load();
 function load() {
@@ -497,6 +504,7 @@ function load() {
         const v = s.days[k] || {};
         s.days[k] = { r: v.r || 0, ok: v.ok || 0, n: v.n || 0, q: v.q || 0, ms: v.ms || 0, xp: v.xp || 0 };
       }
+      if (!s.flags.sndOn2) { s.flags.sndOn2 = 1; s.settings.sound = true; }   // one-time: v1.4 turns feedback sounds on
       return s;
     }
   } catch (e) { console.warn("state load failed", e); }
@@ -830,6 +838,7 @@ const I18N = {
     "box.explain": "解析", "box.ca": "CALIFORNIA 加州区别", "box.mn": "MNEMONIC 记忆钩", "card.lapses": "遗忘",
     "court.due": "宗案卷待审", "court.clear": "今日庭审已毕 ✓", "court.adjourn": "休庭 · COURT ADJOURNED", "court.verdict": "陪审团裁决",
     "home.nextdue": "下一批", "home.tmrwShort": "明天", "u.hour": "小时", "home.quotatmrw": "明日恢复新卡额度",
+    "home.alldone": "今日任务完成！", "home.alldoned": "复习与新卡都已清空——想加练就来一轮考题演练",
     "diag.title": "摸底测试", "diag.desc": "考过几次？每科 12 题摸个底——答得好的科目，卡片直接按'已会'排期，不用从零学。",
     "diag.start": "测", "diag.done": "已摸底", "diag.hide": "不再显示", "diag.chip": "摸底",
     "diag.result": "摸底结果", "diag.seeded": "张卡已按你的水平预排期", "diag.weakt": "待补强专题", "diag.fresh": "该科将从新卡正常学起",
@@ -839,7 +848,7 @@ const I18N = {
     "radar.title": "弱项雷达", "radar.drill": "练", "radar.empty": "信号积累中——先做些复习、演练或摸底测试",
     "bridge.title": "通往金门", "bridge.crossed": "已跨越", "bridge.fog": "记忆保持率", "bridge.fogline": "雾正在散去",
     "cab.title": "判例徽章", "cab.sub": "里程碑即判例——收集即复习", "cab.locked": "未解锁",
-    "set.sound": "音效", "set.soundd": "翻卡、法槌与印章（默认关闭）",
+    "set.sound": "音效", "set.soundd": "翻卡、对错反馈与法槌（可随时关闭）",
     "set.intake": "新卡顺序", "set.intake.smart": "弱项优先", "set.intake.even": "均衡轮换",
     "pace.remaining": "未学新卡", "pace.finish": "按当前速度学完还需", "pace.suggest": "建议每日新卡",
     "pace.ontrack": "进度良好 — 考前将有充足纯复习期", "pace.behind": "偏慢 — 建议提高每日新卡量",
@@ -886,6 +895,7 @@ const I18N = {
     "box.explain": "EXPLANATION", "box.ca": "CALIFORNIA RULE", "box.mn": "MNEMONIC", "card.lapses": "lapses",
     "court.due": "case files on the docket", "court.clear": "Docket clear ✓", "court.adjourn": "COURT ADJOURNED", "court.verdict": "Jury Verdict",
     "home.nextdue": "next batch", "home.tmrwShort": "tomorrow", "u.hour": "h", "home.quotatmrw": "quota resets tomorrow",
+    "home.alldone": "All done for today!", "home.alldoned": "Reviews and new cards are clear — fancy a quiz round?",
     "diag.title": "Placement Diagnostic", "diag.desc": "Sat it before? Take 12 questions per subject — strong subjects get pre-scheduled as known instead of starting from zero.",
     "diag.start": "Test", "diag.done": "Diagnosed", "diag.hide": "Hide this", "diag.chip": "Diagnostic",
     "diag.result": "Diagnostic Result", "diag.seeded": "cards pre-scheduled to your level", "diag.weakt": "Topics to rebuild", "diag.fresh": "This subject starts fresh as new cards",
@@ -895,7 +905,7 @@ const I18N = {
     "radar.title": "Weakness Radar", "radar.drill": "Drill", "radar.empty": "Gathering signal — do some reviews, a quiz, or a diagnostic first",
     "bridge.title": "Road to the Golden Gate", "bridge.crossed": "crossed", "bridge.fog": "retention", "bridge.fogline": "the fog is lifting",
     "cab.title": "Case Badges", "cab.sub": "Milestones as landmark cases — collecting is revising", "cab.locked": "Locked",
-    "set.sound": "Sounds", "set.soundd": "Card flips, gavel & seal (off by default)",
+    "set.sound": "Sounds", "set.soundd": "Card flips, right/wrong feedback & gavel (toggle any time)",
     "set.intake": "New-card order", "set.intake.smart": "Weakest first", "set.intake.even": "Even rotation",
     "pace.remaining": "unseen cards", "pace.finish": "days to finish at current pace", "pace.suggest": "suggested new/day",
     "pace.ontrack": "On track — ample pure-review runway before the exam", "pace.behind": "Behind — consider raising new cards per day",
@@ -1369,6 +1379,27 @@ function sfx(kind) {
         gg.gain.exponentialRampToValueAtTime(0.001, t + i * 0.12 + 0.5);
         o.start(t + i * 0.12); o.stop(t + i * 0.12 + 0.55);
       });
+    } else if (kind === "right") {
+      /* bright, brief two-note major blip — satisfying, not game-show */
+      [[880, 0], [1174.7, 0.075]].forEach(([hz, dt]) => {
+        const o = AC.createOscillator(); o.type = "sine"; o.frequency.value = hz;
+        const gg = AC.createGain(); o.connect(gg); gg.connect(AC.destination);
+        gg.gain.setValueAtTime(0.0001, t + dt);
+        gg.gain.exponentialRampToValueAtTime(0.17, t + dt + 0.015);
+        gg.gain.exponentialRampToValueAtTime(0.001, t + dt + 0.16);
+        o.start(t + dt); o.stop(t + dt + 0.18);
+      });
+    } else if (kind === "wrong") {
+      /* soft low descending thud — informative, never punishing */
+      const o = AC.createOscillator(); o.type = "triangle";
+      o.frequency.setValueAtTime(230, t); o.frequency.exponentialRampToValueAtTime(140, t + 0.16);
+      o.connect(g); g.gain.setValueAtTime(0.22, t); g.gain.exponentialRampToValueAtTime(0.001, t + 0.22);
+      o.start(t); o.stop(t + 0.24);
+    } else if (kind === "tick") {
+      /* tiny self-graded "got it" tick */
+      const o = AC.createOscillator(); o.type = "sine"; o.frequency.value = 1320;
+      o.connect(g); g.gain.setValueAtTime(0.09, t); g.gain.exponentialRampToValueAtTime(0.001, t + 0.05);
+      o.start(t); o.stop(t + 0.06);
     }
   } catch (_) {}
 }
@@ -1451,7 +1482,20 @@ function vHome() {
       : `A bilingual California Bar trainer built for you: ${tot.total} cards across all 13 tested subjects plus legal English. The FSRS spaced-repetition engine schedules each card at the optimal moment. Start with "Learn New" — 20 cards/day is a good opening pace. Read <a href="#method">the method guide</a> first (2 min); every feature is explained in <a href="#guide">the user guide</a>.`}</div>
   </div>`;
 
-  h += `
+  if (!due && !newAvail && !fresh) {
+    /* everything cleared — celebrate instead of showing dead grey buttons */
+    h += `
+    <div class="panel donecard">
+      <div class="dc-emoji">🎉</div>
+      <b>${esc(t("home.alldone"))}</b>
+      <div class="tiny" style="margin:4px 0 10px">${esc(t("home.alldoned"))}${nextDueIn() ? ` · ${esc(t("home.nextdue"))} ${esc(nextDueIn())}` : ""}</div>
+      <button class="cta main" id="cta-quiz" style="width:100%">
+        <span class="n">🎯</span>
+        <span class="t">${esc(t("home.quiz"))}</span>
+        <span class="d">${esc(t("home.quizd"))}</span>
+      </button>
+    </div>`;
+  } else h += `
   <div class="cta-row">
     <button class="cta main" id="cta-review" ${due ? "" : "disabled"}>
       <span class="n">${due}<span class="unit">${esc(t("u.cards"))}</span></span>
@@ -1468,8 +1512,9 @@ function vHome() {
       <span class="t">${esc(t("home.quiz"))}</span>
       <span class="d">${esc(t("home.quizd"))}</span>
     </button>
-  </div>
+  </div>`;
 
+  h += `
   ${Object.keys(S.diag || {}).length === 0 ? diagPanel() : ""}
 
   <div class="panel">
@@ -1477,8 +1522,9 @@ function vHome() {
       <div class="ring">
         <svg width="84" height="84">
           <circle cx="42" cy="42" r="${ringR}" fill="none" stroke="var(--chip)" stroke-width="8"/>
-          <circle cx="42" cy="42" r="${ringR}" fill="none" stroke="var(--poppy)" stroke-width="8"
-            stroke-linecap="round" stroke-dasharray="${circ}" stroke-dashoffset="${circ * (1 - pct)}"/>
+          <circle id="goalarc" cx="42" cy="42" r="${ringR}" fill="none" stroke="var(--poppy)" stroke-width="8"
+            stroke-linecap="round" stroke-dasharray="${circ}" stroke-dashoffset="${circ}"
+            data-off="${circ * (1 - pct)}" style="transition:stroke-dashoffset .8s cubic-bezier(.25,.9,.35,1)"/>
         </svg>
         <div class="mid">${doneToday}<small>/ ${goal}</small></div>
       </div>
@@ -1518,8 +1564,22 @@ function vHome() {
     if (r1) r1.onclick = () => startReview();
     if (r2) r2.onclick = () => startNew();
     if (r3) r3.onclick = () => quizSetup();
+    const arc = $("#goalarc");
+    if (arc) requestAnimationFrame(() => requestAnimationFrame(() => { arc.style.strokeDashoffset = arc.dataset.off; }));
   });
   return h;
+}
+/* animate <b class="cup" data-n data-pre data-suf> from 0 to n */
+function countUpAll() {
+  document.querySelectorAll(".cup").forEach(el => {
+    const n = +el.dataset.n || 0, pre = el.dataset.pre || "", suf = el.dataset.suf || "";
+    const t0 = performance.now();
+    (function step(ts) {
+      const p = Math.min(1, (ts - t0) / 550);
+      el.textContent = pre + Math.round(n * (2 - p) * p) + suf;   // ease-out
+      if (p < 1) requestAnimationFrame(step);
+    })(t0);
+  });
 }
 window.pokeBear = () => {
   const zh = S.settings.lang === "zh";
@@ -1778,17 +1838,17 @@ function cardFace(c, revealed, zh, shuffle) {
     });
     h += `</div>`;
   }
-  if (revealed) {
-    h += `<div class="answer">`;
-    if (c.type === "basic") h += `<div class="a-en">${esc(c.a)}</div><div class="a-zh">${esc(c.aZh)}</div>`;
-    if (c.type === "cloze") h += `<div class="a-en">${esc(c.a)}</div><div class="a-zh">${esc(c.aZh)}</div>`;
-    if (c.type === "mcq" && c.explain) h += `<div class="a-en" style="font-size:.95rem">${esc(c.explain)}</div>`;
-    if (c.explainZh) h += `<div class="box explain"><span class="bt">📘 ${esc(t("box.explain"))}</span>${esc(c.explainZh)}</div>`;
-    if (c.caNote) h += `<div class="box ca"><span class="bt">🐻 ${esc(t("box.ca"))}</span>${esc(c.caNote)}<br><span class="muted">${esc(c.caNoteZh || "")}</span></div>`;
-    if (c.mnemonic) h += `<div class="box mn"><span class="bt">💡 ${esc(t("box.mn"))}</span>${esc(c.mnemonic)}</div>`;
-    h += `</div>`;
-  }
+  if (revealed) h += answerHTML(c);
   return h;
+}
+function answerHTML(c) {
+  let h = `<div class="answer">`;
+  if (c.type === "basic" || c.type === "cloze") h += `<div class="a-en">${esc(c.a)}</div><div class="a-zh">${esc(c.aZh)}</div>`;
+  if (c.type === "mcq" && c.explain) h += `<div class="a-en" style="font-size:.95rem">${esc(c.explain)}</div>`;
+  if (c.explainZh) h += `<div class="box explain"><span class="bt">📘 ${esc(t("box.explain"))}</span>${esc(c.explainZh)}</div>`;
+  if (c.caNote) h += `<div class="box ca"><span class="bt">🐻 ${esc(t("box.ca"))}</span>${esc(c.caNote)}<br><span class="muted">${esc(c.caNoteZh || "")}</span></div>`;
+  if (c.mnemonic) h += `<div class="box mn"><span class="bt">💡 ${esc(t("box.mn"))}</span>${esc(c.mnemonic)}</div>`;
+  return h + `</div>`;
 }
 function actionBar(id) {
   const c = CARD[id];
@@ -1816,13 +1876,37 @@ function showAnswer() {
   const a = document.querySelector(".answer");
   if (a) a.scrollIntoView({ behavior: "smooth", block: "nearest" });
 }
-window.reveal = () => { session.revealed = true; sfx("flip"); rerenderStudy(); setTimeout(showAnswer, 60); };
+/* reveal happens IN PLACE — the question never re-mounts, the answer slides in under it */
+window.reveal = () => {
+  if (!session || session.revealed) return;
+  session.revealed = true; sfx("flip");
+  const id = session.cur || currentId(), c = CARD[id];
+  const qc = document.getElementById("qcard"), ab = document.getElementById("actionbar");
+  if (qc && ab && c.type !== "mcq") {
+    if (c.type === "cloze") { const qt = qc.querySelector(".qtext"); if (qt) qt.innerHTML = clozeQ(c.q, true); }
+    qc.insertAdjacentHTML("beforeend", answerHTML(c));
+    ab.innerHTML = actionBar(id);
+  } else rerenderStudy();
+  setTimeout(showAnswer, 60);
+};
 window.pickOpt = (orig) => {
-  if (session.revealed) return;
+  if (!session || session.revealed) return;
   const id = session.cur || currentId(), c = CARD[id];
   session.mcqPick = orig; session.revealed = true;
   session.mcqRight = orig === c.answer;
-  rerenderStudy();
+  sfx(session.mcqRight ? "right" : "wrong");
+  buzz(session.mcqRight ? 8 : [10, 40, 10]);
+  const qc = document.getElementById("qcard"), ab = document.getElementById("actionbar");
+  if (qc && ab && session.shuffle) {
+    qc.querySelectorAll(".opt").forEach((btn, i) => {
+      const o = session.shuffle[i];
+      btn.disabled = true;
+      if (o === c.answer) btn.classList.add(o === orig ? "sel-right" : "reveal-right");
+      else if (o === orig) btn.classList.add("sel-wrong");
+    });
+    qc.insertAdjacentHTML("beforeend", answerHTML(c));
+    ab.innerHTML = actionBar(id);
+  } else rerenderStudy();
   setTimeout(showAnswer, 60);
 };
 window.doGrade = (g) => {
@@ -1833,7 +1917,9 @@ window.doGrade = (g) => {
   session.snap = grade(id, g);
   session.snap.sess = prevSess;
   tickTime();
-  buzz(8);
+  if (CARD[id].type !== "mcq") { if (g >= 3) sfx("tick"); else if (g === 1) sfx("wrong"); }   // MCQs already sounded at pick
+  buzz(g === 1 ? [10, 40, 10] : 8);
+  if (before === 0) setTimeout(() => toast("🔥 " + streak() + " " + t("home.streakd")), 800);   // first study of the day
   session.att++;
   if (g >= 3) session.ok++;
   /* remove from queue; re-insert if it comes back soon (learning/relearning) */
@@ -1879,15 +1965,15 @@ function studySummary() {
     <div class="seal-wrap"><div class="seal"><span>今日</span><span>已结</span></div></div>
     <p class="tiny persona-line">💬 ${esc(line)}</p>
     <div class="sumgrid">
-      <div class="cell"><b>${session.done}</b><span>${esc(t("sum.reviewed"))}</span></div>
-      <div class="cell"><b>${acc}%</b><span>${esc(t("sum.correct"))}</span></div>
-      <div class="cell"><b>+${xp}</b><span>${esc(t("sum.xp"))}</span></div>
+      <div class="cell"><b class="cup" data-n="${session.done}">0</b><span>${esc(t("sum.reviewed"))}</span></div>
+      <div class="cell"><b class="cup" data-n="${acc}" data-suf="%">0%</b><span>${esc(t("sum.correct"))}</span></div>
+      <div class="cell"><b class="cup" data-n="${xp}" data-pre="+">+0</b><span>${esc(t("sum.xp"))}</span></div>
     </div>
     <button class="btn primary" style="width:100%;padding:14px" onclick="exitStudy()">${esc(t("sum.back"))}</button>
     <div style="height:8px"></div>
     ${dueList().length ? `<button class="btn" style="width:100%;padding:12px" onclick="startReview()">${esc(t("sum.more"))} (${dueList().length})</button>` : ""}
   </div>`;
-  setTimeout(() => { confetti(); sfx("gavel"); buzz([12, 60, 14]); setTimeout(() => sfx("stamp"), 500); announceBadges(fresh); }, 200);
+  setTimeout(() => { confetti(); sfx("gavel"); buzz([12, 60, 14]); countUpAll(); setTimeout(() => sfx("stamp"), 500); announceBadges(fresh); }, 200);
   return h;
 }
 
@@ -1966,18 +2052,20 @@ window.quizPick = (orig) => {
   quiz.pick = orig; quiz.answered = true;
   tickTime();
   const correct = orig === c.answer;
+  sfx(correct ? "right" : "wrong");
+  buzz(correct ? 8 : [10, 40, 10]);
   if (quiz.mode === "diag") {
     /* diagnostic: no scheduling side-effects mid-run — applyDiag settles everything at the end */
     if (correct) { quiz.right++; quiz.rightIds.push(id); } else quiz.wrongIds.push(id);
-    sfx(correct ? "chime" : "stamp");
     $("#view").innerHTML = vQuiz();
     return;
   }
+  const firstToday = today().r + today().n + today().q === 0;
   let graded = false;
   if (correct) { quiz.right++; graded = quizHit(id); }
   else { quiz.wrongIds.push(id); graded = quizMiss(id); }
   if (!graded) { today().q++; addXP(correct ? 12 : 2); }   // count once: either as a grade or as a quiz answer
-  buzz(8);
+  if (firstToday) setTimeout(() => toast("🔥 " + streak() + " " + t("home.streakd")), 800);
   save();
   $("#view").innerHTML = vQuiz();
   setTimeout(() => { const a = document.querySelector(".answer"); if (a) a.scrollIntoView({ behavior: "smooth", block: "nearest" }); }, 60);
@@ -2001,14 +2089,15 @@ function quizResults() {
     <h2>⚖️ ${esc(t("court.verdict"))}: ${quiz.right} / ${n}</h2>
     <p class="tiny persona-line">💬 ${esc(line)}</p>
     <div class="sumgrid">
-      <div class="cell"><b>${sc}%</b><span>${esc(t("sum.correct"))}</span></div>
-      <div class="cell"><b>${quiz.wrongIds.length}</b><span>${esc(t("quiz.wrong"))}</span></div>
-      <div class="cell"><b>+${xp}</b><span>${esc(t("sum.xp"))}</span></div>
+      <div class="cell"><b class="cup" data-n="${sc}" data-suf="%">0%</b><span>${esc(t("sum.correct"))}</span></div>
+      <div class="cell"><b class="cup" data-n="${quiz.wrongIds.length}">0</b><span>${esc(t("quiz.wrong"))}</span></div>
+      <div class="cell"><b class="cup" data-n="${xp}" data-pre="+">+0</b><span>${esc(t("sum.xp"))}</span></div>
     </div>
     ${quiz.wrongIds.length ? `<p class="tiny">📥 ${esc(t("quiz.wrongAdded"))}</p>` : ""}
     <button class="btn primary" style="width:100%;padding:14px" onclick="exitQuiz()">${esc(t("sum.back"))}</button>
   </div>`;
   if (sc >= 80) setTimeout(() => { confetti(); sfx("gavel"); }, 150);
+  setTimeout(countUpAll, 120);
   setTimeout(() => announceBadges(fresh), 600);
   return h;
 }
@@ -2265,7 +2354,7 @@ function vSettings() {
     <div class="setrow" style="cursor:pointer;color:var(--red)" onclick="doReset()"><span class="lab">🗑 ${esc(t("set.reset"))}</span><span>→</span></div>
   </div>
   <div class="panel tiny">
-    <b>Ron 的加州律考通 · Ron's CalBar Trainer</b> · v1.3 · ${ALL_IDS.length} cards<br><br>
+    <b>Ron 的加州律考通 · Ron's CalBar Trainer</b> · v1.4 · ${ALL_IDS.length} cards<br><br>
     内容由 AI 辅助编写，供复习记忆使用；规则表述以官方资料及你的课程讲义为准，发现疑问请用 ⚑ 标记并查证。<br>
     Content is AI-assisted and for memorization practice; verify anything doubtful against official sources (flag with ⚑).<br><br>
     进度保存在本机浏览器 (localStorage)。换设备或清缓存前请先「导出学习进度」。<br>
@@ -2403,7 +2492,7 @@ function vGuide() {
       <li><b>金熊法官</b>坐在首页陪你——随你的段位升级法袍，答对点头、答错也只是心疼一下。</li>
       <li><b>判例徽章</b>（统计页）：里程碑以你正在学的著名判例命名——收集徽章本身就是复习。</li>
       <li><b>金门大桥</b>随总进度一段段建成，记忆保持率越高、桥上的雾越散。走到对岸 = 应试就绪。</li>
-      <li>完成一轮 = <b>休庭</b>盖章仪式；音效默认关闭，设置里可开。</li>
+      <li>完成一轮 = <b>休庭</b>盖章仪式；答对答错有轻声反馈音，设置里可随时关闭。</li>
     </ul>
     <h4>💾 进度备份与离线使用</h4>
     <ul>
@@ -2468,7 +2557,7 @@ function vGuide() {
       <li><b>Judge Bear</b> keeps you company — his robes upgrade with your rank; he nods at good recalls and merely winces at lapses.</li>
       <li><b>Case badges</b> (Stats): milestones named after landmark cases you're literally studying — collecting them is revising.</li>
       <li><b>The Golden Gate</b> builds span by span with your progress; higher retention lifts the fog. Reaching the far shore = exam-ready.</li>
-      <li>Every finished session gets a <b>Court adjourned</b> seal ceremony; sounds are off by default (Settings).</li>
+      <li>Every finished session gets a <b>Court adjourned</b> seal ceremony; gentle right/wrong feedback sounds can be toggled off in Settings.</li>
     </ul>
     <h4>💾 Backup & offline</h4>
     <ul>

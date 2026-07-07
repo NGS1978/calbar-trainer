@@ -74,7 +74,20 @@ function vHome() {
       : `A bilingual California Bar trainer built for you: ${tot.total} cards across all 13 tested subjects plus legal English. The FSRS spaced-repetition engine schedules each card at the optimal moment. Start with "Learn New" — 20 cards/day is a good opening pace. Read <a href="#method">the method guide</a> first (2 min); every feature is explained in <a href="#guide">the user guide</a>.`}</div>
   </div>`;
 
-  h += `
+  if (!due && !newAvail && !fresh) {
+    /* everything cleared — celebrate instead of showing dead grey buttons */
+    h += `
+    <div class="panel donecard">
+      <div class="dc-emoji">🎉</div>
+      <b>${esc(t("home.alldone"))}</b>
+      <div class="tiny" style="margin:4px 0 10px">${esc(t("home.alldoned"))}${nextDueIn() ? ` · ${esc(t("home.nextdue"))} ${esc(nextDueIn())}` : ""}</div>
+      <button class="cta main" id="cta-quiz" style="width:100%">
+        <span class="n">🎯</span>
+        <span class="t">${esc(t("home.quiz"))}</span>
+        <span class="d">${esc(t("home.quizd"))}</span>
+      </button>
+    </div>`;
+  } else h += `
   <div class="cta-row">
     <button class="cta main" id="cta-review" ${due ? "" : "disabled"}>
       <span class="n">${due}<span class="unit">${esc(t("u.cards"))}</span></span>
@@ -91,8 +104,9 @@ function vHome() {
       <span class="t">${esc(t("home.quiz"))}</span>
       <span class="d">${esc(t("home.quizd"))}</span>
     </button>
-  </div>
+  </div>`;
 
+  h += `
   ${Object.keys(S.diag || {}).length === 0 ? diagPanel() : ""}
 
   <div class="panel">
@@ -100,8 +114,9 @@ function vHome() {
       <div class="ring">
         <svg width="84" height="84">
           <circle cx="42" cy="42" r="${ringR}" fill="none" stroke="var(--chip)" stroke-width="8"/>
-          <circle cx="42" cy="42" r="${ringR}" fill="none" stroke="var(--poppy)" stroke-width="8"
-            stroke-linecap="round" stroke-dasharray="${circ}" stroke-dashoffset="${circ * (1 - pct)}"/>
+          <circle id="goalarc" cx="42" cy="42" r="${ringR}" fill="none" stroke="var(--poppy)" stroke-width="8"
+            stroke-linecap="round" stroke-dasharray="${circ}" stroke-dashoffset="${circ}"
+            data-off="${circ * (1 - pct)}" style="transition:stroke-dashoffset .8s cubic-bezier(.25,.9,.35,1)"/>
         </svg>
         <div class="mid">${doneToday}<small>/ ${goal}</small></div>
       </div>
@@ -141,8 +156,22 @@ function vHome() {
     if (r1) r1.onclick = () => startReview();
     if (r2) r2.onclick = () => startNew();
     if (r3) r3.onclick = () => quizSetup();
+    const arc = $("#goalarc");
+    if (arc) requestAnimationFrame(() => requestAnimationFrame(() => { arc.style.strokeDashoffset = arc.dataset.off; }));
   });
   return h;
+}
+/* animate <b class="cup" data-n data-pre data-suf> from 0 to n */
+function countUpAll() {
+  document.querySelectorAll(".cup").forEach(el => {
+    const n = +el.dataset.n || 0, pre = el.dataset.pre || "", suf = el.dataset.suf || "";
+    const t0 = performance.now();
+    (function step(ts) {
+      const p = Math.min(1, (ts - t0) / 550);
+      el.textContent = pre + Math.round(n * (2 - p) * p) + suf;   // ease-out
+      if (p < 1) requestAnimationFrame(step);
+    })(t0);
+  });
 }
 window.pokeBear = () => {
   const zh = S.settings.lang === "zh";
@@ -401,17 +430,17 @@ function cardFace(c, revealed, zh, shuffle) {
     });
     h += `</div>`;
   }
-  if (revealed) {
-    h += `<div class="answer">`;
-    if (c.type === "basic") h += `<div class="a-en">${esc(c.a)}</div><div class="a-zh">${esc(c.aZh)}</div>`;
-    if (c.type === "cloze") h += `<div class="a-en">${esc(c.a)}</div><div class="a-zh">${esc(c.aZh)}</div>`;
-    if (c.type === "mcq" && c.explain) h += `<div class="a-en" style="font-size:.95rem">${esc(c.explain)}</div>`;
-    if (c.explainZh) h += `<div class="box explain"><span class="bt">📘 ${esc(t("box.explain"))}</span>${esc(c.explainZh)}</div>`;
-    if (c.caNote) h += `<div class="box ca"><span class="bt">🐻 ${esc(t("box.ca"))}</span>${esc(c.caNote)}<br><span class="muted">${esc(c.caNoteZh || "")}</span></div>`;
-    if (c.mnemonic) h += `<div class="box mn"><span class="bt">💡 ${esc(t("box.mn"))}</span>${esc(c.mnemonic)}</div>`;
-    h += `</div>`;
-  }
+  if (revealed) h += answerHTML(c);
   return h;
+}
+function answerHTML(c) {
+  let h = `<div class="answer">`;
+  if (c.type === "basic" || c.type === "cloze") h += `<div class="a-en">${esc(c.a)}</div><div class="a-zh">${esc(c.aZh)}</div>`;
+  if (c.type === "mcq" && c.explain) h += `<div class="a-en" style="font-size:.95rem">${esc(c.explain)}</div>`;
+  if (c.explainZh) h += `<div class="box explain"><span class="bt">📘 ${esc(t("box.explain"))}</span>${esc(c.explainZh)}</div>`;
+  if (c.caNote) h += `<div class="box ca"><span class="bt">🐻 ${esc(t("box.ca"))}</span>${esc(c.caNote)}<br><span class="muted">${esc(c.caNoteZh || "")}</span></div>`;
+  if (c.mnemonic) h += `<div class="box mn"><span class="bt">💡 ${esc(t("box.mn"))}</span>${esc(c.mnemonic)}</div>`;
+  return h + `</div>`;
 }
 function actionBar(id) {
   const c = CARD[id];
@@ -439,13 +468,37 @@ function showAnswer() {
   const a = document.querySelector(".answer");
   if (a) a.scrollIntoView({ behavior: "smooth", block: "nearest" });
 }
-window.reveal = () => { session.revealed = true; sfx("flip"); rerenderStudy(); setTimeout(showAnswer, 60); };
+/* reveal happens IN PLACE — the question never re-mounts, the answer slides in under it */
+window.reveal = () => {
+  if (!session || session.revealed) return;
+  session.revealed = true; sfx("flip");
+  const id = session.cur || currentId(), c = CARD[id];
+  const qc = document.getElementById("qcard"), ab = document.getElementById("actionbar");
+  if (qc && ab && c.type !== "mcq") {
+    if (c.type === "cloze") { const qt = qc.querySelector(".qtext"); if (qt) qt.innerHTML = clozeQ(c.q, true); }
+    qc.insertAdjacentHTML("beforeend", answerHTML(c));
+    ab.innerHTML = actionBar(id);
+  } else rerenderStudy();
+  setTimeout(showAnswer, 60);
+};
 window.pickOpt = (orig) => {
-  if (session.revealed) return;
+  if (!session || session.revealed) return;
   const id = session.cur || currentId(), c = CARD[id];
   session.mcqPick = orig; session.revealed = true;
   session.mcqRight = orig === c.answer;
-  rerenderStudy();
+  sfx(session.mcqRight ? "right" : "wrong");
+  buzz(session.mcqRight ? 8 : [10, 40, 10]);
+  const qc = document.getElementById("qcard"), ab = document.getElementById("actionbar");
+  if (qc && ab && session.shuffle) {
+    qc.querySelectorAll(".opt").forEach((btn, i) => {
+      const o = session.shuffle[i];
+      btn.disabled = true;
+      if (o === c.answer) btn.classList.add(o === orig ? "sel-right" : "reveal-right");
+      else if (o === orig) btn.classList.add("sel-wrong");
+    });
+    qc.insertAdjacentHTML("beforeend", answerHTML(c));
+    ab.innerHTML = actionBar(id);
+  } else rerenderStudy();
   setTimeout(showAnswer, 60);
 };
 window.doGrade = (g) => {
@@ -456,7 +509,9 @@ window.doGrade = (g) => {
   session.snap = grade(id, g);
   session.snap.sess = prevSess;
   tickTime();
-  buzz(8);
+  if (CARD[id].type !== "mcq") { if (g >= 3) sfx("tick"); else if (g === 1) sfx("wrong"); }   // MCQs already sounded at pick
+  buzz(g === 1 ? [10, 40, 10] : 8);
+  if (before === 0) setTimeout(() => toast("🔥 " + streak() + " " + t("home.streakd")), 800);   // first study of the day
   session.att++;
   if (g >= 3) session.ok++;
   /* remove from queue; re-insert if it comes back soon (learning/relearning) */
@@ -502,15 +557,15 @@ function studySummary() {
     <div class="seal-wrap"><div class="seal"><span>今日</span><span>已结</span></div></div>
     <p class="tiny persona-line">💬 ${esc(line)}</p>
     <div class="sumgrid">
-      <div class="cell"><b>${session.done}</b><span>${esc(t("sum.reviewed"))}</span></div>
-      <div class="cell"><b>${acc}%</b><span>${esc(t("sum.correct"))}</span></div>
-      <div class="cell"><b>+${xp}</b><span>${esc(t("sum.xp"))}</span></div>
+      <div class="cell"><b class="cup" data-n="${session.done}">0</b><span>${esc(t("sum.reviewed"))}</span></div>
+      <div class="cell"><b class="cup" data-n="${acc}" data-suf="%">0%</b><span>${esc(t("sum.correct"))}</span></div>
+      <div class="cell"><b class="cup" data-n="${xp}" data-pre="+">+0</b><span>${esc(t("sum.xp"))}</span></div>
     </div>
     <button class="btn primary" style="width:100%;padding:14px" onclick="exitStudy()">${esc(t("sum.back"))}</button>
     <div style="height:8px"></div>
     ${dueList().length ? `<button class="btn" style="width:100%;padding:12px" onclick="startReview()">${esc(t("sum.more"))} (${dueList().length})</button>` : ""}
   </div>`;
-  setTimeout(() => { confetti(); sfx("gavel"); buzz([12, 60, 14]); setTimeout(() => sfx("stamp"), 500); announceBadges(fresh); }, 200);
+  setTimeout(() => { confetti(); sfx("gavel"); buzz([12, 60, 14]); countUpAll(); setTimeout(() => sfx("stamp"), 500); announceBadges(fresh); }, 200);
   return h;
 }
 
@@ -589,18 +644,20 @@ window.quizPick = (orig) => {
   quiz.pick = orig; quiz.answered = true;
   tickTime();
   const correct = orig === c.answer;
+  sfx(correct ? "right" : "wrong");
+  buzz(correct ? 8 : [10, 40, 10]);
   if (quiz.mode === "diag") {
     /* diagnostic: no scheduling side-effects mid-run — applyDiag settles everything at the end */
     if (correct) { quiz.right++; quiz.rightIds.push(id); } else quiz.wrongIds.push(id);
-    sfx(correct ? "chime" : "stamp");
     $("#view").innerHTML = vQuiz();
     return;
   }
+  const firstToday = today().r + today().n + today().q === 0;
   let graded = false;
   if (correct) { quiz.right++; graded = quizHit(id); }
   else { quiz.wrongIds.push(id); graded = quizMiss(id); }
   if (!graded) { today().q++; addXP(correct ? 12 : 2); }   // count once: either as a grade or as a quiz answer
-  buzz(8);
+  if (firstToday) setTimeout(() => toast("🔥 " + streak() + " " + t("home.streakd")), 800);
   save();
   $("#view").innerHTML = vQuiz();
   setTimeout(() => { const a = document.querySelector(".answer"); if (a) a.scrollIntoView({ behavior: "smooth", block: "nearest" }); }, 60);
@@ -624,14 +681,15 @@ function quizResults() {
     <h2>⚖️ ${esc(t("court.verdict"))}: ${quiz.right} / ${n}</h2>
     <p class="tiny persona-line">💬 ${esc(line)}</p>
     <div class="sumgrid">
-      <div class="cell"><b>${sc}%</b><span>${esc(t("sum.correct"))}</span></div>
-      <div class="cell"><b>${quiz.wrongIds.length}</b><span>${esc(t("quiz.wrong"))}</span></div>
-      <div class="cell"><b>+${xp}</b><span>${esc(t("sum.xp"))}</span></div>
+      <div class="cell"><b class="cup" data-n="${sc}" data-suf="%">0%</b><span>${esc(t("sum.correct"))}</span></div>
+      <div class="cell"><b class="cup" data-n="${quiz.wrongIds.length}">0</b><span>${esc(t("quiz.wrong"))}</span></div>
+      <div class="cell"><b class="cup" data-n="${xp}" data-pre="+">+0</b><span>${esc(t("sum.xp"))}</span></div>
     </div>
     ${quiz.wrongIds.length ? `<p class="tiny">📥 ${esc(t("quiz.wrongAdded"))}</p>` : ""}
     <button class="btn primary" style="width:100%;padding:14px" onclick="exitQuiz()">${esc(t("sum.back"))}</button>
   </div>`;
   if (sc >= 80) setTimeout(() => { confetti(); sfx("gavel"); }, 150);
+  setTimeout(countUpAll, 120);
   setTimeout(() => announceBadges(fresh), 600);
   return h;
 }
@@ -888,7 +946,7 @@ function vSettings() {
     <div class="setrow" style="cursor:pointer;color:var(--red)" onclick="doReset()"><span class="lab">🗑 ${esc(t("set.reset"))}</span><span>→</span></div>
   </div>
   <div class="panel tiny">
-    <b>Ron 的加州律考通 · Ron's CalBar Trainer</b> · v1.3 · ${ALL_IDS.length} cards<br><br>
+    <b>Ron 的加州律考通 · Ron's CalBar Trainer</b> · v1.4 · ${ALL_IDS.length} cards<br><br>
     内容由 AI 辅助编写，供复习记忆使用；规则表述以官方资料及你的课程讲义为准，发现疑问请用 ⚑ 标记并查证。<br>
     Content is AI-assisted and for memorization practice; verify anything doubtful against official sources (flag with ⚑).<br><br>
     进度保存在本机浏览器 (localStorage)。换设备或清缓存前请先「导出学习进度」。<br>
@@ -1026,7 +1084,7 @@ function vGuide() {
       <li><b>金熊法官</b>坐在首页陪你——随你的段位升级法袍，答对点头、答错也只是心疼一下。</li>
       <li><b>判例徽章</b>（统计页）：里程碑以你正在学的著名判例命名——收集徽章本身就是复习。</li>
       <li><b>金门大桥</b>随总进度一段段建成，记忆保持率越高、桥上的雾越散。走到对岸 = 应试就绪。</li>
-      <li>完成一轮 = <b>休庭</b>盖章仪式；音效默认关闭，设置里可开。</li>
+      <li>完成一轮 = <b>休庭</b>盖章仪式；答对答错有轻声反馈音，设置里可随时关闭。</li>
     </ul>
     <h4>💾 进度备份与离线使用</h4>
     <ul>
@@ -1091,7 +1149,7 @@ function vGuide() {
       <li><b>Judge Bear</b> keeps you company — his robes upgrade with your rank; he nods at good recalls and merely winces at lapses.</li>
       <li><b>Case badges</b> (Stats): milestones named after landmark cases you're literally studying — collecting them is revising.</li>
       <li><b>The Golden Gate</b> builds span by span with your progress; higher retention lifts the fog. Reaching the far shore = exam-ready.</li>
-      <li>Every finished session gets a <b>Court adjourned</b> seal ceremony; sounds are off by default (Settings).</li>
+      <li>Every finished session gets a <b>Court adjourned</b> seal ceremony; gentle right/wrong feedback sounds can be toggled off in Settings.</li>
     </ul>
     <h4>💾 Backup & offline</h4>
     <ul>

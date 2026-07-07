@@ -75,7 +75,7 @@ a { color: var(--sky); }
 .topbar {
   position: sticky; top: 0; z-index: 40;
   display: flex; align-items: center; gap: 10px;
-  padding: 10px 2px;
+  padding: calc(10px + env(safe-area-inset-top)) 2px 10px;
   background: color-mix(in srgb, var(--bg) 86%, transparent);
   backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
 }
@@ -241,8 +241,10 @@ a { color: var(--sky); }
 .opt { overflow-wrap: break-word; }
 .opt:not(:disabled):hover { border-color: var(--poppy); }
 .opt:not(:disabled):active { transform: scale(.985); border-color: var(--poppy); }
-.opt.sel-right { border-color: var(--jade); background: color-mix(in srgb, var(--jade) 12%, var(--card)); }
-.opt.sel-wrong { border-color: var(--red); background: color-mix(in srgb, var(--red) 10%, var(--card)); }
+.opt.sel-right { border-color: var(--jade); background: color-mix(in srgb, var(--jade) 12%, var(--card)); animation: optpop .28s ease; }
+.opt.sel-wrong { border-color: var(--red); background: color-mix(in srgb, var(--red) 10%, var(--card)); animation: optshake .3s ease; }
+@keyframes optpop { 0% { transform: scale(1); } 40% { transform: scale(1.025); } 100% { transform: scale(1); } }
+@keyframes optshake { 0%, 100% { transform: none; } 25% { transform: translateX(-4px); } 60% { transform: translateX(3px); } 85% { transform: translateX(-1px); } }
 .opt.reveal-right { border-color: var(--jade); }
 .opt:disabled { cursor: default; }
 
@@ -400,6 +402,11 @@ a { color: var(--sky); }
 .tri-btns small { font-weight: 600; font-size: .66rem; opacity: .85; }
 .tri-known { background: linear-gradient(160deg, #43a463, #2f8f4e); }
 .tri-learn { background: linear-gradient(160deg, #4a86c9, #2f6fb3); }
+
+/* ---- all-done celebration card ---- */
+.donecard { text-align: center; border-left: 4px solid var(--jade); }
+.donecard .dc-emoji { font-size: 2.2rem; margin-bottom: 4px; }
+.donecard b { font-size: 1.05rem; }
 
 /* ---- diag + radar + bridge ---- */
 .diagchips { display: flex; flex-wrap: wrap; gap: 7px; }

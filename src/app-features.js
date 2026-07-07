@@ -390,6 +390,27 @@ function sfx(kind) {
         gg.gain.exponentialRampToValueAtTime(0.001, t + i * 0.12 + 0.5);
         o.start(t + i * 0.12); o.stop(t + i * 0.12 + 0.55);
       });
+    } else if (kind === "right") {
+      /* bright, brief two-note major blip — satisfying, not game-show */
+      [[880, 0], [1174.7, 0.075]].forEach(([hz, dt]) => {
+        const o = AC.createOscillator(); o.type = "sine"; o.frequency.value = hz;
+        const gg = AC.createGain(); o.connect(gg); gg.connect(AC.destination);
+        gg.gain.setValueAtTime(0.0001, t + dt);
+        gg.gain.exponentialRampToValueAtTime(0.17, t + dt + 0.015);
+        gg.gain.exponentialRampToValueAtTime(0.001, t + dt + 0.16);
+        o.start(t + dt); o.stop(t + dt + 0.18);
+      });
+    } else if (kind === "wrong") {
+      /* soft low descending thud — informative, never punishing */
+      const o = AC.createOscillator(); o.type = "triangle";
+      o.frequency.setValueAtTime(230, t); o.frequency.exponentialRampToValueAtTime(140, t + 0.16);
+      o.connect(g); g.gain.setValueAtTime(0.22, t); g.gain.exponentialRampToValueAtTime(0.001, t + 0.22);
+      o.start(t); o.stop(t + 0.24);
+    } else if (kind === "tick") {
+      /* tiny self-graded "got it" tick */
+      const o = AC.createOscillator(); o.type = "sine"; o.frequency.value = 1320;
+      o.connect(g); g.gain.setValueAtTime(0.09, t); g.gain.exponentialRampToValueAtTime(0.001, t + 0.05);
+      o.start(t); o.stop(t + 0.06);
     }
   } catch (_) {}
 }

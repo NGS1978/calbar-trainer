@@ -22,7 +22,7 @@ const LS_KEY = "cbt1";
 const DEFAULT_SETTINGS = {
   lang: "zh", examDate: "2027-02-23", newPerDay: 20, dailyGoal: 60,
   retention: 0.9, theme: "auto", zhFirst: false, quizN: 10, deckOff: {},
-  sound: false, intake: "smart", hideDiag: false
+  sound: true, intake: "smart", hideDiag: false
 };
 let S = load();
 function load() {
@@ -37,6 +37,7 @@ function load() {
         const v = s.days[k] || {};
         s.days[k] = { r: v.r || 0, ok: v.ok || 0, n: v.n || 0, q: v.q || 0, ms: v.ms || 0, xp: v.xp || 0 };
       }
+      if (!s.flags.sndOn2) { s.flags.sndOn2 = 1; s.settings.sound = true; }   // one-time: v1.4 turns feedback sounds on
       return s;
     }
   } catch (e) { console.warn("state load failed", e); }
@@ -370,6 +371,7 @@ const I18N = {
     "box.explain": "解析", "box.ca": "CALIFORNIA 加州区别", "box.mn": "MNEMONIC 记忆钩", "card.lapses": "遗忘",
     "court.due": "宗案卷待审", "court.clear": "今日庭审已毕 ✓", "court.adjourn": "休庭 · COURT ADJOURNED", "court.verdict": "陪审团裁决",
     "home.nextdue": "下一批", "home.tmrwShort": "明天", "u.hour": "小时", "home.quotatmrw": "明日恢复新卡额度",
+    "home.alldone": "今日任务完成！", "home.alldoned": "复习与新卡都已清空——想加练就来一轮考题演练",
     "diag.title": "摸底测试", "diag.desc": "考过几次？每科 12 题摸个底——答得好的科目，卡片直接按'已会'排期，不用从零学。",
     "diag.start": "测", "diag.done": "已摸底", "diag.hide": "不再显示", "diag.chip": "摸底",
     "diag.result": "摸底结果", "diag.seeded": "张卡已按你的水平预排期", "diag.weakt": "待补强专题", "diag.fresh": "该科将从新卡正常学起",
@@ -379,7 +381,7 @@ const I18N = {
     "radar.title": "弱项雷达", "radar.drill": "练", "radar.empty": "信号积累中——先做些复习、演练或摸底测试",
     "bridge.title": "通往金门", "bridge.crossed": "已跨越", "bridge.fog": "记忆保持率", "bridge.fogline": "雾正在散去",
     "cab.title": "判例徽章", "cab.sub": "里程碑即判例——收集即复习", "cab.locked": "未解锁",
-    "set.sound": "音效", "set.soundd": "翻卡、法槌与印章（默认关闭）",
+    "set.sound": "音效", "set.soundd": "翻卡、对错反馈与法槌（可随时关闭）",
     "set.intake": "新卡顺序", "set.intake.smart": "弱项优先", "set.intake.even": "均衡轮换",
     "pace.remaining": "未学新卡", "pace.finish": "按当前速度学完还需", "pace.suggest": "建议每日新卡",
     "pace.ontrack": "进度良好 — 考前将有充足纯复习期", "pace.behind": "偏慢 — 建议提高每日新卡量",
@@ -426,6 +428,7 @@ const I18N = {
     "box.explain": "EXPLANATION", "box.ca": "CALIFORNIA RULE", "box.mn": "MNEMONIC", "card.lapses": "lapses",
     "court.due": "case files on the docket", "court.clear": "Docket clear ✓", "court.adjourn": "COURT ADJOURNED", "court.verdict": "Jury Verdict",
     "home.nextdue": "next batch", "home.tmrwShort": "tomorrow", "u.hour": "h", "home.quotatmrw": "quota resets tomorrow",
+    "home.alldone": "All done for today!", "home.alldoned": "Reviews and new cards are clear — fancy a quiz round?",
     "diag.title": "Placement Diagnostic", "diag.desc": "Sat it before? Take 12 questions per subject — strong subjects get pre-scheduled as known instead of starting from zero.",
     "diag.start": "Test", "diag.done": "Diagnosed", "diag.hide": "Hide this", "diag.chip": "Diagnostic",
     "diag.result": "Diagnostic Result", "diag.seeded": "cards pre-scheduled to your level", "diag.weakt": "Topics to rebuild", "diag.fresh": "This subject starts fresh as new cards",
@@ -435,7 +438,7 @@ const I18N = {
     "radar.title": "Weakness Radar", "radar.drill": "Drill", "radar.empty": "Gathering signal — do some reviews, a quiz, or a diagnostic first",
     "bridge.title": "Road to the Golden Gate", "bridge.crossed": "crossed", "bridge.fog": "retention", "bridge.fogline": "the fog is lifting",
     "cab.title": "Case Badges", "cab.sub": "Milestones as landmark cases — collecting is revising", "cab.locked": "Locked",
-    "set.sound": "Sounds", "set.soundd": "Card flips, gavel & seal (off by default)",
+    "set.sound": "Sounds", "set.soundd": "Card flips, right/wrong feedback & gavel (toggle any time)",
     "set.intake": "New-card order", "set.intake.smart": "Weakest first", "set.intake.even": "Even rotation",
     "pace.remaining": "unseen cards", "pace.finish": "days to finish at current pace", "pace.suggest": "suggested new/day",
     "pace.ontrack": "On track — ample pure-review runway before the exam", "pace.behind": "Behind — consider raising new cards per day",
