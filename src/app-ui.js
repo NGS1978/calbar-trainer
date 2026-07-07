@@ -509,9 +509,10 @@ window.doGrade = (g) => {
   session.snap = grade(id, g);
   session.snap.sess = prevSess;
   tickTime();
-  if (CARD[id].type !== "mcq") { if (g >= 3) sfx("tick"); else if (g === 1) sfx("wrong"); }   // MCQs already sounded at pick
-  buzz(g === 1 ? [10, 40, 10] : 8);
-  if (before === 0) setTimeout(() => toast("🔥 " + streak() + " " + t("home.streakd")), 800);   // first study of the day
+  if (CARD[id].type !== "mcq") {                              // MCQs already sounded & buzzed at pick
+    if (g >= 3) sfx("tick"); else if (g === 1) sfx("wrong");
+    buzz(g === 1 ? [10, 40, 10] : 8);
+  }
   session.att++;
   if (g >= 3) session.ok++;
   /* remove from queue; re-insert if it comes back soon (learning/relearning) */
@@ -525,6 +526,7 @@ window.doGrade = (g) => {
   session.revealed = false; session.mcqPick = null; session.shuffle = null; session.cur = null;
   session.lastG = g;
   const after = today().r + today().n + today().q;
+  if (before === 0 && after > 0) setTimeout(() => toast("🔥 " + streak() + " " + t("home.streakd")), 800);   // the grade that opened the day
   if (before < S.settings.dailyGoal && after >= S.settings.dailyGoal) { confetti(); toast(t("toast.goalhit")); sfx("chime"); }
   rerenderStudy();
 };
@@ -535,6 +537,7 @@ window.undoLast = () => {
   if (!session.queue.includes(id)) session.queue.unshift(id);
   if (session.snap.sess) { session.att = session.snap.sess.att; session.ok = session.snap.sess.ok; session.done = session.snap.sess.done; }
   session.snap = null; session.revealed = false; session.shuffle = null; session.cur = id;
+  session.mcqPick = null; session.mcqRight = false;           // stale pick must not steer the next suggestion
   toast(t("toast.undone"));
   rerenderStudy();
 };
@@ -977,7 +980,7 @@ window.doImport = (inp) => {
 };
 window.doReset = () => {
   if (!confirm(t("set.resetc"))) return;
-  S = { v: 1, cards: {}, days: {}, xp: 0, settings: S.settings };
+  S = { v: 1, cards: {}, days: {}, xp: 0, topics: {}, diag: {}, badges: {}, flags: { sndOn2: 1 }, settings: S.settings };
   save(); toast(t("toast.reset")); route();
 };
 

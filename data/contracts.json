@@ -785,8 +785,8 @@
    "type": "cloze",
    "topic": "Remedies & Damages",
    "topicZh": "违约救济",
-   "q": "Under Hadley v. Baxendale, consequential damages are recoverable only through two channels: losses {{c::arising naturally from the breach, or from special circumstances the breaching party had reason to know}} — both judged at the time of contracting.",
-   "qZh": "依Hadley v. Baxendale，间接损失只有两条可赔渠道：____——且均以订约时为判断时点。",
+   "q": "Hadley v. Baxendale allows consequential damages through two channels only: losses {{c::arising naturally from the breach, or from special circumstances the breaching party had reason to know}}.",
+   "qZh": "Hadley v. Baxendale只承认两条间接损失可赔渠道：____。",
    "a": "arising naturally from the breach, or from special circumstances the breaching party had reason to know",
    "aZh": "系违约自然而生的损失，或源于违约方有理由知悉的特殊情况的损失",
    "explainZh": "两条渠道：自然而生（任何人都能预见）或特殊情况已获告知（磨坊停工靠曲轴运转——须事先告知承运人）。时点卡在\"订约时\"而非违约时。《民法典》第584条但书\"不得超过违约一方订立合同时预见到或者应当预见到的损失\"正是Hadley规则的直系后代，中国律师的最大记忆红利。"

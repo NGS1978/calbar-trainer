@@ -41,7 +41,8 @@ function load() {
       return s;
     }
   } catch (e) { console.warn("state load failed", e); }
-  return { v: 1, cards: {}, days: {}, xp: 0, topics: {}, diag: {}, badges: {}, flags: {}, settings: Object.assign({}, DEFAULT_SETTINGS) };
+  /* fresh states are already "migrated" — sndOn2 here so a later load can't override an explicit sound-off */
+  return { v: 1, cards: {}, days: {}, xp: 0, topics: {}, diag: {}, badges: {}, flags: { sndOn2: 1 }, settings: Object.assign({}, DEFAULT_SETTINGS) };
 }
 let saveT = null, storageOk = true;
 function flushSave() {

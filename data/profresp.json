@@ -1074,9 +1074,9 @@
    ],
    "answer": 2,
    "explain": "Live person-to-person solicitation for pecuniary gain is banned EXCEPT with other lawyers, family members, close personal relationships, prior business/professional relationships (including former clients), and persons who routinely use legal services of that kind for business. Even exempt contacts become improper if the target expressed a desire not to be solicited or the approach involves coercion, duress, or harassment.",
-   "explainZh": "招揽禁令只打'实时人对人+图财'组合：写信、群发邮件、一般广告不算(但定向信函须标注广告)。豁免五类：律师、家人、密友、既往业务关系（含前客户）、常规采购该类法律服务的商业主体。红线：对方明示拒绝后继续=违规；胁迫骚扰=违规。无偿公益招揽（如ACLU式）受宪法保护不在禁令内。",
-   "caNote": "CA 7.3 same structure; California adds presumption-of-impropriety scenarios and a labeling duty — see the companion CA card.",
-   "caNoteZh": "加州7.3结构相同，另有不当推定情形与'广告'标注义务——见加州配套卡。"
+   "explainZh": "招揽禁令只打'实时人对人+图财'组合：写信、群发邮件、一般广告不算(但加州要求定向招揽信函标注'广告')。豁免五类：律师、家人、密友、既往业务关系（含前客户）、常规采购该类法律服务的商业主体。红线：对方明示拒绝后继续=违规；胁迫骚扰=违规。无偿公益招揽（如ACLU式）受宪法保护不在禁令内。",
+   "caNote": "CA 7.3 same structure; California adds prohibited-situations rules (accident scene, impaired judgment, coercion) and an 'Advertisement' labeling duty — see the companion CA card.",
+   "caNoteZh": "加州7.3结构相同，另有禁止情形（事故现场、判断力受损、胁迫）与'广告'标注义务——见加州配套卡。"
   },
   {
    "id": "pr076",
