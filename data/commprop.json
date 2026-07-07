@@ -72,7 +72,7 @@
       "choices": ["Wendy's SP — tracing to her inheritance rebuts any presumption", "CP, and Wendy takes nothing extra because her contribution is presumed a gift", "CP under §2581; Wendy is reimbursed $80,000 under §2640, without interest or appreciation", "Wendy receives $80,000 plus a pro rata share of the appreciation"],
       "answer": 2,
       "explain": "At divorce, jointly titled property is presumptively CP (§2581), rebuttable only by a writing — tracing is not enough. The SP contributor is reimbursed down payment, improvements, and principal (§2640), with no interest and no share of appreciation.",
-      "explainZh": "双推定联动：§2581共同名义→共同财产，只能书面推翻（选项0错在以为追踪可推翻）；§2640给出资方无息补偿（选项1错——除非书面放弃；选项3错——不分享增值）。记住：名义归共同，出资拿回本。"
+      "explainZh": "双推定联动：§2581共同名义→共同财产，只能书面推翻（「追踪继承款即可推翻」一项错在以为追踪可推翻）；§2640给出资方无息补偿（「出资推定为赠与」一项错——除非书面放弃；「按比例分享增值」一项错——不分享增值）。记住：名义归共同，出资拿回本。"
     },
     {
       "id": "mp007",
@@ -150,7 +150,7 @@
       "choices": ["CP — the oral statement plus conduct shows transmutation", "Hal's SP — post-1985 transmutation requires an express written declaration accepted by the adversely affected spouse", "CP — Wanda's tax payments were community contributions converting title", "Half CP, half SP by estoppel"],
       "answer": 1,
       "explain": "Post-1985, §852 requires a signed writing with an express declaration by the adversely affected spouse (Hal); oral words plus conduct are ineffective. Paying taxes buys no interest — only community payments of mortgage principal would earn the community a pro tanto (Moore/Marsden) share.",
-      "explainZh": "1985年后口头＋行为一律无效（选项0、2、3错）。缴税款不产生产权；若用共同财产偿还'购房贷款本金'，共同体才按Moore/Marsden公式取得比例产权。出力、混同都不等于性质变更。"
+      "explainZh": "1985年后口头＋行为一律无效（其余三项皆错在此）。缴税款不产生产权；若用共同财产偿还'购房贷款本金'，共同体才按Moore/Marsden公式取得比例产权。出力、混同都不等于性质变更。"
     },
     {
       "id": "mp014",
@@ -195,7 +195,7 @@
       "choices": ["Reimbursed, because community funds were available", "Reimbursed with interest under §2640", "Reimbursed half, since the expenses benefited both spouses", "No reimbursement — SP used for family expenses is presumed a gift absent a reimbursement agreement"],
       "answer": 3,
       "explain": "Family expenses are presumed paid from community funds first; when SP actually pays them, a gift to the community is presumed and there is no reimbursement absent a prior agreement. §2640 covers contributions to acquiring assets, not consumed living expenses.",
-      "explainZh": "家庭开销推定先花共同的钱；真用了个人财产付，则推定为对共同体的赠与，无约定不补偿（选项0、1、2皆错）。§2640只管'购置资产'的出资（首付、改良、本金），不管吃穿房租等消费性开支。"
+      "explainZh": "家庭开销推定先花共同的钱；真用了个人财产付，则推定为对共同体的赠与，无约定不补偿（其余三项皆错）。§2640只管'购置资产'的出资（首付、改良、本金），不管吃穿房租等消费性开支。"
     },
     {
       "id": "mp018",
@@ -240,7 +240,7 @@
       "choices": ["$30,000", "$26,000", "$20,000", "Nothing, absent a written reimbursement agreement"],
       "answer": 1,
       "explain": "§2640 reimburses SP contributions to acquisition — down payment, improvements, principal reduction (DIP) — without interest or appreciation, so $20,000 + $6,000 = $26,000. Interest, taxes, and insurance are excluded, and it is waiver (not entitlement) that must be in writing.",
-      "explainZh": "口诀DIP：Down payment首付、Improvements改良、Principal本金——可补；利息、税费、保险——不可补（扣掉4千）。选项3说反了：§2640是默认权利，'放弃'才须书面。无息、不分增值、以分割时净值为上限。",
+      "explainZh": "口诀DIP：Down payment首付、Improvements改良、Principal本金——可补；利息、税费、保险——不可补（扣掉4千）。「无书面约定即分文不补」一项说反了：§2640是默认权利，'放弃'才须书面。无息、不分增值、以分割时净值为上限。",
       "mnemonic": "DIP＝首付／改良／本金"
     },
     {
@@ -276,8 +276,8 @@
       "qZh": "斯特拉婚前继承一栋公寓楼，婚内每月只花几小时打理，由物业公司管理，楼价随市场大涨。离婚时应采用哪种分摊？",
       "choices": ["Pereira, crediting the community with most of the appreciation", "No apportionment — rents and appreciation of SP are always SP", "Van Camp — growth reflects the asset and market, so the community gets at most the value of her services and the rest stays SP", "An automatic 50/50 split, because the community helped manage it"],
       "answer": 2,
-      "explain": "Where capital and market forces, not spousal labor, primarily produce the growth, Van Camp applies: the community is paid the reasonable value of the services (less family expenses already taken), and the balance remains SP. Choice 1 ignores that community labor, however slight, requires apportionment.",
-      "explainZh": "增值源于资本与市场→Van Camp（给共同体一点'工钱'，其余归个人）。选项0把两公式的适用情形弄反；选项1忽略'投入了共同体劳动就须分摊'的原则；选项3无此规则。反向记：劳动主导→Pereira。"
+      "explain": "Where capital and market forces, not spousal labor, primarily produce the growth, Van Camp applies: the community is paid the reasonable value of the services (less family expenses already taken), and the balance remains SP. The 'rents and appreciation of SP are always SP' choice ignores that community labor, however slight, requires apportionment.",
+      "explainZh": "增值源于资本与市场→Van Camp（给共同体一点'工钱'，其余归个人）。「Pereira、增值大头归共同体」一项把两公式的适用情形弄反；「SP的租金增值永远是SP」一项忽略'投入了共同体劳动就须分摊'的原则；「自动对半分」一项无此规则。反向记：劳动主导→Pereira。"
     },
     {
       "id": "mp025",
@@ -344,7 +344,7 @@
       "choices": ["His SP — disability pay is classified by the earnings it replaces when received, here post-separation earnings", "CP — the injury occurred during marriage", "CP — all employment-connected benefits follow the time rule", "Quasi-community property"],
       "answer": 0,
       "explain": "Disability and workers' compensation are wage replacement, characterized when received: replacing marital earnings → CP; replacing post-separation earnings → SP, regardless of when the injury occurred. If taken in lieu of a pension earned during marriage, they are CP to that extent (Stenquist).",
-      "explainZh": "伤残金问'替代的是什么时候的工资'，不问何时受伤（选项1错），也不用时间规则——那是养老金的工具（选项2错）。陷阱：若以伤残金'替代'婚内挣得的退休金，该部分按养老金定性为CP（Stenquist案）。"
+      "explainZh": "伤残金问'替代的是什么时候的工资'，不问何时受伤（「婚内受伤即CP」一项错在此），也不用时间规则——那是养老金的工具（「一律按时间规则」一项错在此）。陷阱：若以伤残金'替代'婚内挣得的退休金，该部分按养老金定性为CP（Stenquist案）。"
     },
     {
       "id": "mp031",
@@ -379,7 +379,7 @@
       "choices": ["Half the market value of the medical degree", "Nothing — education is never compensable", "Reimbursement of the education costs, with interest — within 10 years the community is presumed not to have substantially benefited", "A share of Wen's future earnings as royalties"],
       "answer": 2,
       "explain": "A degree or license is not divisible property; the remedy is §2641 reimbursement, with interest, of community contributions to education that substantially enhanced earning capacity. Less than 10 years having passed, the community is presumed not yet to have benefited, so reimbursement lies unless a defense rebuts it.",
-      "explainZh": "学位不是财产（选项0、3错），但也不白供（选项1错）：§2641让共同体'报销学费＋利息'。10年内推定共同体尚未实质受益→可获补偿；满10年推定已受益。三大抗辩：共同体已实质受益／对方也接受过共同资助的教育／教育降低了受教育方的扶养需求。",
+      "explainZh": "学位不是财产（「分学位市值一半」与「分享未来收入」两项皆错），但也不白供（「教育从不获补偿」一项错）：§2641让共同体'报销学费＋利息'。10年内推定共同体尚未实质受益→可获补偿；满10年推定已受益。三大抗辩：共同体已实质受益／对方也接受过共同资助的教育／教育降低了受教育方的扶养需求。",
       "mnemonic": "抗辩BEN：Benefited已受益／Educated对方也读了／Need扶养需求降低"
     },
     {
@@ -403,7 +403,7 @@
       "choices": ["His SP — term insurance takes the character of the funds paying the final premium", "CP — premiums during marriage created a community asset", "Pro rata CP/SP according to all premiums ever paid", "Nothing passes until the widow makes her election"],
       "answer": 0,
       "explain": "Term insurance has no cash value; each premium buys coverage only for its own period, so the policy takes the character of the final premium — here SP, and the sister takes all. Pro rata division by total premiums applies to whole-life policies with cash value.",
-      "explainZh": "定期寿险按'最后一期保费'的性质定性（此处SP，姐姐全拿）；终身寿险有现金价值，按历年保费CP/SP比例分（选项2混淆两者）。若最后一期保费是共同财产付的，遗孀可就其共同一半主张权利（未经书面同意的CP赠与，死后追回一半）。"
+      "explainZh": "定期寿险按'最后一期保费'的性质定性（此处SP，姐姐全拿）；终身寿险有现金价值，按历年保费CP/SP比例分（「按历年保费比例分」一项混淆两者）。若最后一期保费是共同财产付的，遗孀可就其共同一半主张权利（未经书面同意的CP赠与，死后追回一半）。"
     },
     {
       "id": "mp036",
@@ -437,7 +437,7 @@
       "choices": ["CP — all property acquired on credit during marriage is community", "CP — the community presumption cannot be rebutted for credit purchases", "SP — hopeless commingling", "Wu's SP — loan proceeds take their character from the lender's primary reliance, here Wu's separate property"],
       "answer": 3,
       "explain": "Funds borrowed during marriage are presumptively community, but the presumption is rebutted by showing the lender primarily relied on the borrower's separate property for repayment (intent-of-the-lender test, Grinius). The bank's testimony traces the credit to SP.",
-      "explainZh": "借款推定共同（因为还款通常靠共同收入），但可用'贷款人主要信赖什么'推翻：只看个人财产担保→贷款及所购资产为SP（选项0、1错在绝对化）。这是'追踪'原理在信贷资金上的变体。"
+      "explainZh": "借款推定共同（因为还款通常靠共同收入），但可用'贷款人主要信赖什么'推翻：只看个人财产担保→贷款及所购资产为SP（「信贷所购一律CP」与「推定不可推翻」两项错在绝对化）。这是'追踪'原理在信贷资金上的变体。"
     },
     {
       "id": "mp039",
@@ -493,7 +493,7 @@
       "choices": ["Yes — one spouse's conveyance of community realty is void ab initio", "No — against a BFP the presumption of validity stands and her one-year limitations period has run; her remedy is against Herb", "Yes — she may void it at any time, as with family furnishings", "No — either spouse may convey community real property alone"],
       "answer": 1,
       "explain": "Both spouses must join in conveying or encumbering community real property (§1102); a sole conveyance is voidable in full by the nonconsenting spouse, but against a BFP without knowledge of the marriage she must sue within one year of recording. Afterward she is left with remedies against the culpable spouse.",
-      "explainZh": "不动产＝双签（§1102）。单签并非绝对无效（选项0错）：对善意买受人，登记后1年内可全部撤销；逾期只能向擅卖配偶追偿（就其一半价值、信义义务救济）。'随时可撤'是家具规则，不适用于不动产（选项2混淆）。"
+      "explainZh": "不动产＝双签（§1102）。单签并非绝对无效（「自始无效」一项错在此）：对善意买受人，登记后1年内可全部撤销；逾期只能向擅卖配偶追偿（就其一半价值、信义义务救济）。'随时可撤'是家具规则，不适用于不动产（「随时可撤销」一项即混淆于此）。"
     },
     {
       "id": "mp044",
@@ -505,7 +505,7 @@
       "choices": ["Nothing — a spouse may freely give away his own earnings", "The entire $50,000", "$25,000 — after the donor's death the gift stands as to the donor's half, so she recovers only her one-half", "$50,000, but only from Hugo's estate"],
       "answer": 2,
       "explain": "Gifts of CP require the other spouse's written consent. While the donor lives, the nonconsenting spouse may revoke the entire gift; after the donor's death, the gift is treated as a valid disposition of the donor's testamentary half, so the survivor recovers only her one-half ($25,000).",
-      "explainZh": "时间点决定追回额：生前发现→全额撤销拿回；赠与人死后→视为其对'自己那一半'的有效处分，只能追回自己一半（选项1错在时点）。对比中国：擅自赠与共同财产常被全额认定无效返还；加州死后只返一半，是差异点。"
+      "explainZh": "时间点决定追回额：生前发现→全额撤销拿回；赠与人死后→视为其对'自己那一半'的有效处分，只能追回自己一半（「全额5万」一项错在时点）。对比中国：擅自赠与共同财产常被全额认定无效返还；加州死后只返一半，是差异点。"
     },
     {
       "id": "mp045",
@@ -539,7 +539,7 @@
       "choices": ["No — premarital debts can never reach community property", "Yes — CP is liable for either spouse's debts whenever incurred, and the earnings shield fails because the wages are commingled in an account Wilma can draw on", "No — a spouse's earnings are that spouse's separate property", "Yes, but only up to one-half of the account"],
       "answer": 1,
       "explain": "Community property is liable for the debts of either spouse incurred before or during marriage. A non-debtor spouse's earnings are shielded from the other's premarital debts only while kept in an account from which the debtor cannot withdraw, uncommingled — a joint account forfeits the shield.",
-      "explainZh": "大原则：共同财产对任一方婚前＋婚内债务都负责（选项0错）；工资是CP不是SP（选项2错）；没有'一半'限额（选项3错）。唯一保护是'收入盾'：存入债务方无权支取、不混同的独立账户。对比中国：婚前个人债务原则上不及于配偶财产——加州对债权人慷慨得多，母国直觉在此最易出错。"
+      "explainZh": "大原则：共同财产对任一方婚前＋婚内债务都负责（「婚前债务够不到CP」一项错）；工资是CP不是SP（「工资是个人财产」一项错）；没有'一半'限额（「以账户一半为限」一项错）。唯一保护是'收入盾'：存入债务方无权支取、不混同的独立账户。对比中国：婚前个人债务原则上不及于配偶财产——加州对债权人慷慨得多，母国直觉在此最易出错。"
     },
     {
       "id": "mp048",
@@ -562,7 +562,7 @@
       "choices": ["Community property first, then Stan's SP, because the act was for the benefit of the community", "Stan's SP first, because tort liability is personal", "Equally from CP and Stan's SP", "Pia may also reach the other spouse's SP"],
       "answer": 0,
       "explain": "Under §1000, if the tortious act occurred while performing an activity for the benefit of the community, liability is satisfied from CP first, then the tortfeasor's SP; if not for community benefit, from SP first, then CP. The non-tortfeasor spouse's SP is never liable.",
-      "explainZh": "顺序题：为家（上下班、家庭事务）→CP先赔；纯私事（去会情人、个人消遣）→肇事者SP先赔。无过错配偶的SP永远安全（选项3错）。判断点只有一个：行为是否'为共同体利益'。",
+      "explainZh": "顺序题：为家（上下班、家庭事务）→CP先赔；纯私事（去会情人、个人消遣）→肇事者SP先赔。无过错配偶的SP永远安全（「可及于配偶SP」一项错）。判断点只有一个：行为是否'为共同体利益'。",
       "mnemonic": "为家CP先赔；私事SP先赔"
     },
     {
@@ -631,7 +631,7 @@
       "choices": ["$600,000 — a testator may devise all property he holds", "$300,000 — half of everything", "$200,000 — only the SP; all CP passes to Wen", "$400,000 — Hal's $200,000 half of the CP plus his $200,000 SP; Wen already owns the other CP half"],
       "answer": 3,
       "explain": "At death a spouse may devise all of his SP but only his one-half of the CP; the surviving spouse owns the other half outright — by ownership, not inheritance. So the brother takes $200,000 (Hal's CP half) plus $200,000 (SP).",
-      "explainZh": "死亡时的处分权＝全部SP＋一半CP。雯那一半不是'继承'来的，本来就是她的（选项0侵犯其半；选项2把'无遗嘱时CP归生存方'误用到有遗嘱情形）。对比《民法典》第1153条：先析出配偶一半共同财产再谈遗产——逻辑几乎相同，中国直觉在这题反而好用。"
+      "explainZh": "死亡时的处分权＝全部SP＋一半CP。雯那一半不是'继承'来的，本来就是她的（「全部60万」一项侵犯其半；「仅SP、CP全归雯」一项把'无遗嘱时CP归生存方'误用到有遗嘱情形）。对比《民法典》第1153条：先析出配偶一半共同财产再谈遗产——逻辑几乎相同，中国直觉在这题反而好用。"
     },
     {
       "id": "mp056",
@@ -643,7 +643,7 @@
       "choices": ["Elect: take under the will and surrender her CP half of the ranch, or assert her half and forfeit the $300,000 gift", "Take both — a will cannot affect her property rights", "Take nothing — the will controls all the CP", "Have the will declared void as a fiduciary breach"],
       "answer": 0,
       "explain": "A testator can dispose of only his half of the CP, so a widow's-election will forces the survivor to choose between the will's benefits and her own community half. She cannot take both when the will clearly puts her to an election.",
-      "explainZh": "遗嘱越权处分了梅的一半→梅二选一：要遗嘱利益就交出自己那半个牧场；要自己那一半就放弃30万赠与（选项1想两头占，不行）。识别信号：遗嘱写明'以替代其共同财产权利'。"
+      "explainZh": "遗嘱越权处分了梅的一半→梅二选一：要遗嘱利益就交出自己那半个牧场；要自己那一半就放弃30万赠与（「两者都拿」一项想两头占，不行）。识别信号：遗嘱写明'以替代其共同财产权利'。"
     },
     {
       "id": "mp057",
@@ -710,7 +710,7 @@
       "choices": ["Yes — she had independent counsel, so the waiver binds her", "Yes — support waivers are always enforceable between sophisticated parties", "No — spousal support can never be waived in California", "No — even with independent counsel, a support waiver is unenforceable if unconscionable at the time of enforcement"],
       "answer": 3,
       "explain": "Spousal-support waivers require both independent counsel at signing and that the provision not be unconscionable at the time of enforcement. Her disability makes enforcement unconscionable now, so the waiver fails despite counsel.",
-      "explainZh": "双重门槛：签约时有独立律师＋执行时不显失公平，缺一不可（选项0只看到第一个）。注意时点差：一般财产条款的显失公平看'签订时'，扶养费放弃看'执行时'。'绝对不能弃'的是子女抚养费（选项2张冠李戴）。"
+      "explainZh": "双重门槛：签约时有独立律师＋执行时不显失公平，缺一不可（「有独立律师即有效」一项只看到第一个）。注意时点差：一般财产条款的显失公平看'签订时'，扶养费放弃看'执行时'。'绝对不能弃'的是子女抚养费（「配偶扶养费绝不可弃」一项张冠李戴）。"
     },
     {
       "id": "mp063",
@@ -755,7 +755,7 @@
       "choices": ["Hans's SP — New York title law controls", "CP — California law applies retroactively to all marital acquisitions", "QCP — it would have been CP had Hans been domiciled in California when he earned the wages, so at divorce it is divided like CP", "Wilma's SP"],
       "answer": 2,
       "explain": "Wages earned while domiciled elsewhere that would have been CP under California law are QCP; at a California divorce QCP is treated exactly like CP and divided equally. Title in one spouse's name does not control.",
-      "explainZh": "三步：纽约取得→依取得地法是汉斯的财产→加州离婚时问'假如当时住加州？'→工资＝CP→故为QCP，照CP分。选项1错在'性质'并非追溯改为CP，只是分割时'视同'CP处理。"
+      "explainZh": "三步：纽约取得→依取得地法是汉斯的财产→加州离婚时问'假如当时住加州？'→工资＝CP→故为QCP，照CP分。「加州法追溯适用」一项错在'性质'并非追溯改为CP，只是分割时'视同'CP处理。"
     },
     {
       "id": "mp067",

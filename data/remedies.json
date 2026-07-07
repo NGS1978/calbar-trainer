@@ -98,7 +98,7 @@
       ],
       "answer": 2,
       "explain": "Punitive damages need tortious conduct plus an actual-damages predicate; a purely willful contract breach is not a tort. The ratio guidepost matters only once punitives are otherwise available.",
-      "explainZh": "惩罚性赔偿的前提＝独立侵权行为＋实际损害垫底；单纯恶意违约不是侵权（选项0错）。选项1混淆了'比例合宪性'与'可得性'两个层次。对比中国法：同样无一般性惩罚性赔偿制度，仅消费者权益保护法、食品安全法等特别法设惩罚性条款——两国对纯违约都不罚。",
+      "explainZh": "惩罚性赔偿的前提＝独立侵权行为＋实际损害垫底；单纯恶意违约不是侵权（「恶意违约显示恶意故可获赔」一项错）。「与补偿性赔偿之比保持个位数即可」一项混淆了'比例合宪性'与'可得性'两个层次。对比中国法：同样无一般性惩罚性赔偿制度，仅消费者权益保护法、食品安全法等特别法设惩罚性条款——两国对纯违约都不罚。",
       "caNote": "CA Civ. Code §3294: punitive damages require clear-and-convincing proof of malice, oppression, or fraud, in an action not arising from contract. Due process: BMW guideposts (reprehensibility, ratio, comparable penalties); State Farm — few awards exceeding a single-digit ratio survive.",
       "caNoteZh": "加州民法典§3294：须以'清晰且有说服力'的证据证明恶意、压迫或欺诈，且限于非合同之诉。正当程序上限：BMW三基准（可责性、倍数比、可比处罚）；State Farm案——超过个位数倍数的判赔很少能过关。"
     },
@@ -128,7 +128,7 @@
       ],
       "answer": 1,
       "explain": "Benefits from sources independent of the tortfeasor — insurance the plaintiff bought — do not reduce the tortfeasor's liability; any windfall goes to the innocent plaintiff, and subrogation usually prevents true double recovery.",
-      "explainZh": "规则理由：便宜不能让侵权人占；保险人通常通过代位求偿避免真正的双重获利（选项0、2把代位当成法院职权，错）。选项3是加州Howell规则的影子，但传统规则下保险给付连证据都不能提。",
+      "explainZh": "规则理由：便宜不能让侵权人占；保险人通常通过代位求偿避免真正的双重获利（「扣减以防双重受偿」与「扣减并命向保险人返还」两项把代位当成法院职权，错）。「采纳保险给付作为治疗合理价值的证据」一项是加州Howell规则的影子，但传统规则下保险给付连证据都不能提。",
       "caNote": "CA: past medical damages are capped at amounts actually paid or incurred (Howell v. Hamilton Meats); in medical malpractice, MICRA (Civ. Code §3333.1) lets defendants introduce collateral source evidence.",
       "caNoteZh": "加州：既往医疗费赔偿以实际支付或实际负担额为限（Howell案）；医疗事故诉讼中，MICRA（民法典§3333.1）允许被告提出附带来源证据。"
     },
@@ -147,7 +147,7 @@
       ],
       "answer": 0,
       "explain": "Where a defective product injures only itself and causes economic loss, tort gives no recovery; the buyer is left to contract and UCC warranty remedies. Personal injury or damage to other property changes the result.",
-      "explainZh": "口诀：产品只伤了自己＝合同法领域；伤了人或其他财产＝侵权法领域。选项1、3的拆分都错——两项都是纯经济损失。加州另有欺诈例外（Robinson Helicopter）与特殊关系例外（J'Aire），论述题可加一句。"
+      "explainZh": "口诀：产品只伤了自己＝合同法领域；伤了人或其他财产＝侵权法领域。「只有变速箱可依侵权索赔」与「只有利润损失可依侵权索赔」两种拆分都错——两项都是纯经济损失。加州另有欺诈例外（Robinson Helicopter）与特殊关系例外（J'Aire），论述题可加一句。"
     },
     {
       "id": "rem012",
@@ -219,7 +219,7 @@
       ],
       "answer": 3,
       "explain": "A good-faith mistaken improver gets equitable relief — compensation for value added (often via equitable lien) or removal — especially where the owner stood by silently. The rigid common-law annexation rule is the outdated view.",
-      "explainZh": "误改良人规则：善意＋业主知情沉默→衡平救济（增值补偿/衡平留置/拆走取回）。选项0是已被软化的旧普通法；选项2错在无合同即无预期利益；选项1颠倒了占有关系。业主知情沉默还可能构成禁反言。"
+      "explainZh": "误改良人规则：善意＋业主知情沉默→衡平救济（增值补偿/衡平留置/拆走取回）。「附着于土地的改良一律归业主」一项是已被软化的旧普通法；「按房屋价值获预期利益赔偿」一项错在无合同即无预期利益；「对业主提起收回不动产之诉」一项颠倒了占有关系。业主知情沉默还可能构成禁反言。"
     },
     {
       "id": "rem018",
@@ -247,7 +247,7 @@
       ],
       "answer": 2,
       "explain": "An innocent recipient who irreversibly changed position in reliance on the mistaken payment has a defense to that extent. She gave no value, so she is no BFP; and the payor's own negligence does not bar restitution for mistake.",
-      "explainZh": "地位改变抗辩三要素：善意＋信赖＋不可逆的支出（本来不会花的钱）。选项1错：她未支付对价，不是善意有偿取得人；选项0错：给付人自身过失不阻却错误给付的返还；选项3错：因错误而为的给付并非'自愿'。"
+      "explainZh": "地位改变抗辩三要素：善意＋信赖＋不可逆的支出（本来不会花的钱）。「她是资金的善意买受人」一项错：她未支付对价，不是善意有偿取得人；「银行有过失故不得追回」一项错：给付人自身过失不阻却错误给付的返还；「自愿给付原则阻却请求」一项错：因错误而为的给付并非'自愿'。"
     },
     {
       "id": "rem020",
@@ -299,7 +299,7 @@
       ],
       "answer": 1,
       "explain": "Rescission disaffirms the contract; expectation damages affirm it. Pursuing the affirmance remedy to judgment is a binding election that bars later rescission.",
-      "explainZh": "选择规则：请求违约赔偿＝承认合同，撤销＝否认合同，二者互斥；诉至判决即构成拘束性选择（选项2的返还救不回来）。反向通常可行：先撤销，再附带请求回复原状性质的赔偿。",
+      "explainZh": "选择规则：请求违约赔偿＝承认合同，撤销＝否认合同，二者互斥；诉至判决即构成拘束性选择（「返还企业即可撤销」一项的返还救不回来）。反向通常可行：先撤销，再附带请求回复原状性质的赔偿。",
       "caNote": "CA Civ. Code §1692 relaxes strict election: a rescission action may include a damages claim, but double recovery is not allowed.",
       "caNoteZh": "加州民法典§1692放宽了严格选择规则：撤销之诉可以并附损害赔偿请求，但不得重复受偿。"
     },
@@ -362,7 +362,7 @@
       ],
       "answer": 0,
       "explain": "The stock is the traceable product of the stolen funds and has appreciated, so a constructive trust captures the entire gain and beats unsecured creditors. An equitable lien caps recovery at $100,000; a money judgment is worthless against an insolvent defendant.",
-      "explainZh": "增值选推定信托（全拿15万），贬值选衡平留置＋不足额判决——一涨一跌两条路必须会切换：若股票跌到6万，衡平留置拍卖得6万＋4万差额判决。选项2对无力清偿者毫无意义，这正是'法律救济不充分'的典型论证。"
+      "explainZh": "增值选推定信托（全拿15万），贬值选衡平留置＋不足额判决——一涨一跌两条路必须会切换：若股票跌到6万，衡平留置拍卖得6万＋4万差额判决。「10万金钱判决」一项对无力清偿者毫无意义，这正是'法律救济不充分'的典型论证。"
     },
     {
       "id": "rem029",
@@ -402,7 +402,7 @@
       ],
       "answer": 2,
       "explain": "Under the lowest intermediate balance rule the claim is capped at $3,000 — the lowest balance after commingling; the later $9,000 salary deposit does not replenish the trust portion absent intent to restore.",
-      "explainZh": "三步：混同后最低余额＝3000→封顶；后存的9000是他自己的钱，不回补（选项1错）；差额7000只能作为无担保普通债权求偿（所以不是选项0的10000）。若能证明存款时有'回补信托'意图，才可突破。"
+      "explainZh": "三步：混同后最低余额＝3000→封顶；后存的9000是他自己的钱，不回补（「$12,000」一项错）；差额7000只能作为无担保普通债权求偿（所以不是「$10,000」一项）。若能证明存款时有'回补信托'意图，才可突破。"
     },
     {
       "id": "rem032",
@@ -524,7 +524,7 @@
       ],
       "answer": 3,
       "explain": "For an innocent encroachment courts balance hardships; a gross disparity ($60,000 versus $400) means damages, not removal. A willful encroacher gets no balancing and would be ordered to remove.",
-      "explainZh": "对比锁：善意越界→权衡→通常赔钱了事；恶意越界→不权衡→必拆（选项0只对恶意者成立）。选项1错在原告仍有损害赔偿可拿。妨害（nuisance）案用同样的'危害与效用'衡量思路，还要把公共利益放进天平。"
+      "explainZh": "对比锁：善意越界→权衡→通常赔钱了事；恶意越界→不权衡→必拆（「持续侵入一律有权要求拆除」一项只对恶意者成立）。「侵占微小故驳回一切救济」一项错在原告仍有损害赔偿可拿。妨害（nuisance）案用同样的'危害与效用'衡量思路，还要把公共利益放进天平。"
     },
     {
       "id": "rem042",
@@ -552,7 +552,7 @@
       ],
       "answer": 1,
       "explain": "California voids employment non-competes regardless of reasonableness — no blue-penciling; the exceptions cover sale of a business and partnership dissolution. Trade-secret misappropriation could still be enjoined, but none occurred.",
-      "explainZh": "多数州用'合理性'标准（时间/地域/范围可蓝笔删改），加州直接判无效——§16600是加州论述题的招牌旗帜（选项0是多数州规则，别上当）。仅出售企业商誉（§16601）、合伙解散（§16602）等法定例外可设限；若带走商业秘密，可另按UTSA申请禁令。",
+      "explainZh": "多数州用'合理性'标准（时间/地域/范围可蓝笔删改），加州直接判无效——§16600是加州论述题的招牌旗帜（「时间、范围、地域合理即可执行」一项是多数州规则，别上当）。仅出售企业商誉（§16601）、合伙解散（§16602）等法定例外可设限；若带走商业秘密，可另按UTSA申请禁令。",
       "caNote": "B&P §16600 voids employee non-competes; §16600.5 (2024) reaches contracts signed out of state, and employers face liability for trying to enforce them. Sale-of-business (§16601) and partnership (§16602) exceptions survive.",
       "caNoteZh": "商业与职业法§16600：雇员竞业禁止条款无效；§16600.5（2024年）延伸适用于外州签订的合同，试图执行者还可能承担责任。出售企业（§16601）与合伙解散（§16602）例外仍然有效。"
     },
@@ -571,7 +571,7 @@
       ],
       "answer": 0,
       "explain": "A conditional, prospective per-diem fine the defendant can end by complying is coercive civil contempt; who receives the money does not control. Criminal contempt is a fixed, unconditional punishment for past disobedience, carrying criminal safeguards — jury trial for serious sanctions.",
-      "explainZh": "区分口诀：能靠服从止损＝民事强制（'钥匙在自己口袋里'）；定额、无条件、罚过去＝刑事惩罚，须刑事程序保障（重罚须陪审团，选项3因此错）。补偿性民事藐视（选项2）按原告实际损失赔付给原告，本题款项与损失无关。"
+      "explainZh": "区分口诀：能靠服从止损＝民事强制（'钥匙在自己口袋里'）；定额、无条件、罚过去＝刑事惩罚，须刑事程序保障（重罚须陪审团，「刑事藐视且须陪审团审理」一项因此错）。补偿性民事藐视按原告实际损失赔付给原告，本题款项与损失无关。"
     },
     {
       "id": "rem045",
@@ -674,7 +674,7 @@
       ],
       "answer": 2,
       "explain": "A bona fide purchaser for value without notice takes free of the earlier buyer's equitable rights, cutting off specific performance and constructive trust alike; Alice is left with contract damages against Seller.",
-      "explainZh": "BFP再次封顶一切衡平救济（对照推定信托卡rem033）。若Carl知情、或未付对价（受赠人），Alice基于衡平法转换取得的在先衡平权益就能追及土地（选项0、1复活）。若Alice已记录其合同，记录法也可能改变结果。"
+      "explainZh": "BFP再次封顶一切衡平救济（对照推定信托卡rem033）。若Carl知情、或未付对价（受赠人），Alice基于衡平法转换取得的在先衡平权益就能追及土地（「对Carl的强制履行」与「对Greenacre的推定信托」两项复活）。若Alice已记录其合同，记录法也可能改变结果。"
     },
     {
       "id": "rem053",
@@ -739,7 +739,7 @@
       ],
       "answer": 1,
       "explain": "Declaratory judgment requires an actual, ripe controversy between adverse parties — not a hypothetical question — and yields a binding declaration of rights with no coercive order. Uncertainty affecting present conduct qualifies.",
-      "explainZh": "确认判决两要件：真实且成熟的争议（不能是咨询意见）＋只宣告权利、不含强制命令。'现在就必须做商业决策'使争议成熟（选项0错）。选项3颠倒了确认救济的非强制本质；选项2无文本错误可更正。"
+      "explainZh": "确认判决两要件：真实且成熟的争议（不能是咨询意见）＋只宣告权利、不含强制命令。'现在就必须做商业决策'使争议成熟（「损失发生前法院不得裁判」一项错）。「命保险人赔付未来索赔的禁令」一项颠倒了确认救济的非强制本质；「按保单更正处理」一项无文本错误可更正。"
     }
   ]
 }

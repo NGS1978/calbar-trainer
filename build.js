@@ -8,21 +8,28 @@ const ORDER = ["civpro", "conlaw", "contracts", "crimlaw", "evidence", "realprop
                "busassoc", "commprop", "profresp", "remedies", "trusts", "wills", "glossary"];
 
 const decks = [];
+let skipped = 0;
 for (const slug of ORDER) {
   const p = path.join(__dirname, "data", slug + ".json");
-  if (!fs.existsSync(p)) { console.warn(`⚠ missing deck: ${slug}.json — skipped`); continue; }
+  if (!fs.existsSync(p)) { console.warn(`⚠ missing deck: ${slug}.json — skipped`); skipped++; continue; }
   try {
     decks.push(JSON.parse(fs.readFileSync(p, "utf8")));
   } catch (e) {
     console.warn(`⚠ unparseable deck: ${slug}.json — skipped (${e.message.slice(0, 60)})`);
+    skipped++;
   }
+}
+if (skipped && !process.argv.includes("--loose")) {
+  console.error(`✗ ${skipped} deck(s) missing/unparseable — refusing to build a partial app (use --loose during authoring)`);
+  process.exit(1);
 }
 const nCards = decks.reduce((n, d) => n + d.cards.length, 0);
 
 let html = R("src/template.html");
 const put = (tag, content) => { html = html.replace(tag, () => content); };
 put("/*__STYLE__*/", R("src/style.css"));
-put("/*__DATA__*/", "window.DECKS=" + JSON.stringify(decks) + ";");
+/* <-escape so card text can never smuggle a </script> into the built page */
+put("/*__DATA__*/", "window.DECKS=" + JSON.stringify(decks).replace(/</g, "\\u003c") + ";");
 put("/*__CORE__*/", R("src/app-core.js"));
 put("/*__UI__*/", R("src/app-ui.js"));
 /* placeholder nav labels (replaced at runtime by language) */

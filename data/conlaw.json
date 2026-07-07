@@ -56,7 +56,7 @@
       ],
       "answer": 3,
       "explain": "Hunt requires only the first three showings; no membership vote is needed. An organization also cannot manufacture standing merely by diverting resources to oppose a policy (FDA v. Alliance for Hippocratic Medicine, 2024).",
-      "explainZh": "Hunt三要件：①至少一名会员自己有起诉资格；②所主张利益与组织宗旨相关；③诉求与救济无需会员个人参加。D是干扰项——无需会员表决。另注意：组织不能靠'自己花钱应对政策'制造损害（FDA v. Alliance for Hippocratic Medicine，2024）。"
+      "explainZh": "Hunt三要件：①至少一名会员自己有起诉资格；②所主张利益与组织宗旨相关；③诉求与救济无需会员个人参加。「多数会员表决授权」是干扰项——无需会员表决。另注意：组织不能靠'自己花钱应对政策'制造损害（FDA v. Alliance for Hippocratic Medicine，2024）。"
     },
     {
       "id": "con005",
@@ -95,7 +95,7 @@
       ],
       "answer": 1,
       "explain": "Voluntary cessation does not moot a case; the defendant bears a heavy burden of showing recurrence is not reasonably possible (Friends of the Earth v. Laidlaw; FBI v. Fikre, 2024). Otherwise defendants could stop, obtain dismissal, and resume.",
-      "explainZh": "自愿停止规则防止被告'停—撤诉—再犯'的规避策略，举证责任在被告且极重。A、C忽视再犯风险；D说反了——争议确实可能在诉讼中消灭（法律废止、当事人死亡、和解均可致失效）。"
+      "explainZh": "自愿停止规则防止被告'停—撤诉—再犯'的规避策略，举证责任在被告且极重。「停止即无现存损害」与「表态照单全收」两项忽视再犯风险；「立案后永不消灭」一项说反了——争议确实可能在诉讼中消灭（法律废止、当事人死亡、和解均可致失效）。"
     },
     {
       "id": "con008",
@@ -144,8 +144,8 @@
         "No — but only because the counselor spoke on a private matter"
       ],
       "answer": 0,
-      "explain": "Rendell-Baker v. Kohn is on point: the state neither compelled nor encouraged the discharge, and education is not an exclusively public function. Option D confuses the merits of a speech claim with the threshold state-action requirement.",
-      "explainZh": "资助＋监管≠国家行为，除非政府强制或鼓励了'该具体决定'。B高估资金作用；C错在教育并非政府排他职能；D把言论实体问题与国家行为门槛混为一谈——门槛不过，根本到不了实体审查。"
+      "explain": "Rendell-Baker v. Kohn is on point: the state neither compelled nor encouraged the discharge, and education is not an exclusively public function. The 'private matter' choice confuses the merits of a speech claim with the threshold state-action requirement.",
+      "explainZh": "资助＋监管≠国家行为，除非政府强制或鼓励了'该具体决定'。「近乎全额公共拨款」一项高估资金作用；「教育是传统公共职能」一项错在教育并非政府排他职能；「言论涉私人事务」一项把言论实体问题与国家行为门槛混为一谈——门槛不过，根本到不了实体审查。"
     },
     {
       "id": "con012",
@@ -184,8 +184,8 @@
         "Conviction reversed — criminal law enforcement is exclusively reserved to the states by the Tenth Amendment"
       ],
       "answer": 2,
-      "explain": "United States v. Lopez. The costs-of-crime and national-productivity theories would erase all limits on the commerce power. Option D overstates: the defect is that the statute exceeds the enumerated power, not an affirmative Tenth Amendment bar — a jurisdictional hook would cure it.",
-      "explainZh": "Lopez原题。A是被否决的'万物皆商业'推理；B需要法条写明'曾跨州流通的枪支'这一管辖要件（国会后来正是这样修的法）；D说反了——问题在列举权力不够，不在第10修正案的独立禁止。"
+      "explain": "United States v. Lopez. The costs-of-crime and national-productivity theories would erase all limits on the commerce power. The 'exclusively reserved to the states' choice overstates: the defect is that the statute exceeds the enumerated power, not an affirmative Tenth Amendment bar — a jurisdictional hook would cure it.",
+      "explainZh": "Lopez原题。「学校影响国民经济」一项是被否决的'万物皆商业'推理；「枪支曾跨州流通」一项需要法条写明'曾跨州流通的枪支'这一管辖要件（国会后来正是这样修的法）；「刑事执法专属各州」一项说反了——问题在列举权力不够，不在第10修正案的独立禁止。"
     },
     {
       "id": "con015",
@@ -225,7 +225,7 @@
       ],
       "answer": 0,
       "explain": "McCulloch v. Maryland: 'necessary' means convenient or useful, not indispensable. On the MBE, an answer resting on the clause standing alone is wrong — it must be paired with another enumerated power.",
-      "explainZh": "记McCulloch名言：目的合法＋手段适当即可，'必要'≠不可或缺（排除B）。选择题铁律：单独以'必要与适当条款'为依据的选项基本是错误答案，它必须挂靠列举权力（征税、商业、战争等），故C、D皆错。"
+      "explainZh": "记McCulloch名言：目的合法＋手段适当即可，'必要'≠不可或缺（排除「仅限绝对不可或缺手段」一项）。选择题铁律：单独以'必要与适当条款'为依据的选项基本是错误答案，它必须挂靠列举权力（征税、商业、战争等），故「独立解决全国性问题」与「仅适用于商业权力」两项皆错。"
     },
     {
       "id": "con018",
@@ -274,8 +274,8 @@
         "State law is preempted only if Congress occupied the entire field"
       ],
       "answer": 1,
-      "explain": "An express preemption clause governs according to its terms (Riegel). Options C and D describe implied preemption — conflict (impossibility/obstacle) and field — which matter only absent express language; the presumption against preemption cannot defeat clear text.",
-      "explainZh": "先找明示优先条款，有则依文义办事；没有再谈默示优先：领域占领（如移民登记，Arizona v. US）、直接冲突（两法无法同时遵守）、妨碍联邦目的实现。A的'不优先推定'只是解释工具，敌不过明文。"
+      "explain": "An express preemption clause governs according to its terms (Riegel). The 'physically impossible' and 'occupied the entire field' choices describe implied preemption — conflict (impossibility/obstacle) and field — which matter only absent express language; the presumption against preemption cannot defeat clear text.",
+      "explainZh": "先找明示优先条款，有则依文义办事；没有再谈默示优先：领域占领（如移民登记，Arizona v. US）、直接冲突（两法无法同时遵守）、妨碍联邦目的实现。「核心警察权受不优先推定保护」一项的'不优先推定'只是解释工具，敌不过明文。"
     },
     {
       "id": "con022",
@@ -325,8 +325,8 @@
         "Fourteenth Amendment Privileges or Immunities — the right to pursue a trade"
       ],
       "answer": 2,
-      "explain": "Toomer v. Witsell: earning a livelihood is a protected privilege, so the state must show a substantial reason for the discrimination and a close fit. Option A confuses out-of-state citizens with aliens; the Fourteenth Amendment clause (D) is nearly dead outside Saenz travel rights.",
-      "explainZh": "第四条特权与豁免条款专打'歧视外州公民＋基本权利或生计'的组合，且无市场参与者例外（Camden）。A混淆'外州人'与'外国人'；D的第十四修正案特权或豁免条款自屠宰场案后近乎死亡（仅Saenz迁徙权一度复活）。注意：公司和外国人不能援用第四条P&I，可改用休眠商业条款。"
+      "explain": "Toomer v. Witsell: earning a livelihood is a protected privilege, so the state must show a substantial reason for the discrimination and a close fit. The equal-protection/alienage choice confuses out-of-state citizens with aliens; the Fourteenth Amendment Privileges or Immunities choice is nearly dead outside Saenz travel rights.",
+      "explainZh": "第四条特权与豁免条款专打'歧视外州公民＋基本权利或生计'的组合，且无市场参与者例外（Camden）。「外国人歧视→严格审查」一项混淆'外州人'与'外国人'；「第十四修正案特权或豁免」一项所依条款自屠宰场案后近乎死亡（仅Saenz迁徙权一度复活）。注意：公司和外国人不能援用第四条P&I，可改用休眠商业条款。"
     },
     {
       "id": "con026",
@@ -387,7 +387,7 @@
       ],
       "answer": 3,
       "explain": "Whitman v. American Trucking upheld this exact language; only two 1935 statutes have ever failed the intelligible-principle test. The major questions doctrine is an interpretive canon about extraordinary agency claims of power (West Virginia v. EPA), not a delegation bar; Chevron was overruled by Loper Bright and was never the constitutional test.",
-      "explainZh": "'可理解原则'极宽松——1935年以来没有联邦法因违宪授权倒下（2025年FCC v. Consumers' Research再次确认）。B混入'重大问题原则'：那是解释机构授权范围的法门，不是违宪授权标准；C的Chevron尊让已被Loper Bright推翻，且从来不是宪法问题。"
+      "explainZh": "'可理解原则'极宽松——1935年以来没有联邦法因违宪授权倒下（2025年FCC v. Consumers' Research再次确认）。「重大问题须国会特别授权」一项混入'重大问题原则'：那是解释机构授权范围的法门，不是违宪授权标准；「须Chevron尊让」一项的Chevron尊让已被Loper Bright推翻，且从来不是宪法问题。"
     },
     {
       "id": "con031",
@@ -414,8 +414,8 @@
         "The privilege protects only military and diplomatic secrets, which courts may never review"
       ],
       "answer": 0,
-      "explain": "Executive privilege is constitutionally rooted in Article II but presumptive, not absolute: a generalized confidentiality interest yields to specific evidentiary needs in a criminal trial. Military and diplomatic secrets get the strongest protection, but option D's 'only' and 'never' overstate it.",
-      "explainZh": "行政特权源于三权分立，属'推定特权'：泛泛的保密利益让位于刑事审判的具体证据需求。延伸：州刑事大陪审团传票同样可及总统、无需更高门槛（Vance）；国会传票适用Mazars平衡因素。B、C各走极端。"
+      "explain": "Executive privilege is constitutionally rooted in Article II but presumptive, not absolute: a generalized confidentiality interest yields to specific evidentiary needs in a criminal trial. Military and diplomatic secrets get the strongest protection, but the 'protects only military and diplomatic secrets, which courts may never review' choice overstates it.",
+      "explainZh": "行政特权源于三权分立，属'推定特权'：泛泛的保密利益让位于刑事审判的具体证据需求。延伸：州刑事大陪审团传票同样可及总统、无需更高门槛（Vance）；国会传票适用Mazars平衡因素。「绝对特权」与「宪法未提及即无特权」两项各走极端。"
     },
     {
       "id": "con033",
@@ -465,8 +465,8 @@
         "Violated — a full evidentiary trial was required before any discharge"
       ],
       "answer": 1,
-      "explain": "With a property interest in continued employment, due process requires pre-discharge notice, an explanation of the evidence, and a chance to respond — a mini-hearing, not a trial (rejecting option D) — plus fuller post-termination process. Compare Goldberg (welfare: full pre-termination evidentiary hearing) and Mathews (disability: post-termination suffices).",
-      "explainZh": "记三档：福利救济金＝终止前证据听证（Goldberg，生存利益）；伤残津贴＝终止后听证即可（Mathews，有其他收入＋医学证据客观）；有编制公职＝终止前'通知＋申辩'简式程序＋终止后完整程序（Loudermill）。C错在编制恰恰创设财产权益；D把简式听证夸大成审判。"
+      "explain": "With a property interest in continued employment, due process requires pre-discharge notice, an explanation of the evidence, and a chance to respond — a mini-hearing, not a trial (rejecting the 'full evidentiary trial' choice) — plus fuller post-termination process. Compare Goldberg (welfare: full pre-termination evidentiary hearing) and Mathews (disability: post-termination suffices).",
+      "explainZh": "记三档：福利救济金＝终止前证据听证（Goldberg，生存利益）；伤残津贴＝终止后听证即可（Mathews，有其他收入＋医学证据客观）；有编制公职＝终止前'通知＋申辩'简式程序＋终止后完整程序（Loudermill）。「编制不创设财产权益」一项错在编制恰恰创设财产权益；「须完整证据审判」一项把简式听证夸大成审判。"
     },
     {
       "id": "con037",
@@ -527,7 +527,7 @@
       ],
       "answer": 2,
       "explain": "Moore v. City of East Cleveland protects extended-family living arrangements as fundamental. Abortion gets rational basis after Dobbs; Sosna upheld divorce residency requirements; Belle Terre upheld limits on unrelated households.",
-      "explainZh": "家庭同居权保护'血亲大家庭'（Moore），不保护无血缘合租（Belle Terre）——血缘一字之差定生死。A是Dobbs后的合理性审查；B是Sosna维持的合理等待期（保护离婚判决的既判力）。"
+      "explainZh": "家庭同居权保护'血亲大家庭'（Moore），不保护无血缘合租（Belle Terre）——血缘一字之差定生死。「六周堕胎禁令」一项是Dobbs后的合理性审查；「离婚前须居住满一年」一项是Sosna维持的合理等待期（保护离婚判决的既判力）。"
     },
     {
       "id": "con042",
@@ -599,7 +599,7 @@
       ],
       "answer": 3,
       "explain": "SFFA held race-conscious admissions fail strict scrutiny: the diversity interests were unmeasurable, race was used as a negative and a stereotype, and the programs lacked an endpoint — effectively abandoning Grutter. Universities may still weigh an applicant's own experience of race as evidence of individual qualities.",
-      "explainZh": "SFFA终结大学招生的种族优待：A是Gratz早已禁止的机械加分；B是Bakke禁止的配额；C是被SFFA实质推翻的Grutter'临界规模'路径。仅存'个体经历'窗口——种族只能作为个人品格的证据，不能因身份本身加分；军校问题被明确留待日后。",
+      "explainZh": "SFFA终结大学招生的种族优待：「统一加分」一项是Gratz早已禁止的机械加分；「种族配额」一项正是Bakke禁止的配额；「情境性加分追求临界规模」一项是被SFFA实质推翻的Grutter路径。仅存'个体经历'窗口——种族只能作为个人品格的证据，不能因身份本身加分；军校问题被明确留待日后。",
       "caNote": "California banned racial preferences in public education, employment, and contracting back in 1996 (Prop 209, Cal. Const. art. I, §31) — stricter than federal law even before SFFA.",
       "caNoteZh": "加州早在1996年即通过209号提案（加州宪法第一条第31款），禁止公立教育、就业与政府合同中的种族优待——在SFFA之前就比联邦法更严格。"
     },
@@ -661,8 +661,8 @@
         "Valid — states have plenary power to structure their own lawmaking processes"
       ],
       "answer": 0,
-      "explain": "Romer v. Evans struck Colorado's Amendment 2 under rational basis: its sheer breadth, divorced from any legitimate purpose, bespoke animus. The Court has never declared sexual orientation a suspect class; options B and D ignore that even rational basis requires a legitimate — not animus-driven — purpose.",
-      "explainZh": "'有牙齿的合理性审查'三部曲：Moreno（嬉皮士食品券）、Cleburne（智障者之家）、Romer——共同点是立法动机为赤裸敌意。B说对等级、说错结论：恶意目的连合理性审查也过不了；C无此判例——Obergefell走的是婚姻基本权＋平等保护交织路径，并未宣布性取向为可疑分类。"
+      "explain": "Romer v. Evans struck Colorado's Amendment 2 under rational basis: its sheer breadth, divorced from any legitimate purpose, bespoke animus. The Court has never declared sexual orientation a suspect class; the 'any conceivable purpose suffices' and 'plenary power' choices ignore that even rational basis requires a legitimate — not animus-driven — purpose.",
+      "explainZh": "'有牙齿的合理性审查'三部曲：Moreno（嬉皮士食品券）、Cleburne（智障者之家）、Romer——共同点是立法动机为赤裸敌意。「任何想得出的目的皆可」一项说对等级、说错结论：恶意目的连合理性审查也过不了；「性取向属可疑分类」一项无此判例——Obergefell走的是婚姻基本权＋平等保护交织路径，并未宣布性取向为可疑分类。"
     },
     {
       "id": "con053",
@@ -711,7 +711,7 @@
         "That the fee stays under a fixed percentage of the project's value"
       ],
       "answer": 1,
-      "explain": "Sheetz v. County of El Dorado (2024) held the Takings Clause draws no distinction between legislative and administrative permit conditions; Koontz had already extended Nollan/Dolan to monetary exactions and permit denials. Option C contradicts Koontz; option A was Sheetz's rejected premise.",
+      "explain": "Sheetz v. County of El Dorado (2024) held the Takings Clause draws no distinction between legislative and administrative permit conditions; Koontz had already extended Nollan/Dolan to monetary exactions and permit denials. The 'money is not property' choice contradicts Koontz; the 'legislatively imposed fees are exempt' choice was Sheetz's rejected premise.",
       "explainZh": "土地开发'要挟式许可条件'规则：政府以要地/要钱换许可，必须证明'实质关联'（条件与开发造成的公共问题同类，Nollan）＋'大致相称'（程度上个案匹配，Dolan）。Sheetz（2024）补上最后缺口：立法定的收费表也逃不掉这套审查。"
     },
     {
@@ -797,7 +797,7 @@
       ],
       "answer": 2,
       "explain": "Counterman v. Colorado (2023): a true-threats prosecution requires an objectively threatening statement plus a subjective mens rea of at least recklessness; purpose or knowledge is not required, but objective negligence alone is insufficient.",
-      "explainZh": "真实威胁2023年新规：客观威胁性＋主观至少'轻率'（明知重大风险仍放任）。A、B把门槛抬得过高（那是目的/明知标准）；D的客观过失正是Counterman否定的标准。跟踪骚扰、网络威胁案照此办理。"
+      "explainZh": "真实威胁2023年新规：客观威胁性＋主观至少'轻率'（明知重大风险仍放任）。「特定意图」与「确知会被视作威胁」两项把门槛抬得过高（那是目的/明知标准）；「客观过失」一项正是Counterman否定的标准。跟踪骚扰、网络威胁案照此办理。"
     },
     {
       "id": "con064",
@@ -864,7 +864,7 @@
         "The designer wins — the state cannot compel her to create expressive products carrying messages she rejects"
       ],
       "answer": 3,
-      "explain": "303 Creative is a compelled-speech case: expressive, customized creations cannot be conscripted (Barnette flag salute; Wooley license motto; Hurley parade). The ruling rests on speech, not religion (option C); accommodations laws remain fully valid for non-expressive goods and services (qualifying option A).",
+      "explain": "303 Creative is a compelled-speech case: expressive, customized creations cannot be conscripted (Barnette flag salute; Wooley license motto; Hurley parade). The ruling rests on speech, not religion (contra the 'sincere religious objection' choice); accommodations laws remain fully valid for non-expressive goods and services (qualifying the 'never implicate speech' choice).",
       "explainZh": "强迫言论线：政府既不得禁言，也不得逼人说话——效忠宣誓（Barnette）、车牌格言（Wooley）、游行队伍（Hurley）、定制婚礼网站（303 Creative）。关键限定：普通商品服务照卖不误、反歧视法依然全面有效，只有'定制的表达性产品'才触发本规则。"
     },
     {
@@ -942,8 +942,8 @@
         "No — but only if the funds never reach religious instruction"
       ],
       "answer": 2,
-      "explain": "The trilogy holds a state need not subsidize private education, but once it does, it cannot disqualify schools for being religious or for using funds religiously (Carson erased the status/use line). Option A is wrong — neutral aid driven by private choice does not violate the Establishment Clause (Zelman).",
-      "explainZh": "反向政教分离考点：排除宗教＝歧视宗教。A错——经家长自由选择流向宗教学校的中立资助不违反政教分离（Zelman）；B的'州更严分离'空间已被三部曲压缩殆尽（Locke v. Davey牧师培养奖学金是仅存孤例）；D恰是Carson抹掉的'身份/用途'区分。"
+      "explain": "The trilogy holds a state need not subsidize private education, but once it does, it cannot disqualify schools for being religious or for using funds religiously (Carson erased the status/use line). The 'Establishment Clause forbids channeling public funds' choice is wrong — neutral aid driven by private choice does not violate the Establishment Clause (Zelman).",
+      "explainZh": "反向政教分离考点：排除宗教＝歧视宗教。「政教分离条款禁止公款流向教会学校」一项错——经家长自由选择流向宗教学校的中立资助不违反政教分离（Zelman）；「州可更严分离」一项的空间已被三部曲压缩殆尽（Locke v. Davey牧师培养奖学金是仅存孤例）；「只要资金不触宗教教学」一项恰是Carson抹掉的'身份/用途'区分。"
     },
     {
       "id": "con075",
@@ -982,7 +982,7 @@
       ],
       "answer": 3,
       "explain": "School-sponsored prayer coerces attendance-bound minors — Lee and Santa Fe (student-led football-game prayer) remain good law under the coercion focus. Legislative prayer and longstanding monuments fit historical tradition; Kennedy's coach spoke privately without requiring student participation.",
-      "explainZh": "公立中小学是政教分离最严地带：毕业典礼祈祷（Lee）、球赛广播祈祷（Santa Fe）、课堂张贴十诫（Stone）都违宪——未成年人＋出席压力＝强迫。A、B、C都被'历史与传统'框架明确放行。"
+      "explainZh": "公立中小学是政教分离最严地带：毕业典礼祈祷（Lee）、球赛广播祈祷（Santa Fe）、课堂张贴十诫（Stone）都违宪——未成年人＋出席压力＝强迫。其余三项（议会牧师祷告、战争纪念十字架、教练赛后默祷）都被'历史与传统'框架明确放行。"
     },
     {
       "id": "con078",
@@ -1010,8 +1010,8 @@
         "Invalid — only persons convicted of felonies may ever be disarmed"
       ],
       "answer": 1,
-      "explain": "Rahimi clarified Bruen: courts ask whether the challenged law is consistent with the principles underlying the historical tradition — not whether a 'dead ringer' or 'historical twin' exists. Option C contradicts Bruen's rejection of means-end scrutiny; option D states a rule the Court has never adopted.",
-      "explainZh": "Rahimi给Bruen降温：历史类比看'原理相当'（对经司法认定的危险者临时缴械），不必找一模一样的建国时期法律——A的'历史孪生'标准被明确拒绝。C用了Bruen明确抛弃的合理性审查；D把'重罪犯缴械'说成唯一许可情形，无此规则。"
+      "explain": "Rahimi clarified Bruen: courts ask whether the challenged law is consistent with the principles underlying the historical tradition — not whether a 'dead ringer' or 'historical twin' exists. The 'rational basis' choice contradicts Bruen's rejection of means-end scrutiny; the 'only convicted felons may ever be disarmed' choice states a rule the Court has never adopted.",
+      "explainZh": "Rahimi给Bruen降温：历史类比看'原理相当'（对经司法认定的危险者临时缴械），不必找一模一样的建国时期法律——「无历史孪生即无效」一项的'历史孪生'标准被明确拒绝。「只需合理性审查」一项用了Bruen明确抛弃的合理性审查；「仅重罪犯可被缴械」一项把'重罪犯缴械'说成唯一许可情形，无此规则。"
     },
     {
       "id": "con080",

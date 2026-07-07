@@ -1,1136 +1,1136 @@
 {
-  "subject": "contracts",
-  "nameEn": "Contracts & UCC",
-  "nameZh": "合同法",
-  "emoji": "🤝",
-  "mcqTested": true,
-  "cards": [
-    {
-      "id": "k001",
-      "type": "basic",
-      "topic": "Governing Law & Offer",
-      "topicZh": "适用法与要约",
-      "q": "Which body of law governs a sale of goods, and how are mixed goods-services contracts classified?",
-      "qZh": "货物买卖适用何种法律？货物与服务混合的合同如何定性？",
-      "a": "UCC Article 2 governs contracts for the sale of goods (movable things); common law governs services, real estate, and construction. Mixed contracts: predominant purpose test — one body of law governs the entire contract. But if the contract divides payment between goods and services, each portion is judged under its own law.",
-      "aZh": "《统一商法典》第二编适用于货物（可移动物）买卖；服务、不动产与建筑合同适用普通法。混合合同采\"主要目的\"标准——整份合同只适用一种法律；但若合同将货款与服务费分别计价，则各部分分别适用各自的法律。",
-      "explainZh": "先定性、再答题：适用法选错，后面的规则全错。经典组合：购买热水器含安装——主要目的是货物，整体适用UCC。中国《民法典》合同编不作此二分，这是答美国题时思维上要切换的第一步。"
-    },
-    {
-      "id": "k002",
-      "type": "basic",
-      "topic": "Governing Law & Offer",
-      "topicZh": "适用法与要约",
-      "q": "What must a communication contain to be an offer, and are advertisements offers?",
-      "qZh": "一项意思表示须具备什么才构成要约？广告是要约吗？",
-      "a": "(1) Objective manifestation of present intent to be bound — outward words and acts, not secret intent (Lucy v. Zehmer); (2) certain and definite essential terms — CL: parties, subject, price, quantity; UCC: quantity alone suffices. Ads are generally invitations to deal, not offers, unless specific, complete, and limiting who may accept ('first come, first served').",
-      "aZh": "(1) 客观上表明当下受拘束的意图——以外在言行判断，不问内心真意（Lucy v. Zehmer）；(2) 核心条款确定（普通法：当事人、标的、价格、数量；UCC：有数量即可，其余可补缺）。广告原则上是要约邀请，除非内容具体完整并限定承诺人范围（如\"先到先得\"）。",
-      "explainZh": "客观标准是美国合同法的底色：开玩笑但外表严肃=有效要约。《民法典》第473条同样规定商业广告一般为要约邀请、内容具体确定的视为要约——中美在这点上罕见地一致，可直接迁移记忆。",
-      "caNote": "California applies the objective theory strongly: mutual assent is measured solely by outward, reasonable manifestations; undisclosed intent is irrelevant.",
-      "caNoteZh": "加州严格适用客观标准：合意仅以外在合理表示衡量，未披露的内心意图一概不问。"
-    },
-    {
-      "id": "k003",
-      "type": "basic",
-      "topic": "Governing Law & Offer",
-      "topicZh": "适用法与要约",
-      "q": "When may an offeror revoke an offer, and when does revocation take effect?",
-      "qZh": "要约人何时可以撤销要约？撤销何时生效？",
-      "a": "Revocable any time before acceptance, even if it promises to stay open — unless consideration, statute, reliance, or part performance makes it irrevocable. Revocation is effective upon receipt by the offeree. Indirect revocation: the offeree obtains reliable information that the offeror has taken definite action inconsistent with the offer (e.g., sold the item to someone else).",
-      "aZh": "承诺之前随时可撤销，即使承诺保持开放——除非有对价、法定确定要约、信赖或部分履行使其不可撤销。撤销于送达受要约人时生效。间接撤销：受要约人从可靠渠道得知要约人已作出与要约不一致的确定行为（如已把标的物卖给他人）。",
-      "explainZh": "美国法默认\"可撤销\"是因为无对价的允诺不拘束——这是对价原则的延伸。对比《民法典》第476条：确定了承诺期限或受要约人有理由信赖不可撤销的，要约不得撤销——中国法保护更宽，美国法须找到四个例外之一。"
-    },
-    {
-      "id": "k004",
-      "type": "mcq",
-      "topic": "Governing Law & Offer",
-      "topicZh": "适用法与要约",
-      "q": "A guitar dealer signs and mails a letter offering a vintage guitar to a collector for $5,000, stating the offer 'will be held open for six months.' The collector pays nothing. Two months later the dealer phones to revoke. Effective?",
-      "qZh": "吉他商签署并寄出一封信，以5,000美元向收藏者要约出售一把古董吉他，载明\"本要约保持开放六个月\"。收藏者未支付任何对价。两个月后商人来电撤销。撤销有效吗？",
-      "choices": [
-        "Yes — an offer unsupported by consideration is always revocable.",
-        "No — a merchant's signed written firm offer is irrevocable without consideration for the stated period up to three months, and only two have passed.",
-        "No — the offer is irrevocable for the full six months as stated.",
-        "Yes — firm offers require separate consideration from the offeree."
-      ],
-      "answer": 1,
-      "explain": "UCC §2-205: a merchant's signed writing giving assurance an offer will stay open is irrevocable without consideration, capped at three months. At two months, the revocation fails.",
-      "explainZh": "确定要约（§2-205）四要件：商人＋签名书面＋明示保证不撤销＋上限3个月（写6个月只保3个月，超出部分无效）。无需对价——这是对普通法\"无对价即可随时撤销\"的法定例外。选项(2)高估期限；(0)(3)无视§2-205。若收藏者付了对价，则成立选择权合同，6个月都锁定。"
-    },
-    {
-      "id": "k005",
-      "type": "cloze",
-      "topic": "Governing Law & Offer",
-      "topicZh": "适用法与要约",
-      "q": "An offer terminates by lapse of a stated or reasonable time, revocation, rejection or counteroffer, or {{c::death or incapacity of either party}} before acceptance — but a valid option contract survives this last event.",
-      "qZh": "要约因约定或合理期限届满、撤销、拒绝或反要约、或承诺前____而终止——但有效的选择权合同不受最后一种情形影响。",
-      "a": "death or incapacity of either party",
-      "aZh": "任何一方死亡或丧失行为能力",
-      "explainZh": "死亡自动终止要约，通说不要求受要约人知悉。但选择权（option）是独立合同，要约人死亡后受要约人仍可在期限内行权。对比《民法典》第478条的要约失效事由（拒绝、依法撤销、期限届满未承诺）——中国法未把死亡列为法定失效事由，这是差异点。"
-    },
-    {
-      "id": "k006",
-      "type": "cloze",
-      "topic": "Governing Law & Offer",
-      "topicZh": "适用法与要约",
-      "q": "An offer for a unilateral contract becomes irrevocable once the offeree {{c::begins actual performance}}; mere preparation is not enough, and the offeree must then be given a reasonable time to complete.",
-      "qZh": "单务合同的要约，一旦受要约人____即不可撤销；仅作准备并不足够，且此后须给予受要约人合理时间完成履行。",
-      "a": "begins actual performance",
-      "aZh": "开始实际履行",
-      "explainZh": "R2d §45：开始履行创设一项选择权——要约人不得撤销，但受要约人不受拘束、可中途放弃。必考区分：\"准备\"（买油漆、租设备）≠\"开始履行\"（动手刷墙）。记法：动到标的才算数。"
-    },
-    {
-      "id": "k007",
-      "type": "basic",
-      "topic": "Governing Law & Offer",
-      "topicZh": "适用法与要约",
-      "q": "When is an offer made irrevocable by (a) an option contract and (b) detrimental reliance?",
-      "qZh": "要约何时因(a)选择权合同、(b)信赖损害而不可撤销？",
-      "a": "(a) Option: a promise to keep the offer open supported by consideration — even a nominal sum recited and paid. (b) Reliance: where the offeror should reasonably expect substantial pre-acceptance reliance and it occurs, the offer is irrevocable as needed to avoid injustice — classic: a subcontractor's bid used in the general contractor's own bid.",
-      "aZh": "(a) 选择权：以对价支持的保持要约开放之允诺——即使是象征性小额对价（载明并支付）亦可。(b) 信赖：要约人应合理预见承诺前会发生实质性信赖且信赖确实发生的，在避免不公所必需的范围内要约不可撤销——经典案型：总承包商在自己投标中使用了分包商的报价。",
-      "explainZh": "四种不可撤销途径合并记：对价（option）、法定（§2-205确定要约）、开始履行（单务）、信赖（分包商报价案型）。答题时先问\"有无对价\"，没有再逐一排查其余三条。"
-    },
-    {
-      "id": "k008",
-      "type": "mcq",
-      "topic": "Governing Law & Offer",
-      "topicZh": "适用法与要约",
-      "q": "A store advertises: 'Saturday, one mink stole worth $700 — $1. First come, first served.' A man arrives first with $1; the store refuses to sell, citing an unposted 'women only' house rule. Contract?",
-      "qZh": "商店广告：\"周六，一条价值700美元的貂皮披肩——1美元，先到先得。\"一名男子最先到场并出示1美元；商店以未公示的\"仅限女性\"内部规则拒绝出售。合同成立吗？",
-      "choices": [
-        "No — advertisements are never offers.",
-        "No — a store may add terms at the point of sale.",
-        "Yes — the ad was specific, complete, and left nothing to negotiate, so it was an offer, accepted by the first person to comply.",
-        "Yes — all advertisements are offers to the public at large."
-      ],
-      "answer": 2,
-      "explain": "Ads are usually mere invitations, but one identifying quantity, price, and who may accept ('first come, first served') is an offer. Undisclosed house rules cannot be tacked on after acceptance.",
-      "explainZh": "广告原则上为要约邀请，但数量、价格、承诺人范围俱全时构成要约（Lefkowitz案型）。《民法典》第473条思路相同：内容具体确定的商业广告视为要约。MBE技巧：含\"never/always\"的绝对化选项（0与3）几乎总是错的。"
-    },
-    {
-      "id": "k009",
-      "type": "basic",
-      "topic": "Acceptance",
-      "topicZh": "承诺",
-      "q": "State the common-law mirror image rule and the effect of a nonconforming acceptance.",
-      "qZh": "陈述普通法的镜像规则及不一致\"承诺\"的效果。",
-      "a": "At common law an acceptance must mirror the offer's terms exactly. Any addition or change makes the response a rejection and counteroffer, terminating the original offer — the counteroffer can then itself be accepted. Contrast UCC §2-207, which abandons the rule for goods: a definite, seasonable expression of acceptance can form a contract despite additional or different terms.",
-      "aZh": "普通法上承诺必须与要约条款完全一致（镜像）。任何添加或变更都使回复成为拒绝加反要约，原要约随之消灭——该反要约本身可再被承诺。对比UCC §2-207：货物买卖抛弃镜像规则，明确、及时的承诺表示即使附加或变更条款也可成立合同。",
-      "explainZh": "考试第一问永远是：货物还是服务？服务/土地→镜像规则；货物→§2-207。《民法典》第488条采\"实质性变更\"标准（对价款、履行地等实质变更=新要约），介于两者之间，别把中国法直觉带进普通法题。"
-    },
-    {
-      "id": "k010",
-      "type": "basic",
-      "topic": "Acceptance",
-      "topicZh": "承诺",
-      "q": "State the mailbox rule and its exceptions.",
-      "qZh": "陈述投邮规则及其例外。",
-      "a": "Acceptance is effective on proper dispatch. Exceptions: (1) option contracts — effective on receipt; (2) the offer prescribes otherwise; (3) rejection sent first — whichever arrives first controls; (4) acceptance sent first, then rejection — acceptance controls unless the rejection arrives first AND the offeror relies. Revocations and rejections are effective on receipt.",
-      "aZh": "承诺一经正确发出即生效。例外：(1) 选择权合同——承诺到达才生效；(2) 要约另有规定；(3) 先发拒绝后发承诺——先到者为准；(4) 先发承诺后发拒绝——承诺仍有效，除非拒绝先到且要约人产生信赖。撤销与拒绝均到达生效。",
-      "explainZh": "中美关键差异：《民法典》第484条承诺到达生效（到达主义），美国法发出生效（发信主义）——做题时务必用美国规则。记忆锚点：只有\"承诺\"享受发出生效的特权，其他一切通信（撤销、拒绝、反要约）都到达生效。"
-    },
-    {
-      "id": "k011",
-      "type": "basic",
-      "topic": "Acceptance",
-      "topicZh": "承诺",
-      "q": "How may an offer be accepted under UCC §2-206, and what is the accommodation-shipment rule?",
-      "qZh": "依UCC §2-206，要约可以如何承诺？\"通融发货\"规则是什么？",
-      "a": "Unless unambiguously restricted, an offer invites acceptance by any reasonable medium — promise or performance. An order for prompt shipment is accepted by promising or by shipping. Shipping nonconforming goods is both acceptance and breach — unless the seller seasonably notifies the buyer the shipment is offered only as an accommodation: then a counteroffer, not a breach.",
-      "aZh": "除非要约明确无误地限定方式，任何合理方式均可承诺——允诺或履行皆可。要求即刻发货的订单，可以立即允诺或直接发货承诺。发运不符货物同时构成承诺与违约——但卖方及时通知买方该批货仅为\"通融\"时，发货成为反要约，而非违约。",
-      "explainZh": "陷阱链条：发错货＝承诺＋违约（买方可索赔）；发错货＋通融通知＝反要约（买方可接受或拒绝，均无违约）。通知必须在发货时或之前及时作出，事后补救无效。"
-    },
-    {
-      "id": "k012",
-      "type": "basic",
-      "topic": "Acceptance",
-      "topicZh": "承诺",
-      "q": "When can silence operate as acceptance?",
-      "qZh": "沉默何时可以构成承诺？",
-      "a": "Generally never. Exceptions: (1) the offeree takes the benefit of offered services with reasonable opportunity to reject them, knowing compensation was expected; (2) prior dealings or trade usage make it reasonable that silence signals assent; (3) the offeror has stated silence will suffice and the offeree, remaining silent, intends to accept.",
-      "aZh": "原则上不能。例外：(1) 受要约人明知对方期待报酬，仍在有合理机会拒绝的情况下接受服务利益；(2) 既往交易或行业惯例使沉默合理地表示同意；(3) 要约人声明沉默即为承诺，且受要约人以沉默为承诺的意思保持沉默。",
-      "explainZh": "要约人不能单方把沉默强加为承诺方式（\"不回复即视为同意\"无效）——例外(3)的钥匙在受要约人的主观意图。《民法典》第140条第2款同理：沉默只有在有法律规定、约定或交易习惯时才可视为意思表示。"
-    },
-    {
-      "id": "k013",
-      "type": "mcq",
-      "topic": "Acceptance",
-      "topicZh": "承诺",
-      "q": "A merchant buyer's purchase order for widgets is silent on warranties. The merchant seller's acknowledgment form 'accepts' the order but adds a clause disclaiming all warranties. The goods ship and buyer pays. Is the disclaimer part of the contract?",
-      "qZh": "商人买方的订购单未提及担保。商人卖方的确认单\"接受\"订单但增加了一条免除全部担保的条款。货已发、款已付。该免责条款是合同内容吗？",
-      "choices": [
-        "Yes — the acknowledgment was a counteroffer that buyer accepted by paying.",
-        "Yes — between merchants, additional terms automatically become part of the contract.",
-        "No — an acceptance with new terms fails under the mirror image rule, so no contract exists.",
-        "No — a contract formed on the acknowledgment, but a blanket warranty disclaimer materially alters the deal, so the additional term drops out."
-      ],
-      "answer": 3,
-      "explain": "Under §2-207(1) the acknowledgment operates as an acceptance despite the added term. Between merchants, additional terms enter the contract unless the offer limits acceptance, they materially alter it, or objection follows — a blanket disclaimer materially alters, so it is excluded.",
-      "explainZh": "§2-207(2)商人间附加条款自动纳入的三个否决事由：要约限定承诺范围／重大变更／已（或及时）反对。免除全部担保属重大变更（\"惊讶或困难\"标准），故被剔除但合同成立。选项(0)是普通法\"最后一枪\"思路、(2)是镜像规则——两者在UCC下都已被废除。"
-    },
-    {
-      "id": "k014",
-      "type": "cloze",
-      "topic": "Acceptance",
-      "topicZh": "承诺",
-      "q": "Under UCC §2-207, when the offer and acceptance contain conflicting (different) terms, the majority {{c::knockout rule}} cancels both conflicting terms and fills the gap with the Code's default provisions.",
-      "qZh": "依UCC §2-207，要约与承诺含相互冲突（不同）的条款时，多数派____将双方冲突条款一并剔除，以法典的补缺条款填补。",
-      "a": "knockout rule",
-      "aZh": "击倒规则（冲突条款相互抵销）",
-      "explainZh": "区分\"附加条款\"（additional：要约未提及）与\"不同条款\"（different：与要约直接冲突）：前者走§2-207(2)商人间自动纳入分析，后者多数派直接击倒、用UCC默认规则补位。少数派把不同条款也按(2)款处理。写论述题时点明这一法域分歧可得加分。"
-    },
-    {
-      "id": "k015",
-      "type": "mcq",
-      "topic": "Acceptance",
-      "topicZh": "承诺",
-      "q": "Seller's form states acceptance is 'expressly made conditional on buyer's assent' to its arbitration clause. Buyer never assents, but both parties fully perform. A dispute arises. What are the contract's terms?",
-      "qZh": "卖方格式载明承诺\"以买方同意其仲裁条款为明示条件\"。买方从未同意，但双方均已履行。现发生争议，合同条款如何确定？",
-      "choices": [
-        "A contract formed by conduct under §2-207(3): its terms are those on which the writings agree, plus UCC gap fillers — no arbitration clause.",
-        "Seller's form governs entirely — last shot rule.",
-        "Buyer's form governs entirely — first shot rule.",
-        "No contract exists because the forms never matched."
-      ],
-      "answer": 0,
-      "explain": "An expressly conditional 'acceptance' is not an acceptance, so no contract formed on the writings — but mutual performance creates a contract by conduct, limited to terms the writings share plus Code gap fillers. The arbitration clause, appearing in only one form, is out.",
-      "explainZh": "三张§2-207卡合并记忆：附加条款→(2)款商人间纳入分析；冲突条款→击倒规则；\"明示以同意为条件\"＋双方履行→(3)款以行为成立合同（条款＝共同部分＋UCC补缺）。\"最后一枪\"是普通法规则，在UCC下永远是干扰项。"
-    },
-    {
-      "id": "k016",
-      "type": "basic",
-      "topic": "Consideration & Substitutes",
-      "topicZh": "对价及替代",
-      "q": "Define consideration. Does the adequacy of consideration matter?",
-      "qZh": "什么是对价？对价是否充分重要吗？",
-      "a": "Consideration is a bargained-for exchange: the promise induces the detriment and the detriment induces the promise. Legal detriment includes forbearing a legal right — Hamer v. Sidway (nephew's giving up drinking and smoking sufficed). Courts never weigh adequacy: a peppercorn works if genuinely bargained for, but sham or unpaid nominal recitals fail.",
-      "aZh": "对价是经磋商的交换：允诺诱使损害（受损），损害诱使允诺。法律上的受损包括放弃合法权利——Hamer v. Sidway（侄子戒烟戒酒即为充分对价）。法院从不衡量对价是否等值：只要确经磋商，一粒胡椒也够；但虚假的、未实际支付的名义性记载无效。",
-      "explainZh": "这是中国律师最需内化的差异：《民法典》无对价要求，赠与合同也有效（第657条）；美国法上无对价的单纯赠与允诺不可执行。分析顺序：找不到对价→再找替代（允诺禁反言、准合同、封印文书）。"
-    },
-    {
-      "id": "k017",
-      "type": "basic",
-      "topic": "Consideration & Substitutes",
-      "topicZh": "对价及替代",
-      "q": "State the preexisting duty rule and its exceptions.",
-      "qZh": "陈述既存义务规则及其例外。",
-      "a": "Common law: promising to do what one is already legally bound to do is not consideration — so paying extra for the same performance is unenforceable. Exceptions: new or different consideration; honest dispute about the duty; unforeseen difficulties excusing performance; the duty is owed to a third party. UCC abolishes the rule: good-faith modifications need no consideration (§2-209).",
-      "aZh": "普通法：允诺履行本已负有的法律义务不构成对价——为同一履行加价的允诺不可执行。例外：新的或不同的对价；对义务存在诚实争议；出现足以免责的未预见困难；该义务系对第三人所负。UCC废除此规则：善意变更无需对价（§2-209）。",
-      "explainZh": "经典案型：船员中途要挟加薪，船长被迫答应——加薪允诺无对价、不可执行。但只要多做一点点（提前一天、加一项服务）即有新对价。货物合同直接跳过此规则，只审善意。"
-    },
-    {
-      "id": "k018",
-      "type": "cloze",
-      "topic": "Consideration & Substitutes",
-      "topicZh": "对价及替代",
-      "q": "At common law a contract modification requires {{c::new consideration}}; under UCC §2-209(1) a modification made in good faith is binding without it.",
-      "qZh": "普通法上合同变更须有____；而依UCC §2-209(1)，善意作出的变更无须它即有拘束力。",
-      "a": "new consideration",
-      "aZh": "新的对价",
-      "explainZh": "CL对UCC最高频的对比考点之一。善意=诚实＋有正当商业理由（如成本意外上涨），乘人之危的勒索式变更缺乏善意、无效。中国法（《民法典》第543条）协商一致即可变更，与UCC立场接近，与普通法差异大。"
-    },
-    {
-      "id": "k019",
-      "type": "basic",
-      "topic": "Consideration & Substitutes",
-      "topicZh": "对价及替代",
-      "q": "What is an illusory promise, and why are requirements and output contracts not illusory?",
-      "qZh": "什么是虚幻允诺？为何需求合同与产出合同不属虚幻？",
-      "a": "A promise whose performance is left entirely to the promisor's discretion ('I will buy if I feel like it') is illusory — no detriment, no consideration, no contract. Requirements ('all I require') and output ('all I produce') contracts are saved by UCC §2-306: quantities must occur in good faith and not be unreasonably disproportionate to estimates or prior comparable amounts.",
-      "aZh": "履行与否完全由允诺人任意决定的允诺（\"我想买就买\"）是虚幻允诺——无受损、无对价、无合同。需求合同（\"我所需的全部\"）与产出合同（\"我生产的全部\"）因UCC §2-306获救：数量须善意确定，且不得与估计量或既往可比量不合理地失衡。",
-      "explainZh": "善意义务把\"看似任意\"变成\"受约束\"，从而提供对价。同理获救的还有：附条件允诺、满意条款（受善意约束）、独家经销中的默示尽力义务（Wood v. Lucy案型的默示允诺）。"
-    },
-    {
-      "id": "k020",
-      "type": "basic",
-      "topic": "Consideration & Substitutes",
-      "topicZh": "对价及替代",
-      "q": "Is past consideration valid consideration? State the material-benefit exception.",
-      "qZh": "过去的对价是有效对价吗？陈述\"重大利益\"例外。",
-      "a": "No — a promise given in return for something already done is not bargained for and is unenforceable. Restatement exception: a promise made in recognition of a material benefit the promisor previously received from the promisee is enforceable to the extent necessary to prevent injustice — unless the benefit was conferred as a gift or the promise's value is disproportionate.",
-      "aZh": "无效——为已完成之事作出的允诺并非经磋商换取，不可执行。《重述》例外：为承认允诺人先前从受诺人处获得的重大利益而作的允诺，在防止不公所必需的范围内可执行——但利益本属赠与或允诺价值不成比例的除外。",
-      "explainZh": "经典案型：救命之后雇主允诺终身补贴——按传统规则无对价，按重大利益规则可执行。答题先写原则（过去对价无效），再写例外，最后提\"道德义务原则上不构成对价\"。"
-    },
-    {
-      "id": "k021",
-      "type": "mcq",
-      "topic": "Consideration & Substitutes",
-      "topicZh": "对价及替代",
-      "q": "An employer promises a long-serving employee a $200 monthly pension for life, whether or not she keeps working. Relying on it, she retires early and forgoes other work. Years later the employer stops paying, arguing she gave no consideration. Her best theory?",
-      "qZh": "雇主允诺一位资深员工：无论是否继续工作，均按月支付200美元终身年金。她信赖该允诺提前退休并放弃其他工作。数年后雇主停付，辩称她未提供对价。她的最佳主张是什么？",
-      "choices": [
-        "Breach of contract — her retirement was bargained-for consideration.",
-        "Quasi-contract — she conferred a benefit on the employer.",
-        "Promissory estoppel — a promise the promisor should reasonably expect to induce reliance, which does induce definite and substantial reliance, is enforceable to prevent injustice.",
-        "No recovery — gratuitous promises are never enforceable."
-      ],
-      "answer": 2,
-      "explain": "The pension was promised whether or not she retired, so retirement was not bargained for — no consideration. Restatement §90 nonetheless enforces the promise: foreseeable, actual, detrimental reliance plus injustice. The remedy may be limited as justice requires.",
-      "explainZh": "允诺禁反言四要素：允诺＋允诺人可合理预见的信赖＋实际发生的确定且实质的信赖＋不执行将致不公。它是对价的\"替代品\"而非对价本身，救济可限于信赖利益。(0)错在\"无论是否继续工作\"表明退休并非交换条件；(3)的never在MBE中几乎必错。"
-    },
-    {
-      "id": "k022",
-      "type": "cloze",
-      "topic": "Consideration & Substitutes",
-      "topicZh": "对价及替代",
-      "q": "Under UCC §2-209, a no-oral-modification clause is enforceable, but an attempted oral modification can still operate as a {{c::waiver}} where the other party materially changed position in reliance on it.",
-      "qZh": "依UCC §2-209，禁止口头变更条款有效，但未遂的口头变更在对方因信赖而实质改变处境时仍可作为____发生效力。",
-      "a": "waiver",
-      "aZh": "弃权",
-      "explainZh": "层次记忆：书面合同可以口头变更（默认）→ 有NOM条款则口头变更无效（§2-209(2)）→ 但失败的变更可转化为弃权（(4)款）→ 弃权在对方未信赖时还可撤回（(5)款）。普通法上NOM条款传统上不被严格执行——又一处CL/UCC分野。"
-    },
-    {
-      "id": "k023",
-      "type": "basic",
-      "topic": "Defenses to Formation",
-      "topicZh": "合同抗辩",
-      "q": "Which contracts fall within the Statute of Frauds?",
-      "qZh": "哪些合同落入反欺诈法（须以书面为凭）？",
-      "a": "MY LEGS — Marriage (promises in consideration of marriage); Year (incapable of performance within one year); Land (interests in land, including leases over one year); Executor's promise to pay estate debts personally; Goods $500 or more (UCC §2-201); Suretyship (answering for another's debt — unless the promisor's main purpose is its own economic benefit).",
-      "aZh": "MY LEGS——婚姻（以结婚为约因的允诺）；一年（自订立起不可能在一年内履行完毕）；土地（土地权益，含一年以上租赁与地役权）；遗产执行人以个人财产清偿遗产债务的允诺；500美元以上的货物买卖（UCC §2-201）；保证（为他人债务作保——但允诺人主要目的在自身经济利益的除外）。",
-      "explainZh": "中国法无反欺诈法（《民法典》第469条口头合同原则上有效），故这份清单必须硬背。\"主要目的\"例外：股东为保住供货商而担保公司债务——为自己利益，口头保证也有效。落入清单≠合同无效，只是不满足书面要求时不可强制执行。",
-      "mnemonic": "MY LEGS"
-    },
-    {
-      "id": "k024",
-      "type": "basic",
-      "topic": "Defenses to Formation",
-      "topicZh": "合同抗辩",
-      "q": "What must the writing contain to satisfy the Statute of Frauds — common law vs UCC?",
-      "qZh": "满足反欺诈法的书面须包含什么？普通法与UCC各有何要求？",
-      "a": "Common law: identify the parties and subject, state the essential terms, signed by the party to be charged. UCC §2-201: any writing sufficient to show a contract was made, signed by the party to be charged, stating a quantity — enforcement capped at that quantity; other errors are harmless. Several documents may be read together.",
-      "aZh": "普通法：写明当事人与标的、载明核心条款、由被请求执行的一方签署。UCC §2-201：任何足以表明合同已订立的书面，由被请求执行方签署并载明数量即可——执行以所载数量为上限；其他错漏不影响效力。多份文件可以合并认定。",
-      "explainZh": "\"签名\"很宽：信头、首字母、电子签均可。UCC只认数量一个硬条款——价格写错都无妨。注意方向性：只能对\"签了字的一方\"执行，可能出现一方可执行、另一方不可执行的不对称局面。"
-    },
-    {
-      "id": "k025",
-      "type": "mcq",
-      "topic": "Defenses to Formation",
-      "topicZh": "合同抗辩",
-      "q": "Two merchants agree by phone to a sale of 1,000 units at $2 each. Buyer promptly emails a signed confirmation stating the quantity. Seller reads it, stays silent for three weeks, then refuses to deliver, pleading the Statute of Frauds. Result?",
-      "qZh": "两商人电话约定以每件2美元买卖1,000件货物。买方随即发送载明数量、经签署的确认函。卖方阅后沉默三周，后以反欺诈法为由拒绝交货。结果如何？",
-      "choices": [
-        "Seller wins — seller never signed anything.",
-        "Buyer wins — between merchants, a signed written confirmation binds the recipient who fails to object in writing within 10 days.",
-        "Seller wins — a confirmation binds only its sender.",
-        "Buyer wins — oral contracts for goods are never within the Statute of Frauds."
-      ],
-      "answer": 1,
-      "explain": "UCC §2-201(2): between merchants, a signed confirmation received with reason to know its contents satisfies the Statute against the recipient absent written objection within 10 days. It removes the defense — buyer must still prove the oral contract at trial.",
-      "explainZh": "商人确认函是唯一能让\"未签字方\"丧失反欺诈法抗辩的机制：双方均为商人＋确认函满足§2-201＋收件人知悉内容＋10日内未书面反对。注意它只扫清抗辩、不等于胜诉——口头合同的存在仍须举证。非商人间无此规则。"
-    },
-    {
-      "id": "k026",
-      "type": "basic",
-      "topic": "Defenses to Formation",
-      "topicZh": "合同抗辩",
-      "q": "Apart from the merchant confirmation, which exceptions make an oral goods contract of $500+ enforceable under UCC §2-201(3)?",
-      "qZh": "除商人确认函外，UCC §2-201(3)下还有哪些例外使500美元以上的口头货物合同可执行？",
-      "a": "(1) Specially manufactured goods not suitable for sale to others, once the seller substantially begins manufacture or procurement; (2) judicial admission in pleading or testimony, enforceable up to the quantity admitted; (3) part performance — goods paid for and accepted, or received and accepted, enforceable only to that extent.",
-      "aZh": "(1) 特别制造的货物：不适于卖方正常经营中转售他人，且卖方已实质开始制造或已作采购安排；(2) 司法自认：在诉状或证言中承认合同订立，以承认的数量为限可执行；(3) 部分履行：已付款并被接受、或已收货并接受的部分，仅在该范围内可执行。",
-      "explainZh": "四大例外合并口诀：确认函、特制、自认、部分履行。部分履行只救\"已履行的那部分\"——口头约定1000件、已交付200件，只有200件可执行。土地合同的部分履行规则不同（见另卡），别混。"
-    },
-    {
-      "id": "k027",
-      "type": "basic",
-      "topic": "Defenses to Formation",
-      "topicZh": "合同抗辩",
-      "q": "How does the one-year rule work, and what are its classic traps?",
-      "qZh": "一年规则如何运作？经典陷阱有哪些？",
-      "a": "Only contracts incapable of full performance within one year from the making are within the Statute. Possibility, not probability, controls: 'employment for life' is outside (death could occur within a year); a fixed two-year term is within. Measured from formation, not from when performance starts — a one-year job beginning next Monday is within the Statute.",
-      "aZh": "只有自订立之日起不可能在一年内履行完毕的合同才落入反欺诈法。看\"可能性\"而非\"概率\"：终身雇佣在外（一年内可能死亡即履行完毕）；固定两年期在内。期间自合同订立时起算而非履行开始时——下周一开始的一年期工作也落入。",
-      "explainZh": "反直觉三连：终身合同不需要书面、\"两年内完成的任务\"不需要书面（可能提前干完）、明天开始的一年雇佣却需要书面（订立日起算共一年零一天）。提前终止的可能性≠履行完毕，多数法院认为不把合同带出一年规则。"
-    },
-    {
-      "id": "k028",
-      "type": "cloze",
-      "topic": "Defenses to Formation",
-      "topicZh": "合同抗辩",
-      "q": "An oral land-sale contract becomes enforceable in equity under the part-performance doctrine when the buyer shows at least two of: {{c::payment, possession, and valuable improvements}}.",
-      "qZh": "依部分履行原则，买方证明以下三项中至少两项时，口头土地买卖合同可在衡平法上获得执行：____。",
-      "a": "payment, possession, and valuable improvements",
-      "aZh": "支付价款、占有土地、进行有价值的改良",
-      "explainZh": "多数法院要求\"三占其二\"，且这些行为须明确指向合同的存在（unequivocally referable）。救济通常限于特定履行（衡平法），不支持金钱赔偿。与UCC货物的部分履行例外（只救已履行部分）机制不同，注意分开记。"
-    },
-    {
-      "id": "k029",
-      "type": "cloze",
-      "topic": "Defenses to Formation",
-      "topicZh": "合同抗辩",
-      "q": "A minor may disaffirm a contract any time before, or within a reasonable time after, reaching majority — but remains liable in restitution for the reasonable value of {{c::necessaries}} (food, shelter, clothing, medical care).",
-      "qZh": "未成年人可在成年前或成年后合理期间内随时撤销合同——但对____（食物、住所、衣物、医疗）仍须按合理价值承担返还责任。",
-      "a": "necessaries",
-      "aZh": "必需品",
-      "explainZh": "撤销权只属于未成年人一方（成年相对人不得撤销）；必需品之诉按准合同的合理价值而非合同价计算。同类可撤销事由：精神无行为能力、对方明知的醉酒。对比《民法典》第19、145条：限制行为能力人订立的合同效力待定、待法定代理人追认——机制不同，保护方向一致。"
-    },
-    {
-      "id": "k030",
-      "type": "basic",
-      "topic": "Defenses to Formation",
-      "topicZh": "合同抗辩",
-      "q": "Define economic duress and undue influence.",
-      "qZh": "什么是经济胁迫？什么是不当影响？",
-      "a": "Duress: an improper threat (bad-faith breach, crime or tort, abuse of process) leaving the victim no reasonable alternative — contract voidable; physical compulsion makes it void. Undue influence: unfair persuasion of a party under the other's domination, or in a relationship of trust justifying belief the other will not act against their welfare — voidable.",
-      "aZh": "胁迫：以不正当威胁（恶意毁约、犯罪或侵权、滥用法律程序）使受害人别无合理选择而作出同意——合同可撤销；直接人身强制则合同无效。不当影响：对受支配一方、或基于信任关系有理由相信对方不会损害自己利益的一方，施加不公平的劝诱——可撤销。",
-      "explainZh": "经济胁迫经典案型：垄断供应商中途威胁断供逼迫加价，对方无替代货源被迫接受——可撤销（且加价还撞上既存义务规则）。不当影响两要素：易受影响的\"人\"＋过度施压的\"劝诱方式\"（时间地点施压、不容咨询顾问）。对比《民法典》第150条胁迫可撤销，方向一致。"
-    },
-    {
-      "id": "k031",
-      "type": "mcq",
-      "topic": "Defenses to Formation",
-      "topicZh": "合同抗辩",
-      "q": "The day before showing a house, the seller plasters and paints over large foundation cracks and says nothing about them. The buyer, unable to detect the defect, purchases. May the buyer rescind?",
-      "qZh": "看房前一天，卖方将地基大裂缝抹灰刷漆掩盖，只字不提。买方无从察觉，买下了房屋。买方可以撤销吗？",
-      "choices": [
-        "Yes — active concealment is treated as an assertion that the fact does not exist, equivalent to fraudulent misrepresentation.",
-        "No — silence is never actionable; caveat emptor.",
-        "No — the buyer's reliance was unjustified because he could have hired an inspector.",
-        "Yes — but only if the contract contained an express warranty covering the foundation."
-      ],
-      "answer": 0,
-      "explain": "Concealing a fact by affirmative act is an assertion of its nonexistence — fraudulent misrepresentation making the contract voidable. Reliance is justified where the defect is actively hidden; buyers need not investigate for concealed defects.",
-      "explainZh": "三层递进：单纯沉默原则上不构成虚假陈述（例外：信任关系、半真话、明知对方基本性错误、后续知悉先前陈述已不实）；积极掩盖＝作为式虚假陈述；直接说谎当然构成。欺诈性或重大虚假陈述＋正当信赖→可撤销。对比《民法典》第148条欺诈可撤销，且中国法上故意隐瞒也可构成欺诈——此处两法接近。"
-    },
-    {
-      "id": "k032",
-      "type": "basic",
-      "topic": "Defenses to Formation",
-      "topicZh": "合同抗辩",
-      "q": "State the elements of mutual mistake and when a party bears the risk of the mistake.",
-      "qZh": "陈述双方错误的构成要件，以及一方何时自担错误风险。",
-      "a": "Voidable by the adversely affected party when: (1) both parties mistaken at formation (2) about a basic assumption (3) with material effect on the exchange, and (4) that party does not bear the risk. Risk is borne by agreement ('as is'), conscious ignorance, or judicial allocation. Market-value errors do not qualify.",
-      "aZh": "受不利影响一方可撤销，须：(1) 订约时双方均有错误；(2) 错误涉及合同的基本前提；(3) 对交换有重大影响；(4) 该方不承担错误风险。风险承担途径：约定（\"按现状\"出售）、明知无知（自知信息有限仍执意成交）、法院裁量分配。对市场价值的错误判断不算。",
-      "explainZh": "经典对照：以为不能生育的母牛实为孕牛——基本前提错误，可撤销；以为石头值钱与否——价值判断，风险自担。对比《民法典》第147条\"重大误解\"：中国法单方重大误解即可撤销，美国法对单方错误严苛得多（见下卡）——切勿套用中国直觉。"
-    },
-    {
-      "id": "k033",
-      "type": "mcq",
-      "topic": "Defenses to Formation",
-      "topicZh": "合同抗辩",
-      "q": "A contractor's bid omits a $50,000 line item due to a clerical adding error, making its bid 30% below every other bid. The city accepts before the contractor discovers the error. May the contractor rescind?",
-      "qZh": "承包商投标因加总笔误漏掉一项5万美元费用，报价比所有其他投标低30%。市政府在承包商发现错误前接受了投标。承包商可以撤销吗？",
-      "choices": [
-        "No — unilateral mistake never permits rescission.",
-        "No — clerical errors are negligence, which bars all relief.",
-        "Yes — any mistake by either party renders a contract voidable.",
-        "Yes — the other party had reason to know of the mistake, so rescission for unilateral mistake is available."
-      ],
-      "answer": 3,
-      "explain": "Unilateral mistake ordinarily gives no relief, but rescission lies where the nonmistaken party knew or had reason to know of the error — a bid dramatically below all others signals mistake (palpable error) — or where enforcement would be unconscionable.",
-      "explainZh": "单方错误原则不救济，两大例外：对方明知或应知（palpable，显而易见的错误——低30%的标价就是信号）；或执行将显失公平且尚无信赖。普通笔误性过失不剥夺救济，(1)是干扰项。与《民法典》\"重大误解\"单方即可撤销形成鲜明对比——美国题里别轻易给单方错误救济。"
-    },
-    {
-      "id": "k034",
-      "type": "basic",
-      "topic": "Defenses to Formation",
-      "topicZh": "合同抗辩",
-      "q": "State the unconscionability doctrine and the effect of illegality.",
-      "qZh": "陈述显失公平原则与合同违法的效果。",
-      "a": "Unconscionability: decided by the court as of formation; usually requires procedural unfairness (fine print, unequal bargaining) plus substantive oppression; the court may refuse enforcement, strike, or limit the clause. Illegality: illegal consideration or subject voids the contract; if only the purpose is illegal, the innocent party may enforce. Protective-license violations bar recovery; revenue-license violations do not.",
-      "aZh": "显失公平：由法官判断，以订约时为准；通常须程序不公（小字条款、议价能力悬殊、附合合同）加实体压迫并存；法院可拒绝执行合同、删除条款或限制适用。违法：约因或标的违法则合同无效；仅目的违法时无辜方可执行。违反保护性执照禁止索酬；仅为财政收入的执照则不禁止。",
-      "explainZh": "显失公平以\"订约时\"为判断时点——事后变得不公平不算。程序＋实体通常缺一不可（滑动标尺：一项极重可补另一项之轻）。对比《民法典》第151条显失公平（利用危困、判断能力不足）可撤销——中国法是撤销权，美国法是法院的执行裁量，机制不同。"
-    },
-    {
-      "id": "k035",
-      "type": "basic",
-      "topic": "Terms, Parol Evidence & Warranties",
-      "topicZh": "条款、口头证据规则与担保",
-      "q": "State the parol evidence rule, the integration analysis, and the exceptions.",
-      "qZh": "陈述口头证据规则、完整性分析及其例外。",
-      "a": "A final writing (integration) cannot be contradicted by prior or contemporaneous agreements. Total integration — complete and exclusive; a merger clause is strong evidence — also bars consistent additional terms; partial integration admits them. Never barred: subsequent agreements, formation defenses, ambiguity, conditions precedent to effectiveness. UCC presumes partial: usage and dealings admissible unless carefully negated.",
-      "aZh": "作为最终表达（整合文本）的书面不得被在先或同时的约定所抵触。完全整合——完整且排他，合并条款是有力证据——连\"一致的补充条款\"也排除；部分整合则允许补充。永不排除：事后达成的约定、订约抗辩（欺诈、胁迫、错误）、歧义解释、合同生效的先决条件。UCC推定部分整合：行业惯例与交易过程可采，除非被明确排除。",
-      "explainZh": "口诀：抵触看整合、补充看完全、\"四不禁\"（事后、抗辩、歧义、生效条件）随时进。这是证据规则式的实体规则，与中国法自由心证的证据观完全不同，须专门训练。名称有误导性：书面的在先约定同样被排除。"
-    },
-    {
-      "id": "k036",
-      "type": "cloze",
-      "topic": "Terms, Parol Evidence & Warranties",
-      "topicZh": "条款、口头证据规则与担保",
-      "q": "In interpreting a contract, express terms control, followed in descending order by {{c::course of performance, course of dealing, and usage of trade}}.",
-      "qZh": "解释合同时，明示条款优先，其后依次为____。",
-      "a": "course of performance, course of dealing, and usage of trade",
-      "aZh": "履行过程、既往交易过程、行业惯例",
-      "explainZh": "由近及远记忆：本合同怎么履行的（course of performance）→ 双方从前怎么交易的（course of dealing）→ 本行业通常怎么做（usage of trade）。越贴近双方真实意思越优先。《民法典》第466、510条亦参照交易习惯解释与补缺，思路相通。"
-    },
-    {
-      "id": "k037",
-      "type": "basic",
-      "topic": "Terms, Parol Evidence & Warranties",
-      "topicZh": "条款、口头证据规则与担保",
-      "q": "What are the principal UCC gap fillers when the parties leave terms open?",
-      "qZh": "当事人条款留白时，UCC的主要补缺规则是什么？",
-      "a": "Price: a reasonable price at time of delivery (§2-305). Place of delivery: seller's place of business (§2-308). Time: a reasonable time (§2-309). Payment: due when and where the buyer is to receive the goods (§2-310). Quantity is the one term that generally cannot be gap-filled — the writing's stated quantity caps enforcement.",
-      "aZh": "价格：交付时的合理价格（§2-305）。交付地点：卖方营业地（§2-308）。时间：合理期间（§2-309）。付款：于买方应收取货物的时间地点到期（§2-310）。数量是唯一原则上不能补缺的条款——以书面所载数量为执行上限。",
-      "explainZh": "UCC的哲学：只要双方有意成立合同且有合理确定的救济基础，条款留白不碍成立（§2-204）——比普通法的确定性要求宽松得多。《民法典》第510-511条的补缺思路与此高度相似，可对照记忆。"
-    },
-    {
-      "id": "k038",
-      "type": "basic",
-      "topic": "Terms, Parol Evidence & Warranties",
-      "topicZh": "条款、口头证据规则与担保",
-      "q": "Compare the three UCC warranties of quality.",
-      "qZh": "比较UCC三种质量担保。",
-      "a": "Express (§2-313): affirmation of fact, promise, description, or sample forming part of the basis of the bargain; puffery excluded. Merchantability (§2-314): implied only when the seller is a merchant dealing in goods of that kind — fit for ordinary purposes. Fitness (§2-315): any seller who knows the buyer's particular purpose and reliance on the seller's skill to select.",
-      "aZh": "明示担保（§2-313）：构成交易基础的事实陈述、允诺、描述或样品；吹嘘与意见除外。适销性默示担保（§2-314）：仅当卖方是经营该类货物的商人时默示产生——货物须适于通常用途。特定用途适用性担保（§2-315）：任何卖方，只要知悉买方的特定用途且知悉买方信赖其挑选技能。",
-      "explainZh": "对比三个主体门槛：明示担保任何卖方可作出；适销性要求\"经营该类货物的商人\"（最窄）；特定用途担保任何卖方但要求\"知悉＋信赖\"。考题最爱：五金店老板卖二手私家车——非该类货物商人，无适销性担保。"
-    },
-    {
-      "id": "k039",
-      "type": "mcq",
-      "topic": "Terms, Parol Evidence & Warranties",
-      "topicZh": "条款、口头证据规则与担保",
-      "q": "A law student sells her used car to a classmate. The engine fails a week later. The classmate sues for breach of the implied warranty of merchantability. Result?",
-      "qZh": "一名法学生把自己的二手车卖给同学，一周后发动机报废。同学以违反适销性默示担保起诉。结果如何？",
-      "choices": [
-        "Classmate wins — merchantability attaches to every sale of goods.",
-        "Classmate wins — used goods must last a reasonable time.",
-        "Student wins — she is not a merchant dealing in goods of that kind, so no warranty of merchantability arose.",
-        "Student wins — implied warranties never apply to used goods."
-      ],
-      "answer": 2,
-      "explain": "§2-314 implies merchantability only where the seller is a merchant with respect to goods of that kind. A casual, one-off seller makes no such warranty. Used goods CAN carry the warranty when sold by a dealer — so choice (3) is wrong.",
-      "explainZh": "适销性担保的门槛在\"卖方身份\"而非\"货物新旧\"：二手车行卖二手车有担保，普通人偶然卖车没有。注意merchant在§2-205（确定要约）与§2-314（适销性）中口径不同：后者要求专营该类货物。对比《民法典》第615-618条质量条款依约定与国家标准——无\"商人\"身份门槛。"
-    },
-    {
-      "id": "k040",
-      "type": "basic",
-      "topic": "Terms, Parol Evidence & Warranties",
-      "topicZh": "条款、口头证据规则与担保",
-      "q": "How are implied warranties disclaimed, and when do remedy limitations fail (§2-316, §2-719)?",
-      "qZh": "默示担保如何排除？救济限制条款何时失效（§2-316、§2-719）？",
-      "a": "Merchantability: oral or written, must mention 'merchantability'; conspicuous if written. Fitness: only by conspicuous writing. Either: 'as is,' the buyer's inspection or refusal to inspect, or trade usage. Express warranties cannot be disclaimed. Remedy limitations are valid unless the exclusive remedy fails of its essential purpose; limiting personal-injury damages for consumer goods is prima facie unconscionable.",
-      "aZh": "适销性：口头或书面均可排除，但须点明\"merchantability\"一词；书面须醒目。特定用途：只能以醒目书面排除。两者亦可经\"按现状\"字样、买方检验或拒绝检验（就可发现的瑕疵）、行业惯例排除。明示担保一经作出不能有效排除。救济限制条款有效，但专属救济\"未达其基本目的\"时失效；对消费品人身伤害限责的条款推定显失公平。",
-      "explainZh": "递进检查：有没有担保→有没有有效排除→有没有救济限制→限制是否失效（essential purpose／人身伤害显失公平）。\"as is\"两个字能一次性扫掉全部默示担保，是卖方的核武器，也是考题高频词。"
-    },
-    {
-      "id": "k041",
-      "type": "mcq",
-      "topic": "Terms, Parol Evidence & Warranties",
-      "topicZh": "条款、口头证据规则与担保",
-      "q": "A contract reads 'FOB seller's warehouse, Chicago' for machines to be shipped to a Boston buyer. The seller duly delivers conforming machines to the carrier; they are destroyed in transit. Who bears the loss?",
-      "qZh": "合同载明\"FOB卖方仓库（芝加哥）\"，机器发往波士顿买方。卖方将合格机器妥善交付承运人，货物在运输途中灭失。风险由谁承担？",
-      "choices": [
-        "Seller — risk stays with the seller until the buyer receives the goods.",
-        "Buyer — this is a shipment contract: risk passed when conforming goods were duly delivered to the carrier, so buyer must still pay.",
-        "Seller — FOB terms always place risk on the seller.",
-        "The carrier alone — neither party bears any risk."
-      ],
-      "answer": 1,
-      "explain": "'FOB seller's place' creates a shipment contract: under §2-509(1)(a) risk of loss passes to the buyer on due delivery to the carrier. 'FOB Boston' (destination) would keep risk on the seller until tender at destination.",
-      "explainZh": "口诀：FOB后面跟谁的地点，货就\"送到那里\"才换手风险——FOB卖方所在地＝发运合同（交给承运人即转移）；FOB买方所在地＝目的地合同。无承运人时：商人卖方于买方实际收货时转移，非商人卖方于提供交付时转移。§2-510：货物不符（违约）时风险留在卖方直至补正或买方接受。《民法典》第604-607条同采交付主义，方向一致。"
-    },
-    {
-      "id": "k042",
-      "type": "basic",
-      "topic": "Conditions & Performance",
-      "topicZh": "条件与履行",
-      "q": "Distinguish express and constructive conditions and their compliance standards.",
-      "qZh": "区分明示条件与推定条件及各自的符合标准。",
-      "a": "Express conditions are created by the parties' language ('if,' 'provided that') and demand strict, literal compliance — substantial performance will not do. Constructive conditions are implied by law to sequence performances; substantial performance satisfies them. Nonoccurrence of a condition suspends or discharges the dependent duty; it is not breach unless the event was also promised.",
-      "aZh": "明示条件由当事人措辞创设（\"如果\"\"以……为条件\"），须严格、字面地满足——实质履行不够。推定条件由法律默示以安排履行顺序，只需实质履行。条件未成就使其限定的义务中止或消灭；除非该事件同时被允诺，条件不成就本身并非违约。",
-      "explainZh": "严格vs实质，是条件题的第一分岔。明示条件的苛刻性靠\"条件的免除\"（弃权、阻碍、防止没收）来缓和。记：条件回答\"义务是否产生\"，允诺回答\"是否违约赔偿\"。"
-    },
-    {
-      "id": "k043",
-      "type": "basic",
-      "topic": "Conditions & Performance",
-      "topicZh": "条件与履行",
-      "q": "What are the default rules on order of performance?",
-      "qZh": "履行顺序的默认规则是什么？",
-      "a": "Where performances can be exchanged simultaneously, they are concurrent conditions — each party must tender to put the other in breach (land sales; UCC delivery vs payment). Where one performance takes time (services, construction), its completion is a constructive condition precedent to the other's payment duty: work first, get paid after, absent contrary agreement or installment terms.",
-      "aZh": "双方给付可同时交换的，为并存条件——一方须提出履行（tender）才能使对方陷于违约（土地买卖；UCC交货与付款）。一方履行需要时间的（服务、建筑），其完成是对方付款义务的推定先决条件：先干活、后拿钱，除非另有约定或分期条款。",
-      "explainZh": "\"先干活后拿钱\"是默示规则，解释了为什么雇员月底才领工资。土地买卖双方都不主动tender时，谁都不违约——考题常设双方都按兵不动的僵局。对比《民法典》第525-526条同时履行抗辩与先履行抗辩，功能对应。"
-    },
-    {
-      "id": "k044",
-      "type": "cloze",
-      "topic": "Conditions & Performance",
-      "topicZh": "条件与履行",
-      "q": "A clause conditioning payment on the buyer's personal satisfaction with work involving taste or fancy is judged by {{c::honest, good-faith dissatisfaction}}; where the work involves mechanical utility or commercial quality, a reasonable-person standard applies.",
-      "qZh": "以买方对涉及品味、喜好之工作的\"满意\"为付款条件的条款，以____为判断标准；涉及机械效用或商业质量的，则适用理性人标准。",
-      "a": "honest, good-faith dissatisfaction",
-      "aZh": "诚实、善意的不满意（主观诚信标准）",
-      "explainZh": "肖像画、定制西装→主观标准（真心不满意即可拒付，装不满意则不行）；锅炉安装、商用设备→客观标准（理性人满意即须付款）。善意要求使满意条款免于\"虚幻允诺\"之讥。疑义时法院倾向客观标准以避免没收。"
-    },
-    {
-      "id": "k045",
-      "type": "basic",
-      "topic": "Conditions & Performance",
-      "topicZh": "条件与履行",
-      "q": "How may a condition be excused?",
-      "qZh": "条件可以通过哪些途径被免除？",
-      "a": "(1) Waiver — voluntary relinquishment; without consideration only ancillary, nonmaterial conditions can be waived, retractable prospectively absent reliance; (2) estoppel — detrimental reliance on an indication the condition would not be insisted upon; (3) prevention or hindrance — a party whose wrongful conduct blocks the condition cannot rely on its nonoccurrence; (4) excuse to avoid disproportionate forfeiture.",
-      "aZh": "(1) 弃权——自愿放弃；无对价时仅能放弃附随性、非实质的条件，且对方未信赖前可对将来撤回；(2) 禁反言——对方已信赖\"不再坚持该条件\"的表示而受损；(3) 阻碍——以不当行为阻止条件成就的一方不得援引条件未成就；(4) 为避免不成比例的没收而免除。",
-      "explainZh": "阻碍规则源于默示的善意协力义务：故意躲着经纪人以逃佣金、阻挠验收——条件视为成就。保险索赔通知条款是弃权/禁反言的高发考区。《民法典》第159条\"不正当阻止条件成就的，视为已成就\"几乎逐字对应，可放心迁移。"
-    },
-    {
-      "id": "k046",
-      "type": "cloze",
-      "topic": "Conditions & Performance",
-      "topicZh": "条件与履行",
-      "q": "At common law, a builder whose work contains only minor deviations has rendered {{c::substantial performance}} and may recover the contract price minus the cost of remedying the defects; a material breach bars any recovery on the contract itself.",
-      "qZh": "普通法上，工程仅有轻微偏差的承包人已构成____，可请求合同价款减去修复瑕疵的费用；重大违约则不得基于合同本身获偿。",
-      "a": "substantial performance",
-      "aZh": "实质履行",
-      "explainZh": "实质履行＝推定条件已满足＝对方必须付款（再扣损害）。故意的偏差通常否定实质履行。修复费用与价值减损差距悬殊时（装错品牌水管案型），按价值减损计赔。重大违约方还有准合同返还这条后路（扣除对方损害）。"
-    },
-    {
-      "id": "k047",
-      "type": "basic",
-      "topic": "Conditions & Performance",
-      "topicZh": "条件与履行",
-      "q": "State the UCC perfect tender rule and the seller's right to cure (§2-601, §2-508).",
-      "qZh": "陈述UCC完全符合交付规则与卖方的补正权（§2-601、§2-508）。",
-      "a": "Single-delivery contracts: if goods or tender fail in ANY respect to conform, the buyer may reject all, accept all, or accept any commercial units and reject the rest. Cure: with seasonable notice, the seller may cure as of right until the contract time expires; afterward, a further reasonable time if it reasonably believed the tender would be acceptable.",
-      "aZh": "一次性交付合同中，货物或交付有任何一点不符，买方即可全部拒收、全部接受、或按商业单位部分接受部分拒收。补正：卖方及时通知后，在合同履行期届满前有当然补正权；届满后，若卖方有合理理由相信原交付可被接受（如附价款折让），另享合理宽限期以替换合格货物。",
-      "explainZh": "\"完全符合\"听起来严苛，实则被三道闸稀释：补正权、分期合同的实质损害标准、善意要求（不得借小瑕疵逃避跌价合同）。与普通法\"实质履行\"形成镜像对比——服务合同宽进严出，货物合同严进宽出。"
-    },
-    {
-      "id": "k048",
-      "type": "mcq",
-      "topic": "Conditions & Performance",
-      "topicZh": "条件与履行",
-      "q": "An installment contract calls for 12 monthly flour deliveries. The third delivery is 2% short, and the seller immediately offers a price allowance. Buyer seeks to reject the installment and cancel the whole contract. May it?",
-      "qZh": "分期合同约定每月交付面粉、共12期。第三期短交2%，卖方立即提出价款折让。买方欲拒收该期并解除整个合同。可以吗？",
-      "choices": [
-        "No — an installment may be rejected only if its nonconformity substantially impairs that installment's value and cannot be cured; cancelling the whole requires substantial impairment of the whole contract.",
-        "Yes — the perfect tender rule permits rejection for any nonconformity.",
-        "Yes — any breach within an installment contract cancels the whole.",
-        "No — buyers may never reject installment deliveries."
-      ],
-      "answer": 0,
-      "explain": "§2-612 displaces perfect tender for installment contracts. A curable 2% shortage with an offered allowance neither substantially impairs the installment nor the whole contract.",
-      "explainZh": "分期合同是完全符合交付规则的法定例外：单期拒收要\"实质损害该期价值＋不能补正\"；解除全部要\"实质损害整个合同价值\"。《民法典》第634条分期付款解除权（未付达五分之一）与第633条分批交付解除，结构神似，可对照记。"
-    },
-    {
-      "id": "k049",
-      "type": "basic",
-      "topic": "Conditions & Performance",
-      "topicZh": "条件与履行",
-      "q": "When does a buyer accept goods, how does it reject, and when may acceptance be revoked (§2-606, §2-602, §2-608)?",
-      "qZh": "买方何时构成接受货物？如何拒收？何时可撤回接受（§2-606、§2-602、§2-608）？",
-      "a": "Acceptance (§2-606): after reasonable inspection, buyer signifies conformity or keeps the goods, fails to reject effectively, or acts inconsistently with seller's ownership. Rejection (§2-602): reasonable time plus seasonable notice. Revocation (§2-608): nonconformity substantially impairs value AND acceptance rested on assumed cure or a latent defect; within a reasonable time, before substantial change in the goods.",
-      "aZh": "接受（§2-606）：经合理检验机会后表示货物合格或愿保留、未作出有效拒收、或作出与卖方所有权不符的行为。拒收（§2-602）：交付后合理期间内＋及时通知。撤回接受（§2-608）：不符须实质损害价值，且接受时或者合理假定瑕疵会被补正、或者瑕疵隐蔽难以发现；须在合理期间内、货物发生实质变化前撤回。",
-      "explainZh": "时间线记忆：交付→检验→拒收窗口（任何不符即可）→接受→撤回接受窗口（门槛跳升为\"实质损害\"＋正当理由）。接受后买方须付款、举证责任倒置，但保留§2-714损害赔偿请求权（须及时通知§2-607(3)）。"
-    },
-    {
-      "id": "k050",
-      "type": "mcq",
-      "topic": "Conditions & Performance",
-      "topicZh": "条件与履行",
-      "q": "A contract requires a painter to paint three identical houses at '$10,000 per house.' After properly completing one house, the painter quits. The owner refuses to pay anything. What may the painter recover?",
-      "qZh": "合同约定粉刷三栋相同房屋，\"每栋10,000美元\"。粉刷工妥善完成一栋后弃工。业主拒付分文。粉刷工可获多少？",
-      "choices": [
-        "Nothing — material breach forfeits all recovery.",
-        "$30,000 minus damages — substantial performance of the whole contract.",
-        "Nothing on the contract, but restitution of exactly $10,000.",
-        "$10,000 for the completed house — the contract is divisible into agreed equivalents — minus the owner's damages from breaching the rest."
-      ],
-      "answer": 3,
-      "explain": "Where performance is divided into corresponding pairs of part performances that are agreed equivalents ('per house' pricing), the contract is divisible: contract-rate recovery for each completed unit, offset by damages for the unperformed remainder.",
-      "explainZh": "可分性三问：履行可否分割？对待给付可否分割？每对是否\"约定的等值对应\"（单价条款是最强信号）？可分→按已完成单元照合同价请求；不可分→只能走违约方准合同返还（合理价值减损害）。总价合同（lump sum）通常不可分。"
-    },
-    {
-      "id": "k051",
-      "type": "basic",
-      "topic": "Breach & Repudiation",
-      "topicZh": "违约与预期违约",
-      "q": "Compare the consequences of material and minor breach at common law.",
-      "qZh": "比较普通法上重大违约与轻微违约的后果。",
-      "a": "Material breach: the nonbreaching party may suspend its own performance and, if the breach is not cured within a reasonable time, terminate and sue for total breach. Minor breach: the nonbreaching party must continue performing and is limited to damages. Materiality factors: benefit deprived, adequacy of compensation, forfeiture to the breacher, likelihood of cure, and good faith of the breacher.",
-      "aZh": "重大违约：守约方可中止己方履行；合理期间内未获补救的，可解除合同并就全部违约索赔。轻微违约：守约方仍须继续履行，救济仅限损害赔偿。重大性因素：所失利益的程度、金钱赔偿能否弥补、违约方的没收损失、补救的可能性、违约方是否善意。",
-      "explainZh": "重大违约＝推定条件不成就＋解除权；轻微违约＝只赔不解。对比《民法典》第563条法定解除以\"不能实现合同目的\"为标准——功能上与materialaity相当，但美国法的多因素衡量更灵活，论述题须逐项分析。"
-    },
-    {
-      "id": "k052",
-      "type": "mcq",
-      "topic": "Breach & Repudiation",
-      "topicZh": "违约与预期违约",
-      "q": "A land-sale contract sets closing for June 1 but contains no time-of-essence clause. Buyer tenders full performance on June 3; seller declares the contract terminated for the delay. Who prevails?",
-      "qZh": "土地买卖合同约定6月1日交割，但无\"时间为合同要素\"条款。买方6月3日提出全面履行；卖方以迟延为由宣布合同终止。谁胜？",
-      "choices": [
-        "Seller — any late performance is automatically a material breach.",
-        "Seller — time is always of the essence in land contracts.",
-        "Buyer — absent a time-of-essence clause or special circumstances, a brief delay is only a minor breach; seller must perform and claim delay damages.",
-        "Buyer — closing dates are unenforceable terms."
-      ],
-      "answer": 2,
-      "explain": "Timely performance is generally not essential unless the contract says time is of the essence or circumstances (e.g., known resale deadline) make it so. A two-day delay is a minor breach: damages, not termination.",
-      "explainZh": "无TOE条款→迟延通常只是轻微违约（赔迟延损失、不得解约）；有TOE条款或情势表明时间关键→迟延即重大违约。起草提示与考试陷阱同源：想让日期\"生死攸关\"就必须写明。对比《民法典》第563条第3项：迟延后经催告仍不履行方可解除——中国法的\"催告\"扮演类似缓冲。"
-    },
-    {
-      "id": "k053",
-      "type": "mcq",
-      "topic": "Breach & Repudiation",
-      "topicZh": "违约与预期违约",
-      "q": "Six months before a scheduled delivery, the seller writes: 'Market conditions are difficult; I doubt we will be able to perform.' The buyer immediately sues for breach. Result?",
-      "qZh": "距约定交付还有六个月，卖方致函：\"市场艰难，我怀疑我们能否履行。\"买方立即起诉违约。结果如何？",
-      "choices": [
-        "Buyer wins — any expression of doubt is an anticipatory repudiation.",
-        "Buyer loses — repudiation must be a clear, unequivocal refusal to perform; mere doubt only justifies a demand for adequate assurances.",
-        "Buyer wins — filing suit converts doubt into repudiation.",
-        "Buyer loses — anticipatory repudiation claims must always await the delivery date."
-      ],
-      "answer": 1,
-      "explain": "Anticipatory repudiation requires an unequivocal manifestation of inability or unwillingness to perform, made before performance is due, in a bilateral contract with executory duties on both sides. Equivocal language triggers §2-609 assurances, not immediate suit.",
-      "explainZh": "\"我怀疑\"≠\"我不干了\"。含糊表态的正确应对：书面要求充分履约保证（§2-609），同时可中止己方履行。真正的预期违约须明确、无保留（或转卖标的物等行为性毁约）。对比《民法典》第578条明示或以行为表明不履行——中国法直接继受预期违约制度，两法接近。"
-    },
-    {
-      "id": "k054",
-      "type": "cloze",
-      "topic": "Breach & Repudiation",
-      "topicZh": "违约与预期违约",
-      "q": "Under UCC §2-609, when reasonable grounds for insecurity arise, a party may demand adequate assurance in writing; failure to provide it within a reasonable time not exceeding {{c::30 days}} is a repudiation.",
-      "qZh": "依UCC §2-609，产生合理不安理由时，一方可书面要求充分履约保证；未在不超过____的合理期间内提供保证的，构成预期违约。",
-      "a": "30 days",
-      "aZh": "30日",
-      "explainZh": "四步：合理不安→书面要求（商人间惯例可稍宽）→可中止己方履行→30日内无充分保证＝毁约。这是把\"含糊的不安\"转化为\"确定的违约\"的战略工具。《民法典》第527-528条不安抗辩权（中止履行→通知→合理期限未恢复履约能力且未提供担保→可解除）与此惊人地对应，是记忆捷径。"
-    },
-    {
-      "id": "k055",
-      "type": "basic",
-      "topic": "Breach & Repudiation",
-      "topicZh": "违约与预期违约",
-      "q": "What are the nonrepudiating party's options after an anticipatory repudiation, and when can the repudiation be retracted?",
-      "qZh": "预期违约发生后，守约方有哪些选择？毁约何时可以撤回？",
-      "a": "Options: sue immediately for total breach; suspend performance and await performance a commercially reasonable time; treat the contract as discharged; or urge performance without waiving rights. Retraction is effective until the aggrieved party cancels, materially changes position, or signals it treats the repudiation as final — the contract is then reinstated with allowance for delay.",
-      "aZh": "选择：(1) 立即以全部违约起诉；(2) 中止己方履行并在商业上合理的期间内等待对方履行；(3) 视合同已解除；(4) 敦促履行而不丧失权利。撤回：在守约方解除合同、实质改变处境、或以其他方式表明视毁约为终局之前均可撤回——撤回使合同恢复，迟延部分获相应宽免。",
-      "explainZh": "毁约不是自动解约，而是给守约方一组选择权；等太久不减损可能被扣减可避免的损失。撤回权的存在意味着：拿到毁约后最好尽快锁定（回函确认解约或另行安排），堵死对方反悔的门。"
-    },
-    {
-      "id": "k056",
-      "type": "basic",
-      "topic": "Breach & Repudiation",
-      "topicZh": "违约与预期违约",
-      "q": "Plaintiff has fully performed; defendant repudiates a debt payable in future installments. May plaintiff sue at once?",
-      "qZh": "原告已全面履行完毕；被告对未来分期支付的债务作出毁约表示。原告可以立即起诉吗？",
-      "a": "No. The anticipatory repudiation doctrine does not apply where the nonrepudiating party has fully performed and the repudiator's only remaining duty is to pay money at future dates. Plaintiff must wait and sue as each payment falls due (no acceleration absent a clause). The same limit applies to unilateral contracts already performed.",
-      "aZh": "不可以。守约方已全面履行、毁约方仅剩未来付款义务时，预期违约规则不适用。原告须待各期款项到期后分别起诉（无加速条款则不得加速到期）。已履行完毕的单务合同同受此限。",
-      "explainZh": "高频陷阱：预期违约要求双方都还有未履行义务（executory on both sides）。理由：已履行方无履行可中止、提前判赔等于强制预付。实务对策：合同里写加速条款。这一限制中国法没有对应物，务必单独记牢。"
-    },
-    {
-      "id": "k057",
-      "type": "basic",
-      "topic": "Excuse: Impossibility & Frustration",
-      "topicZh": "履行免除",
-      "q": "When does impossibility discharge a duty, and what is the builder-destruction rule?",
-      "qZh": "履行不能何时免除义务？\"承建人—毁损\"规则是什么？",
-      "a": "Requires objective impossibility — no one could perform — from a post-formation event: death of a person essential to performance, supervening illegality, destruction of the specific subject matter. But a builder of a NEW building is not excused by its destruction — rebuilding is possible; only a time extension. A contractor renovating an EXISTING building is excused when it burns.",
-      "aZh": "履行须客观不能——任何人都无法履行——且源于订约后的事件：履行所必需之人死亡或丧失能力、事后违法、特定标的物灭失。但新建建筑的承建人不因在建建筑毁损而免责——重建仍属可能，只获工期展延。翻修既有建筑的承包人则于该建筑焚毁时免责（标的物已不存在）。",
-      "explainZh": "客观（没人能干）vs主观（我干不了——不免责）。承建人规则的逻辑：新建工程的\"标的物\"是承建人的劳务成果而非那栋楼，楼塌了还能再盖；翻修合同则以既有楼为前提。别忘了顺带检查风险条款与保险有无分配该风险。"
-    },
-    {
-      "id": "k058",
-      "type": "basic",
-      "topic": "Excuse: Impossibility & Frustration",
-      "topicZh": "履行免除",
-      "q": "State the elements of commercial impracticability (UCC §2-615).",
-      "qZh": "陈述商业不可行（UCC §2-615）的构成要件。",
-      "a": "Excused where (1) an unforeseen contingency occurs, (2) whose nonoccurrence was a basic assumption of the contract, (3) without the claimant's fault, and (4) the risk was not assumed. Mere cost increases or market collapse almost never suffice — extreme, unforeseeable disruption is required (war, embargo, failure of a designated source).",
-      "aZh": "满足以下条件履行获免除：(1) 发生未预见的意外情事；(2) 其不发生是订约的基本前提；(3) 主张免责一方无过错；(4) 该方未（明示或依交易情况）承担该风险。单纯成本上涨或市场剧变几乎从不足够——须达到战争、禁运、指定货源灭失等极端且不可预见的程度。",
-      "explainZh": "对比《民法典》第533条情势变更：中国法允许重新协商并由法院变更或解除合同；美国法院不改写合同——要么免除要么照约履行，且门槛更高（涨价10倍都未必免）。答题时先排除\"风险已由固定价格条款分配给卖方\"这一常见杀招。"
-    },
-    {
-      "id": "k059",
-      "type": "mcq",
-      "topic": "Excuse: Impossibility & Frustration",
-      "topicZh": "履行免除",
-      "q": "A man rents a flat overlooking a parade route at ten times the normal rate, both parties knowing his purpose is to view a royal parade. The parade is cancelled. Must he pay?",
-      "qZh": "一男子以十倍于常价租下可俯瞰游行路线的公寓，双方均知其目的是观看王室游行。游行取消。他仍须付租金吗？",
-      "choices": [
-        "No — the principal purpose known to both parties was destroyed by a supervening event neither caused: frustration of purpose discharges his duty.",
-        "Yes — performance (providing the room) remains entirely possible.",
-        "Yes — frustration of purpose applies only to sales of goods.",
-        "No — impossibility of performance excuses him."
-      ],
-      "answer": 0,
-      "explain": "Frustration discharges even though performance remains possible: a supervening event, the nonoccurrence of which was a basic assumption, substantially destroys the contract's known principal purpose. Choice (3) fails — renting the room is not impossible; that is exactly why frustration, not impossibility, is the right doctrine.",
-      "explainZh": "三姐妹分工：履行不能（干不了）、商业不可行（干得了但代价离谱）、目的落空（干得了也付得起，但履行已无意义）。目的落空要件：双方共知的主要目的＋意外事件将其实质摧毁＋基本前提＋十倍租金等事实证明目的是交易基础。加价本身就是\"目的构成交易基础\"的证据。"
-    },
-    {
-      "id": "k060",
-      "type": "cloze",
-      "topic": "Excuse: Impossibility & Frustration",
-      "topicZh": "履行免除",
-      "q": "Under UCC §2-613, if goods identified when the contract is made are totally destroyed without fault of either party and before the risk of loss passes to the buyer, the contract is {{c::avoided}} — neither party has further obligations.",
-      "qZh": "依UCC §2-613，订约时已特定化的货物在风险转移给买方之前、无双方过错而全部灭失的，合同____——双方均无进一步义务。",
-      "a": "avoided",
-      "aZh": "解除（自动消灭）",
-      "explainZh": "适用前提有三：订约时货物已特定（identified，如\"这一辆车\"而非\"一辆同型号车\"）、灭失无过错、风险尚未转移。部分毁损时买方可选择：解除，或按折让价接受剩余部分（无其他索赔）。种类物灭失不适用——市场上还能买到，卖方照常履行。"
-    },
-    {
-      "id": "k061",
-      "type": "basic",
-      "topic": "Excuse: Impossibility & Frustration",
-      "topicZh": "履行免除",
-      "q": "What must a seller do when §2-615 excuses only part of its capacity?",
-      "qZh": "当§2-615仅使卖方部分产能获免时，卖方须怎么做？",
-      "a": "The seller must allocate production and deliveries among its customers — it may include regular customers not then under contract — in any manner that is fair and reasonable, and must seasonably notify each buyer of the estimated quota made available. The buyer may then accept its allocation or terminate the contract as to the affected deliveries.",
-      "aZh": "卖方须在客户之间分配产量与交付——可将当时未订约的老客户计入——分配方式须公平合理，并须及时通知各买方可获得的预计配额。买方随后可以接受配额，或就受影响的交付解除合同。",
-      "explainZh": "部分免责不等于任性分配：\"公平合理\"＋\"及时通知\"是两道硬要求，优先全额供应出价最高者即属违约。买方端记住选择权：收下配额或走人。这一\"配给\"机制在中国法无直接对应，属UCC特色考点。"
-    },
-    {
-      "id": "k062",
-      "type": "basic",
-      "topic": "Remedies & Damages",
-      "topicZh": "违约救济",
-      "q": "State the general expectation damages formula.",
-      "qZh": "陈述期待利益损害赔偿的一般公式。",
-      "a": "Put the plaintiff where full performance would have: loss in value of the promised performance + incidental and consequential losses − costs avoided by not having to finish − losses avoided. Construction: unpaid builder recovers expected profit plus costs incurred; owner recovers cost of completion plus reasonable delay damages. Always filtered through foreseeability, certainty, and mitigation.",
-      "aZh": "使原告处于合同获得完全履行时的地位：所许履行的价值损失＋附带与间接损失－因无须继续履行而节省的成本－已避免的损失。建筑案型：未获付款的承建人得预期利润加已支出成本；业主得完工费用加合理迟延损失。所有赔偿均须过可预见性、确定性、减损三道滤网。",
-      "explainZh": "期待利益是美国合同救济的默认标尺——向前看（如同已履行），而非向后看（恢复原状，那是信赖/返还）。《民法典》第584条同样以\"合同履行后可以获得的利益\"为限，概念可直接对接；差别在美国法的公式化操作，考试要会代数字。"
-    },
-    {
-      "id": "k063",
-      "type": "cloze",
-      "topic": "Remedies & Damages",
-      "topicZh": "违约救济",
-      "q": "Under Hadley v. Baxendale, consequential damages are recoverable only if the loss was {{c::foreseeable to the breaching party at the time of contracting}} — arising naturally from the breach, or from special circumstances the breacher had reason to know.",
-      "qZh": "依Hadley v. Baxendale，间接损失仅在其____时方可获赔——即损失系违约的自然结果，或源于违约方有理由知悉的特殊情况。",
-      "a": "foreseeable to the breaching party at the time of contracting",
-      "aZh": "在订约时对违约方而言可预见",
-      "explainZh": "两条渠道：自然而生（任何人都能预见）或特殊情况已获告知（磨坊停工靠曲轴运转——须事先告知承运人）。时点卡在\"订约时\"而非违约时。《民法典》第584条但书\"不得超过违约一方订立合同时预见到或者应当预见到的损失\"正是Hadley规则的直系后代，中国律师的最大记忆红利。"
-    },
-    {
-      "id": "k064",
-      "type": "basic",
-      "topic": "Remedies & Damages",
-      "topicZh": "违约救济",
-      "q": "State the certainty and mitigation (avoidable consequences) limits on damages.",
-      "qZh": "陈述损害赔偿的确定性限制与减损（可避免后果）限制。",
-      "a": "Certainty: damages must be reasonably certain — a new business's lost profits traditionally fail; reliance is the fallback. Mitigation: no recovery for losses reasonably avoidable; a discharged employee need only accept comparable employment (same kind and rank), with actual or should-have-been earnings deducted. Mitigation costs are recoverable as incidental damages.",
-      "aZh": "确定性：损害须以合理确定性证明——新企业的利润损失传统上难获支持（现代法院接受专家与同类企业证据）；退而求其次可主张信赖利益。减损：合理努力即可避免的损失不予赔偿；被违法解雇的雇员只须接受同类同级的可比工作，实得或本应所得的工资予以扣除。减损费用可作为附带损害获赔。",
-      "explainZh": "\"减损\"严格说不是义务而是赔偿上限——不减损不违法，只是那部分拿不到钱。电影明星不必屈就B级片（非同类工作）。《民法典》第591条防止损失扩大规则完全同构，可整体迁移。"
-    },
-    {
-      "id": "k065",
-      "type": "cloze",
-      "topic": "Remedies & Damages",
-      "topicZh": "违约救济",
-      "q": "A liquidated damages clause is enforceable only if, viewed at formation, damages were {{c::difficult to estimate and the amount is a reasonable forecast}} of probable loss; a clause fixing an unreasonably large sum is a void penalty.",
-      "qZh": "约定违约金条款仅当以订约时观察，损害____时方可执行；约定数额不合理地过高的条款是无效的惩罚条款。",
-      "a": "difficult to estimate and the amount is a reasonable forecast",
-      "aZh": "难以估算且该金额是对可能损失的合理预估",
-      "explainZh": "两要件都在\"订约时\"判断（多数法域；少数兼看实际损害）。条款无效≠没有救济——退回普通损害赔偿。与《民法典》第585条最大反差：中国法院可对过高违约金\"予以适当减少\"，美国法院不改数字——要么整条有效、要么整条作废。",
-      "caNote": "California Civil Code §1671(b): outside consumer and residential-lease contracts, a liquidated damages clause is presumptively VALID unless the challenger proves it was unreasonable under the circumstances at formation.",
-      "caNoteZh": "加州民法典§1671(b)：消费者合同与住宅租赁之外，约定违约金条款推定有效，除非异议方证明按订约时情况该条款不合理。"
-    },
-    {
-      "id": "k066",
-      "type": "basic",
-      "topic": "Remedies & Damages",
-      "topicZh": "违约救济",
-      "q": "When are reliance damages used, and how are they measured?",
-      "qZh": "信赖利益赔偿何时适用？如何计算？",
-      "a": "An alternative to expectation, used when expectation is too uncertain or in promissory estoppel. Measure: expenditures in preparation and part performance, restoring the pre-contract position. Reduced by any loss the defendant proves plaintiff would have suffered on full performance — reliance cannot beat expectation on a losing contract.",
-      "aZh": "期待利益的替代选项，用于期待利益过于不确定（利润无法证明）或允诺禁反言案件。计算：为准备和部分履行合同所作的支出，使原告回到订约前地位。若被告证明合同即使履行原告也会亏损，应予扣减——亏损合同上信赖利益不得超过期待利益。",
-      "explainZh": "三把标尺一张图：期待（向前看，赚到的）＞信赖（向后看，花掉的）＞返还（对方拿走的）。举证责任的巧妙分配：原告只须证明支出，\"合同本会亏损\"由被告证明。"
-    },
-    {
-      "id": "k067",
-      "type": "basic",
-      "topic": "Remedies & Damages",
-      "topicZh": "违约救济",
-      "q": "When is restitution available — including to a breaching party and on losing contracts?",
-      "qZh": "返还救济何时可用——包括对违约方与亏损合同？",
-      "a": "Where a benefit was conferred and retention would be unjust: (1) a nonbreacher may elect restitution over expectation — on a losing contract it is NOT capped by the contract price, unless performance is complete and only money is owed; (2) a breaching party recovers benefit conferred minus the nonbreacher's damages; (3) quasi-contract applies where no contract exists.",
-      "aZh": "利益已授予且保留将不公时可用：(1) 守约方可选择返还以替代期待利益，且亏损合同中返还不以合同价为上限——但履行已完成、仅剩金钱债务的除外；(2) 违约方可请求返还所授利益减去守约方的损害；(3) 无合同存在时以准合同请求返还。",
-      "explainZh": "亏损合同的逃生门：按合同要亏钱？改主张返还（对方已获利益的合理价值），可能反而高于合同价。唯一封口：干完了只等收钱的，只能按合同价。违约方也能拿钱这一点最反直觉——防止业主白得九成工程。"
-    },
-    {
-      "id": "k068",
-      "type": "mcq",
-      "topic": "Remedies & Damages",
-      "topicZh": "违约救济",
-      "q": "A seller fails to deliver machines contracted at $50,000. The buyer promptly and reasonably buys identical machines elsewhere for $58,000, paying $500 extra freight. Buyer's damages?",
-      "qZh": "卖方未交付合同价50,000美元的机器。买方迅速、合理地以58,000美元另购同型机器，另付运费500美元。买方可获多少赔偿？",
-      "choices": [
-        "$50,000",
-        "$8,000 — the freight is not recoverable.",
-        "Nothing — covering waives any damages claim.",
-        "$8,500 — cover price minus contract price, plus incidental damages (§2-712)."
-      ],
-      "answer": 3,
-      "explain": "Cover requires a good-faith, reasonable substitute purchase without unreasonable delay. Damages = cover price − contract price + incidental/consequential damages − expenses saved. Cover is optional — a buyer may instead claim the market measure (§2-713).",
-      "explainZh": "买方三件套：补进差价（§2-712）、市价差价（§2-713）、已接受货物的担保差价（§2-714(2)）。补进不是义务，但不补进会砍掉本可避免的间接损失（减损原理）。运费是典型附带损害。对比《民法典》第583条替代交易规则——同一思想。"
-    },
-    {
-      "id": "k069",
-      "type": "cloze",
-      "topic": "Remedies & Damages",
-      "topicZh": "违约救济",
-      "q": "Under UCC §2-714(2), damages for breach of warranty are the difference between {{c::the value of the goods as warranted and their value as accepted}}, measured at the time and place of acceptance.",
-      "qZh": "依UCC §2-714(2)，违反担保的损害赔偿为____之间的差额，以接受货物的时间和地点为准。",
-      "a": "the value of the goods as warranted and their value as accepted",
-      "aZh": "货物如担保所述应有的价值与实际接受时的价值",
-      "explainZh": "这是\"已接受货物\"的救济——货留下、钱找补。前提：接受后合理期间内将违约通知卖方（§2-607(3)(a)），否则丧失一切救济，考题最爱埋这颗雷。通常\"如担保的价值\"＝合同价，修理费是价值差的常用证据。"
-    },
-    {
-      "id": "k070",
-      "type": "basic",
-      "topic": "Remedies & Damages",
-      "topicZh": "违约救济",
-      "q": "When is specific performance available for goods, land, and personal services?",
-      "qZh": "货物、土地、人身服务合同何时可获强制实际履行？",
-      "a": "Land: routinely — every parcel is deemed unique, so damages are inadequate. Goods (§2-716): only for unique goods (heirlooms, one-of-a-kind works) or 'other proper circumstances,' chiefly inability to cover; replevin lies for identified goods when cover is unavailable. Personal services: never specifically enforced — but a negative injunction may bar performing elsewhere where the services are special and unique (Lumley-type).",
-      "aZh": "土地：常规可得——每块土地均视为独特，金钱赔偿不充分。货物（§2-716）：仅限独特货物（传家宝、孤品）或\"其他适当情形\"，主要指无法补进；已特定货物无法补进时可请求返还原物。人身服务：绝不强制履行——但服务特殊且独一无二时，可发禁令禁止其为他人履行（Lumley案型）。",
-      "explainZh": "衡平救济的总闸门：法律救济（金钱）不充分才开。人身服务不强制的理由：类似强迫劳动＋法院无法监督；禁令是折中。对比《民法典》第579-581条以继续履行为原则——中美在\"实际履行是原则还是例外\"上立场正好相反，这是必须内化的大差异。"
-    },
-    {
-      "id": "k071",
-      "type": "mcq",
-      "topic": "Remedies & Damages",
-      "topicZh": "违约救济",
-      "q": "A boat dealer with unlimited inventory contracts to sell a standard boat for $30,000 (built-in profit $4,000). The buyer repudiates; the dealer then sells that same boat to another customer for $30,000. Dealer's damages?",
-      "qZh": "库存充足的游艇经销商以30,000美元（内含利润4,000美元）出售一艘标准型游艇。买方毁约；经销商随后将同一艘艇以30,000美元卖给另一客户。经销商可获多少赔偿？",
-      "choices": [
-        "Nothing — resale at the same price means no loss.",
-        "$30,000 — the full contract price.",
-        "$4,000 lost profit — as a lost-volume seller, the dealer would have made both sales (§2-708(2)).",
-        "Nominal damages only."
-      ],
-      "answer": 2,
-      "explain": "Contract-minus-resale is zero, which fails to put the dealer where performance would have: with unlimited supply it could have made BOTH sales, so the breach cost it one sale's profit. §2-708(2) awards lost profit plus incidental damages.",
-      "explainZh": "销量损失卖方三要件：有能力供应两笔交易、第二笔交易即使无违约也会发生、第二笔有利可图。识别信号：标准化商品＋大库存经销商。这是MBE救济题的头号明星——看到\"原价转售给别人\"就要条件反射想到§2-708(2)。"
-    },
-    {
-      "id": "k072",
-      "type": "basic",
-      "topic": "Remedies & Damages",
-      "topicZh": "违约救济",
-      "q": "Summarize the seller's UCC damages remedies.",
-      "qZh": "概述卖方在UCC下的损害赔偿救济。",
-      "a": "Resale (§2-706): contract minus resale price — good faith, commercially reasonable, with notice. Market (§2-708(1)): contract minus market price at time and place for tender. Lost profit (§2-708(2)) where those are inadequate. Price (§2-709): only accepted goods, conforming goods destroyed after risk passed, or unsaleable identified goods. Plus incidentals — sellers get no consequential damages.",
-      "aZh": "转售差价（§2-706）：合同价－转售价，转售须善意、商业上合理并通知。市价差价（§2-708(1)）：合同价－交付时间地点的市价。上述不足以补偿时按利润损失（§2-708(2)）。价款之诉（§2-709）：仅限已被接受的货物、风险转移后灭失的合格货物、经合理努力仍无法转售的已特定货物。另加附带损害——卖方无间接损害赔偿。",
-      "explainZh": "与买方救济镜像记忆：转售↔补进、市价↔市价、价款之诉↔特定履行。两个不对称点要记：卖方拿不到间接损害（§2-715只给买方）；价款之诉是例外而非常态——货还卖得掉就只能要差价。"
-    },
-    {
-      "id": "k073",
-      "type": "basic",
-      "topic": "Remedies & Damages",
-      "topicZh": "违约救济",
-      "q": "When may an unpaid seller reclaim goods from an insolvent buyer (§2-702)?",
-      "qZh": "无担保卖方何时可从破产买方处取回货物（§2-702）？",
-      "a": "A seller discovering the buyer received goods on credit while insolvent may reclaim on demand within 10 days after receipt. The 10-day limit falls away if the buyer misrepresented solvency in writing within three months before delivery. A good-faith purchaser from the buyer cuts off reclamation; successful reclamation excludes all other remedies for those goods.",
-      "aZh": "卖方发现买方在无清偿能力状态下赊购收货的，可在买方收货后10日内要求取回。买方在交付前三个月内曾书面虚报清偿能力的，不受10日限制。买方的善意买受人可切断取回权；取回成功即排除就该批货物的其他一切救济。",
-      "explainZh": "数字题：10日（收货后索回）＋3个月（书面虚报清偿能力则免除10日限制）。两个易错点：虚报必须是书面；取回是\"独食\"救济——拿回货就不能再索赔差价。功能上类似《民法典》出卖人取回权思想（保留所有权情形，第641-643条），但美国法这里无需约定所有权保留。"
-    },
-    {
-      "id": "k074",
-      "type": "basic",
-      "topic": "Remedies & Damages",
-      "topicZh": "违约救济",
-      "q": "Are punitive damages available for breach of contract, and what fills the gap when no enforceable contract exists?",
-      "qZh": "违约可以判惩罚性赔偿吗？无有效合同时以什么救济填补？",
-      "a": "Punitive damages are NOT recoverable for pure breach, however willful — contract law compensates, it does not punish (an independent tort with malice differs). Nominal damages lie for breach without provable loss. With no enforceable contract, quasi-contract prevents unjust enrichment: recovery is the reasonable value of the benefit conferred, not the contract price.",
-      "aZh": "单纯违约不判惩罚性赔偿，无论违约多么故意——合同法功能是补偿而非惩罚（伴有恶意的独立侵权除外）。无法证明损失时可获名义性赔偿。无有效合同时，准合同防止不当得利：赔偿额为所授利益的合理价值（quantum meruit），而非合同价。",
-      "explainZh": "\"efficient breach\"理念：法律不谴责违约，只要求补偿——这与大陆法把违约视为违反诚信的语感不同。考题若问\"故意、恶劣的违约能否加罚\"，答案永远是不能（除非另构成侵权，如保险恶意拒赔）。"
-    },
-    {
-      "id": "k075",
-      "type": "mcq",
-      "topic": "Remedies & Damages",
-      "topicZh": "违约救济",
-      "q": "Seller repudiates a $100,000 grain contract. Buyer does not cover. Market price when buyer learned of the breach: $115,000; market price at trial: $130,000. Buyer's damages under §2-713?",
-      "qZh": "卖方毁弃价款100,000美元的谷物合同。买方未补进。买方得知违约时市价115,000美元；庭审时市价130,000美元。依§2-713买方可获多少？",
-      "choices": [
-        "$30,000",
-        "$15,000 — market price when the buyer learned of the breach, minus the contract price.",
-        "Nothing — failure to cover forfeits all damages.",
-        "$115,000"
-      ],
-      "answer": 1,
-      "explain": "§2-713: market price at the time the buyer learned of the breach (at the place for tender) minus contract price, plus incidentals and consequentials. Not covering never bars market damages — it only cuts off consequential losses cover would have avoided.",
-      "explainZh": "市价法的两个坐标必须记准：时间＝买方得知违约时（不是庭审时、不是履行期），地点＝交付地。庭审市价130,000是干扰数字。不补进的代价只是丧失\"补进本可避免的间接损失\"，差价本身照拿。"
-    },
-    {
-      "id": "k076",
-      "type": "basic",
-      "topic": "Third-Party Rights",
-      "topicZh": "第三人权利",
-      "q": "Who is an intended (vs incidental) third-party beneficiary, and why does the distinction matter?",
-      "qZh": "谁是意定（相对于附带）第三人受益人？区分为何重要？",
-      "a": "Intended: the parties meant to benefit the third party — performance runs directly to them, they are named, or the promise pays the promisee's debt to them (creditor) or makes a gift (donee). Only intended beneficiaries, once rights vest, may enforce. Incidental beneficiaries — anyone else benefited in fact — have no rights.",
-      "aZh": "意定受益人：缔约双方有使第三人受益的意图——表现为履行直接向第三人作出、第三人在合同中被指明、或该允诺用以清偿对其所负债务（债权受益人）或授予赠与（赠与受益人）。只有意定受益人在权利固定后享有诉权。附带受益人——其他一切事实上受益者——不享有任何权利。",
-      "explainZh": "判断锚点：钱/货/服务流向谁？合同点没点名？经典附带受益人：因隔壁豪宅开建而升值的邻居、政府采购合同下的普通公众——都不能起诉。《民法典》第522条第2款已确立真正利益第三人合同，可对照理解，但美国法的意定/附带二分须按其标准分析。"
-    },
-    {
-      "id": "k077",
-      "type": "cloze",
-      "topic": "Third-Party Rights",
-      "topicZh": "第三人权利",
-      "q": "A {{c::creditor}} beneficiary may sue both the promisor on the contract and the promisee on the underlying debt (only one satisfaction); a donee beneficiary generally cannot sue the promisee at all, absent detrimental reliance.",
-      "qZh": "____受益人既可依合同起诉允诺人，也可依原债务起诉受诺人（只能获偿一次）；赠与受益人原则上根本不能起诉受诺人，除非有信赖损害。",
-      "a": "creditor",
-      "aZh": "债权",
-      "explainZh": "分类依据看受诺人动机：为还债→债权受益人；为送礼→赠与受益人。债权受益人手握两张请求权（合同＋原债），但只能满足一次。赠与受益人对受诺人无据可依——受诺人本无义务送礼，除非允诺禁反言介入。"
-    },
-    {
-      "id": "k078",
-      "type": "cloze",
-      "topic": "Third-Party Rights",
-      "topicZh": "第三人权利",
-      "q": "Once the beneficiary {{c::manifests assent at a party's request, materially relies, or sues to enforce the promise}}, its rights vest — the original parties may no longer modify or rescind without the beneficiary's consent.",
-      "qZh": "一旦受益人____，其权利即告固定——缔约双方未经受益人同意不得再变更或解除合同。",
-      "a": "manifests assent at a party's request, materially relies, or sues to enforce the promise",
-      "aZh": "应一方请求表示同意、发生实质信赖、或就该允诺提起诉讼",
-      "explainZh": "固定（vesting）前双方可自由改约甚至取消受益安排；固定后第三人权利\"上锁\"。三个固定事由记\"同意、信赖、起诉\"。合同明文保留变更权（人寿保单改受益人条款）则优先于默认规则。"
-    },
-    {
-      "id": "k079",
-      "type": "basic",
-      "topic": "Third-Party Rights",
-      "topicZh": "第三人权利",
-      "q": "Which defenses may the promisor assert against a suing third-party beneficiary?",
-      "qZh": "允诺人可以对起诉的第三人受益人主张哪些抗辩？",
-      "a": "Any defense arising from the beneficiary contract itself: lack of consideration, formation defenses, nonoccurrence of conditions — including the promisee's own failure to perform — and supervening excuse. But not the promisee's separate defenses or setoffs from other transactions, unless the promise was limited to paying what the promisee actually owes.",
-      "aZh": "一切源于该受益合同本身的抗辩：欠缺对价、订约抗辩、条件未成就——包括受诺人自身未履行——以及事后免责事由。但允诺人原则上不得以受诺人在其他交易中的独立抗辩或抵销对抗受益人，除非允诺明确限定为\"按受诺人实欠数额支付\"。",
-      "explainZh": "一句话：受益人的权利\"从合同来、随合同瑕疵\"，但不受合同外恩怨牵连。受诺人不付款给允诺人→条件不成就→允诺人对受益人当然可拒付。《民法典》第522条下允诺人同样可主张基于合同的抗辩，思路一致。"
-    },
-    {
-      "id": "k080",
-      "type": "basic",
-      "topic": "Third-Party Rights",
-      "topicZh": "第三人权利",
-      "q": "What makes an assignment effective, which rights cannot be assigned, and when is a gratuitous assignment revocable?",
-      "qZh": "让与如何生效？哪些权利不得让与？无偿让与何时可撤回？",
-      "a": "A present transfer of an existing right — 'I hereby assign' — needs no consideration or writing. Ineffective if it would materially change the obligor's duty, increase its burden or risk, or impair return performance. Rights under future contracts cannot be assigned. Gratuitous assignments are revocable unless a signed writing or the token chose is delivered, or the assignee relied.",
-      "aZh": "对既存合同权利的现时转移——\"我现在让与\"——一般无须对价或书面（少数例外）。若将实质改变债务人的义务、实质加重其负担或风险、或损害其获得对待履行的机会，则让与无效。尚未订立之合同下的权利不得让与。无偿让与可撤回（以通知、死亡或再次让与撤回），除非已交付经签署的书面、已交付权利凭证、或受让人已信赖。",
-      "explainZh": "关键措辞区分：\"我现在让与\"（现时转移，有效）vs\"我将会让与\"（仅是允诺，无对价则不可执行）。金钱债权几乎总可让与——付给谁对债务人无差别。《民法典》第545条禁止让与情形（性质、约定、法定）框架相似，但通知规则不同：美国法让与即生效，通知只影响债务人清偿对象。"
-    },
-    {
-      "id": "k081",
-      "type": "mcq",
-      "topic": "Third-Party Rights",
-      "topicZh": "第三人权利",
-      "q": "A contract states: 'Rights hereunder shall not be assigned.' The contractor assigns its right to payment to a bank anyway. The owner refuses to pay the bank. Result?",
-      "qZh": "合同载明：\"本合同项下权利不得让与。\"承包商仍将其付款请求权让与银行。业主拒绝向银行付款。结果如何？",
-      "choices": [
-        "The assignment is void — the clause destroys the power to assign.",
-        "The clause is unenforceable — anti-assignment clauses violate public policy.",
-        "The assignment is void because payment rights are personal.",
-        "The assignment is effective — a bare prohibition removes only the RIGHT to assign, not the POWER, so the bank collects while the contractor is liable for breach of the covenant."
-      ],
-      "answer": 3,
-      "explain": "A clause barring assignment takes away the right, not the power: the assignment works and the obligor must pay the assignee; the assignor merely owes breach damages. Only language declaring assignments 'void' destroys the power itself. Payment rights are the least 'personal' of all.",
-      "explainZh": "措辞定生死：\"不得让与\"＝夺权利不夺权能（让与有效＋让与人赔钱）；\"让与无效/void\"＝连权能一并剥夺。金钱债权的让与还受UCC第9编（§9-406）额外保护，多数限制条款直接失效。对比《民法典》第545条第2款：金钱债权的禁止让与约定不得对抗第三人——精神相通。"
-    },
-    {
-      "id": "k082",
-      "type": "basic",
-      "topic": "Third-Party Rights",
-      "topicZh": "第三人权利",
-      "q": "What does an assignor for value impliedly warrant, and who prevails between successive assignees of the same right?",
-      "qZh": "有偿让与人默示担保什么？同一权利被先后让与时谁优先？",
-      "a": "Implied warranties (assignment for value): the right exists free of undisclosed defenses; the assignor will not impair it; documents shown are genuine — but no warranty the obligor will perform or is solvent. Successive assignees: first in time prevails; a later good-faith paying assignee without notice wins by first obtaining payment, judgment, novation, or the token chose.",
-      "aZh": "默示担保：权利存在且无未披露的抗辩；让与人不会作出损害该权利的行为；出示的书面凭证真实。不担保债务人会履行或有清偿能力。先后让与：先让与者优先（美国多数规则）——但后受让人系有偿、善意、不知情，且率先获得清偿、判决、债务更新或权利凭证的，后来居上。",
-      "explainZh": "\"担保权利、不担保人\"——债务人赖账风险归受让人。后受让人翻盘的\"四骑士\"：先收款、先判决、先更新、先拿凭证。无偿让与人无任何默示担保。中国法对应：《民法典》第546条以通知债务人为对抗要件，规则路径不同，勿混。"
-    },
-    {
-      "id": "k083",
-      "type": "basic",
-      "topic": "Third-Party Rights",
-      "topicZh": "第三人权利",
-      "q": "Which duties are delegable, and who is liable after delegation?",
-      "qZh": "哪些义务可以委托他人履行？委托后责任由谁承担？",
-      "a": "All duties are delegable EXCEPT those involving personal judgment, special skill, or trust (portrait artist, attorney), where delegation materially varies the bargained-for performance, or where the contract forbids it. The delegator remains liable absent a novation. The delegatee is liable to the obligee only on assumption — its promise makes the obligee a third-party beneficiary.",
-      "aZh": "一切义务均可委托履行，但下列除外：涉及个人判断、特殊技能、品味或信任的义务（肖像画家、外科医生、律师）；委托将实质改变债权人所磋商获得的履行；合同有效禁止委托。无债务更新时，委托人始终继续负责。受托人仅在承担义务时对债权人负责——其履行允诺使债权人成为第三人受益人。",
-      "explainZh": "与让与的根本区别：权利让与后让与人退场，义务委托后委托人仍被拴住——\"甩活不甩责\"。对比《民法典》第551条：债务转移须经债权人同意（免责式债务承担）——美国法无须同意即可委托，但代价是委托人不脱钩；想脱钩就得走novation（对应中国法的免责式承担）。"
-    },
-    {
-      "id": "k084",
-      "type": "mcq",
-      "topic": "Third-Party Rights",
-      "topicZh": "第三人权利",
-      "q": "Builder 'assigns the contract' with Owner to Successor for value. Successor abandons the job. Whom may Owner sue?",
-      "qZh": "承建商将其与业主的\"合同整体让与\"给继受人（有偿）。继受人弃工。业主可以起诉谁？",
-      "choices": [
-        "Both — assigning 'the contract' includes a delegation of duties and Successor's implied assumption; Builder remains liable as delegator.",
-        "Builder only — duties can never pass to Successor.",
-        "Successor only — the assignment substituted Successor for Builder.",
-        "Neither — Owner must first obtain a novation."
-      ],
-      "answer": 0,
-      "explain": "General words assigning 'the contract' operate as an assignment of rights PLUS a delegation of duties, and the assignee's acceptance implies a promise to perform (R2d §328; UCC §2-210). Delegation never releases the delegator without a novation — so both are liable.",
-      "explainZh": "\"让与合同\"四个字＝权利让与＋义务委托＋受让人默示承担三合一。业主因受让人的承担允诺成为第三人受益人，可直接起诉受让人；委托人未经novation不脱责，故两个都能告。(2)是典型陷阱——把让与当成了债务更新。"
-    },
-    {
-      "id": "k085",
-      "type": "basic",
-      "topic": "Classic Traps & Mixed Review",
-      "topicZh": "经典陷阱综合",
-      "q": "Distinguish accord and satisfaction from modification, and state the effect of breaching an accord.",
-      "qZh": "区分\"新协议与清偿\"与合同变更，并说明违反新协议的效果。",
-      "a": "An accord accepts a DIFFERENT future performance in discharge of an existing duty; the original duty is suspended until satisfaction — performing the accord — discharges both. If the debtor breaches the accord, the creditor may sue on EITHER the original obligation or the accord. A modification discharges the old term immediately upon agreement.",
-      "aZh": "新协议（accord）是以不同的将来履行清偿既存债务的合意；原债务仅被中止，待清偿（satisfaction，即履行新协议）后两项义务同归消灭。债务人违反新协议的，债权人可择一起诉：原债务或新协议。合同变更则不同——协议达成之时旧条款即告消灭。",
-      "explainZh": "判断口径：双方意思是\"以新替旧、立即生效\"（变更）还是\"干成了才算数\"（accord）？疑义时推定accord，保住债权人的原债权。对价常来自对争议债权（金额不确定或有诚实争议）的妥协；全额到期无争议债务打折清偿则缺对价（既存义务规则）。"
-    },
-    {
-      "id": "k086",
-      "type": "mcq",
-      "topic": "Classic Traps & Mixed Review",
-      "topicZh": "经典陷阱综合",
-      "q": "Tenant, with Landlord's written consent, transfers a lease to NewCo, and Landlord agrees to 'accept NewCo as tenant.' Landlord never expressly releases Tenant. NewCo defaults. Is Tenant still liable?",
-      "qZh": "承租人经出租人书面同意将租约转给新公司，出租人同意\"接受新公司为承租人\"，但从未明确免除原承租人责任。新公司违约。原承租人仍负责吗？",
-      "choices": [
-        "No — Landlord's consent to the transfer worked a novation.",
-        "No — delegation always releases the delegator.",
-        "Yes — a novation requires the obligee's agreement to substitute the new obligor AND release the original; mere consent to the transfer is not a release.",
-        "Yes — leases can never be transferred."
-      ],
-      "answer": 2,
-      "explain": "Novation requires (1) a previous valid obligation, (2) agreement of ALL parties including the obligee, (3) extinguishment of the old obligation by substituting a new party, and (4) a valid new contract. Consent to an assignment or assumption alone leaves the original obligor secondarily liable.",
-      "explainZh": "\"同意转让\"≠\"同意放人\"。债务更新的核心是免除原债务人——必须找到明示或可清楚推断的免责意思。考题套路：出租人/业主同意接收新人＋收了新人的钱＝仍不构成novation。对应《民法典》第551条免责式债务承担须债权人同意，且同意的对象是\"免责\"。"
-    },
-    {
-      "id": "k087",
-      "type": "mcq",
-      "topic": "Classic Traps & Mixed Review",
-      "topicZh": "经典陷阱综合",
-      "q": "Homeowner says: 'I will pay you $1,000 when you finish painting my fence.' Painter buys paint, then paints half the fence. Homeowner shouts 'I revoke!' Painter's best position?",
-      "qZh": "房主说：\"你把栅栏刷完，我付你1,000美元。\"油漆工买好油漆后刷完了一半。房主喊：\"我撤销！\"油漆工的最佳立场是什么？",
-      "choices": [
-        "No contract ever formed — Painter never promised anything.",
-        "The offer became irrevocable when Painter began performance; by completing the job Painter earns the $1,000.",
-        "Buying the paint made the offer irrevocable.",
-        "A bilateral contract formed when Painter started, so Painter is now bound to finish."
-      ],
-      "answer": 1,
-      "explain": "'When you finish' seeks acceptance by complete performance — a unilateral offer. Beginning performance creates an option: revocation is barred, yet Painter is NOT obliged to finish (so (3) is wrong). Buying paint is mere preparation, not performance.",
-      "explainZh": "单务要约三步陷阱：准备（买油漆）≠开始履行；开始履行→要约人锁死、履行人自由；完成履行才成立合同并取得报酬请求权。若措辞模糊（未明确要求以履行承诺），R2d §32推定可以允诺或履行任一方式承诺，开始履行即成立双务合同——措辞决定分析路径。"
-    },
-    {
-      "id": "k088",
-      "type": "basic",
-      "topic": "Classic Traps & Mixed Review",
-      "topicZh": "经典陷阱综合",
-      "q": "How do courts tell a condition from a promise, and why does the difference matter?",
-      "qZh": "法院如何区分条件与允诺？区别为何重要？",
-      "a": "'If,' 'provided that,' 'on condition that' signal conditions; 'I promise' signals duties; ambiguity is read as a promise, to avoid forfeiture. Nonoccurrence of a condition means the dependent duty never arises — but no damages; breach of a promise gives damages, and only material breach excuses the other side. A term can be both — a promissory condition.",
-      "aZh": "措辞：\"如果\"\"以……为前提\"提示条件；\"我允诺/同意\"提示义务。有歧义时倾向解释为允诺，以避免没收后果。效果：条件不成就→相应义务不产生，但无损害赔偿；允诺被违反→产生赔偿，且只有重大违约才免除对方履行。一个条款可以两者兼备——允诺性条件。",
-      "explainZh": "答题公式：先问\"这句话不实现会怎样\"——对方义务消灭？（条件）还是要赔钱？（允诺）。船期条款经典案：\"船于6月1日启航\"既是允诺又是条件。倾向允诺的解释政策：条件的全有全无效果太苛。"
-    },
-    {
-      "id": "k089",
-      "type": "basic",
-      "topic": "Classic Traps & Mixed Review",
-      "topicZh": "经典陷阱综合",
-      "q": "How do the ordinary offer-and-acceptance rules change under an option contract?",
-      "qZh": "选择权合同之下，通常的要约承诺规则发生哪些变化？",
-      "a": "During the option period: (1) rejection or counteroffer does NOT end the power to accept, unless the offeror relies; (2) revocation is ineffective; (3) the offeror's death does not terminate; (4) the mailbox rule does not apply — acceptance is effective on receipt within the period. Exercise must strictly comply; late acceptance is ineffective.",
-      "aZh": "选择权期间内：(1) 拒绝或反要约不消灭承诺权——除非要约人已因此产生信赖；(2) 撤销的尝试无效；(3) 要约人死亡不使要约终止；(4) 投邮规则不适用——承诺须在期间内送达方生效。行权须严格符合选择权条款；迟到的承诺无效。",
-      "explainZh": "把option理解为\"被对价冻结的要约\"：普通要约的四大死法（撤销、拒绝、死亡、期满）里前三种都被冻结，只剩期满。最阴的考点是第(4)项：最后一天寄出、期满后到达＝行权失败——发信主义的特权只属于普通要约的承诺。"
-    },
-    {
-      "id": "k090",
-      "type": "cloze",
-      "topic": "Classic Traps & Mixed Review",
-      "topicZh": "经典陷阱综合",
-      "q": "Where no enforceable contract exists but a benefit was conferred with a reasonable expectation of payment, recovery lies in quasi-contract, measured by {{c::the reasonable value of the benefit conferred}} — not by the failed contract's price.",
-      "qZh": "不存在可执行合同、但一方基于合理的获偿期待授予了利益时，可依准合同获偿，数额按____计算——而非按未成立合同的价格。",
-      "a": "the reasonable value of the benefit conferred",
-      "aZh": "所授利益的合理价值",
-      "explainZh": "准合同=法律拟制、防止不当得利，与真实合意无关。触发场景：合同因反欺诈法不可执行、因错误/欺诈被撤销、根本未成立但已干活、紧急救助（医生救治昏迷者）。合同价不是标尺但可作合理价值的证据。对应《民法典》第985条不当得利返还，功能同源。"
-    }
-  ]
+ "subject": "contracts",
+ "nameEn": "Contracts & UCC",
+ "nameZh": "合同法",
+ "emoji": "🤝",
+ "mcqTested": true,
+ "cards": [
+  {
+   "id": "k001",
+   "type": "basic",
+   "topic": "Governing Law & Offer",
+   "topicZh": "适用法与要约",
+   "q": "Which body of law governs a sale of goods, and how are mixed goods-services contracts classified?",
+   "qZh": "货物买卖适用何种法律？货物与服务混合的合同如何定性？",
+   "a": "UCC Article 2 governs contracts for the sale of goods (movable things); common law governs services, real estate, and construction. Mixed contracts: predominant purpose test — one body of law governs the entire contract. But if the contract divides payment between goods and services, each portion is judged under its own law.",
+   "aZh": "《统一商法典》第二编适用于货物（可移动物）买卖；服务、不动产与建筑合同适用普通法。混合合同采\"主要目的\"标准——整份合同只适用一种法律；但若合同将货款与服务费分别计价，则各部分分别适用各自的法律。",
+   "explainZh": "先定性、再答题：适用法选错，后面的规则全错。经典组合：购买热水器含安装——主要目的是货物，整体适用UCC。中国《民法典》合同编不作此二分，这是答美国题时思维上要切换的第一步。"
+  },
+  {
+   "id": "k002",
+   "type": "basic",
+   "topic": "Governing Law & Offer",
+   "topicZh": "适用法与要约",
+   "q": "What must a communication contain to be an offer, and are advertisements offers?",
+   "qZh": "一项意思表示须具备什么才构成要约？广告是要约吗？",
+   "a": "(1) Objective manifestation of present intent to be bound — outward words and acts, not secret intent (Lucy v. Zehmer); (2) certain and definite essential terms — CL: parties, subject, price, quantity; UCC: quantity alone suffices. Ads are generally invitations to deal, not offers, unless specific, complete, and limiting who may accept ('first come, first served').",
+   "aZh": "(1) 客观上表明当下受拘束的意图——以外在言行判断，不问内心真意（Lucy v. Zehmer）；(2) 核心条款确定（普通法：当事人、标的、价格、数量；UCC：有数量即可，其余可补缺）。广告原则上是要约邀请，除非内容具体完整并限定承诺人范围（如\"先到先得\"）。",
+   "explainZh": "客观标准是美国合同法的底色：开玩笑但外表严肃=有效要约。《民法典》第473条同样规定商业广告一般为要约邀请、内容具体确定的视为要约——中美在这点上罕见地一致，可直接迁移记忆。",
+   "caNote": "California applies the objective theory strongly: mutual assent is measured solely by outward, reasonable manifestations; undisclosed intent is irrelevant.",
+   "caNoteZh": "加州严格适用客观标准：合意仅以外在合理表示衡量，未披露的内心意图一概不问。"
+  },
+  {
+   "id": "k003",
+   "type": "basic",
+   "topic": "Governing Law & Offer",
+   "topicZh": "适用法与要约",
+   "q": "When may an offeror revoke an offer, and when does revocation take effect?",
+   "qZh": "要约人何时可以撤销要约？撤销何时生效？",
+   "a": "Revocable any time before acceptance, even if it promises to stay open — unless consideration, statute, reliance, or part performance makes it irrevocable. Revocation is effective upon receipt by the offeree. Indirect revocation: the offeree obtains reliable information that the offeror has taken definite action inconsistent with the offer (e.g., sold the item to someone else).",
+   "aZh": "承诺之前随时可撤销，即使承诺保持开放——除非有对价、法定确定要约、信赖或部分履行使其不可撤销。撤销于送达受要约人时生效。间接撤销：受要约人从可靠渠道得知要约人已作出与要约不一致的确定行为（如已把标的物卖给他人）。",
+   "explainZh": "美国法默认\"可撤销\"是因为无对价的允诺不拘束——这是对价原则的延伸。对比《民法典》第476条：确定了承诺期限或受要约人有理由信赖不可撤销的，要约不得撤销——中国法保护更宽，美国法须找到四个例外之一。"
+  },
+  {
+   "id": "k004",
+   "type": "mcq",
+   "topic": "Governing Law & Offer",
+   "topicZh": "适用法与要约",
+   "q": "A guitar dealer signs and mails a letter offering a vintage guitar to a collector for $5,000, stating the offer 'will be held open for six months.' The collector pays nothing. Two months later the dealer phones to revoke. Effective?",
+   "qZh": "吉他商签署并寄出一封信，以5,000美元向收藏者要约出售一把古董吉他，载明\"本要约保持开放六个月\"。收藏者未支付任何对价。两个月后商人来电撤销。撤销有效吗？",
+   "choices": [
+    "Yes — an offer unsupported by consideration is always revocable.",
+    "No — a merchant's signed written firm offer is irrevocable without consideration for the stated period up to three months, and only two have passed.",
+    "No — the offer is irrevocable for the full six months as stated.",
+    "Yes — firm offers require separate consideration from the offeree."
+   ],
+   "answer": 1,
+   "explain": "UCC §2-205: a merchant's signed writing giving assurance an offer will stay open is irrevocable without consideration, capped at three months. At two months, the revocation fails.",
+   "explainZh": "确定要约（§2-205）四要件：商人＋签名书面＋明示保证不撤销＋上限3个月（写6个月只保3个月，超出部分无效）。无需对价——这是对普通法\"无对价即可随时撤销\"的法定例外。选项(2)高估期限；(0)(3)无视§2-205。若收藏者付了对价，则成立选择权合同，6个月都锁定。"
+  },
+  {
+   "id": "k005",
+   "type": "cloze",
+   "topic": "Governing Law & Offer",
+   "topicZh": "适用法与要约",
+   "q": "An offer terminates by lapse of a stated or reasonable time, revocation, rejection or counteroffer, or {{c::death or incapacity of either party}} before acceptance — but a valid option contract survives this last event.",
+   "qZh": "要约因约定或合理期限届满、撤销、拒绝或反要约、或承诺前____而终止——但有效的选择权合同不受最后一种情形影响。",
+   "a": "death or incapacity of either party",
+   "aZh": "任何一方死亡或丧失行为能力",
+   "explainZh": "死亡自动终止要约，通说不要求受要约人知悉。但选择权（option）是独立合同，要约人死亡后受要约人仍可在期限内行权。对比《民法典》第478条的要约失效事由（拒绝、依法撤销、期限届满未承诺）——中国法未把死亡列为法定失效事由，这是差异点。"
+  },
+  {
+   "id": "k006",
+   "type": "cloze",
+   "topic": "Governing Law & Offer",
+   "topicZh": "适用法与要约",
+   "q": "An offer for a unilateral contract becomes irrevocable once the offeree {{c::begins actual performance}}; mere preparation is not enough, and the offeree must then be given a reasonable time to complete.",
+   "qZh": "单务合同的要约，一旦受要约人____即不可撤销；仅作准备并不足够，且此后须给予受要约人合理时间完成履行。",
+   "a": "begins actual performance",
+   "aZh": "开始实际履行",
+   "explainZh": "R2d §45：开始履行创设一项选择权——要约人不得撤销，但受要约人不受拘束、可中途放弃。必考区分：\"准备\"（买油漆、租设备）≠\"开始履行\"（动手刷墙）。记法：动到标的才算数。"
+  },
+  {
+   "id": "k007",
+   "type": "basic",
+   "topic": "Governing Law & Offer",
+   "topicZh": "适用法与要约",
+   "q": "When is an offer made irrevocable by (a) an option contract and (b) detrimental reliance?",
+   "qZh": "要约何时因(a)选择权合同、(b)信赖损害而不可撤销？",
+   "a": "(a) Option: a promise to keep the offer open supported by consideration — even a nominal sum recited and paid. (b) Reliance: where the offeror should reasonably expect substantial pre-acceptance reliance and it occurs, the offer is irrevocable as needed to avoid injustice — classic: a subcontractor's bid used in the general contractor's own bid.",
+   "aZh": "(a) 选择权：以对价支持的保持要约开放之允诺——即使是象征性小额对价（载明并支付）亦可。(b) 信赖：要约人应合理预见承诺前会发生实质性信赖且信赖确实发生的，在避免不公所必需的范围内要约不可撤销——经典案型：总承包商在自己投标中使用了分包商的报价。",
+   "explainZh": "四种不可撤销途径合并记：对价（option）、法定（§2-205确定要约）、开始履行（单务）、信赖（分包商报价案型）。答题时先问\"有无对价\"，没有再逐一排查其余三条。"
+  },
+  {
+   "id": "k008",
+   "type": "mcq",
+   "topic": "Governing Law & Offer",
+   "topicZh": "适用法与要约",
+   "q": "A store advertises: 'Saturday, one mink stole worth $700 — $1. First come, first served.' A man arrives first with $1; the store refuses to sell, citing an unposted 'women only' house rule. Contract?",
+   "qZh": "商店广告：\"周六，一条价值700美元的貂皮披肩——1美元，先到先得。\"一名男子最先到场并出示1美元；商店以未公示的\"仅限女性\"内部规则拒绝出售。合同成立吗？",
+   "choices": [
+    "No — advertisements are never offers.",
+    "No — a store may add terms at the point of sale.",
+    "Yes — the ad was specific, complete, and left nothing to negotiate, so it was an offer, accepted by the first person to comply.",
+    "Yes — all advertisements are offers to the public at large."
+   ],
+   "answer": 2,
+   "explain": "Ads are usually mere invitations, but one identifying quantity, price, and who may accept ('first come, first served') is an offer. Undisclosed house rules cannot be tacked on after acceptance.",
+   "explainZh": "广告原则上为要约邀请，但数量、价格、承诺人范围俱全时构成要约（Lefkowitz案型）。《民法典》第473条思路相同：内容具体确定的商业广告视为要约。MBE技巧：含\"never/always\"的绝对化选项（0与3）几乎总是错的。"
+  },
+  {
+   "id": "k009",
+   "type": "basic",
+   "topic": "Acceptance",
+   "topicZh": "承诺",
+   "q": "State the common-law mirror image rule and the effect of a nonconforming acceptance.",
+   "qZh": "陈述普通法的镜像规则及不一致\"承诺\"的效果。",
+   "a": "At common law an acceptance must mirror the offer's terms exactly. Any addition or change makes the response a rejection and counteroffer, terminating the original offer — the counteroffer can then itself be accepted. Contrast UCC §2-207, which abandons the rule for goods: a definite, seasonable expression of acceptance can form a contract despite additional or different terms.",
+   "aZh": "普通法上承诺必须与要约条款完全一致（镜像）。任何添加或变更都使回复成为拒绝加反要约，原要约随之消灭——该反要约本身可再被承诺。对比UCC §2-207：货物买卖抛弃镜像规则，明确、及时的承诺表示即使附加或变更条款也可成立合同。",
+   "explainZh": "考试第一问永远是：货物还是服务？服务/土地→镜像规则；货物→§2-207。《民法典》第488条采\"实质性变更\"标准（对价款、履行地等实质变更=新要约），介于两者之间，别把中国法直觉带进普通法题。"
+  },
+  {
+   "id": "k010",
+   "type": "basic",
+   "topic": "Acceptance",
+   "topicZh": "承诺",
+   "q": "State the mailbox rule and its exceptions.",
+   "qZh": "陈述投邮规则及其例外。",
+   "a": "Acceptance is effective on proper dispatch. Exceptions: (1) option contracts — effective on receipt; (2) the offer prescribes otherwise; (3) rejection sent first — whichever arrives first controls; (4) acceptance sent first, then rejection — acceptance controls unless the rejection arrives first AND the offeror relies. Revocations and rejections are effective on receipt.",
+   "aZh": "承诺一经正确发出即生效。例外：(1) 选择权合同——承诺到达才生效；(2) 要约另有规定；(3) 先发拒绝后发承诺——先到者为准；(4) 先发承诺后发拒绝——承诺仍有效，除非拒绝先到且要约人产生信赖。撤销与拒绝均到达生效。",
+   "explainZh": "中美关键差异：《民法典》第484条承诺到达生效（到达主义），美国法发出生效（发信主义）——做题时务必用美国规则。记忆锚点：只有\"承诺\"享受发出生效的特权，其他一切通信（撤销、拒绝、反要约）都到达生效。"
+  },
+  {
+   "id": "k011",
+   "type": "basic",
+   "topic": "Acceptance",
+   "topicZh": "承诺",
+   "q": "How may an offer be accepted under UCC §2-206, and what is the accommodation-shipment rule?",
+   "qZh": "依UCC §2-206，要约可以如何承诺？\"通融发货\"规则是什么？",
+   "a": "Unless unambiguously restricted, an offer invites acceptance by any reasonable medium — promise or performance. An order for prompt shipment is accepted by promising or by shipping. Shipping nonconforming goods is both acceptance and breach — unless the seller seasonably notifies the buyer the shipment is offered only as an accommodation: then a counteroffer, not a breach.",
+   "aZh": "除非要约明确无误地限定方式，任何合理方式均可承诺——允诺或履行皆可。要求即刻发货的订单，可以立即允诺或直接发货承诺。发运不符货物同时构成承诺与违约——但卖方及时通知买方该批货仅为\"通融\"时，发货成为反要约，而非违约。",
+   "explainZh": "陷阱链条：发错货＝承诺＋违约（买方可索赔）；发错货＋通融通知＝反要约（买方可接受或拒绝，均无违约）。通知必须在发货时或之前及时作出，事后补救无效。"
+  },
+  {
+   "id": "k012",
+   "type": "basic",
+   "topic": "Acceptance",
+   "topicZh": "承诺",
+   "q": "When can silence operate as acceptance?",
+   "qZh": "沉默何时可以构成承诺？",
+   "a": "Generally never. Exceptions: (1) the offeree takes the benefit of offered services with reasonable opportunity to reject them, knowing compensation was expected; (2) prior dealings or trade usage make it reasonable that silence signals assent; (3) the offeror has stated silence will suffice and the offeree, remaining silent, intends to accept.",
+   "aZh": "原则上不能。例外：(1) 受要约人明知对方期待报酬，仍在有合理机会拒绝的情况下接受服务利益；(2) 既往交易或行业惯例使沉默合理地表示同意；(3) 要约人声明沉默即为承诺，且受要约人以沉默为承诺的意思保持沉默。",
+   "explainZh": "要约人不能单方把沉默强加为承诺方式（\"不回复即视为同意\"无效）——例外(3)的钥匙在受要约人的主观意图。《民法典》第140条第2款同理：沉默只有在有法律规定、约定或交易习惯时才可视为意思表示。"
+  },
+  {
+   "id": "k013",
+   "type": "mcq",
+   "topic": "Acceptance",
+   "topicZh": "承诺",
+   "q": "A merchant buyer's purchase order for widgets is silent on warranties. The merchant seller's acknowledgment form 'accepts' the order but adds a clause disclaiming all warranties. The goods ship and buyer pays. Is the disclaimer part of the contract?",
+   "qZh": "商人买方的订购单未提及担保。商人卖方的确认单\"接受\"订单但增加了一条免除全部担保的条款。货已发、款已付。该免责条款是合同内容吗？",
+   "choices": [
+    "Yes — the acknowledgment was a counteroffer that buyer accepted by paying.",
+    "Yes — between merchants, additional terms automatically become part of the contract.",
+    "No — an acceptance with new terms fails under the mirror image rule, so no contract exists.",
+    "No — a contract formed on the acknowledgment, but a blanket warranty disclaimer materially alters the deal, so the additional term drops out."
+   ],
+   "answer": 3,
+   "explain": "Under §2-207(1) the acknowledgment operates as an acceptance despite the added term. Between merchants, additional terms enter the contract unless the offer limits acceptance, they materially alter it, or objection follows — a blanket disclaimer materially alters, so it is excluded.",
+   "explainZh": "§2-207(2)商人间附加条款自动纳入的三个否决事由：要约限定承诺范围／重大变更／已（或及时）反对。免除全部担保属重大变更（\"惊讶或困难\"标准），故被剔除但合同成立。选项(0)是普通法\"最后一枪\"思路、(2)是镜像规则——两者在UCC下都已被废除。"
+  },
+  {
+   "id": "k014",
+   "type": "cloze",
+   "topic": "Acceptance",
+   "topicZh": "承诺",
+   "q": "Under UCC §2-207, when the offer and acceptance contain conflicting (different) terms, the majority {{c::knockout rule}} cancels both conflicting terms and fills the gap with the Code's default provisions.",
+   "qZh": "依UCC §2-207，要约与承诺含相互冲突（不同）的条款时，多数派____将双方冲突条款一并剔除，以法典的补缺条款填补。",
+   "a": "knockout rule",
+   "aZh": "击倒规则（冲突条款相互抵销）",
+   "explainZh": "区分\"附加条款\"（additional：要约未提及）与\"不同条款\"（different：与要约直接冲突）：前者走§2-207(2)商人间自动纳入分析，后者多数派直接击倒、用UCC默认规则补位。少数派把不同条款也按(2)款处理。写论述题时点明这一法域分歧可得加分。"
+  },
+  {
+   "id": "k015",
+   "type": "mcq",
+   "topic": "Acceptance",
+   "topicZh": "承诺",
+   "q": "Seller's form states acceptance is 'expressly made conditional on buyer's assent' to its arbitration clause. Buyer never assents, but both parties fully perform. A dispute arises. What are the contract's terms?",
+   "qZh": "卖方格式载明承诺\"以买方同意其仲裁条款为明示条件\"。买方从未同意，但双方均已履行。现发生争议，合同条款如何确定？",
+   "choices": [
+    "A contract formed by conduct under §2-207(3): its terms are those on which the writings agree, plus UCC gap fillers — no arbitration clause.",
+    "Seller's form governs entirely — last shot rule.",
+    "Buyer's form governs entirely — first shot rule.",
+    "No contract exists because the forms never matched."
+   ],
+   "answer": 0,
+   "explain": "An expressly conditional 'acceptance' is not an acceptance, so no contract formed on the writings — but mutual performance creates a contract by conduct, limited to terms the writings share plus Code gap fillers. The arbitration clause, appearing in only one form, is out.",
+   "explainZh": "三张§2-207卡合并记忆：附加条款→(2)款商人间纳入分析；冲突条款→击倒规则；\"明示以同意为条件\"＋双方履行→(3)款以行为成立合同（条款＝共同部分＋UCC补缺）。\"最后一枪\"是普通法规则，在UCC下永远是干扰项。"
+  },
+  {
+   "id": "k016",
+   "type": "basic",
+   "topic": "Consideration & Substitutes",
+   "topicZh": "对价及替代",
+   "q": "Define consideration. Does the adequacy of consideration matter?",
+   "qZh": "什么是对价？对价是否充分重要吗？",
+   "a": "Consideration is a bargained-for exchange: the promise induces the detriment and the detriment induces the promise. Legal detriment includes forbearing a legal right — Hamer v. Sidway (nephew's giving up drinking and smoking sufficed). Courts never weigh adequacy: a peppercorn works if genuinely bargained for, but sham or unpaid nominal recitals fail.",
+   "aZh": "对价是经磋商的交换：允诺诱使损害（受损），损害诱使允诺。法律上的受损包括放弃合法权利——Hamer v. Sidway（侄子戒烟戒酒即为充分对价）。法院从不衡量对价是否等值：只要确经磋商，一粒胡椒也够；但虚假的、未实际支付的名义性记载无效。",
+   "explainZh": "这是中国律师最需内化的差异：《民法典》无对价要求，赠与合同也有效（第657条）；美国法上无对价的单纯赠与允诺不可执行。分析顺序：找不到对价→再找替代（允诺禁反言、准合同、封印文书）。"
+  },
+  {
+   "id": "k017",
+   "type": "basic",
+   "topic": "Consideration & Substitutes",
+   "topicZh": "对价及替代",
+   "q": "State the preexisting duty rule and its exceptions.",
+   "qZh": "陈述既存义务规则及其例外。",
+   "a": "Common law: promising to do what one is already legally bound to do is not consideration — so paying extra for the same performance is unenforceable. Exceptions: new or different consideration; honest dispute about the duty; unforeseen difficulties excusing performance; the duty is owed to a third party. UCC abolishes the rule: good-faith modifications need no consideration (§2-209).",
+   "aZh": "普通法：允诺履行本已负有的法律义务不构成对价——为同一履行加价的允诺不可执行。例外：新的或不同的对价；对义务存在诚实争议；出现足以免责的未预见困难；该义务系对第三人所负。UCC废除此规则：善意变更无需对价（§2-209）。",
+   "explainZh": "经典案型：船员中途要挟加薪，船长被迫答应——加薪允诺无对价、不可执行。但只要多做一点点（提前一天、加一项服务）即有新对价。货物合同直接跳过此规则，只审善意。"
+  },
+  {
+   "id": "k018",
+   "type": "cloze",
+   "topic": "Consideration & Substitutes",
+   "topicZh": "对价及替代",
+   "q": "At common law a contract modification requires {{c::new consideration}}; under UCC §2-209(1) a modification made in good faith is binding without it.",
+   "qZh": "普通法上合同变更须有____；而依UCC §2-209(1)，善意作出的变更无须它即有拘束力。",
+   "a": "new consideration",
+   "aZh": "新的对价",
+   "explainZh": "CL对UCC最高频的对比考点之一。善意=诚实＋有正当商业理由（如成本意外上涨），乘人之危的勒索式变更缺乏善意、无效。中国法（《民法典》第543条）协商一致即可变更，与UCC立场接近，与普通法差异大。"
+  },
+  {
+   "id": "k019",
+   "type": "basic",
+   "topic": "Consideration & Substitutes",
+   "topicZh": "对价及替代",
+   "q": "What is an illusory promise, and why are requirements and output contracts not illusory?",
+   "qZh": "什么是虚幻允诺？为何需求合同与产出合同不属虚幻？",
+   "a": "A promise whose performance is left entirely to the promisor's discretion ('I will buy if I feel like it') is illusory — no detriment, no consideration, no contract. Requirements ('all I require') and output ('all I produce') contracts are saved by UCC §2-306: quantities must occur in good faith and not be unreasonably disproportionate to estimates or prior comparable amounts.",
+   "aZh": "履行与否完全由允诺人任意决定的允诺（\"我想买就买\"）是虚幻允诺——无受损、无对价、无合同。需求合同（\"我所需的全部\"）与产出合同（\"我生产的全部\"）因UCC §2-306获救：数量须善意确定，且不得与估计量或既往可比量不合理地失衡。",
+   "explainZh": "善意义务把\"看似任意\"变成\"受约束\"，从而提供对价。同理获救的还有：附条件允诺、满意条款（受善意约束）、独家经销中的默示尽力义务（Wood v. Lucy案型的默示允诺）。"
+  },
+  {
+   "id": "k020",
+   "type": "basic",
+   "topic": "Consideration & Substitutes",
+   "topicZh": "对价及替代",
+   "q": "Is past consideration valid consideration? State the material-benefit exception.",
+   "qZh": "过去的对价是有效对价吗？陈述\"重大利益\"例外。",
+   "a": "No — a promise given in return for something already done is not bargained for and is unenforceable. Restatement exception: a promise made in recognition of a material benefit the promisor previously received from the promisee is enforceable to the extent necessary to prevent injustice — unless the benefit was conferred as a gift or the promise's value is disproportionate.",
+   "aZh": "无效——为已完成之事作出的允诺并非经磋商换取，不可执行。《重述》例外：为承认允诺人先前从受诺人处获得的重大利益而作的允诺，在防止不公所必需的范围内可执行——但利益本属赠与或允诺价值不成比例的除外。",
+   "explainZh": "经典案型：救命之后雇主允诺终身补贴——按传统规则无对价，按重大利益规则可执行。答题先写原则（过去对价无效），再写例外，最后提\"道德义务原则上不构成对价\"。"
+  },
+  {
+   "id": "k021",
+   "type": "mcq",
+   "topic": "Consideration & Substitutes",
+   "topicZh": "对价及替代",
+   "q": "An employer promises a long-serving employee a $200 monthly pension for life, whether or not she keeps working. Relying on it, she retires early and forgoes other work. Years later the employer stops paying, arguing she gave no consideration. Her best theory?",
+   "qZh": "雇主允诺一位资深员工：无论是否继续工作，均按月支付200美元终身年金。她信赖该允诺提前退休并放弃其他工作。数年后雇主停付，辩称她未提供对价。她的最佳主张是什么？",
+   "choices": [
+    "Breach of contract — her retirement was bargained-for consideration.",
+    "Quasi-contract — she conferred a benefit on the employer.",
+    "Promissory estoppel — a promise the promisor should reasonably expect to induce reliance, which does induce definite and substantial reliance, is enforceable to prevent injustice.",
+    "No recovery — gratuitous promises are never enforceable."
+   ],
+   "answer": 2,
+   "explain": "The pension was promised whether or not she retired, so retirement was not bargained for — no consideration. Restatement §90 nonetheless enforces the promise: foreseeable, actual, detrimental reliance plus injustice. The remedy may be limited as justice requires.",
+   "explainZh": "允诺禁反言四要素：允诺＋允诺人可合理预见的信赖＋实际发生的确定且实质的信赖＋不执行将致不公。它是对价的\"替代品\"而非对价本身，救济可限于信赖利益。(0)错在\"无论是否继续工作\"表明退休并非交换条件；(3)的never在MBE中几乎必错。"
+  },
+  {
+   "id": "k022",
+   "type": "cloze",
+   "topic": "Consideration & Substitutes",
+   "topicZh": "对价及替代",
+   "q": "Under UCC §2-209, a no-oral-modification clause is enforceable, but an attempted oral modification can still operate as a {{c::waiver}} where the other party materially changed position in reliance on it.",
+   "qZh": "依UCC §2-209，禁止口头变更条款有效，但未遂的口头变更在对方因信赖而实质改变处境时仍可作为____发生效力。",
+   "a": "waiver",
+   "aZh": "弃权",
+   "explainZh": "层次记忆：书面合同可以口头变更（默认）→ 有NOM条款则口头变更无效（§2-209(2)）→ 但失败的变更可转化为弃权（(4)款）→ 弃权在对方未信赖时还可撤回（(5)款）。普通法上NOM条款传统上不被严格执行——又一处CL/UCC分野。"
+  },
+  {
+   "id": "k023",
+   "type": "basic",
+   "topic": "Defenses to Formation",
+   "topicZh": "合同抗辩",
+   "q": "Which contracts fall within the Statute of Frauds?",
+   "qZh": "哪些合同落入反欺诈法（须以书面为凭）？",
+   "a": "MY LEGS — Marriage (promises in consideration of marriage); Year (incapable of performance within one year); Land (interests in land, including leases over one year); Executor's promise to pay estate debts personally; Goods $500 or more (UCC §2-201); Suretyship (answering for another's debt — unless the promisor's main purpose is its own economic benefit).",
+   "aZh": "MY LEGS——婚姻（以结婚为约因的允诺）；一年（自订立起不可能在一年内履行完毕）；土地（土地权益，含一年以上租赁与地役权）；遗产执行人以个人财产清偿遗产债务的允诺；500美元以上的货物买卖（UCC §2-201）；保证（为他人债务作保——但允诺人主要目的在自身经济利益的除外）。",
+   "explainZh": "中国法无反欺诈法（《民法典》第469条口头合同原则上有效），故这份清单必须硬背。\"主要目的\"例外：股东为保住供货商而担保公司债务——为自己利益，口头保证也有效。落入清单≠合同无效，只是不满足书面要求时不可强制执行。",
+   "mnemonic": "MY LEGS"
+  },
+  {
+   "id": "k024",
+   "type": "basic",
+   "topic": "Defenses to Formation",
+   "topicZh": "合同抗辩",
+   "q": "What must the writing contain to satisfy the Statute of Frauds — common law vs UCC?",
+   "qZh": "满足反欺诈法的书面须包含什么？普通法与UCC各有何要求？",
+   "a": "Common law: identify the parties and subject, state the essential terms, signed by the party to be charged. UCC §2-201: any writing sufficient to show a contract was made, signed by the party to be charged, stating a quantity — enforcement capped at that quantity; other errors are harmless. Several documents may be read together.",
+   "aZh": "普通法：写明当事人与标的、载明核心条款、由被请求执行的一方签署。UCC §2-201：任何足以表明合同已订立的书面，由被请求执行方签署并载明数量即可——执行以所载数量为上限；其他错漏不影响效力。多份文件可以合并认定。",
+   "explainZh": "\"签名\"很宽：信头、首字母、电子签均可。UCC只认数量一个硬条款——价格写错都无妨。注意方向性：只能对\"签了字的一方\"执行，可能出现一方可执行、另一方不可执行的不对称局面。"
+  },
+  {
+   "id": "k025",
+   "type": "mcq",
+   "topic": "Defenses to Formation",
+   "topicZh": "合同抗辩",
+   "q": "Two merchants agree by phone to a sale of 1,000 units at $2 each. Buyer promptly emails a signed confirmation stating the quantity. Seller reads it, stays silent for three weeks, then refuses to deliver, pleading the Statute of Frauds. Result?",
+   "qZh": "两商人电话约定以每件2美元买卖1,000件货物。买方随即发送载明数量、经签署的确认函。卖方阅后沉默三周，后以反欺诈法为由拒绝交货。结果如何？",
+   "choices": [
+    "Seller wins — seller never signed anything.",
+    "Buyer wins — between merchants, a signed written confirmation binds the recipient who fails to object in writing within 10 days.",
+    "Seller wins — a confirmation binds only its sender.",
+    "Buyer wins — oral contracts for goods are never within the Statute of Frauds."
+   ],
+   "answer": 1,
+   "explain": "UCC §2-201(2): between merchants, a signed confirmation received with reason to know its contents satisfies the Statute against the recipient absent written objection within 10 days. It removes the defense — buyer must still prove the oral contract at trial.",
+   "explainZh": "商人确认函是唯一能让\"未签字方\"丧失反欺诈法抗辩的机制：双方均为商人＋确认函满足§2-201＋收件人知悉内容＋10日内未书面反对。注意它只扫清抗辩、不等于胜诉——口头合同的存在仍须举证。非商人间无此规则。"
+  },
+  {
+   "id": "k026",
+   "type": "basic",
+   "topic": "Defenses to Formation",
+   "topicZh": "合同抗辩",
+   "q": "Apart from the merchant confirmation, which exceptions make an oral goods contract of $500+ enforceable under UCC §2-201(3)?",
+   "qZh": "除商人确认函外，UCC §2-201(3)下还有哪些例外使500美元以上的口头货物合同可执行？",
+   "a": "(1) Specially manufactured goods not suitable for sale to others, once the seller substantially begins manufacture or procurement; (2) judicial admission in pleading or testimony, enforceable up to the quantity admitted; (3) part performance — goods paid for and accepted, or received and accepted, enforceable only to that extent.",
+   "aZh": "(1) 特别制造的货物：不适于卖方正常经营中转售他人，且卖方已实质开始制造或已作采购安排；(2) 司法自认：在诉状或证言中承认合同订立，以承认的数量为限可执行；(3) 部分履行：已付款并被接受、或已收货并接受的部分，仅在该范围内可执行。",
+   "explainZh": "四大例外合并口诀：确认函、特制、自认、部分履行。部分履行只救\"已履行的那部分\"——口头约定1000件、已交付200件，只有200件可执行。土地合同的部分履行规则不同（见另卡），别混。"
+  },
+  {
+   "id": "k027",
+   "type": "basic",
+   "topic": "Defenses to Formation",
+   "topicZh": "合同抗辩",
+   "q": "How does the one-year rule work, and what are its classic traps?",
+   "qZh": "一年规则如何运作？经典陷阱有哪些？",
+   "a": "Only contracts incapable of full performance within one year from the making are within the Statute. Possibility, not probability, controls: 'employment for life' is outside (death could occur within a year); a fixed two-year term is within. Measured from formation, not from when performance starts — a one-year job beginning next Monday is within the Statute.",
+   "aZh": "只有自订立之日起不可能在一年内履行完毕的合同才落入反欺诈法。看\"可能性\"而非\"概率\"：终身雇佣在外（一年内可能死亡即履行完毕）；固定两年期在内。期间自合同订立时起算而非履行开始时——下周一开始的一年期工作也落入。",
+   "explainZh": "反直觉三连：终身合同不需要书面、\"两年内完成的任务\"不需要书面（可能提前干完）、明天开始的一年雇佣却需要书面（订立日起算共一年零一天）。提前终止的可能性≠履行完毕，多数法院认为不把合同带出一年规则。"
+  },
+  {
+   "id": "k028",
+   "type": "cloze",
+   "topic": "Defenses to Formation",
+   "topicZh": "合同抗辩",
+   "q": "An oral land-sale contract becomes enforceable in equity under the part-performance doctrine when the buyer shows at least two of: {{c::payment, possession, and valuable improvements}}.",
+   "qZh": "依部分履行原则，买方证明以下三项中至少两项时，口头土地买卖合同可在衡平法上获得执行：____。",
+   "a": "payment, possession, and valuable improvements",
+   "aZh": "支付价款、占有土地、进行有价值的改良",
+   "explainZh": "多数法院要求\"三占其二\"，且这些行为须明确指向合同的存在（unequivocally referable）。救济通常限于特定履行（衡平法），不支持金钱赔偿。与UCC货物的部分履行例外（只救已履行部分）机制不同，注意分开记。"
+  },
+  {
+   "id": "k029",
+   "type": "cloze",
+   "topic": "Defenses to Formation",
+   "topicZh": "合同抗辩",
+   "q": "A minor may disaffirm a contract any time before, or within a reasonable time after, reaching majority — but remains liable in restitution for the reasonable value of {{c::necessaries}} (food, shelter, clothing, medical care).",
+   "qZh": "未成年人可在成年前或成年后合理期间内随时撤销合同——但对____（食物、住所、衣物、医疗）仍须按合理价值承担返还责任。",
+   "a": "necessaries",
+   "aZh": "必需品",
+   "explainZh": "撤销权只属于未成年人一方（成年相对人不得撤销）；必需品之诉按准合同的合理价值而非合同价计算。同类可撤销事由：精神无行为能力、对方明知的醉酒。对比《民法典》第19、145条：限制行为能力人订立的合同效力待定、待法定代理人追认——机制不同，保护方向一致。"
+  },
+  {
+   "id": "k030",
+   "type": "basic",
+   "topic": "Defenses to Formation",
+   "topicZh": "合同抗辩",
+   "q": "Define economic duress and undue influence.",
+   "qZh": "什么是经济胁迫？什么是不当影响？",
+   "a": "Duress: an improper threat (bad-faith breach, crime or tort, abuse of process) leaving the victim no reasonable alternative — contract voidable; physical compulsion makes it void. Undue influence: unfair persuasion of a party under the other's domination, or in a relationship of trust justifying belief the other will not act against their welfare — voidable.",
+   "aZh": "胁迫：以不正当威胁（恶意毁约、犯罪或侵权、滥用法律程序）使受害人别无合理选择而作出同意——合同可撤销；直接人身强制则合同无效。不当影响：对受支配一方、或基于信任关系有理由相信对方不会损害自己利益的一方，施加不公平的劝诱——可撤销。",
+   "explainZh": "经济胁迫经典案型：垄断供应商中途威胁断供逼迫加价，对方无替代货源被迫接受——可撤销（且加价还撞上既存义务规则）。不当影响两要素：易受影响的\"人\"＋过度施压的\"劝诱方式\"（时间地点施压、不容咨询顾问）。对比《民法典》第150条胁迫可撤销，方向一致。"
+  },
+  {
+   "id": "k031",
+   "type": "mcq",
+   "topic": "Defenses to Formation",
+   "topicZh": "合同抗辩",
+   "q": "The day before showing a house, the seller plasters and paints over large foundation cracks and says nothing about them. The buyer, unable to detect the defect, purchases. May the buyer rescind?",
+   "qZh": "看房前一天，卖方将地基大裂缝抹灰刷漆掩盖，只字不提。买方无从察觉，买下了房屋。买方可以撤销吗？",
+   "choices": [
+    "Yes — active concealment is treated as an assertion that the fact does not exist, equivalent to fraudulent misrepresentation.",
+    "No — silence is never actionable; caveat emptor.",
+    "No — the buyer's reliance was unjustified because he could have hired an inspector.",
+    "Yes — but only if the contract contained an express warranty covering the foundation."
+   ],
+   "answer": 0,
+   "explain": "Concealing a fact by affirmative act is an assertion of its nonexistence — fraudulent misrepresentation making the contract voidable. Reliance is justified where the defect is actively hidden; buyers need not investigate for concealed defects.",
+   "explainZh": "三层递进：单纯沉默原则上不构成虚假陈述（例外：信任关系、半真话、明知对方基本性错误、后续知悉先前陈述已不实）；积极掩盖＝作为式虚假陈述；直接说谎当然构成。欺诈性或重大虚假陈述＋正当信赖→可撤销。对比《民法典》第148条欺诈可撤销，且中国法上故意隐瞒也可构成欺诈——此处两法接近。"
+  },
+  {
+   "id": "k032",
+   "type": "basic",
+   "topic": "Defenses to Formation",
+   "topicZh": "合同抗辩",
+   "q": "State the elements of mutual mistake and when a party bears the risk of the mistake.",
+   "qZh": "陈述双方错误的构成要件，以及一方何时自担错误风险。",
+   "a": "Voidable by the adversely affected party when: (1) both parties mistaken at formation (2) about a basic assumption (3) with material effect on the exchange, and (4) that party does not bear the risk. Risk is borne by agreement ('as is'), conscious ignorance, or judicial allocation. Market-value errors do not qualify.",
+   "aZh": "受不利影响一方可撤销，须：(1) 订约时双方均有错误；(2) 错误涉及合同的基本前提；(3) 对交换有重大影响；(4) 该方不承担错误风险。风险承担途径：约定（\"按现状\"出售）、明知无知（自知信息有限仍执意成交）、法院裁量分配。对市场价值的错误判断不算。",
+   "explainZh": "经典对照：以为不能生育的母牛实为孕牛——基本前提错误，可撤销；以为石头值钱与否——价值判断，风险自担。对比《民法典》第147条\"重大误解\"：中国法单方重大误解即可撤销，美国法对单方错误严苛得多（见下卡）——切勿套用中国直觉。"
+  },
+  {
+   "id": "k033",
+   "type": "mcq",
+   "topic": "Defenses to Formation",
+   "topicZh": "合同抗辩",
+   "q": "A contractor's bid omits a $50,000 line item due to a clerical adding error, making its bid 30% below every other bid. The city accepts before the contractor discovers the error. May the contractor rescind?",
+   "qZh": "承包商投标因加总笔误漏掉一项5万美元费用，报价比所有其他投标低30%。市政府在承包商发现错误前接受了投标。承包商可以撤销吗？",
+   "choices": [
+    "No — unilateral mistake never permits rescission.",
+    "No — clerical errors are negligence, which bars all relief.",
+    "Yes — any mistake by either party renders a contract voidable.",
+    "Yes — the other party had reason to know of the mistake, so rescission for unilateral mistake is available."
+   ],
+   "answer": 3,
+   "explain": "Unilateral mistake ordinarily gives no relief, but rescission lies where the nonmistaken party knew or had reason to know of the error — a bid dramatically below all others signals mistake (palpable error) — or where enforcement would be unconscionable.",
+   "explainZh": "单方错误原则不救济，两大例外：对方明知或应知（palpable，显而易见的错误——低30%的标价就是信号）；或执行将显失公平且尚无信赖。普通笔误性过失不剥夺救济，(1)是干扰项。与《民法典》\"重大误解\"单方即可撤销形成鲜明对比——美国题里别轻易给单方错误救济。"
+  },
+  {
+   "id": "k034",
+   "type": "basic",
+   "topic": "Defenses to Formation",
+   "topicZh": "合同抗辩",
+   "q": "State the unconscionability doctrine and the effect of illegality.",
+   "qZh": "陈述显失公平原则与合同违法的效果。",
+   "a": "Unconscionability: decided by the court as of formation; usually requires procedural unfairness (fine print, unequal bargaining) plus substantive oppression; the court may refuse enforcement, strike, or limit the clause. Illegality: illegal consideration or subject voids the contract; if only the purpose is illegal, the innocent party may enforce. Protective-license violations bar recovery; revenue-license violations do not.",
+   "aZh": "显失公平：由法官判断，以订约时为准；通常须程序不公（小字条款、议价能力悬殊、附合合同）加实体压迫并存；法院可拒绝执行合同、删除条款或限制适用。违法：约因或标的违法则合同无效；仅目的违法时无辜方可执行。违反保护性执照禁止索酬；仅为财政收入的执照则不禁止。",
+   "explainZh": "显失公平以\"订约时\"为判断时点——事后变得不公平不算。程序＋实体通常缺一不可（滑动标尺：一项极重可补另一项之轻）。对比《民法典》第151条显失公平（利用危困、判断能力不足）可撤销——中国法是撤销权，美国法是法院的执行裁量，机制不同。"
+  },
+  {
+   "id": "k035",
+   "type": "basic",
+   "topic": "Terms, Parol Evidence & Warranties",
+   "topicZh": "条款、口头证据规则与担保",
+   "q": "State the parol evidence rule, the integration analysis, and the exceptions.",
+   "qZh": "陈述口头证据规则、完整性分析及其例外。",
+   "a": "A final writing (integration) cannot be contradicted by prior or contemporaneous agreements. Total integration — complete and exclusive; a merger clause is strong evidence — also bars consistent additional terms; partial integration admits them. Never barred: subsequent agreements, formation defenses, ambiguity, conditions precedent to effectiveness. UCC presumes partial: usage and dealings admissible unless carefully negated.",
+   "aZh": "作为最终表达（整合文本）的书面不得被在先或同时的约定所抵触。完全整合——完整且排他，合并条款是有力证据——连\"一致的补充条款\"也排除；部分整合则允许补充。永不排除：事后达成的约定、订约抗辩（欺诈、胁迫、错误）、歧义解释、合同生效的先决条件。UCC推定部分整合：行业惯例与交易过程可采，除非被明确排除。",
+   "explainZh": "口诀：抵触看整合、补充看完全、\"四不禁\"（事后、抗辩、歧义、生效条件）随时进。这是证据规则式的实体规则，与中国法自由心证的证据观完全不同，须专门训练。名称有误导性：书面的在先约定同样被排除。"
+  },
+  {
+   "id": "k036",
+   "type": "cloze",
+   "topic": "Terms, Parol Evidence & Warranties",
+   "topicZh": "条款、口头证据规则与担保",
+   "q": "In interpreting a contract, express terms control, followed in descending order by {{c::course of performance, course of dealing, and usage of trade}}.",
+   "qZh": "解释合同时，明示条款优先，其后依次为____。",
+   "a": "course of performance, course of dealing, and usage of trade",
+   "aZh": "履行过程、既往交易过程、行业惯例",
+   "explainZh": "由近及远记忆：本合同怎么履行的（course of performance）→ 双方从前怎么交易的（course of dealing）→ 本行业通常怎么做（usage of trade）。越贴近双方真实意思越优先。《民法典》第466、510条亦参照交易习惯解释与补缺，思路相通。"
+  },
+  {
+   "id": "k037",
+   "type": "basic",
+   "topic": "Terms, Parol Evidence & Warranties",
+   "topicZh": "条款、口头证据规则与担保",
+   "q": "What are the principal UCC gap fillers when the parties leave terms open?",
+   "qZh": "当事人条款留白时，UCC的主要补缺规则是什么？",
+   "a": "Price: a reasonable price at time of delivery (§2-305). Place of delivery: seller's place of business (§2-308). Time: a reasonable time (§2-309). Payment: due when and where the buyer is to receive the goods (§2-310). Quantity is the one term that generally cannot be gap-filled — the writing's stated quantity caps enforcement.",
+   "aZh": "价格：交付时的合理价格（§2-305）。交付地点：卖方营业地（§2-308）。时间：合理期间（§2-309）。付款：于买方应收取货物的时间地点到期（§2-310）。数量是唯一原则上不能补缺的条款——以书面所载数量为执行上限。",
+   "explainZh": "UCC的哲学：只要双方有意成立合同且有合理确定的救济基础，条款留白不碍成立（§2-204）——比普通法的确定性要求宽松得多。《民法典》第510-511条的补缺思路与此高度相似，可对照记忆。"
+  },
+  {
+   "id": "k038",
+   "type": "basic",
+   "topic": "Terms, Parol Evidence & Warranties",
+   "topicZh": "条款、口头证据规则与担保",
+   "q": "Compare the three UCC warranties of quality.",
+   "qZh": "比较UCC三种质量担保。",
+   "a": "Express (§2-313): affirmation of fact, promise, description, or sample forming part of the basis of the bargain; puffery excluded. Merchantability (§2-314): implied only when the seller is a merchant dealing in goods of that kind — fit for ordinary purposes. Fitness (§2-315): any seller who knows the buyer's particular purpose and reliance on the seller's skill to select.",
+   "aZh": "明示担保（§2-313）：构成交易基础的事实陈述、允诺、描述或样品；吹嘘与意见除外。适销性默示担保（§2-314）：仅当卖方是经营该类货物的商人时默示产生——货物须适于通常用途。特定用途适用性担保（§2-315）：任何卖方，只要知悉买方的特定用途且知悉买方信赖其挑选技能。",
+   "explainZh": "对比三个主体门槛：明示担保任何卖方可作出；适销性要求\"经营该类货物的商人\"（最窄）；特定用途担保任何卖方但要求\"知悉＋信赖\"。考题最爱：五金店老板卖二手私家车——非该类货物商人，无适销性担保。"
+  },
+  {
+   "id": "k039",
+   "type": "mcq",
+   "topic": "Terms, Parol Evidence & Warranties",
+   "topicZh": "条款、口头证据规则与担保",
+   "q": "A law student sells her used car to a classmate. The engine fails a week later. The classmate sues for breach of the implied warranty of merchantability. Result?",
+   "qZh": "一名法学生把自己的二手车卖给同学，一周后发动机报废。同学以违反适销性默示担保起诉。结果如何？",
+   "choices": [
+    "Classmate wins — merchantability attaches to every sale of goods.",
+    "Classmate wins — used goods must last a reasonable time.",
+    "Student wins — she is not a merchant dealing in goods of that kind, so no warranty of merchantability arose.",
+    "Student wins — implied warranties never apply to used goods."
+   ],
+   "answer": 2,
+   "explain": "§2-314 implies merchantability only where the seller is a merchant with respect to goods of that kind. A casual, one-off seller makes no such warranty. Used goods CAN carry the warranty when sold by a dealer — so the 'implied warranties never apply to used goods' choice is wrong.",
+   "explainZh": "适销性担保的门槛在\"卖方身份\"而非\"货物新旧\"：二手车行卖二手车有担保，普通人偶然卖车没有。注意merchant在§2-205（确定要约）与§2-314（适销性）中口径不同：后者要求专营该类货物。对比《民法典》第615-618条质量条款依约定与国家标准——无\"商人\"身份门槛。"
+  },
+  {
+   "id": "k040",
+   "type": "basic",
+   "topic": "Terms, Parol Evidence & Warranties",
+   "topicZh": "条款、口头证据规则与担保",
+   "q": "How are implied warranties disclaimed, and when do remedy limitations fail (§2-316, §2-719)?",
+   "qZh": "默示担保如何排除？救济限制条款何时失效（§2-316、§2-719）？",
+   "a": "Merchantability: oral or written, must mention 'merchantability'; conspicuous if written. Fitness: only by conspicuous writing. Either: 'as is,' the buyer's inspection or refusal to inspect, or trade usage. Express warranties cannot be disclaimed. Remedy limitations are valid unless the exclusive remedy fails of its essential purpose; limiting personal-injury damages for consumer goods is prima facie unconscionable.",
+   "aZh": "适销性：口头或书面均可排除，但须点明\"merchantability\"一词；书面须醒目。特定用途：只能以醒目书面排除。两者亦可经\"按现状\"字样、买方检验或拒绝检验（就可发现的瑕疵）、行业惯例排除。明示担保一经作出不能有效排除。救济限制条款有效，但专属救济\"未达其基本目的\"时失效；对消费品人身伤害限责的条款推定显失公平。",
+   "explainZh": "递进检查：有没有担保→有没有有效排除→有没有救济限制→限制是否失效（essential purpose／人身伤害显失公平）。\"as is\"两个字能一次性扫掉全部默示担保，是卖方的核武器，也是考题高频词。"
+  },
+  {
+   "id": "k041",
+   "type": "mcq",
+   "topic": "Terms, Parol Evidence & Warranties",
+   "topicZh": "条款、口头证据规则与担保",
+   "q": "A contract reads 'FOB seller's warehouse, Chicago' for machines to be shipped to a Boston buyer. The seller duly delivers conforming machines to the carrier; they are destroyed in transit. Who bears the loss?",
+   "qZh": "合同载明\"FOB卖方仓库（芝加哥）\"，机器发往波士顿买方。卖方将合格机器妥善交付承运人，货物在运输途中灭失。风险由谁承担？",
+   "choices": [
+    "Seller — risk stays with the seller until the buyer receives the goods.",
+    "Buyer — this is a shipment contract: risk passed when conforming goods were duly delivered to the carrier, so buyer must still pay.",
+    "Seller — FOB terms always place risk on the seller.",
+    "The carrier alone — neither party bears any risk."
+   ],
+   "answer": 1,
+   "explain": "'FOB seller's place' creates a shipment contract: under §2-509(1)(a) risk of loss passes to the buyer on due delivery to the carrier. 'FOB Boston' (destination) would keep risk on the seller until tender at destination.",
+   "explainZh": "口诀：FOB后面跟谁的地点，货就\"送到那里\"才换手风险——FOB卖方所在地＝发运合同（交给承运人即转移）；FOB买方所在地＝目的地合同。无承运人时：商人卖方于买方实际收货时转移，非商人卖方于提供交付时转移。§2-510：货物不符（违约）时风险留在卖方直至补正或买方接受。《民法典》第604-607条同采交付主义，方向一致。"
+  },
+  {
+   "id": "k042",
+   "type": "basic",
+   "topic": "Conditions & Performance",
+   "topicZh": "条件与履行",
+   "q": "Distinguish express and constructive conditions and their compliance standards.",
+   "qZh": "区分明示条件与推定条件及各自的符合标准。",
+   "a": "Express conditions are created by the parties' language ('if,' 'provided that') and demand strict, literal compliance — substantial performance will not do. Constructive conditions are implied by law to sequence performances; substantial performance satisfies them. Nonoccurrence of a condition suspends or discharges the dependent duty; it is not breach unless the event was also promised.",
+   "aZh": "明示条件由当事人措辞创设（\"如果\"\"以……为条件\"），须严格、字面地满足——实质履行不够。推定条件由法律默示以安排履行顺序，只需实质履行。条件未成就使其限定的义务中止或消灭；除非该事件同时被允诺，条件不成就本身并非违约。",
+   "explainZh": "严格vs实质，是条件题的第一分岔。明示条件的苛刻性靠\"条件的免除\"（弃权、阻碍、防止没收）来缓和。记：条件回答\"义务是否产生\"，允诺回答\"是否违约赔偿\"。"
+  },
+  {
+   "id": "k043",
+   "type": "basic",
+   "topic": "Conditions & Performance",
+   "topicZh": "条件与履行",
+   "q": "What are the default rules on order of performance?",
+   "qZh": "履行顺序的默认规则是什么？",
+   "a": "Where performances can be exchanged simultaneously, they are concurrent conditions — each party must tender to put the other in breach (land sales; UCC delivery vs payment). Where one performance takes time (services, construction), its completion is a constructive condition precedent to the other's payment duty: work first, get paid after, absent contrary agreement or installment terms.",
+   "aZh": "双方给付可同时交换的，为并存条件——一方须提出履行（tender）才能使对方陷于违约（土地买卖；UCC交货与付款）。一方履行需要时间的（服务、建筑），其完成是对方付款义务的推定先决条件：先干活、后拿钱，除非另有约定或分期条款。",
+   "explainZh": "\"先干活后拿钱\"是默示规则，解释了为什么雇员月底才领工资。土地买卖双方都不主动tender时，谁都不违约——考题常设双方都按兵不动的僵局。对比《民法典》第525-526条同时履行抗辩与先履行抗辩，功能对应。"
+  },
+  {
+   "id": "k044",
+   "type": "cloze",
+   "topic": "Conditions & Performance",
+   "topicZh": "条件与履行",
+   "q": "A clause conditioning payment on the buyer's personal satisfaction with work involving taste or fancy is judged by {{c::honest, good-faith dissatisfaction}}; where the work involves mechanical utility or commercial quality, a reasonable-person standard applies.",
+   "qZh": "以买方对涉及品味、喜好之工作的\"满意\"为付款条件的条款，以____为判断标准；涉及机械效用或商业质量的，则适用理性人标准。",
+   "a": "honest, good-faith dissatisfaction",
+   "aZh": "诚实、善意的不满意（主观诚信标准）",
+   "explainZh": "肖像画、定制西装→主观标准（真心不满意即可拒付，装不满意则不行）；锅炉安装、商用设备→客观标准（理性人满意即须付款）。善意要求使满意条款免于\"虚幻允诺\"之讥。疑义时法院倾向客观标准以避免没收。"
+  },
+  {
+   "id": "k045",
+   "type": "basic",
+   "topic": "Conditions & Performance",
+   "topicZh": "条件与履行",
+   "q": "How may a condition be excused?",
+   "qZh": "条件可以通过哪些途径被免除？",
+   "a": "(1) Waiver — voluntary relinquishment; without consideration only ancillary, nonmaterial conditions can be waived, retractable prospectively absent reliance; (2) estoppel — detrimental reliance on an indication the condition would not be insisted upon; (3) prevention or hindrance — a party whose wrongful conduct blocks the condition cannot rely on its nonoccurrence; (4) excuse to avoid disproportionate forfeiture.",
+   "aZh": "(1) 弃权——自愿放弃；无对价时仅能放弃附随性、非实质的条件，且对方未信赖前可对将来撤回；(2) 禁反言——对方已信赖\"不再坚持该条件\"的表示而受损；(3) 阻碍——以不当行为阻止条件成就的一方不得援引条件未成就；(4) 为避免不成比例的没收而免除。",
+   "explainZh": "阻碍规则源于默示的善意协力义务：故意躲着经纪人以逃佣金、阻挠验收——条件视为成就。保险索赔通知条款是弃权/禁反言的高发考区。《民法典》第159条\"不正当阻止条件成就的，视为已成就\"几乎逐字对应，可放心迁移。"
+  },
+  {
+   "id": "k046",
+   "type": "cloze",
+   "topic": "Conditions & Performance",
+   "topicZh": "条件与履行",
+   "q": "At common law, a builder whose work contains only minor deviations has rendered {{c::substantial performance}} and may recover the contract price minus the cost of remedying the defects; a material breach bars any recovery on the contract itself.",
+   "qZh": "普通法上，工程仅有轻微偏差的承包人已构成____，可请求合同价款减去修复瑕疵的费用；重大违约则不得基于合同本身获偿。",
+   "a": "substantial performance",
+   "aZh": "实质履行",
+   "explainZh": "实质履行＝推定条件已满足＝对方必须付款（再扣损害）。故意的偏差通常否定实质履行。修复费用与价值减损差距悬殊时（装错品牌水管案型），按价值减损计赔。重大违约方还有准合同返还这条后路（扣除对方损害）。"
+  },
+  {
+   "id": "k047",
+   "type": "basic",
+   "topic": "Conditions & Performance",
+   "topicZh": "条件与履行",
+   "q": "State the UCC perfect tender rule and the seller's right to cure (§2-601, §2-508).",
+   "qZh": "陈述UCC完全符合交付规则与卖方的补正权（§2-601、§2-508）。",
+   "a": "Single-delivery contracts: if goods or tender fail in ANY respect to conform, the buyer may reject all, accept all, or accept any commercial units and reject the rest. Cure: with seasonable notice, the seller may cure as of right until the contract time expires; afterward, a further reasonable time if it reasonably believed the tender would be acceptable.",
+   "aZh": "一次性交付合同中，货物或交付有任何一点不符，买方即可全部拒收、全部接受、或按商业单位部分接受部分拒收。补正：卖方及时通知后，在合同履行期届满前有当然补正权；届满后，若卖方有合理理由相信原交付可被接受（如附价款折让），另享合理宽限期以替换合格货物。",
+   "explainZh": "\"完全符合\"听起来严苛，实则被三道闸稀释：补正权、分期合同的实质损害标准、善意要求（不得借小瑕疵逃避跌价合同）。与普通法\"实质履行\"形成镜像对比——服务合同宽进严出，货物合同严进宽出。"
+  },
+  {
+   "id": "k048",
+   "type": "mcq",
+   "topic": "Conditions & Performance",
+   "topicZh": "条件与履行",
+   "q": "An installment contract calls for 12 monthly flour deliveries. The third delivery is 2% short, and the seller immediately offers a price allowance. Buyer seeks to reject the installment and cancel the whole contract. May it?",
+   "qZh": "分期合同约定每月交付面粉、共12期。第三期短交2%，卖方立即提出价款折让。买方欲拒收该期并解除整个合同。可以吗？",
+   "choices": [
+    "No — an installment may be rejected only if its nonconformity substantially impairs that installment's value and cannot be cured; cancelling the whole requires substantial impairment of the whole contract.",
+    "Yes — the perfect tender rule permits rejection for any nonconformity.",
+    "Yes — any breach within an installment contract cancels the whole.",
+    "No — buyers may never reject installment deliveries."
+   ],
+   "answer": 0,
+   "explain": "§2-612 displaces perfect tender for installment contracts. A curable 2% shortage with an offered allowance neither substantially impairs the installment nor the whole contract.",
+   "explainZh": "分期合同是完全符合交付规则的法定例外：单期拒收要\"实质损害该期价值＋不能补正\"；解除全部要\"实质损害整个合同价值\"。《民法典》第634条分期付款解除权（未付达五分之一）与第633条分批交付解除，结构神似，可对照记。"
+  },
+  {
+   "id": "k049",
+   "type": "basic",
+   "topic": "Conditions & Performance",
+   "topicZh": "条件与履行",
+   "q": "When does a buyer accept goods, how does it reject, and when may acceptance be revoked (§2-606, §2-602, §2-608)?",
+   "qZh": "买方何时构成接受货物？如何拒收？何时可撤回接受（§2-606、§2-602、§2-608）？",
+   "a": "Acceptance (§2-606): after reasonable inspection, buyer signifies conformity or keeps the goods, fails to reject effectively, or acts inconsistently with seller's ownership. Rejection (§2-602): reasonable time plus seasonable notice. Revocation (§2-608): nonconformity substantially impairs value AND acceptance rested on assumed cure or a latent defect; within a reasonable time, before substantial change in the goods.",
+   "aZh": "接受（§2-606）：经合理检验机会后表示货物合格或愿保留、未作出有效拒收、或作出与卖方所有权不符的行为。拒收（§2-602）：交付后合理期间内＋及时通知。撤回接受（§2-608）：不符须实质损害价值，且接受时或者合理假定瑕疵会被补正、或者瑕疵隐蔽难以发现；须在合理期间内、货物发生实质变化前撤回。",
+   "explainZh": "时间线记忆：交付→检验→拒收窗口（任何不符即可）→接受→撤回接受窗口（门槛跳升为\"实质损害\"＋正当理由）。接受后买方须付款、举证责任倒置，但保留§2-714损害赔偿请求权（须及时通知§2-607(3)）。"
+  },
+  {
+   "id": "k050",
+   "type": "mcq",
+   "topic": "Conditions & Performance",
+   "topicZh": "条件与履行",
+   "q": "A contract requires a painter to paint three identical houses at '$10,000 per house.' After properly completing one house, the painter quits. The owner refuses to pay anything. What may the painter recover?",
+   "qZh": "合同约定粉刷三栋相同房屋，\"每栋10,000美元\"。粉刷工妥善完成一栋后弃工。业主拒付分文。粉刷工可获多少？",
+   "choices": [
+    "Nothing — material breach forfeits all recovery.",
+    "$30,000 minus damages — substantial performance of the whole contract.",
+    "Nothing on the contract, but restitution of exactly $10,000.",
+    "$10,000 for the completed house — the contract is divisible into agreed equivalents — minus the owner's damages from breaching the rest."
+   ],
+   "answer": 3,
+   "explain": "Where performance is divided into corresponding pairs of part performances that are agreed equivalents ('per house' pricing), the contract is divisible: contract-rate recovery for each completed unit, offset by damages for the unperformed remainder.",
+   "explainZh": "可分性三问：履行可否分割？对待给付可否分割？每对是否\"约定的等值对应\"（单价条款是最强信号）？可分→按已完成单元照合同价请求；不可分→只能走违约方准合同返还（合理价值减损害）。总价合同（lump sum）通常不可分。"
+  },
+  {
+   "id": "k051",
+   "type": "basic",
+   "topic": "Breach & Repudiation",
+   "topicZh": "违约与预期违约",
+   "q": "Compare the consequences of material and minor breach at common law.",
+   "qZh": "比较普通法上重大违约与轻微违约的后果。",
+   "a": "Material breach: the nonbreaching party may suspend its own performance and, if the breach is not cured within a reasonable time, terminate and sue for total breach. Minor breach: the nonbreaching party must continue performing and is limited to damages. Materiality factors: benefit deprived, adequacy of compensation, forfeiture to the breacher, likelihood of cure, and good faith of the breacher.",
+   "aZh": "重大违约：守约方可中止己方履行；合理期间内未获补救的，可解除合同并就全部违约索赔。轻微违约：守约方仍须继续履行，救济仅限损害赔偿。重大性因素：所失利益的程度、金钱赔偿能否弥补、违约方的没收损失、补救的可能性、违约方是否善意。",
+   "explainZh": "重大违约＝推定条件不成就＋解除权；轻微违约＝只赔不解。对比《民法典》第563条法定解除以\"不能实现合同目的\"为标准——功能上与materialaity相当，但美国法的多因素衡量更灵活，论述题须逐项分析。"
+  },
+  {
+   "id": "k052",
+   "type": "mcq",
+   "topic": "Breach & Repudiation",
+   "topicZh": "违约与预期违约",
+   "q": "A land-sale contract sets closing for June 1 but contains no time-of-essence clause. Buyer tenders full performance on June 3; seller declares the contract terminated for the delay. Who prevails?",
+   "qZh": "土地买卖合同约定6月1日交割，但无\"时间为合同要素\"条款。买方6月3日提出全面履行；卖方以迟延为由宣布合同终止。谁胜？",
+   "choices": [
+    "Seller — any late performance is automatically a material breach.",
+    "Seller — time is always of the essence in land contracts.",
+    "Buyer — absent a time-of-essence clause or special circumstances, a brief delay is only a minor breach; seller must perform and claim delay damages.",
+    "Buyer — closing dates are unenforceable terms."
+   ],
+   "answer": 2,
+   "explain": "Timely performance is generally not essential unless the contract says time is of the essence or circumstances (e.g., known resale deadline) make it so. A two-day delay is a minor breach: damages, not termination.",
+   "explainZh": "无TOE条款→迟延通常只是轻微违约（赔迟延损失、不得解约）；有TOE条款或情势表明时间关键→迟延即重大违约。起草提示与考试陷阱同源：想让日期\"生死攸关\"就必须写明。对比《民法典》第563条第3项：迟延后经催告仍不履行方可解除——中国法的\"催告\"扮演类似缓冲。"
+  },
+  {
+   "id": "k053",
+   "type": "mcq",
+   "topic": "Breach & Repudiation",
+   "topicZh": "违约与预期违约",
+   "q": "Six months before a scheduled delivery, the seller writes: 'Market conditions are difficult; I doubt we will be able to perform.' The buyer immediately sues for breach. Result?",
+   "qZh": "距约定交付还有六个月，卖方致函：\"市场艰难，我怀疑我们能否履行。\"买方立即起诉违约。结果如何？",
+   "choices": [
+    "Buyer wins — any expression of doubt is an anticipatory repudiation.",
+    "Buyer loses — repudiation must be a clear, unequivocal refusal to perform; mere doubt only justifies a demand for adequate assurances.",
+    "Buyer wins — filing suit converts doubt into repudiation.",
+    "Buyer loses — anticipatory repudiation claims must always await the delivery date."
+   ],
+   "answer": 1,
+   "explain": "Anticipatory repudiation requires an unequivocal manifestation of inability or unwillingness to perform, made before performance is due, in a bilateral contract with executory duties on both sides. Equivocal language triggers §2-609 assurances, not immediate suit.",
+   "explainZh": "\"我怀疑\"≠\"我不干了\"。含糊表态的正确应对：书面要求充分履约保证（§2-609），同时可中止己方履行。真正的预期违约须明确、无保留（或转卖标的物等行为性毁约）。对比《民法典》第578条明示或以行为表明不履行——中国法直接继受预期违约制度，两法接近。"
+  },
+  {
+   "id": "k054",
+   "type": "cloze",
+   "topic": "Breach & Repudiation",
+   "topicZh": "违约与预期违约",
+   "q": "Under UCC §2-609, when reasonable grounds for insecurity arise, a party may demand adequate assurance in writing; failure to provide it within a reasonable time not exceeding {{c::30 days}} is a repudiation.",
+   "qZh": "依UCC §2-609，产生合理不安理由时，一方可书面要求充分履约保证；未在不超过____的合理期间内提供保证的，构成预期违约。",
+   "a": "30 days",
+   "aZh": "30日",
+   "explainZh": "四步：合理不安→书面要求（商人间惯例可稍宽）→可中止己方履行→30日内无充分保证＝毁约。这是把\"含糊的不安\"转化为\"确定的违约\"的战略工具。《民法典》第527-528条不安抗辩权（中止履行→通知→合理期限未恢复履约能力且未提供担保→可解除）与此惊人地对应，是记忆捷径。"
+  },
+  {
+   "id": "k055",
+   "type": "basic",
+   "topic": "Breach & Repudiation",
+   "topicZh": "违约与预期违约",
+   "q": "What are the nonrepudiating party's options after an anticipatory repudiation, and when can the repudiation be retracted?",
+   "qZh": "预期违约发生后，守约方有哪些选择？毁约何时可以撤回？",
+   "a": "Options: sue immediately for total breach; suspend performance and await performance a commercially reasonable time; treat the contract as discharged; or urge performance without waiving rights. Retraction is effective until the aggrieved party cancels, materially changes position, or signals it treats the repudiation as final — the contract is then reinstated with allowance for delay.",
+   "aZh": "选择：(1) 立即以全部违约起诉；(2) 中止己方履行并在商业上合理的期间内等待对方履行；(3) 视合同已解除；(4) 敦促履行而不丧失权利。撤回：在守约方解除合同、实质改变处境、或以其他方式表明视毁约为终局之前均可撤回——撤回使合同恢复，迟延部分获相应宽免。",
+   "explainZh": "毁约不是自动解约，而是给守约方一组选择权；等太久不减损可能被扣减可避免的损失。撤回权的存在意味着：拿到毁约后最好尽快锁定（回函确认解约或另行安排），堵死对方反悔的门。"
+  },
+  {
+   "id": "k056",
+   "type": "basic",
+   "topic": "Breach & Repudiation",
+   "topicZh": "违约与预期违约",
+   "q": "Plaintiff has fully performed; defendant repudiates a debt payable in future installments. May plaintiff sue at once?",
+   "qZh": "原告已全面履行完毕；被告对未来分期支付的债务作出毁约表示。原告可以立即起诉吗？",
+   "a": "No. The anticipatory repudiation doctrine does not apply where the nonrepudiating party has fully performed and the repudiator's only remaining duty is to pay money at future dates. Plaintiff must wait and sue as each payment falls due (no acceleration absent a clause). The same limit applies to unilateral contracts already performed.",
+   "aZh": "不可以。守约方已全面履行、毁约方仅剩未来付款义务时，预期违约规则不适用。原告须待各期款项到期后分别起诉（无加速条款则不得加速到期）。已履行完毕的单务合同同受此限。",
+   "explainZh": "高频陷阱：预期违约要求双方都还有未履行义务（executory on both sides）。理由：已履行方无履行可中止、提前判赔等于强制预付。实务对策：合同里写加速条款。这一限制中国法没有对应物，务必单独记牢。"
+  },
+  {
+   "id": "k057",
+   "type": "basic",
+   "topic": "Excuse: Impossibility & Frustration",
+   "topicZh": "履行免除",
+   "q": "When does impossibility discharge a duty, and what is the builder-destruction rule?",
+   "qZh": "履行不能何时免除义务？\"承建人—毁损\"规则是什么？",
+   "a": "Requires objective impossibility — no one could perform — from a post-formation event: death of a person essential to performance, supervening illegality, destruction of the specific subject matter. But a builder of a NEW building is not excused by its destruction — rebuilding is possible; only a time extension. A contractor renovating an EXISTING building is excused when it burns.",
+   "aZh": "履行须客观不能——任何人都无法履行——且源于订约后的事件：履行所必需之人死亡或丧失能力、事后违法、特定标的物灭失。但新建建筑的承建人不因在建建筑毁损而免责——重建仍属可能，只获工期展延。翻修既有建筑的承包人则于该建筑焚毁时免责（标的物已不存在）。",
+   "explainZh": "客观（没人能干）vs主观（我干不了——不免责）。承建人规则的逻辑：新建工程的\"标的物\"是承建人的劳务成果而非那栋楼，楼塌了还能再盖；翻修合同则以既有楼为前提。别忘了顺带检查风险条款与保险有无分配该风险。"
+  },
+  {
+   "id": "k058",
+   "type": "basic",
+   "topic": "Excuse: Impossibility & Frustration",
+   "topicZh": "履行免除",
+   "q": "State the elements of commercial impracticability (UCC §2-615).",
+   "qZh": "陈述商业不可行（UCC §2-615）的构成要件。",
+   "a": "Excused where (1) an unforeseen contingency occurs, (2) whose nonoccurrence was a basic assumption of the contract, (3) without the claimant's fault, and (4) the risk was not assumed. Mere cost increases or market collapse almost never suffice — extreme, unforeseeable disruption is required (war, embargo, failure of a designated source).",
+   "aZh": "满足以下条件履行获免除：(1) 发生未预见的意外情事；(2) 其不发生是订约的基本前提；(3) 主张免责一方无过错；(4) 该方未（明示或依交易情况）承担该风险。单纯成本上涨或市场剧变几乎从不足够——须达到战争、禁运、指定货源灭失等极端且不可预见的程度。",
+   "explainZh": "对比《民法典》第533条情势变更：中国法允许重新协商并由法院变更或解除合同；美国法院不改写合同——要么免除要么照约履行，且门槛更高（涨价10倍都未必免）。答题时先排除\"风险已由固定价格条款分配给卖方\"这一常见杀招。"
+  },
+  {
+   "id": "k059",
+   "type": "mcq",
+   "topic": "Excuse: Impossibility & Frustration",
+   "topicZh": "履行免除",
+   "q": "A man rents a flat overlooking a parade route at ten times the normal rate, both parties knowing his purpose is to view a royal parade. The parade is cancelled. Must he pay?",
+   "qZh": "一男子以十倍于常价租下可俯瞰游行路线的公寓，双方均知其目的是观看王室游行。游行取消。他仍须付租金吗？",
+   "choices": [
+    "No — the principal purpose known to both parties was destroyed by a supervening event neither caused: frustration of purpose discharges his duty.",
+    "Yes — performance (providing the room) remains entirely possible.",
+    "Yes — frustration of purpose applies only to sales of goods.",
+    "No — impossibility of performance excuses him."
+   ],
+   "answer": 0,
+   "explain": "Frustration discharges even though performance remains possible: a supervening event, the nonoccurrence of which was a basic assumption, substantially destroys the contract's known principal purpose. The 'impossibility of performance' choice fails — renting the room is not impossible; that is exactly why frustration, not impossibility, is the right doctrine.",
+   "explainZh": "三姐妹分工：履行不能（干不了）、商业不可行（干得了但代价离谱）、目的落空（干得了也付得起，但履行已无意义）。目的落空要件：双方共知的主要目的＋意外事件将其实质摧毁＋基本前提＋十倍租金等事实证明目的是交易基础。加价本身就是\"目的构成交易基础\"的证据。"
+  },
+  {
+   "id": "k060",
+   "type": "cloze",
+   "topic": "Excuse: Impossibility & Frustration",
+   "topicZh": "履行免除",
+   "q": "Under UCC §2-613, if goods identified when the contract is made are totally destroyed without fault of either party and before the risk of loss passes to the buyer, the contract is {{c::avoided}} — neither party has further obligations.",
+   "qZh": "依UCC §2-613，订约时已特定化的货物在风险转移给买方之前、无双方过错而全部灭失的，合同____——双方均无进一步义务。",
+   "a": "avoided",
+   "aZh": "解除（自动消灭）",
+   "explainZh": "适用前提有三：订约时货物已特定（identified，如\"这一辆车\"而非\"一辆同型号车\"）、灭失无过错、风险尚未转移。部分毁损时买方可选择：解除，或按折让价接受剩余部分（无其他索赔）。种类物灭失不适用——市场上还能买到，卖方照常履行。"
+  },
+  {
+   "id": "k061",
+   "type": "basic",
+   "topic": "Excuse: Impossibility & Frustration",
+   "topicZh": "履行免除",
+   "q": "What must a seller do when §2-615 excuses only part of its capacity?",
+   "qZh": "当§2-615仅使卖方部分产能获免时，卖方须怎么做？",
+   "a": "The seller must allocate production and deliveries among its customers — it may include regular customers not then under contract — in any manner that is fair and reasonable, and must seasonably notify each buyer of the estimated quota made available. The buyer may then accept its allocation or terminate the contract as to the affected deliveries.",
+   "aZh": "卖方须在客户之间分配产量与交付——可将当时未订约的老客户计入——分配方式须公平合理，并须及时通知各买方可获得的预计配额。买方随后可以接受配额，或就受影响的交付解除合同。",
+   "explainZh": "部分免责不等于任性分配：\"公平合理\"＋\"及时通知\"是两道硬要求，优先全额供应出价最高者即属违约。买方端记住选择权：收下配额或走人。这一\"配给\"机制在中国法无直接对应，属UCC特色考点。"
+  },
+  {
+   "id": "k062",
+   "type": "basic",
+   "topic": "Remedies & Damages",
+   "topicZh": "违约救济",
+   "q": "State the general expectation damages formula.",
+   "qZh": "陈述期待利益损害赔偿的一般公式。",
+   "a": "Put the plaintiff where full performance would have: loss in value of the promised performance + incidental and consequential losses − costs avoided by not having to finish − losses avoided. Construction: unpaid builder recovers expected profit plus costs incurred; owner recovers cost of completion plus reasonable delay damages. Always filtered through foreseeability, certainty, and mitigation.",
+   "aZh": "使原告处于合同获得完全履行时的地位：所许履行的价值损失＋附带与间接损失－因无须继续履行而节省的成本－已避免的损失。建筑案型：未获付款的承建人得预期利润加已支出成本；业主得完工费用加合理迟延损失。所有赔偿均须过可预见性、确定性、减损三道滤网。",
+   "explainZh": "期待利益是美国合同救济的默认标尺——向前看（如同已履行），而非向后看（恢复原状，那是信赖/返还）。《民法典》第584条同样以\"合同履行后可以获得的利益\"为限，概念可直接对接；差别在美国法的公式化操作，考试要会代数字。"
+  },
+  {
+   "id": "k063",
+   "type": "cloze",
+   "topic": "Remedies & Damages",
+   "topicZh": "违约救济",
+   "q": "Under Hadley v. Baxendale, consequential damages are recoverable only through two channels: losses {{c::arising naturally from the breach, or from special circumstances the breaching party had reason to know}} — both judged at the time of contracting.",
+   "qZh": "依Hadley v. Baxendale，间接损失只有两条可赔渠道：____——且均以订约时为判断时点。",
+   "a": "arising naturally from the breach, or from special circumstances the breaching party had reason to know",
+   "aZh": "系违约自然而生的损失，或源于违约方有理由知悉的特殊情况的损失",
+   "explainZh": "两条渠道：自然而生（任何人都能预见）或特殊情况已获告知（磨坊停工靠曲轴运转——须事先告知承运人）。时点卡在\"订约时\"而非违约时。《民法典》第584条但书\"不得超过违约一方订立合同时预见到或者应当预见到的损失\"正是Hadley规则的直系后代，中国律师的最大记忆红利。"
+  },
+  {
+   "id": "k064",
+   "type": "basic",
+   "topic": "Remedies & Damages",
+   "topicZh": "违约救济",
+   "q": "State the certainty and mitigation (avoidable consequences) limits on damages.",
+   "qZh": "陈述损害赔偿的确定性限制与减损（可避免后果）限制。",
+   "a": "Certainty: damages must be reasonably certain — a new business's lost profits traditionally fail; reliance is the fallback. Mitigation: no recovery for losses reasonably avoidable; a discharged employee need only accept comparable employment (same kind and rank), with actual or should-have-been earnings deducted. Mitigation costs are recoverable as incidental damages.",
+   "aZh": "确定性：损害须以合理确定性证明——新企业的利润损失传统上难获支持（现代法院接受专家与同类企业证据）；退而求其次可主张信赖利益。减损：合理努力即可避免的损失不予赔偿；被违法解雇的雇员只须接受同类同级的可比工作，实得或本应所得的工资予以扣除。减损费用可作为附带损害获赔。",
+   "explainZh": "\"减损\"严格说不是义务而是赔偿上限——不减损不违法，只是那部分拿不到钱。电影明星不必屈就B级片（非同类工作）。《民法典》第591条防止损失扩大规则完全同构，可整体迁移。"
+  },
+  {
+   "id": "k065",
+   "type": "cloze",
+   "topic": "Remedies & Damages",
+   "topicZh": "违约救济",
+   "q": "A liquidated damages clause is enforceable only if, viewed at formation, damages were {{c::difficult to estimate and the amount is a reasonable forecast}} of probable loss; a clause fixing an unreasonably large sum is a void penalty.",
+   "qZh": "约定违约金条款仅当以订约时观察，损害____时方可执行；约定数额不合理地过高的条款是无效的惩罚条款。",
+   "a": "difficult to estimate and the amount is a reasonable forecast",
+   "aZh": "难以估算且该金额是对可能损失的合理预估",
+   "explainZh": "两要件都在\"订约时\"判断（多数法域；少数兼看实际损害）。条款无效≠没有救济——退回普通损害赔偿。与《民法典》第585条最大反差：中国法院可对过高违约金\"予以适当减少\"，美国法院不改数字——要么整条有效、要么整条作废。",
+   "caNote": "California Civil Code §1671(b): outside consumer and residential-lease contracts, a liquidated damages clause is presumptively VALID unless the challenger proves it was unreasonable under the circumstances at formation.",
+   "caNoteZh": "加州民法典§1671(b)：消费者合同与住宅租赁之外，约定违约金条款推定有效，除非异议方证明按订约时情况该条款不合理。"
+  },
+  {
+   "id": "k066",
+   "type": "basic",
+   "topic": "Remedies & Damages",
+   "topicZh": "违约救济",
+   "q": "When are reliance damages used, and how are they measured?",
+   "qZh": "信赖利益赔偿何时适用？如何计算？",
+   "a": "An alternative to expectation, used when expectation is too uncertain or in promissory estoppel. Measure: expenditures in preparation and part performance, restoring the pre-contract position. Reduced by any loss the defendant proves plaintiff would have suffered on full performance — reliance cannot beat expectation on a losing contract.",
+   "aZh": "期待利益的替代选项，用于期待利益过于不确定（利润无法证明）或允诺禁反言案件。计算：为准备和部分履行合同所作的支出，使原告回到订约前地位。若被告证明合同即使履行原告也会亏损，应予扣减——亏损合同上信赖利益不得超过期待利益。",
+   "explainZh": "三把标尺一张图：期待（向前看，赚到的）＞信赖（向后看，花掉的）＞返还（对方拿走的）。举证责任的巧妙分配：原告只须证明支出，\"合同本会亏损\"由被告证明。"
+  },
+  {
+   "id": "k067",
+   "type": "basic",
+   "topic": "Remedies & Damages",
+   "topicZh": "违约救济",
+   "q": "When is restitution available — including to a breaching party and on losing contracts?",
+   "qZh": "返还救济何时可用——包括对违约方与亏损合同？",
+   "a": "Where a benefit was conferred and retention would be unjust: (1) a nonbreacher may elect restitution over expectation — on a losing contract it is NOT capped by the contract price, unless performance is complete and only money is owed; (2) a breaching party recovers benefit conferred minus the nonbreacher's damages; (3) quasi-contract applies where no contract exists.",
+   "aZh": "利益已授予且保留将不公时可用：(1) 守约方可选择返还以替代期待利益，且亏损合同中返还不以合同价为上限——但履行已完成、仅剩金钱债务的除外；(2) 违约方可请求返还所授利益减去守约方的损害；(3) 无合同存在时以准合同请求返还。",
+   "explainZh": "亏损合同的逃生门：按合同要亏钱？改主张返还（对方已获利益的合理价值），可能反而高于合同价。唯一封口：干完了只等收钱的，只能按合同价。违约方也能拿钱这一点最反直觉——防止业主白得九成工程。"
+  },
+  {
+   "id": "k068",
+   "type": "mcq",
+   "topic": "Remedies & Damages",
+   "topicZh": "违约救济",
+   "q": "A seller fails to deliver machines contracted at $50,000. The buyer promptly and reasonably buys identical machines elsewhere for $58,000, paying $500 extra freight. Buyer's damages?",
+   "qZh": "卖方未交付合同价50,000美元的机器。买方迅速、合理地以58,000美元另购同型机器，另付运费500美元。买方可获多少赔偿？",
+   "choices": [
+    "$50,000",
+    "$8,000 — the freight is not recoverable.",
+    "Nothing — covering waives any damages claim.",
+    "$8,500 — cover price minus contract price, plus incidental damages (§2-712)."
+   ],
+   "answer": 3,
+   "explain": "Cover requires a good-faith, reasonable substitute purchase without unreasonable delay. Damages = cover price − contract price + incidental/consequential damages − expenses saved. Cover is optional — a buyer may instead claim the market measure (§2-713).",
+   "explainZh": "买方三件套：补进差价（§2-712）、市价差价（§2-713）、已接受货物的担保差价（§2-714(2)）。补进不是义务，但不补进会砍掉本可避免的间接损失（减损原理）。运费是典型附带损害。对比《民法典》第583条替代交易规则——同一思想。"
+  },
+  {
+   "id": "k069",
+   "type": "cloze",
+   "topic": "Remedies & Damages",
+   "topicZh": "违约救济",
+   "q": "Under UCC §2-714(2), damages for breach of warranty are the difference between {{c::the value of the goods as warranted and their value as accepted}}, measured at the time and place of acceptance.",
+   "qZh": "依UCC §2-714(2)，违反担保的损害赔偿为____之间的差额，以接受货物的时间和地点为准。",
+   "a": "the value of the goods as warranted and their value as accepted",
+   "aZh": "货物如担保所述应有的价值与实际接受时的价值",
+   "explainZh": "这是\"已接受货物\"的救济——货留下、钱找补。前提：接受后合理期间内将违约通知卖方（§2-607(3)(a)），否则丧失一切救济，考题最爱埋这颗雷。通常\"如担保的价值\"＝合同价，修理费是价值差的常用证据。"
+  },
+  {
+   "id": "k070",
+   "type": "basic",
+   "topic": "Remedies & Damages",
+   "topicZh": "违约救济",
+   "q": "When is specific performance available for goods, land, and personal services?",
+   "qZh": "货物、土地、人身服务合同何时可获强制实际履行？",
+   "a": "Land: routinely — every parcel is deemed unique, so damages are inadequate. Goods (§2-716): only for unique goods (heirlooms, one-of-a-kind works) or 'other proper circumstances,' chiefly inability to cover; replevin lies for identified goods when cover is unavailable. Personal services: never specifically enforced — but a negative injunction may bar performing elsewhere where the services are special and unique (Lumley-type).",
+   "aZh": "土地：常规可得——每块土地均视为独特，金钱赔偿不充分。货物（§2-716）：仅限独特货物（传家宝、孤品）或\"其他适当情形\"，主要指无法补进；已特定货物无法补进时可请求返还原物。人身服务：绝不强制履行——但服务特殊且独一无二时，可发禁令禁止其为他人履行（Lumley案型）。",
+   "explainZh": "衡平救济的总闸门：法律救济（金钱）不充分才开。人身服务不强制的理由：类似强迫劳动＋法院无法监督；禁令是折中。对比《民法典》第579-581条以继续履行为原则——中美在\"实际履行是原则还是例外\"上立场正好相反，这是必须内化的大差异。"
+  },
+  {
+   "id": "k071",
+   "type": "mcq",
+   "topic": "Remedies & Damages",
+   "topicZh": "违约救济",
+   "q": "A boat dealer with unlimited inventory contracts to sell a standard boat for $30,000 (built-in profit $4,000). The buyer repudiates; the dealer then sells that same boat to another customer for $30,000. Dealer's damages?",
+   "qZh": "库存充足的游艇经销商以30,000美元（内含利润4,000美元）出售一艘标准型游艇。买方毁约；经销商随后将同一艘艇以30,000美元卖给另一客户。经销商可获多少赔偿？",
+   "choices": [
+    "Nothing — resale at the same price means no loss.",
+    "$30,000 — the full contract price.",
+    "$4,000 lost profit — as a lost-volume seller, the dealer would have made both sales (§2-708(2)).",
+    "Nominal damages only."
+   ],
+   "answer": 2,
+   "explain": "Contract-minus-resale is zero, which fails to put the dealer where performance would have: with unlimited supply it could have made BOTH sales, so the breach cost it one sale's profit. §2-708(2) awards lost profit plus incidental damages.",
+   "explainZh": "销量损失卖方三要件：有能力供应两笔交易、第二笔交易即使无违约也会发生、第二笔有利可图。识别信号：标准化商品＋大库存经销商。这是MBE救济题的头号明星——看到\"原价转售给别人\"就要条件反射想到§2-708(2)。"
+  },
+  {
+   "id": "k072",
+   "type": "basic",
+   "topic": "Remedies & Damages",
+   "topicZh": "违约救济",
+   "q": "Summarize the seller's UCC damages remedies.",
+   "qZh": "概述卖方在UCC下的损害赔偿救济。",
+   "a": "Resale (§2-706): contract minus resale price — good faith, commercially reasonable, with notice. Market (§2-708(1)): contract minus market price at time and place for tender. Lost profit (§2-708(2)) where those are inadequate. Price (§2-709): only accepted goods, conforming goods destroyed after risk passed, or unsaleable identified goods. Plus incidentals — sellers get no consequential damages.",
+   "aZh": "转售差价（§2-706）：合同价－转售价，转售须善意、商业上合理并通知。市价差价（§2-708(1)）：合同价－交付时间地点的市价。上述不足以补偿时按利润损失（§2-708(2)）。价款之诉（§2-709）：仅限已被接受的货物、风险转移后灭失的合格货物、经合理努力仍无法转售的已特定货物。另加附带损害——卖方无间接损害赔偿。",
+   "explainZh": "与买方救济镜像记忆：转售↔补进、市价↔市价、价款之诉↔特定履行。两个不对称点要记：卖方拿不到间接损害（§2-715只给买方）；价款之诉是例外而非常态——货还卖得掉就只能要差价。"
+  },
+  {
+   "id": "k073",
+   "type": "basic",
+   "topic": "Remedies & Damages",
+   "topicZh": "违约救济",
+   "q": "When may an unpaid seller reclaim goods from an insolvent buyer (§2-702)?",
+   "qZh": "无担保卖方何时可从破产买方处取回货物（§2-702）？",
+   "a": "A seller discovering the buyer received goods on credit while insolvent may reclaim on demand within 10 days after receipt. The 10-day limit falls away if the buyer misrepresented solvency in writing within three months before delivery. A good-faith purchaser from the buyer cuts off reclamation; successful reclamation excludes all other remedies for those goods.",
+   "aZh": "卖方发现买方在无清偿能力状态下赊购收货的，可在买方收货后10日内要求取回。买方在交付前三个月内曾书面虚报清偿能力的，不受10日限制。买方的善意买受人可切断取回权；取回成功即排除就该批货物的其他一切救济。",
+   "explainZh": "数字题：10日（收货后索回）＋3个月（书面虚报清偿能力则免除10日限制）。两个易错点：虚报必须是书面；取回是\"独食\"救济——拿回货就不能再索赔差价。功能上类似《民法典》出卖人取回权思想（保留所有权情形，第641-643条），但美国法这里无需约定所有权保留。"
+  },
+  {
+   "id": "k074",
+   "type": "basic",
+   "topic": "Remedies & Damages",
+   "topicZh": "违约救济",
+   "q": "Are punitive damages available for breach of contract, and what fills the gap when no enforceable contract exists?",
+   "qZh": "违约可以判惩罚性赔偿吗？无有效合同时以什么救济填补？",
+   "a": "Punitive damages are NOT recoverable for pure breach, however willful — contract law compensates, it does not punish (an independent tort with malice differs). Nominal damages lie for breach without provable loss. With no enforceable contract, quasi-contract prevents unjust enrichment: recovery is the reasonable value of the benefit conferred, not the contract price.",
+   "aZh": "单纯违约不判惩罚性赔偿，无论违约多么故意——合同法功能是补偿而非惩罚（伴有恶意的独立侵权除外）。无法证明损失时可获名义性赔偿。无有效合同时，准合同防止不当得利：赔偿额为所授利益的合理价值（quantum meruit），而非合同价。",
+   "explainZh": "\"efficient breach\"理念：法律不谴责违约，只要求补偿——这与大陆法把违约视为违反诚信的语感不同。考题若问\"故意、恶劣的违约能否加罚\"，答案永远是不能（除非另构成侵权，如保险恶意拒赔）。"
+  },
+  {
+   "id": "k075",
+   "type": "mcq",
+   "topic": "Remedies & Damages",
+   "topicZh": "违约救济",
+   "q": "Seller repudiates a $100,000 grain contract. Buyer does not cover. Market price when buyer learned of the breach: $115,000; market price at trial: $130,000. Buyer's damages under §2-713?",
+   "qZh": "卖方毁弃价款100,000美元的谷物合同。买方未补进。买方得知违约时市价115,000美元；庭审时市价130,000美元。依§2-713买方可获多少？",
+   "choices": [
+    "$30,000",
+    "$15,000 — market price when the buyer learned of the breach, minus the contract price.",
+    "Nothing — failure to cover forfeits all damages.",
+    "$115,000"
+   ],
+   "answer": 1,
+   "explain": "§2-713: market price at the time the buyer learned of the breach (at the place for tender) minus contract price, plus incidentals and consequentials. Not covering never bars market damages — it only cuts off consequential losses cover would have avoided.",
+   "explainZh": "市价法的两个坐标必须记准：时间＝买方得知违约时（不是庭审时、不是履行期），地点＝交付地。庭审市价130,000是干扰数字。不补进的代价只是丧失\"补进本可避免的间接损失\"，差价本身照拿。"
+  },
+  {
+   "id": "k076",
+   "type": "basic",
+   "topic": "Third-Party Rights",
+   "topicZh": "第三人权利",
+   "q": "Who is an intended (vs incidental) third-party beneficiary, and why does the distinction matter?",
+   "qZh": "谁是意定（相对于附带）第三人受益人？区分为何重要？",
+   "a": "Intended: the parties meant to benefit the third party — performance runs directly to them, they are named, or the promise pays the promisee's debt to them (creditor) or makes a gift (donee). Only intended beneficiaries, once rights vest, may enforce. Incidental beneficiaries — anyone else benefited in fact — have no rights.",
+   "aZh": "意定受益人：缔约双方有使第三人受益的意图——表现为履行直接向第三人作出、第三人在合同中被指明、或该允诺用以清偿对其所负债务（债权受益人）或授予赠与（赠与受益人）。只有意定受益人在权利固定后享有诉权。附带受益人——其他一切事实上受益者——不享有任何权利。",
+   "explainZh": "判断锚点：钱/货/服务流向谁？合同点没点名？经典附带受益人：因隔壁豪宅开建而升值的邻居、政府采购合同下的普通公众——都不能起诉。《民法典》第522条第2款已确立真正利益第三人合同，可对照理解，但美国法的意定/附带二分须按其标准分析。"
+  },
+  {
+   "id": "k077",
+   "type": "cloze",
+   "topic": "Third-Party Rights",
+   "topicZh": "第三人权利",
+   "q": "A {{c::creditor}} beneficiary may sue both the promisor on the contract and the promisee on the underlying debt (only one satisfaction); a donee beneficiary generally cannot sue the promisee at all, absent detrimental reliance.",
+   "qZh": "____受益人既可依合同起诉允诺人，也可依原债务起诉受诺人（只能获偿一次）；赠与受益人原则上根本不能起诉受诺人，除非有信赖损害。",
+   "a": "creditor",
+   "aZh": "债权",
+   "explainZh": "分类依据看受诺人动机：为还债→债权受益人；为送礼→赠与受益人。债权受益人手握两张请求权（合同＋原债），但只能满足一次。赠与受益人对受诺人无据可依——受诺人本无义务送礼，除非允诺禁反言介入。"
+  },
+  {
+   "id": "k078",
+   "type": "cloze",
+   "topic": "Third-Party Rights",
+   "topicZh": "第三人权利",
+   "q": "Once the beneficiary {{c::manifests assent at a party's request, materially relies, or sues to enforce the promise}}, its rights vest — the original parties may no longer modify or rescind without the beneficiary's consent.",
+   "qZh": "一旦受益人____，其权利即告固定——缔约双方未经受益人同意不得再变更或解除合同。",
+   "a": "manifests assent at a party's request, materially relies, or sues to enforce the promise",
+   "aZh": "应一方请求表示同意、发生实质信赖、或就该允诺提起诉讼",
+   "explainZh": "固定（vesting）前双方可自由改约甚至取消受益安排；固定后第三人权利\"上锁\"。三个固定事由记\"同意、信赖、起诉\"。合同明文保留变更权（人寿保单改受益人条款）则优先于默认规则。"
+  },
+  {
+   "id": "k079",
+   "type": "basic",
+   "topic": "Third-Party Rights",
+   "topicZh": "第三人权利",
+   "q": "Which defenses may the promisor assert against a suing third-party beneficiary?",
+   "qZh": "允诺人可以对起诉的第三人受益人主张哪些抗辩？",
+   "a": "Any defense arising from the beneficiary contract itself: lack of consideration, formation defenses, nonoccurrence of conditions — including the promisee's own failure to perform — and supervening excuse. But not the promisee's separate defenses or setoffs from other transactions, unless the promise was limited to paying what the promisee actually owes.",
+   "aZh": "一切源于该受益合同本身的抗辩：欠缺对价、订约抗辩、条件未成就——包括受诺人自身未履行——以及事后免责事由。但允诺人原则上不得以受诺人在其他交易中的独立抗辩或抵销对抗受益人，除非允诺明确限定为\"按受诺人实欠数额支付\"。",
+   "explainZh": "一句话：受益人的权利\"从合同来、随合同瑕疵\"，但不受合同外恩怨牵连。受诺人不付款给允诺人→条件不成就→允诺人对受益人当然可拒付。《民法典》第522条下允诺人同样可主张基于合同的抗辩，思路一致。"
+  },
+  {
+   "id": "k080",
+   "type": "basic",
+   "topic": "Third-Party Rights",
+   "topicZh": "第三人权利",
+   "q": "What makes an assignment effective, which rights cannot be assigned, and when is a gratuitous assignment revocable?",
+   "qZh": "让与如何生效？哪些权利不得让与？无偿让与何时可撤回？",
+   "a": "A present transfer of an existing right — 'I hereby assign' — needs no consideration or writing. Ineffective if it would materially change the obligor's duty, increase its burden or risk, or impair return performance. Rights under future contracts cannot be assigned. Gratuitous assignments are revocable unless a signed writing or the token chose is delivered, or the assignee relied.",
+   "aZh": "对既存合同权利的现时转移——\"我现在让与\"——一般无须对价或书面（少数例外）。若将实质改变债务人的义务、实质加重其负担或风险、或损害其获得对待履行的机会，则让与无效。尚未订立之合同下的权利不得让与。无偿让与可撤回（以通知、死亡或再次让与撤回），除非已交付经签署的书面、已交付权利凭证、或受让人已信赖。",
+   "explainZh": "关键措辞区分：\"我现在让与\"（现时转移，有效）vs\"我将会让与\"（仅是允诺，无对价则不可执行）。金钱债权几乎总可让与——付给谁对债务人无差别。《民法典》第545条禁止让与情形（性质、约定、法定）框架相似，但通知规则不同：美国法让与即生效，通知只影响债务人清偿对象。"
+  },
+  {
+   "id": "k081",
+   "type": "mcq",
+   "topic": "Third-Party Rights",
+   "topicZh": "第三人权利",
+   "q": "A contract states: 'Rights hereunder shall not be assigned.' The contractor assigns its right to payment to a bank anyway. The owner refuses to pay the bank. Result?",
+   "qZh": "合同载明：\"本合同项下权利不得让与。\"承包商仍将其付款请求权让与银行。业主拒绝向银行付款。结果如何？",
+   "choices": [
+    "The assignment is void — the clause destroys the power to assign.",
+    "The clause is unenforceable — anti-assignment clauses violate public policy.",
+    "The assignment is void because payment rights are personal.",
+    "The assignment is effective — a bare prohibition removes only the RIGHT to assign, not the POWER, so the bank collects while the contractor is liable for breach of the covenant."
+   ],
+   "answer": 3,
+   "explain": "A clause barring assignment takes away the right, not the power: the assignment works and the obligor must pay the assignee; the assignor merely owes breach damages. Only language declaring assignments 'void' destroys the power itself. Payment rights are the least 'personal' of all.",
+   "explainZh": "措辞定生死：\"不得让与\"＝夺权利不夺权能（让与有效＋让与人赔钱）；\"让与无效/void\"＝连权能一并剥夺。金钱债权的让与还受UCC第9编（§9-406）额外保护，多数限制条款直接失效。对比《民法典》第545条第2款：金钱债权的禁止让与约定不得对抗第三人——精神相通。"
+  },
+  {
+   "id": "k082",
+   "type": "basic",
+   "topic": "Third-Party Rights",
+   "topicZh": "第三人权利",
+   "q": "What does an assignor for value impliedly warrant, and who prevails between successive assignees of the same right?",
+   "qZh": "有偿让与人默示担保什么？同一权利被先后让与时谁优先？",
+   "a": "Implied warranties (assignment for value): the right exists free of undisclosed defenses; the assignor will not impair it; documents shown are genuine — but no warranty the obligor will perform or is solvent. Successive assignees: first in time prevails; a later good-faith paying assignee without notice wins by first obtaining payment, judgment, novation, or the token chose.",
+   "aZh": "默示担保：权利存在且无未披露的抗辩；让与人不会作出损害该权利的行为；出示的书面凭证真实。不担保债务人会履行或有清偿能力。先后让与：先让与者优先（美国多数规则）——但后受让人系有偿、善意、不知情，且率先获得清偿、判决、债务更新或权利凭证的，后来居上。",
+   "explainZh": "\"担保权利、不担保人\"——债务人赖账风险归受让人。后受让人翻盘的\"四骑士\"：先收款、先判决、先更新、先拿凭证。无偿让与人无任何默示担保。中国法对应：《民法典》第546条以通知债务人为对抗要件，规则路径不同，勿混。"
+  },
+  {
+   "id": "k083",
+   "type": "basic",
+   "topic": "Third-Party Rights",
+   "topicZh": "第三人权利",
+   "q": "Which duties are delegable, and who is liable after delegation?",
+   "qZh": "哪些义务可以委托他人履行？委托后责任由谁承担？",
+   "a": "All duties are delegable EXCEPT those involving personal judgment, special skill, or trust (portrait artist, attorney), where delegation materially varies the bargained-for performance, or where the contract forbids it. The delegator remains liable absent a novation. The delegatee is liable to the obligee only on assumption — its promise makes the obligee a third-party beneficiary.",
+   "aZh": "一切义务均可委托履行，但下列除外：涉及个人判断、特殊技能、品味或信任的义务（肖像画家、外科医生、律师）；委托将实质改变债权人所磋商获得的履行；合同有效禁止委托。无债务更新时，委托人始终继续负责。受托人仅在承担义务时对债权人负责——其履行允诺使债权人成为第三人受益人。",
+   "explainZh": "与让与的根本区别：权利让与后让与人退场，义务委托后委托人仍被拴住——\"甩活不甩责\"。对比《民法典》第551条：债务转移须经债权人同意（免责式债务承担）——美国法无须同意即可委托，但代价是委托人不脱钩；想脱钩就得走novation（对应中国法的免责式承担）。"
+  },
+  {
+   "id": "k084",
+   "type": "mcq",
+   "topic": "Third-Party Rights",
+   "topicZh": "第三人权利",
+   "q": "Builder 'assigns the contract' with Owner to Successor for value. Successor abandons the job. Whom may Owner sue?",
+   "qZh": "承建商将其与业主的\"合同整体让与\"给继受人（有偿）。继受人弃工。业主可以起诉谁？",
+   "choices": [
+    "Both — assigning 'the contract' includes a delegation of duties and Successor's implied assumption; Builder remains liable as delegator.",
+    "Builder only — duties can never pass to Successor.",
+    "Successor only — the assignment substituted Successor for Builder.",
+    "Neither — Owner must first obtain a novation."
+   ],
+   "answer": 0,
+   "explain": "General words assigning 'the contract' operate as an assignment of rights PLUS a delegation of duties, and the assignee's acceptance implies a promise to perform (R2d §328; UCC §2-210). Delegation never releases the delegator without a novation — so both are liable.",
+   "explainZh": "\"让与合同\"四个字＝权利让与＋义务委托＋受让人默示承担三合一。业主因受让人的承担允诺成为第三人受益人，可直接起诉受让人；委托人未经novation不脱责，故两个都能告。(2)是典型陷阱——把让与当成了债务更新。"
+  },
+  {
+   "id": "k085",
+   "type": "basic",
+   "topic": "Classic Traps & Mixed Review",
+   "topicZh": "经典陷阱综合",
+   "q": "Distinguish accord and satisfaction from modification, and state the effect of breaching an accord.",
+   "qZh": "区分\"新协议与清偿\"与合同变更，并说明违反新协议的效果。",
+   "a": "An accord accepts a DIFFERENT future performance in discharge of an existing duty; the original duty is suspended until satisfaction — performing the accord — discharges both. If the debtor breaches the accord, the creditor may sue on EITHER the original obligation or the accord. A modification discharges the old term immediately upon agreement.",
+   "aZh": "新协议（accord）是以不同的将来履行清偿既存债务的合意；原债务仅被中止，待清偿（satisfaction，即履行新协议）后两项义务同归消灭。债务人违反新协议的，债权人可择一起诉：原债务或新协议。合同变更则不同——协议达成之时旧条款即告消灭。",
+   "explainZh": "判断口径：双方意思是\"以新替旧、立即生效\"（变更）还是\"干成了才算数\"（accord）？疑义时推定accord，保住债权人的原债权。对价常来自对争议债权（金额不确定或有诚实争议）的妥协；全额到期无争议债务打折清偿则缺对价（既存义务规则）。"
+  },
+  {
+   "id": "k086",
+   "type": "mcq",
+   "topic": "Classic Traps & Mixed Review",
+   "topicZh": "经典陷阱综合",
+   "q": "Tenant, with Landlord's written consent, transfers a lease to NewCo, and Landlord agrees to 'accept NewCo as tenant.' Landlord never expressly releases Tenant. NewCo defaults. Is Tenant still liable?",
+   "qZh": "承租人经出租人书面同意将租约转给新公司，出租人同意\"接受新公司为承租人\"，但从未明确免除原承租人责任。新公司违约。原承租人仍负责吗？",
+   "choices": [
+    "No — Landlord's consent to the transfer worked a novation.",
+    "No — delegation always releases the delegator.",
+    "Yes — a novation requires the obligee's agreement to substitute the new obligor AND release the original; mere consent to the transfer is not a release.",
+    "Yes — leases can never be transferred."
+   ],
+   "answer": 2,
+   "explain": "Novation requires (1) a previous valid obligation, (2) agreement of ALL parties including the obligee, (3) extinguishment of the old obligation by substituting a new party, and (4) a valid new contract. Consent to an assignment or assumption alone leaves the original obligor secondarily liable.",
+   "explainZh": "\"同意转让\"≠\"同意放人\"。债务更新的核心是免除原债务人——必须找到明示或可清楚推断的免责意思。考题套路：出租人/业主同意接收新人＋收了新人的钱＝仍不构成novation。对应《民法典》第551条免责式债务承担须债权人同意，且同意的对象是\"免责\"。"
+  },
+  {
+   "id": "k087",
+   "type": "mcq",
+   "topic": "Classic Traps & Mixed Review",
+   "topicZh": "经典陷阱综合",
+   "q": "Homeowner says: 'I will pay you $1,000 when you finish painting my fence.' Painter buys paint, then paints half the fence. Homeowner shouts 'I revoke!' Painter's best position?",
+   "qZh": "房主说：\"你把栅栏刷完，我付你1,000美元。\"油漆工买好油漆后刷完了一半。房主喊：\"我撤销！\"油漆工的最佳立场是什么？",
+   "choices": [
+    "No contract ever formed — Painter never promised anything.",
+    "The offer became irrevocable when Painter began performance; by completing the job Painter earns the $1,000.",
+    "Buying the paint made the offer irrevocable.",
+    "A bilateral contract formed when Painter started, so Painter is now bound to finish."
+   ],
+   "answer": 1,
+   "explain": "'When you finish' seeks acceptance by complete performance — a unilateral offer. Beginning performance creates an option: revocation is barred, yet Painter is NOT obliged to finish (so (3) is wrong). Buying paint is mere preparation, not performance.",
+   "explainZh": "单务要约三步陷阱：准备（买油漆）≠开始履行；开始履行→要约人锁死、履行人自由；完成履行才成立合同并取得报酬请求权。若措辞模糊（未明确要求以履行承诺），R2d §32推定可以允诺或履行任一方式承诺，开始履行即成立双务合同——措辞决定分析路径。"
+  },
+  {
+   "id": "k088",
+   "type": "basic",
+   "topic": "Classic Traps & Mixed Review",
+   "topicZh": "经典陷阱综合",
+   "q": "How do courts tell a condition from a promise, and why does the difference matter?",
+   "qZh": "法院如何区分条件与允诺？区别为何重要？",
+   "a": "'If,' 'provided that,' 'on condition that' signal conditions; 'I promise' signals duties; ambiguity is read as a promise, to avoid forfeiture. Nonoccurrence of a condition means the dependent duty never arises — but no damages; breach of a promise gives damages, and only material breach excuses the other side. A term can be both — a promissory condition.",
+   "aZh": "措辞：\"如果\"\"以……为前提\"提示条件；\"我允诺/同意\"提示义务。有歧义时倾向解释为允诺，以避免没收后果。效果：条件不成就→相应义务不产生，但无损害赔偿；允诺被违反→产生赔偿，且只有重大违约才免除对方履行。一个条款可以两者兼备——允诺性条件。",
+   "explainZh": "答题公式：先问\"这句话不实现会怎样\"——对方义务消灭？（条件）还是要赔钱？（允诺）。船期条款经典案：\"船于6月1日启航\"既是允诺又是条件。倾向允诺的解释政策：条件的全有全无效果太苛。"
+  },
+  {
+   "id": "k089",
+   "type": "basic",
+   "topic": "Classic Traps & Mixed Review",
+   "topicZh": "经典陷阱综合",
+   "q": "How do the ordinary offer-and-acceptance rules change under an option contract?",
+   "qZh": "选择权合同之下，通常的要约承诺规则发生哪些变化？",
+   "a": "During the option period: (1) rejection or counteroffer does NOT end the power to accept, unless the offeror relies; (2) revocation is ineffective; (3) the offeror's death does not terminate; (4) the mailbox rule does not apply — acceptance is effective on receipt within the period. Exercise must strictly comply; late acceptance is ineffective.",
+   "aZh": "选择权期间内：(1) 拒绝或反要约不消灭承诺权——除非要约人已因此产生信赖；(2) 撤销的尝试无效；(3) 要约人死亡不使要约终止；(4) 投邮规则不适用——承诺须在期间内送达方生效。行权须严格符合选择权条款；迟到的承诺无效。",
+   "explainZh": "把option理解为\"被对价冻结的要约\"：普通要约的四大死法（撤销、拒绝、死亡、期满）里前三种都被冻结，只剩期满。最阴的考点是第(4)项：最后一天寄出、期满后到达＝行权失败——发信主义的特权只属于普通要约的承诺。"
+  },
+  {
+   "id": "k090",
+   "type": "cloze",
+   "topic": "Classic Traps & Mixed Review",
+   "topicZh": "经典陷阱综合",
+   "q": "Where no enforceable contract exists but a benefit was conferred with a reasonable expectation of payment, recovery lies in quasi-contract, measured by {{c::the reasonable value of the benefit conferred}} — not by the failed contract's price.",
+   "qZh": "不存在可执行合同、但一方基于合理的获偿期待授予了利益时，可依准合同获偿，数额按____计算——而非按未成立合同的价格。",
+   "a": "the reasonable value of the benefit conferred",
+   "aZh": "所授利益的合理价值",
+   "explainZh": "准合同=法律拟制、防止不当得利，与真实合意无关。触发场景：合同因反欺诈法不可执行、因错误/欺诈被撤销、根本未成立但已干活、紧急救助（医生救治昏迷者）。合同价不是标尺但可作合理价值的证据。对应《民法典》第985条不当得利返还，功能同源。"
+  }
+ ]
 }

@@ -47,7 +47,7 @@
     ],
     "answer": 2,
     "explain": "Old Chief v. United States: the prosecution's normal right to refuse a stipulation yields where the element is bare legal status; the conviction's details add only prejudice under FRE 403.",
-    "explainZh": "Old Chief案：控方通常有权拒绝对方的承认而自行举证，但当要件仅是'具有重罪身份'这一法律状态时，前科的具体罪名只会增加403下的不公正偏见。选项0是一般原则，恰在此情形让位；选项1混入609十年规则；选项3绝对化错误。"
+    "explainZh": "Old Chief案：控方通常有权拒绝对方的承认而自行举证，但当要件仅是'具有重罪身份'这一法律状态时，前科的具体罪名只会增加403下的不公正偏见。「控方可自行选择证据举证」一项是一般原则，恰在此情形让位；「除非前科已逾十年」一项混入609十年规则；「前科在枪支案中一律不可采」一项绝对化错误。"
   },
   {
     "id": "ev004",
@@ -77,7 +77,7 @@
     ],
     "answer": 0,
     "explain": "Similar-occurrence evidence is not character evidence; prior accidents occurring under substantially similar conditions may prove dangerousness, causation, or notice of the defect.",
-    "explainZh": "'类似事件'不是品格证据（404针对人的品性，不针对物/场所）。要点：条件须实质相似。反向也考：'无事故记录'需奠定相似使用条件的基础后，可证明无缺陷或无通知。选项2、3均属无中生有的要件。"
+    "explainZh": "'类似事件'不是品格证据（404针对人的品性，不针对物/场所）。要点：条件须实质相似。反向也考：'无事故记录'需奠定相似使用条件的基础后，可证明无缺陷或无通知。「须前事故受害人亲自作证」与「须商店承认楼梯危险」两项均属无中生有的要件。"
   },
   {
     "id": "ev006",
@@ -120,7 +120,7 @@
     ],
     "answer": 1,
     "explain": "Under Ault v. International Harvester, CEC 1151 does not reach strict products liability; in federal court FRE 407 would exclude the redesign even on a defect theory.",
-    "explainZh": "Ault案：CEC 1151只针对过失/可归责行为，严格责任两者皆无，故可采。若在联邦法院，FRE 407明文涵盖缺陷理论，结论相反——地点决定结果。选项2是联邦法的可行性例外；选项3混淆了352的个案裁量属性。"
+    "explainZh": "Ault案：CEC 1151只针对过失/可归责行为，严格责任两者皆无，故可采。若在联邦法院，FRE 407明文涵盖缺陷理论，结论相反——地点决定结果。「仅当厂商争议更安全设计的可行性时才可采」一项是联邦法的可行性例外；「依CEC 352当然排除」一项混淆了352的个案裁量属性。"
   },
   {
     "id": "ev009",
@@ -177,7 +177,7 @@
     ],
     "answer": 3,
     "explain": "FRE 411 bars liability insurance to prove negligence or fault; permitted uses include ownership/control, agency, and bias (e.g., a witness employed by the insurer).",
-    "explainZh": "FRE 411/CEC 1155相同：责任险不得证明过失，但可证明所有权/控制、代理关系或证人偏向（如证人受雇于保险公司）。选项2是陷阱——赔付能力恰是被禁止的推理。"
+    "explainZh": "FRE 411/CEC 1155相同：责任险不得证明过失，但可证明所有权/控制、代理关系或证人偏向（如证人受雇于保险公司）。「可用以证明赔付能力」一项是陷阱——赔付能力恰是被禁止的推理。"
   },
   {
     "id": "ev013",
@@ -373,7 +373,7 @@
     ],
     "answer": 2,
     "explain": "FRE 611(c) allows leading on direct when necessary to develop the witness's testimony (children, memory-exhausted or timid witnesses, preliminaries) and for hostile witnesses, adverse parties, and witnesses identified with them.",
-    "explainZh": "诱导性问题原则上属交叉询问；主询问的例外＝儿童/胆怯/记忆枯竭、预备性事项、敌意证人、对方当事人及其关联证人。CEC 767用'特殊情形'措辞，结果一致。选项3说反了方向。"
+    "explainZh": "诱导性问题原则上属交叉询问；主询问的例外＝儿童/胆怯/记忆枯竭、预备性事项、敌意证人、对方当事人及其关联证人。CEC 767用'特殊情形'措辞，结果一致。「诱导问题仅在交叉询问中才可异议」一项说反了方向。"
   },
   {
     "id": "ev027",
@@ -586,7 +586,7 @@
     ],
     "answer": 2,
     "explain": "FRE 703 does not require personal knowledge; reasonable professional reliance suffices, and inadmissible basis facts support the opinion without becoming substantive evidence (disclosure only via reverse balancing).",
-    "explainZh": "专家是602亲身感知要求的例外。选项3错在：依赖≠采纳，基础材料不因此成为实体证据。假设性问题（hypothetical question）是'庭审中获知'路径的传统形式，仍然合法。"
+    "explainZh": "专家是602亲身感知要求的例外。「医院记录因此成为全面的实体证据」一项错在：依赖≠采纳，基础材料不因此成为实体证据。假设性问题（hypothetical question）是'庭审中获知'路径的传统形式，仍然合法。"
   },
   {
     "id": "ev042",
@@ -629,7 +629,7 @@
     ],
     "answer": 0,
     "explain": "Words of offer and acceptance are legally operative: saying them creates the legal relationship, so they are not offered for the truth of any asserted fact. (They would also qualify as a party admission.)",
-    "explainZh": "'言语行为'的关键：法律后果由说话行为本身产生，说了＝成立，无所谓真假。诽谤言辞、赠与语、行贿语同理。选项2乱贴例外标签；选项3恰是典型错误推理——'证明合同存在'≠'证陈述内容为真'。"
+    "explainZh": "'言语行为'的关键：法律后果由说话行为本身产生，说了＝成立，无所谓真假。诽谤言辞、赠与语、行贿语同理。「兴奋话语」一项乱贴例外标签；「用以证明合同存在的庭外陈述」一项恰是典型错误推理——'证明合同存在'≠'证陈述内容为真'。"
   },
   {
     "id": "ev045",
@@ -728,7 +728,7 @@
     ],
     "answer": 1,
     "explain": "Silence in the face of an accusation a reasonable innocent person would deny operates as an adoptive admission under FRE 801(d)(2)(B); the partnership alone supplies no conspiracy predicate.",
-    "explainZh": "四要件齐备即成默示自认：听到、理解、能答、常人必否认。选项2错：共谋者陈述须证明存在共谋且陈述'为推进共谋'。刑事场景注意：米兰达警告后的沉默不可用。CEC 1221同。"
+    "explainZh": "四要件齐备即成默示自认：听到、理解、能答、常人必否认。「共谋者陈述」一项错：共谋者陈述须证明存在共谋且陈述'为推进共谋'。刑事场景注意：米兰达警告后的沉默不可用。CEC 1221同。"
   },
   {
     "id": "ev052",
@@ -786,7 +786,7 @@
     ],
     "answer": 2,
     "explain": "California requires an actually dead declarant; federally, a civil case plus unavailability plus belief of imminent death would suffice. Forum determines the outcome.",
-    "explainZh": "加州：任何案件＋人已死；联邦：仅杀人罪或民事＋不可得即可（不必死）。本题人活着→加州排除、联邦可采。选项1是联邦结论错用于州法院；选项3与加州规则相反。考试常这样反向设卡。"
+    "explainZh": "加州：任何案件＋人已死；联邦：仅杀人罪或民事＋不可得即可（不必死）。本题人活着→加州排除、联邦可采。「在加州任何案件中都可采」一项是联邦结论错用于州法院；「临终陈述绝不适用于民事案件」一项与加州规则相反。考试常这样反向设卡。"
   },
   {
     "id": "ev056",
@@ -868,7 +868,7 @@
     ],
     "answer": 1,
     "explain": "California has no true present-sense-impression exception: CEC 1241 is limited to the declarant's own conduct, and CEC 1240 requires a startling event and stress, missing here. FRE 803(1) would admit the contemporaneous description.",
-    "explainZh": "这是加州传闻例外的著名'缺口'：平静的实况转述在联邦可采（803(1)），在加州两条都进不去。答题时先给联邦结论，再指出加州缺口。选项3中向谁陈述无关紧要。"
+    "explainZh": "这是加州传闻例外的著名'缺口'：平静的实况转述在联邦可采（803(1)），在加州两条都进不去。答题时先给联邦结论，再指出加州缺口。至于「因向私人而非警察陈述而不可采」一项：向谁陈述无关紧要。"
   },
   {
     "id": "ev062",
@@ -1344,7 +1344,7 @@
     ],
     "answer": 3,
     "explain": "The CEC classifies rebuttable presumptions by purpose: those implementing public policy shift the burden of proof (CEC 605-606); those merely aiding fact-finding shift only the burden of production and vanish on rebuttal (CEC 603-604, e.g., a mailed letter was received).",
-    "explainZh": "加州双轨制：政策型推定（婚姻有效、公务依法履行）→转移'说服责任'（Morgan）；证明便利型推定（正确投寄的信件已送达）→只转移'提供证据责任'，一戳即破（Thayer）。联邦FRE 301全部按Thayer处理。选项0描述的是Thayer轨，选项1是不可反驳的'终局推定'（实为实体规则）。"
+    "explainZh": "加州双轨制：政策型推定（婚姻有效、公务依法履行）→转移'说服责任'（Morgan）；证明便利型推定（正确投寄的信件已送达）→只转移'提供证据责任'，一戳即破（Thayer）。联邦FRE 301全部按Thayer处理。「一有反证即消失」一项描述的是Thayer轨，「任何反证都不能推翻」一项是不可反驳的'终局推定'（实为实体规则）。"
   }
   ]
 }

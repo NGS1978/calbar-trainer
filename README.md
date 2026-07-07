@@ -1,4 +1,4 @@
-# 加州律考通 · CalBar Trainer
+# Ron 的加州律考通 · Ron's CalBar Trainer
 
 **中英双语 · 间隔重复 · 加州律师执照考试（California Bar Exam）备考记忆训练器**
 

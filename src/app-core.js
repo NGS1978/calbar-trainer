@@ -21,7 +21,7 @@ const ALL_IDS = DECKS.flatMap(d => d.cards.map(c => c.id));
 const LS_KEY = "cbt1";
 const DEFAULT_SETTINGS = {
   lang: "zh", examDate: "2027-02-23", newPerDay: 20, dailyGoal: 60,
-  retention: 0.9, theme: "auto", zhFirst: false, quizN: 10
+  retention: 0.9, theme: "auto", zhFirst: false, quizN: 10, deckOff: {}
 };
 let S = load();
 function load() {
@@ -37,12 +37,18 @@ function load() {
   return { v: 1, cards: {}, days: {}, xp: 0, settings: Object.assign({}, DEFAULT_SETTINGS) };
 }
 let saveT = null, storageOk = true;
-function save() {
+function flushSave() {
+  clearTimeout(saveT); saveT = null;
+  try { localStorage.setItem(LS_KEY, JSON.stringify(S)); storageOk = true; }
+  catch (e) {
+    storageOk = false; console.warn("save failed", e);
+    if (!flushSave.warned) { flushSave.warned = true; try { toast(t("toast.storage")); } catch (_) {} }
+  }
+}
+function save(immediate) {
   clearTimeout(saveT);
-  saveT = setTimeout(() => {
-    try { localStorage.setItem(LS_KEY, JSON.stringify(S)); storageOk = true; }
-    catch (e) { storageOk = false; console.warn("save failed", e); }
-  }, 250);
+  if (immediate) return flushSave();
+  saveT = setTimeout(flushSave, 250);
 }
 
 /* ---------- time helpers ---------- */
@@ -56,6 +62,7 @@ function dayStart(t) { const d = new Date(t === undefined ? now() : t); d.setHou
 function tomorrow0() { return dayStart() + DAY; }
 function daysToExam() {
   const ex = new Date(S.settings.examDate + "T09:00:00");
+  if (isNaN(ex.getTime())) return 365;            // invalid/cleared date must never poison scheduling
   return Math.max(0, Math.ceil((ex.getTime() - now()) / DAY));
 }
 function today() { const k = ymd(); if (!S.days[k]) S.days[k] = { r: 0, ok: 0, n: 0, q: 0, ms: 0, xp: 0 }; return S.days[k]; }
@@ -65,6 +72,7 @@ const W = [0.4872, 1.4003, 3.7145, 13.8206, 5.1618, 1.2298, 0.8975, 0.031,
            1.6474, 0.1367, 1.0461, 2.1072, 0.0793, 0.3246, 1.587, 0.2272, 2.8755];
 const DECAY = -0.5, FCT = Math.pow(0.9, 1 / DECAY) - 1;   // 19/81
 const clamp = (x, lo, hi) => Math.min(hi, Math.max(lo, x));
+function shuffleArr(a) { for (let i = a.length - 1; i > 0; i--) { const j = (Math.random() * (i + 1)) | 0; [a[i], a[j]] = [a[j], a[i]]; } return a; }
 const retrievability = (tDays, s) => Math.pow(1 + FCT * tDays / Math.max(s, 0.01), DECAY);
 const initS = g => Math.max(W[g - 1], 0.1);
 const initD = g => clamp(W[4] - (g - 3) * W[5], 1, 10);
@@ -101,7 +109,7 @@ function peek(id) { return S.cards[id]; }   // may be undefined (= new, untouche
 function previewIvls(id) {
   const c = peek(id), L = t("u.min"), D = t("u.day");
   if (!c || c.st === 0) {
-    return ["1" + L, "10" + L, fmtIvl(ivlDays(initS(3))), fmtIvl(ivlDays(initS(4)))];
+    return ["1" + L, "5" + L, "10" + L, fmtIvl(ivlDays(initS(4)))];
   }
   if (c.st === 1) {
     const grad = fmtIvl(ivlDays(Math.max(c.s, initS(3))));
@@ -130,6 +138,7 @@ function grade(id, g) {
     c.s = initS(g); c.d = initD(g);
     if (g === 4) { c.st = 2; c.due = t0 + ivlDays(c.s, 1) * DAY; }
     else if (g === 3) { c.st = 1; c.step = 1; c.due = t0 + LEARN_STEPS[1] * 60000; }
+    else if (g === 2) { c.st = 1; c.step = 0; c.due = t0 + 5 * 60000; }
     else { c.st = 1; c.step = 0; c.due = t0 + LEARN_STEPS[0] * 60000; }
     today().n++; addXP(15);
   } else if (c.st === 1) {                            // learning
@@ -159,14 +168,15 @@ function grade(id, g) {
     today().r++; if (g >= 2) today().ok++;
     addXP(g === 1 ? 2 : 10);
   }
+  if (!isFinite(c.due)) c.due = t0 + DAY;             // belt-and-braces: never persist NaN scheduling
   c.last = t0; c.reps++;
   save();
-  return Object.assign(snap, { wasReview: isReviewState });
+  return Object.assign(snap, { wasReview: isReviewState, dayKey: ymd() });
 }
 function undoGrade(snap) {
   if (!snap) return;
   S.cards[snap.id] = snap.card;
-  S.days[ymd()] = snap.day;
+  S.days[snap.dayKey || ymd()] = snap.day;
   S.xp = snap.xp;
   save();
 }
@@ -183,11 +193,13 @@ function dueList() {
   }
   return out;
 }
-function buildReviewQueue() {
-  const list = dueList();
-  /* overdue first, then shuffle-within-day for interleaving */
+function buildReviewQueue(subject) {
+  let list = dueList();
+  if (subject) list = list.filter(id => CARD[id].deck === subject);
+  /* overdue first, then shuffle-within-day for interleaving (shuffle + stable sort) */
   const key = id => { const c = peek(id); return Math.floor((c.due - dayStart()) / DAY); };
-  list.sort((a, b) => key(a) - key(b) || Math.random() - 0.5);
+  shuffleArr(list);
+  list.sort((a, b) => key(a) - key(b));
   /* greedy de-cluster: avoid same deck twice in a row where possible */
   for (let i = 1; i < list.length - 1; i++) {
     if (CARD[list[i]].deck === CARD[list[i - 1]].deck) {
@@ -198,9 +210,11 @@ function buildReviewQueue() {
   }
   return list;
 }
+function deckNewOff(subj) { return !!(S.settings.deckOff && S.settings.deckOff[subj]); }
 function newRemainingByDeck() {
   const m = {};
-  for (const d of DECKS) m[d.subject] = d.cards.filter(c => { const s = peek(c.id); return (!s || s.st === 0) && !isSusp(c.id); }).map(c => c.id);
+  for (const d of DECKS) m[d.subject] = deckNewOff(d.subject) ? [] :
+    d.cards.filter(c => { const s = peek(c.id); return (!s || s.st === 0) && !isSusp(c.id); }).map(c => c.id);
   return m;
 }
 function newQuotaLeft() { return Math.max(0, S.settings.newPerDay - today().n); }
@@ -230,15 +244,21 @@ function buildQuiz(nQ, subject) {
   scored.sort((a, b) => a.k - b.k);
   return scored.slice(0, nQ).map(x => x.id);
 }
-/* a wrong quiz answer pulls the card's schedule forward */
+/* a wrong quiz answer pulls the card's schedule forward; both return true if they
+   already counted the action via grade()/intro (so the quiz must not count it again) */
 function quizMiss(id) {
   const c = peek(id);
-  if (c && c.st === 2) { grade(id, 1); }        // lapse it into relearning
-  else if (!c || c.st === 0) { const s = cs(id); s.st = 1; s.step = 0; s.s = initS(1); s.d = initD(1); s.due = now(); s.last = now(); today().n++; save(); }
+  if (c && c.st === 2) { grade(id, 1); return true; }          // lapse it into relearning
+  if (!c || c.st === 0) {
+    const s = cs(id); s.st = 1; s.step = 0; s.s = initS(1); s.d = initD(1); s.due = now(); s.last = now();
+    today().n++; addXP(5); save(); return true;
+  }
+  return false;
 }
 function quizHit(id) {
   const c = peek(id);
-  if (c && c.st === 2 && c.due < tomorrow0()) grade(id, 3);   // counts as its due review
+  if (c && c.st === 2 && c.due < tomorrow0()) { grade(id, 3); return true; }   // counts as its due review
+  return false;
 }
 
 /* ---------- stats ---------- */
@@ -277,7 +297,7 @@ function retention30() {
   return r ? ok / r : null;
 }
 function paceInfo() {
-  const remaining = ALL_IDS.filter(id => { const c = peek(id); return (!c || c.st === 0) && !isSusp(id); }).length;
+  const remaining = Object.values(newRemainingByDeck()).reduce((n, a) => n + a.length, 0);
   const dLeft = daysToExam();
   const reviewWindow = 60;                        // aim: all cards seen ≥60d before exam
   const daysForNew = Math.max(14, dLeft - reviewWindow);
@@ -304,6 +324,9 @@ const I18N = {
     "sum.back": "返回首页", "sum.more": "再来一轮",
     "quiz.title": "考题演练", "quiz.n": "题数", "quiz.scope": "范围", "quiz.all": "全部科目", "quiz.start": "开始",
     "quiz.next": "下一题", "quiz.finish": "查看成绩", "quiz.score": "得分", "quiz.wrongAdded": "答错的卡片已加入复习队列",
+    "quiz.notready": "该范围的选择题不足", "study.suggest": "建议",
+    "deck.pause": "⏸ 暂停本科新卡", "deck.resume": "▶ 恢复本科新卡", "deck.review": "复习本科到期卡",
+    "toast.deckoff": "本科新卡已暂停（已学卡片仍会复习）", "toast.deckon": "本科新卡已恢复",
     "browse.search": "搜索卡片…", "browse.total": "张卡片", "browse.flagged": "已标记", "browse.susp": "已暂停",
     "card.suspend": "暂停此卡", "card.unsuspend": "恢复此卡", "card.flag": "标记待查", "card.unflag": "取消标记",
     "card.reset": "重置进度", "card.close": "关闭",
@@ -316,10 +339,12 @@ const I18N = {
     "set.zhfirst": "默认显示中文提示", "set.zhfirstd": "题面自动附中文翻译",
     "set.export": "导出学习进度", "set.import": "导入学习进度", "set.reset": "清空全部进度",
     "set.resetc": "确定要清空全部学习进度吗？此操作不可恢复！", "set.imported": "进度已导入 ✓", "set.exportd": "已下载备份文件",
-    "set.method": "高效学习方法", "set.about": "关于",
+    "set.method": "高效学习方法", "set.guide": "功能指南", "set.about": "关于",
+    "guide.title": "功能指南 — 每个功能怎么用",
     "toast.suspended": "已暂停", "toast.unsuspended": "已恢复", "toast.flagged": "已标记", "toast.unflagged": "已取消标记",
     "toast.reset": "已重置", "toast.undone": "已撤销", "toast.goalhit": "今日目标达成！🎉", "toast.nonew": "今日新卡额度已用完",
     "toast.storage": "⚠️ 无法保存进度（浏览器存储不可用）",
+    "box.explain": "解析", "box.ca": "CALIFORNIA 加州区别", "box.mn": "MNEMONIC 记忆钩", "card.lapses": "遗忘",
     "pace.remaining": "未学新卡", "pace.finish": "按当前速度学完还需", "pace.suggest": "建议每日新卡",
     "pace.ontrack": "进度良好 — 考前将有充足纯复习期", "pace.behind": "偏慢 — 建议提高每日新卡量",
     "method.title": "如何用好这个应用",
@@ -342,6 +367,9 @@ const I18N = {
     "sum.back": "Home", "sum.more": "One more round",
     "quiz.title": "Quiz Mode", "quiz.n": "Questions", "quiz.scope": "Scope", "quiz.all": "All subjects", "quiz.start": "Start",
     "quiz.next": "Next", "quiz.finish": "Results", "quiz.score": "Score", "quiz.wrongAdded": "Missed cards added to review queue",
+    "quiz.notready": "Not enough MCQs in this scope", "study.suggest": "suggested",
+    "deck.pause": "⏸ Pause new cards", "deck.resume": "▶ Resume new cards", "deck.review": "Review due in this deck",
+    "toast.deckoff": "New cards paused for this deck (reviews continue)", "toast.deckon": "New cards resumed",
     "browse.search": "Search cards…", "browse.total": "cards", "browse.flagged": "Flagged", "browse.susp": "Suspended",
     "card.suspend": "Suspend", "card.unsuspend": "Unsuspend", "card.flag": "Flag", "card.unflag": "Unflag",
     "card.reset": "Reset progress", "card.close": "Close",
@@ -354,10 +382,12 @@ const I18N = {
     "set.zhfirst": "Show 中文 hint by default", "set.zhfirstd": "Chinese translation shown automatically",
     "set.export": "Export progress", "set.import": "Import progress", "set.reset": "Reset all progress",
     "set.resetc": "Really erase ALL progress? This cannot be undone!", "set.imported": "Progress imported ✓", "set.exportd": "Backup downloaded",
-    "set.method": "Learning method", "set.about": "About",
+    "set.method": "Learning method", "set.guide": "User guide", "set.about": "About",
+    "guide.title": "User Guide — how everything works",
     "toast.suspended": "Suspended", "toast.unsuspended": "Restored", "toast.flagged": "Flagged", "toast.unflagged": "Unflagged",
     "toast.reset": "Reset", "toast.undone": "Undone", "toast.goalhit": "Daily goal reached! 🎉", "toast.nonew": "New-card quota used up for today",
     "toast.storage": "⚠️ Cannot save progress (browser storage unavailable)",
+    "box.explain": "EXPLANATION", "box.ca": "CALIFORNIA RULE", "box.mn": "MNEMONIC", "card.lapses": "lapses",
     "pace.remaining": "unseen cards", "pace.finish": "days to finish at current pace", "pace.suggest": "suggested new/day",
     "pace.ontrack": "On track — ample pure-review runway before the exam", "pace.behind": "Behind — consider raising new cards per day",
     "method.title": "How to use this app well",

@@ -16,15 +16,16 @@ function applyTheme() {
 matchMedia("(prefers-color-scheme: dark)").addEventListener("change", applyTheme);
 
 /* ---------- router ---------- */
-const routes = { home: vHome, study: vStudy, quiz: vQuiz, browse: vBrowse, deck: vDeck, stats: vStats, settings: vSettings, method: vMethod };
+const routes = { home: vHome, study: vStudy, quiz: vQuiz, browse: vBrowse, deck: vDeck, stats: vStats, settings: vSettings, method: vMethod, guide: vGuide };
 function nav(h) { location.hash = "#" + h; }
 function route() {
   const h = (location.hash || "#home").slice(1);
   const [name, arg] = h.split("/");
   const fn = routes[name] || vHome;
+  const m = document.getElementById("modalbg"); if (m) m.remove();
   tickTime();
   $("#view").innerHTML = fn(arg) || "";
-  const tab = { home: "home", study: "home", quiz: "home", browse: "browse", deck: "browse", stats: "stats", settings: "set", method: "set" }[name] || "home";
+  const tab = { home: "home", study: "home", quiz: "home", browse: "browse", deck: "browse", stats: "stats", settings: "set", method: "set", guide: "set" }[name] || "home";
   document.querySelectorAll(".nav button").forEach(b => b.classList.toggle("on", b.dataset.tab === tab));
   renderTopbar();
   window.scrollTo(0, 0);
@@ -66,10 +67,10 @@ function vHome() {
 
   if (fresh) h += `
   <div class="panel" style="border-left:4px solid var(--poppy)">
-    <h3>👋 ${S.settings.lang === "zh" ? "欢迎！" : "Welcome!"}</h3>
+    <h3>👋 ${S.settings.lang === "zh" ? "Ron，欢迎！" : "Welcome, Ron!"}</h3>
     <div style="font-size:.9rem" class="muted">${S.settings.lang === "zh"
-      ? `这是为你定制的加州律考记忆训练器：${tot.total} 张中英双语卡片，覆盖全部 13 个考试科目 + 法律英语词汇。间隔重复算法（FSRS）会安排每一张卡片的最佳复习时机。先从「学习新卡」开始，建议每天 20 张新卡起步。学习前先花两分钟读一读<a href="#method">高效学习方法</a>。`
-      : `A bilingual California Bar trainer built for you: ${tot.total} cards across all 13 tested subjects plus legal English. The FSRS spaced-repetition engine schedules each card at the optimal moment. Start with "Learn New" — 20 cards/day is a good opening pace. Read <a href="#method">the method guide</a> first (2 min).`}</div>
+      ? `这是为你定制的加州律考记忆训练器：${tot.total} 张中英双语卡片，覆盖全部 13 个考试科目 + 法律英语词汇。间隔重复算法（FSRS）会安排每一张卡片的最佳复习时机。先从「学习新卡」开始，建议每天 20 张新卡起步。学习前先花两分钟读一读<a href="#method">高效学习方法</a>，各功能的用法见<a href="#guide">功能指南</a>。`
+      : `A bilingual California Bar trainer built for you: ${tot.total} cards across all 13 tested subjects plus legal English. The FSRS spaced-repetition engine schedules each card at the optimal moment. Start with "Learn New" — 20 cards/day is a good opening pace. Read <a href="#method">the method guide</a> first (2 min); every feature is explained in <a href="#guide">the user guide</a>.`}</div>
   </div>`;
 
   h += `
@@ -116,7 +117,7 @@ function vHome() {
     h += `
     <div class="subj" onclick="nav('deck/${d2.subject}')" style="cursor:pointer">
       <span class="em">${d2.emoji}</span>
-      <div class="nm"><b>${esc(deckName(d2))}${d2.mcqTested ? `<span class="badge">MCQ</span>` : ""}</b>
+      <div class="nm"><b>${esc(deckName(d2))}${d2.mcqTested ? `<span class="badge">MCQ</span>` : ""}${deckNewOff(d2.subject) ? " ⏸" : ""}</b>
         <span>${st.rev + st.learn}/${st.total} · ${st.due} ${esc(t("state.due"))}</span></div>
       <div class="bar"><i style="width:${Math.round(st.mastery * 100)}%"></i></div>
       <span class="pc">${Math.round(st.mastery * 100)}%</span>
@@ -133,10 +134,10 @@ function vHome() {
 }
 
 /* ============================ STUDY ============================ */
-function startReview() {
-  const q = buildReviewQueue();
+function startReview(subject) {
+  const q = buildReviewQueue(subject);
   if (!q.length) { toast(t("study.empty")); return; }
-  session = { mode: "review", queue: q, initTotal: q.length, done: 0, ok: 0, xp0: S.xp, revealed: false, snap: null, zh: S.settings.zhFirst };
+  session = { mode: "review", queue: q, initTotal: q.length, done: 0, ok: 0, att: 0, xp0: S.xp, revealed: false, snap: null, zh: S.settings.zhFirst };
   nav("study");
 }
 function startNew() {
@@ -144,7 +145,7 @@ function startNew() {
   if (!quota) { toast(t("toast.nonew")); return; }
   const q = buildNewQueue(quota);
   if (!q.length) { toast(t("toast.nonew")); return; }
-  session = { mode: "new", queue: q, initTotal: q.length, done: 0, ok: 0, xp0: S.xp, revealed: false, snap: null, zh: S.settings.zhFirst };
+  session = { mode: "new", queue: q, initTotal: q.length, done: 0, ok: 0, att: 0, xp0: S.xp, revealed: false, snap: null, zh: S.settings.zhFirst };
   nav("study");
 }
 function currentId() {
@@ -161,7 +162,9 @@ function currentId() {
 function vStudy() {
   if (!session) { setTimeout(() => nav("home")); return ""; }
   if (!session.queue.length) return studySummary();
-  const id = currentId();
+  /* pin the shown card: an idle user must never grade a card that silently
+     became "current" while they weren't looking */
+  const id = session.cur && session.queue.includes(session.cur) ? session.cur : (session.cur = currentId());
   const c = CARD[id];
   const st = peek(id);
   const stateChip = !st || st.st === 0 ? `<span class="chip state-new">✦ ${esc(t("state.new"))}</span>`
@@ -221,9 +224,9 @@ function cardFace(c, revealed, zh, shuffle) {
     if (c.type === "basic") h += `<div class="a-en">${esc(c.a)}</div><div class="a-zh">${esc(c.aZh)}</div>`;
     if (c.type === "cloze") h += `<div class="a-en">${esc(c.a)}</div><div class="a-zh">${esc(c.aZh)}</div>`;
     if (c.type === "mcq" && c.explain) h += `<div class="a-en" style="font-size:.95rem">${esc(c.explain)}</div>`;
-    if (c.explainZh) h += `<div class="box explain"><span class="bt">📘 解析</span>${esc(c.explainZh)}</div>`;
-    if (c.caNote) h += `<div class="box ca"><span class="bt">🐻 CALIFORNIA 加州区别</span>${esc(c.caNote)}<br><span class="muted">${esc(c.caNoteZh || "")}</span></div>`;
-    if (c.mnemonic) h += `<div class="box mn"><span class="bt">💡 MNEMONIC 记忆钩</span>${esc(c.mnemonic)}</div>`;
+    if (c.explainZh) h += `<div class="box explain"><span class="bt">📘 ${esc(t("box.explain"))}</span>${esc(c.explainZh)}</div>`;
+    if (c.caNote) h += `<div class="box ca"><span class="bt">🐻 ${esc(t("box.ca"))}</span>${esc(c.caNote)}<br><span class="muted">${esc(c.caNoteZh || "")}</span></div>`;
+    if (c.mnemonic) h += `<div class="box mn"><span class="bt">💡 ${esc(t("box.mn"))}</span>${esc(c.mnemonic)}</div>`;
     h += `</div>`;
   }
   return h;
@@ -236,13 +239,14 @@ function actionBar(id) {
   }
   const iv = previewIvls(id);
   const names = [t("study.again"), t("study.hard"), t("study.good"), t("study.easy")];
+  const sugg = session.mcqPick != null ? (session.mcqRight ? 3 : 1) : 0;
   return `<div class="grades">` + [1, 2, 3, 4].map(g =>
-    `<button class="grade g${g}" onclick="doGrade(${g})">${esc(names[g - 1])}<small>${esc(iv[g - 1])}</small></button>`).join("") + `</div>`;
+    `<button class="grade g${g}${g === sugg ? " suggest" : ""}" onclick="doGrade(${g})">${esc(names[g - 1])}<small>${esc(iv[g - 1])}</small></button>`).join("") + `</div>`;
 }
 function bindStudy() {
-  const id = currentId();
+  const id = session && session.cur;
   if (id && CARD[id].type === "mcq" && !session.shuffle) {
-    session.shuffle = [0, 1, 2, 3].sort(() => Math.random() - 0.5);
+    session.shuffle = shuffleArr([0, 1, 2, 3]);
     rerenderStudy();
   }
 }
@@ -251,16 +255,20 @@ window.toggleZh = () => { session.zh = !session.zh; rerenderStudy(); };
 window.reveal = () => { session.revealed = true; rerenderStudy(); };
 window.pickOpt = (orig) => {
   if (session.revealed) return;
-  const id = currentId(), c = CARD[id];
+  const id = session.cur || currentId(), c = CARD[id];
   session.mcqPick = orig; session.revealed = true;
   session.mcqRight = orig === c.answer;
   rerenderStudy();
 };
 window.doGrade = (g) => {
-  const id = currentId();
+  const id = session.cur || currentId();
+  if (!id) return;
   const before = today().r + today().n + today().q;
+  const prevSess = { att: session.att, ok: session.ok, done: session.done };
   session.snap = grade(id, g);
+  session.snap.sess = prevSess;
   tickTime();
+  session.att++;
   if (g >= 3) session.ok++;
   /* remove from queue; re-insert if it comes back soon (learning/relearning) */
   const i = session.queue.indexOf(id);
@@ -270,7 +278,7 @@ window.doGrade = (g) => {
     const pos = Math.min(session.queue.length, 6 + ((Math.random() * 3) | 0));
     session.queue.splice(pos, 0, id);
   } else session.done++;
-  session.revealed = false; session.mcqPick = null; session.shuffle = null;
+  session.revealed = false; session.mcqPick = null; session.shuffle = null; session.cur = null;
   const after = today().r + today().n + today().q;
   if (before < S.settings.dailyGoal && after >= S.settings.dailyGoal) { confetti(); toast(t("toast.goalhit")); }
   rerenderStudy();
@@ -280,18 +288,20 @@ window.undoLast = () => {
   undoGrade(session.snap);
   const id = session.snap.id;
   if (!session.queue.includes(id)) session.queue.unshift(id);
-  session.snap = null; session.revealed = false; session.shuffle = null;
+  if (session.snap.sess) { session.att = session.snap.sess.att; session.ok = session.snap.sess.ok; session.done = session.snap.sess.done; }
+  session.snap = null; session.revealed = false; session.shuffle = null; session.cur = id;
   toast(t("toast.undone"));
   rerenderStudy();
 };
-window.exitStudy = () => { session = null; nav("home"); };
+window.exitStudy = () => { session = null; save(true); nav("home"); };
 window.toggleFlag = (id) => {
   const c = cs(id); c.flag = !c.flag; save();
   toast(t(c.flag ? "toast.flagged" : "toast.unflagged"));
   rerenderStudy();
 };
 function studySummary() {
-  const acc = session.done ? Math.round(100 * session.ok / Math.max(session.done, 1)) : 0;
+  save(true);
+  const acc = session.att ? Math.round(100 * session.ok / session.att) : 0;
   const xp = S.xp - session.xp0;
   const h = `
   <div class="summary">
@@ -329,8 +339,8 @@ window.startQuiz = () => {
   const subj = $("#qz-s").value || null;
   closeModal();
   const ids = buildQuiz(n, subj);
-  if (ids.length < 3) { toast("MCQ cards not ready"); return; }
-  quiz = { ids, idx: 0, right: 0, wrongIds: [], answered: false, pick: null, shuffle: [0, 1, 2, 3].sort(() => Math.random() - 0.5), xp0: S.xp };
+  if (ids.length < 3) { toast(t("quiz.notready")); return; }
+  quiz = { ids, idx: 0, right: 0, wrongIds: [], answered: false, pick: null, shuffle: shuffleArr([0, 1, 2, 3]), xp0: S.xp };
   nav("quiz");
 };
 function vQuiz() {
@@ -366,8 +376,8 @@ function vQuiz() {
   if (quiz.answered) {
     h += `<div class="answer">`;
     if (c.explain) h += `<div class="a-en" style="font-size:.95rem">${esc(c.explain)}</div>`;
-    if (c.explainZh) h += `<div class="box explain"><span class="bt">📘 解析</span>${esc(c.explainZh)}</div>`;
-    if (c.caNote) h += `<div class="box ca"><span class="bt">🐻 CALIFORNIA 加州区别</span>${esc(c.caNote)}<br><span class="muted">${esc(c.caNoteZh || "")}</span></div>`;
+    if (c.explainZh) h += `<div class="box explain"><span class="bt">📘 ${esc(t("box.explain"))}</span>${esc(c.explainZh)}</div>`;
+    if (c.caNote) h += `<div class="box ca"><span class="bt">🐻 ${esc(t("box.ca"))}</span>${esc(c.caNote)}<br><span class="muted">${esc(c.caNoteZh || "")}</span></div>`;
     h += `</div>`;
   }
   h += `</div>`;
@@ -377,22 +387,26 @@ function vQuiz() {
 function bindQuiz() {}
 window.quizZh = () => { quiz.zh = !quiz.zh; $("#view").innerHTML = vQuiz(); };
 window.quizPick = (orig) => {
-  if (quiz.answered) return;
+  if (!quiz || quiz.answered || quiz.idx >= quiz.ids.length) return;
   const id = quiz.ids[quiz.idx], c = CARD[id];
+  if (!c) return;
   quiz.pick = orig; quiz.answered = true;
-  tickTime(); today().q++;
-  if (orig === c.answer) { quiz.right++; addXP(12); quizHit(id); }
-  else { quiz.wrongIds.push(id); addXP(2); quizMiss(id); }
+  tickTime();
+  const correct = orig === c.answer;
+  let graded = false;
+  if (correct) { quiz.right++; graded = quizHit(id); }
+  else { quiz.wrongIds.push(id); graded = quizMiss(id); }
+  if (!graded) { today().q++; addXP(correct ? 12 : 2); }   // count once: either as a grade or as a quiz answer
   save();
   $("#view").innerHTML = vQuiz();
 };
 window.quizNext = () => {
   quiz.idx++; quiz.answered = false; quiz.pick = null; quiz.zh = false;
-  quiz.shuffle = [0, 1, 2, 3].sort(() => Math.random() - 0.5);
+  quiz.shuffle = shuffleArr([0, 1, 2, 3]);
   $("#view").innerHTML = vQuiz();
   window.scrollTo(0, 0);
 };
-window.exitQuiz = () => { quiz = null; nav("home"); };
+window.exitQuiz = () => { quiz = null; save(true); nav("home"); };
 function quizResults() {
   const n = quiz.ids.length, sc = Math.round(100 * quiz.right / n);
   const xp = S.xp - quiz.xp0;
@@ -462,9 +476,14 @@ function vDeck(subj) {
   const d = DECK[subj];
   if (!d) { setTimeout(() => nav("browse")); return ""; }
   const st = deckStats(subj);
+  const off = deckNewOff(subj);
   let h = `<button class="backlink" onclick="nav('browse')">← ${esc(t("nav.browse"))}</button>
   <div class="panel">
-    <h3>${d.emoji} ${esc(deckName(d))}<span class="sub">${st.total} ${esc(t("browse.total"))} · ${Math.round(st.mastery * 100)}%</span></h3>`;
+    <h3>${d.emoji} ${esc(deckName(d))}<span class="sub">${st.total} ${esc(t("browse.total"))} · ${Math.round(st.mastery * 100)}%</span></h3>
+    <div class="rowbtns" style="margin:2px 0 8px">
+      ${st.due ? `<button class="btn primary" onclick="deckReview('${subj}')">▶ ${esc(t("deck.review"))} (${st.due})</button>` : ""}
+      <button class="btn${off ? "" : ""}" onclick="deckToggleNew('${subj}')">${esc(off ? t("deck.resume") : t("deck.pause"))}</button>
+    </div>`;
   const byTopic = {};
   for (const c of d.cards) { (byTopic[S.settings.lang === "zh" ? c.topicZh : c.topic] = byTopic[S.settings.lang === "zh" ? c.topicZh : c.topic] || []).push(c.id); }
   for (const [topic, ids] of Object.entries(byTopic)) {
@@ -479,7 +498,7 @@ window.openCard = (id) => {
   const susp = st && st.susp, flag = st && st.flag;
   let info = "";
   if (st && st.st > 0) {
-    info = `<div class="tiny" style="margin-top:8px">S=${st.s.toFixed(1)}d · D=${st.d.toFixed(1)} · ${st.reps} ${esc(t("stats.reviews"))} · lapses ${st.lapses} · ${esc(t("state.due"))}: ${ymd(st.due)}</div>`;
+    info = `<div class="tiny" style="margin-top:8px">S=${st.s.toFixed(1)}d · D=${st.d.toFixed(1)} · ${st.reps} ${esc(t("stats.reviews"))} · ${esc(t("card.lapses"))} ${st.lapses} · ${esc(t("state.due"))}: ${ymd(st.due)}</div>`;
   }
   showModal(`
     <div class="chips" style="margin-bottom:10px">
@@ -492,9 +511,9 @@ window.openCard = (id) => {
     ${c.type === "mcq"
       ? `<div class="opts">` + c.choices.map((ch, i) => `<div class="opt ${i === c.answer ? "reveal-right" : ""}" style="cursor:default"><span class="k">${"ABCD"[i]}</span><span>${esc(ch)}</span></div>`).join("") + `</div>`
       : `<div class="answer"><div class="a-en">${esc(c.a)}</div><div class="a-zh">${esc(c.aZh)}</div></div>`}
-    ${c.explainZh ? `<div class="box explain"><span class="bt">📘 解析</span>${esc(c.explainZh)}</div>` : ""}
-    ${c.caNote ? `<div class="box ca"><span class="bt">🐻 加州区别</span>${esc(c.caNote)}<br><span class="muted">${esc(c.caNoteZh || "")}</span></div>` : ""}
-    ${c.mnemonic ? `<div class="box mn"><span class="bt">💡 记忆钩</span>${esc(c.mnemonic)}</div>` : ""}
+    ${c.explainZh ? `<div class="box explain"><span class="bt">📘 ${esc(t("box.explain"))}</span>${esc(c.explainZh)}</div>` : ""}
+    ${c.caNote ? `<div class="box ca"><span class="bt">🐻 ${esc(t("box.ca"))}</span>${esc(c.caNote)}<br><span class="muted">${esc(c.caNoteZh || "")}</span></div>` : ""}
+    ${c.mnemonic ? `<div class="box mn"><span class="bt">💡 ${esc(t("box.mn"))}</span>${esc(c.mnemonic)}</div>` : ""}
     ${info}
     <div class="rowbtns">
       <button class="btn" onclick="modSusp('${id}')">${esc(susp ? t("card.unsuspend") : t("card.suspend"))}</button>
@@ -502,6 +521,13 @@ window.openCard = (id) => {
       <button class="btn danger" onclick="modReset('${id}')">${esc(t("card.reset"))}</button>
       <button class="btn" onclick="closeModal()">${esc(t("card.close"))}</button>
     </div>`);
+};
+window.deckReview = (subj) => startReview(subj);
+window.deckToggleNew = (subj) => {
+  if (!S.settings.deckOff) S.settings.deckOff = {};
+  S.settings.deckOff[subj] = !S.settings.deckOff[subj];
+  if (!S.settings.deckOff[subj]) delete S.settings.deckOff[subj];
+  save(); toast(t(deckNewOff(subj) ? "toast.deckoff" : "toast.deckon")); route();
 };
 window.modSusp = (id) => { const c = cs(id); c.susp = !c.susp; save(); toast(t(c.susp ? "toast.suspended" : "toast.unsuspended")); closeModal(); route(); };
 window.modFlag = (id) => { const c = cs(id); c.flag = !c.flag; save(); toast(t(c.flag ? "toast.flagged" : "toast.unflagged")); closeModal(); route(); };
@@ -568,7 +594,7 @@ function vSettings() {
         <button class="${s.lang === "en" ? "on" : ""}" onclick="setLang('en')">EN</button>
       </span></div>
     <div class="setrow"><span class="lab">📅 ${esc(t("set.exam"))}</span>
-      <input type="date" value="${esc(s.examDate)}" onchange="setOpt('examDate',this.value)"></div>
+      <input type="date" value="${esc(s.examDate)}" onchange="setExam(this.value)"></div>
     <div class="setrow"><span class="lab">＋ ${esc(t("set.newperday"))}</span>
       <input type="number" min="0" max="80" value="${s.newPerDay}" onchange="setOpt('newPerDay',Math.max(0,Math.min(80,parseInt(this.value,10)||0)))"></div>
     <div class="setrow"><span class="lab">🎯 ${esc(t("set.goal"))}</span>
@@ -588,6 +614,7 @@ function vSettings() {
       </span></div>
   </div>
   <div class="panel">
+    <div class="setrow" style="cursor:pointer" onclick="nav('guide')"><span class="lab">📖 ${esc(t("set.guide"))}</span><span>→</span></div>
     <div class="setrow" style="cursor:pointer" onclick="nav('method')"><span class="lab">🎓 ${esc(t("set.method"))}</span><span>→</span></div>
     <div class="setrow" style="cursor:pointer" onclick="doExport()"><span class="lab">📤 ${esc(t("set.export"))}</span><span>→</span></div>
     <div class="setrow" style="cursor:pointer" onclick="document.getElementById('impfile').click()"><span class="lab">📥 ${esc(t("set.import"))}</span><span>→</span>
@@ -595,7 +622,7 @@ function vSettings() {
     <div class="setrow" style="cursor:pointer;color:var(--red)" onclick="doReset()"><span class="lab">🗑 ${esc(t("set.reset"))}</span><span>→</span></div>
   </div>
   <div class="panel tiny">
-    <b>加州律考通 CalBar Trainer</b> · v1 · ${ALL_IDS.length} cards<br><br>
+    <b>Ron 的加州律考通 · Ron's CalBar Trainer</b> · v1.1 · ${ALL_IDS.length} cards<br><br>
     内容由 AI 辅助编写，供复习记忆使用；规则表述以官方资料及你的课程讲义为准，发现疑问请用 ⚑ 标记并查证。<br>
     Content is AI-assisted and for memorization practice; verify anything doubtful against official sources (flag with ⚑).<br><br>
     进度保存在本机浏览器 (localStorage)。换设备或清缓存前请先「导出学习进度」。<br>
@@ -604,6 +631,7 @@ function vSettings() {
 }
 window.setLang = (v) => { S.settings.lang = v; save(); route(); };
 window.setOpt = (k, v) => { S.settings[k] = v; save(); applyTheme(); route(); };
+window.setExam = (v) => { if (/^\d{4}-\d{2}-\d{2}$/.test(v)) setOpt("examDate", v); else route(); };
 window.doExport = () => {
   download("calbar-progress-" + ymd() + ".json", JSON.stringify(S));
   toast(t("set.exportd"));
@@ -616,7 +644,9 @@ window.doImport = (inp) => {
       const s = JSON.parse(rd.result);
       if (!s || typeof s !== "object" || !s.cards) throw new Error("bad file");
       s.settings = Object.assign({}, DEFAULT_SETTINGS, s.settings);
-      S = s; save(); applyTheme(); toast(t("set.imported")); route();
+      s.days = s.days || {}; s.xp = s.xp || 0; s.v = s.v || 1;
+      S = s; save(true); toast(t("set.imported"));
+      setTimeout(() => location.reload(), 700);     // clean re-init with the imported state
     } catch (e) { toast("⚠️ " + e.message); }
   };
   rd.readAsText(f);
@@ -666,11 +696,123 @@ function vMethod() {
     <h4>Small habit, big compounding</h4>
     <p>30 minutes daily beats 4 hours on Sunday. Commutes, queues, bedtime — the app works offline in your phone browser.</p>`;
   return `<button class="backlink" onclick="nav('settings')">← ${esc(t("nav.set"))}</button>
-  <div class="panel article"><h3>🎓 ${esc(t("method.title"))}</h3>${body}</div>`;
+  <div class="panel article"><h3>🎓 ${esc(t("method.title"))}</h3>${body}
+  <p class="tiny" style="margin-top:14px">→ <a href="#guide">${esc(t("set.guide"))}</a></p></div>`;
+}
+
+/* ============================ GUIDE ============================ */
+function vGuide() {
+  const zh = S.settings.lang === "zh";
+  const body = zh ? `
+    <h4>🏠 首页看什么</h4>
+    <ul>
+      <li><b>倒计时</b>：距 2027 年 2 月考试的天数（日期可在设置修改）。</li>
+      <li><b>目标环</b>：今日已完成卡数 / 每日目标（复习+新卡+演练都计入）。</li>
+      <li><b>🔥 连续天数</b>：任意学习一张即算打卡当天。</li>
+      <li><b>进度规划</b>：按剩余新卡和考试日期，建议每日新卡量——目标是考前留约两个月纯复习期。</li>
+      <li><b>科目掌握度</b>：算法估计的当前记忆强度；点击任一科目可进入该科页面。</li>
+    </ul>
+    <h4>📚 三种学习模式</h4>
+    <ul>
+      <li><b>开始复习</b>：清空到期卡。多科目自动混合（交叉练习记得更牢）。</li>
+      <li><b>学习新卡</b>:按每日额度引入新卡，各科轮流；额度在设置里调。</li>
+      <li><b>考题演练</b>：模拟选择题（可选科目与题数）。<b>答错的卡自动进复习队列</b>，答对的算完成当天到期复习。</li>
+    </ul>
+    <h4>🃏 卡片怎么用</h4>
+    <ul>
+      <li>三种卡型：<b>问答</b>（先心里作答再点「显示答案」）、<b>挖空</b>（补出［？］处）、<b>选择题</b>（直接点选项）。</li>
+      <li><b>🀄 显示中文</b>：题面下方按钮，随时切换中文翻译；设置里可改为默认显示。</li>
+      <li>答案区的框：<b>📘 解析</b>=中文要点与记忆法；<b>🐻 加州区别</b>=加州与联邦/多数规则不同之处（<b>加州考试的得分点，重点记</b>）；<b>💡 记忆钩</b>=助记口诀。</li>
+      <li><b>⚑ 标记</b>：对内容存疑时标记，之后在题库里核对讲义；<b>⏸ 暂停</b>（卡片详情里）：这张卡不再出现；<b>↩︎ 撤销</b>：撤回上一次评分。</li>
+    </ul>
+    <h4>🎯 四个评分键（核心！）</h4>
+    <ul>
+      <li><b>重来</b>=没想起来 · <b>困难</b>=很吃力 · <b>记得</b>=正常想起（大多数按这个）· <b>轻松</b>=秒答。</li>
+      <li>按键下方的数字 = 这样评分后<b>下次出现的间隔</b>。选择题答完会用光圈提示建议评分，空格键直接确认。</li>
+      <li>评分是算法的输入——诚实评分，间隔才准。</li>
+    </ul>
+    <h4>🗂 题库</h4>
+    <ul>
+      <li>顶部搜索框支持中英文全文检索；点科目看每张卡与状态。</li>
+      <li>科目页两个按钮：<b>复习本科到期卡</b>（想单科集中时用）；<b>暂停本科新卡</b>（想跟着课程进度、暂不开某科时用——已学卡片仍会正常复习）。</li>
+    </ul>
+    <h4>📈 统计页数字含义</h4>
+    <ul>
+      <li><b>记忆保持率</b>：近 30 天复习的答对比例，健康值≈设置里的目标保持率（默认 90%）。明显偏低=评分太宽或新卡太多。</li>
+      <li><b>热力图</b>：每天学习量，颜色越深越多。</li>
+      <li>卡片详情里的 <b>S</b>=稳定度（记忆半衰期天数），<b>D</b>=难度（1-10）。</li>
+    </ul>
+    <h4>⚙️ 设置要点</h4>
+    <ul>
+      <li><b>考试日期</b>：算法据此压缩考前间隔，保证每张卡考前再见一面。</li>
+      <li><b>目标保持率</b>：调高=复习更频繁更保险；备考后期可调到 92-95%。</li>
+    </ul>
+    <h4>💾 进度备份与离线使用</h4>
+    <ul>
+      <li>进度只存<b>本机浏览器</b>。请每周「导出学习进度」备份一次；换设备/换浏览器用「导入」。</li>
+      <li>整个应用是一个 HTML 文件：网页打不开时，把文件存到手机/电脑双击即用，功能完全一样（注意：文件版与网页版进度各自独立，用导出/导入衔接）。</li>
+      <li>不要同时开两个标签页学习，进度会互相覆盖。</li>
+    </ul>
+    <h4>⌨️ 快捷键（电脑）</h4>
+    <p>空格/回车 = 显示答案或确认 · 数字 1-4 = 评分（答案已显示时）或选择选项。</p>` : `
+    <h4>🏠 Home screen</h4>
+    <ul>
+      <li><b>Countdown</b> to the Feb 2027 exam (date editable in Settings).</li>
+      <li><b>Goal ring</b>: today's cards vs daily goal (reviews + new + quiz all count).</li>
+      <li><b>🔥 Streak</b>: any studying counts the day.</li>
+      <li><b>Pacing</b>: suggested new-cards/day so everything is learned with a ~2-month pure-review runway.</li>
+      <li><b>Subject mastery</b>: the scheduler's live estimate of memory strength; tap a subject to open it.</li>
+    </ul>
+    <h4>📚 Three study modes</h4>
+    <ul>
+      <li><b>Review</b>: clear due cards, subjects deliberately interleaved.</li>
+      <li><b>Learn New</b>: introduces the daily quota, rotating across subjects.</li>
+      <li><b>Quiz</b>: bar-style MCQs (pick scope & count). <b>Misses feed back into the review queue</b>; hits count as that card's due review.</li>
+    </ul>
+    <h4>🃏 Cards</h4>
+    <ul>
+      <li>Types: <b>recall</b> (answer in your head, then reveal), <b>cloze</b> (fill the ［？］), <b>MCQ</b> (tap an option).</li>
+      <li><b>🀄 中文</b> button toggles the Chinese rendering; Settings can make it default-on.</li>
+      <li>Answer boxes: <b>📘 解析</b> = key points & memory hooks; <b>🐻 California distinction</b> = where CA differs (this is where CA exam points live); <b>💡 mnemonic</b>.</li>
+      <li><b>⚑ Flag</b> doubtful content to verify later; <b>⏸ Suspend</b> (card detail) removes a card from rotation; <b>↩︎ Undo</b> reverses the last grade.</li>
+    </ul>
+    <h4>🎯 The four grade buttons (the core!)</h4>
+    <ul>
+      <li><b>Again</b> = blank · <b>Hard</b> = real effort · <b>Good</b> = normal recall (your default) · <b>Easy</b> = instant.</li>
+      <li>The small number under each button = the <b>next interval</b> that grade produces. After an MCQ, the suggested grade glows; Space confirms it.</li>
+      <li>Honest grading is what makes the intervals right.</li>
+    </ul>
+    <h4>🗂 Browse</h4>
+    <ul>
+      <li>Full-text search (English & Chinese). Open a deck for every card and its state.</li>
+      <li>Per-deck buttons: <b>Review due in this deck</b> (single-subject focus) and <b>Pause new cards</b> (follow your course order — already-learned cards keep reviewing).</li>
+    </ul>
+    <h4>📈 Stats</h4>
+    <ul>
+      <li><b>30-day retention</b>: share of reviews answered correctly; healthy ≈ your target retention (default 90%).</li>
+      <li><b>Heatmap</b>: daily volume. Card detail shows <b>S</b> = stability (memory half-life, days) and <b>D</b> = difficulty (1-10).</li>
+    </ul>
+    <h4>⚙️ Settings that matter</h4>
+    <ul>
+      <li><b>Exam date</b> drives the interval cap — every card is guaranteed a final pre-exam appearance.</li>
+      <li><b>Target retention</b>: higher = more frequent reviews; consider 92-95% in the final months.</li>
+    </ul>
+    <h4>💾 Backup & offline</h4>
+    <ul>
+      <li>Progress lives in <b>this browser only</b>. Export weekly; import on a new device.</li>
+      <li>The app is a single HTML file — save it locally and it works identically offline (file and web progress are separate; bridge with export/import).</li>
+      <li>Don't study in two tabs at once — they overwrite each other.</li>
+    </ul>
+    <h4>⌨️ Keyboard</h4>
+    <p>Space/Enter = reveal or confirm · 1-4 = grade (after reveal) or pick an option.</p>`;
+  return `<button class="backlink" onclick="nav('settings')">← ${esc(t("nav.set"))}</button>
+  <div class="panel article"><h3>📖 ${esc(t("guide.title"))}</h3>${body}
+  <p class="tiny" style="margin-top:14px">→ <a href="#method">${esc(t("set.method"))}</a></p></div>`;
 }
 
 /* ============================ modal & boot ============================ */
 function showModal(inner) {
+  closeModal();
   const bg = document.createElement("div");
   bg.className = "modal-bg"; bg.id = "modalbg";
   bg.innerHTML = `<div class="modal">${inner}</div>`;
@@ -684,19 +826,22 @@ document.addEventListener("keydown", e => {
   if (e.target.tagName === "INPUT" || e.target.tagName === "SELECT" || e.target.tagName === "TEXTAREA") return;
   const h = (location.hash || "#home").slice(1);
   if (h === "study" && session) {
-    const id = currentId(); if (!id) return;
+    const id = session.cur || currentId(); if (!id) return;
     const c = CARD[id];
     if (!session.revealed) {
       if ((e.key === " " || e.key === "Enter") && c.type !== "mcq") { e.preventDefault(); reveal(); }
       else if (c.type === "mcq" && "1234".includes(e.key)) { pickOpt(session.shuffle ? session.shuffle["1234".indexOf(e.key)] : parseInt(e.key, 10) - 1); }
     } else if ("1234".includes(e.key)) doGrade(parseInt(e.key, 10));
     else if (e.key === " " || e.key === "Enter") { e.preventDefault(); doGrade(session.mcqPick != null ? (session.mcqRight ? 3 : 1) : 3); }
-  } else if (h === "quiz" && quiz) {
+  } else if (h === "quiz" && quiz && quiz.idx < quiz.ids.length) {
     if (!quiz.answered && "1234".includes(e.key)) quizPick(quiz.shuffle["1234".indexOf(e.key)]);
     else if (quiz.answered && (e.key === " " || e.key === "Enter")) { e.preventDefault(); quizNext(); }
   }
 });
-window.addEventListener("visibilitychange", () => { if (document.hidden) { tickTime(); save(); } });
+document.addEventListener("visibilitychange", () => { if (document.hidden) { tickTime(); save(true); } });
+window.addEventListener("pagehide", () => { tickTime(); save(true); });
+/* another tab wrote newer state → adopt it instead of clobbering it later */
+window.addEventListener("storage", e => { if (e.key === LS_KEY && e.newValue) { S = load(); applyTheme(); route(); } });
 
 applyTheme();
 route();

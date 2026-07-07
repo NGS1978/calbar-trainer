@@ -34,6 +34,7 @@ for (const file of files) {
   for (const c of deck.cards || []) {
     const id = c.id || '(no id)';
     if (!c.id) errs.push('card missing id');
+    else if (!/^[A-Za-z0-9_-]+$/.test(c.id)) errs.push(`${id}: id must be [A-Za-z0-9_-]+ (it is interpolated into inline handlers)`);
     else if (allIds.has(c.id)) errs.push(`duplicate id ${id}`);
     allIds.add(c.id);
     if (!['basic', 'cloze', 'mcq'].includes(c.type)) errs.push(`${id}: bad type "${c.type}"`);

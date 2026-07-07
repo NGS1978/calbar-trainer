@@ -41,8 +41,8 @@
         "O's heirs — a right of entry passes only by descent"
       ],
       "answer": 1,
-      "explain": "Conditional words ('but if') plus an express re-entry right create a fee simple subject to condition subsequent: forfeiture is not automatic. Choice A describes a fee simple determinable; the condition restricts use, not alienation.",
-      "explainZh": "对比记忆：FSD（时间性用语）自动终止；FSCS（'but if / provided that / on condition that'＋收回权）必须由设立人主动行使进入权，行使之前A仍持有产权。选项0混淆了FSD；选项2错在该条件限制的是使用而非转让权；选项3错在收回权归O本人持有（多数州可继承，但并非只能由继承人取得）。"
+      "explain": "Conditional words ('but if') plus an express re-entry right create a fee simple subject to condition subsequent: forfeiture is not automatic. The automatic-reversion choice instead describes a fee simple determinable; the condition restricts use, not alienation.",
+      "explainZh": "对比记忆：FSD（时间性用语）自动终止；FSCS（'but if / provided that / on condition that'＋收回权）必须由设立人主动行使进入权，行使之前A仍持有产权。「售酒时产权自动复归」一项混淆了FSD；「条件属转让限制而无效」一项错在该条件限制的是使用而非转让权；「归O的继承人」一项错在收回权归O本人持有（多数州可继承，但并非只能由继承人取得）。"
     },
     {
       "id": "rp004",
@@ -59,7 +59,7 @@
       ],
       "answer": 2,
       "explain": "A third party's interest that cuts short a transferee's defeasible fee is a shifting executory interest; remainders never follow a fee. It is valid under RAP because it must vest, if at all, during A's life.",
-      "explainZh": "口诀：切断fee的只能是执行权益（executory interest），剩余权永远不能跟在fee后面；剥夺受让人＝shifting，剥夺设立人＝springing。选0错：归设立人的才是复归可能权。RAP陷阱：本例条件限于A有生之年所以有效；若写成无时限的'只要不作商业用途，否则归B'，B的权益将违反RAP被删除，A剩下FSD、O保留复归可能权——这就是'一般性条件的转赠'陷阱。"
+      "explainZh": "口诀：切断fee的只能是执行权益（executory interest），剩余权永远不能跟在fee后面；剥夺受让人＝shifting，剥夺设立人＝springing。「复归可能权」一项错：归设立人的才是复归可能权。RAP陷阱：本例条件限于A有生之年所以有效；若写成无时限的'只要不作商业用途，否则归B'，B的权益将违反RAP被删除，A剩下FSD、O保留复归可能权——这就是'一般性条件的转赠'陷阱。"
     },
     {
       "id": "rp005",
@@ -164,7 +164,7 @@
       ],
       "answer": 3,
       "explain": "The law conclusively presumes A could have another child, who would not be a life in being; that child's children could vest more than 21 years after all measuring lives end. A class gift void as to any possible member is void for all members.",
-      "explainZh": "“可生育推定”不可反驳——80岁也可能再生育（收养同理）。新生子女不是创设时在世生命，其子女（孙辈）可能在所有验证生命死后21年才出生并加入集体，故过不了RAP；而集体赠与“一损俱损”（all-or-nothing），已出生的孙辈也被拖下水。选0、1都试图引入例外，普通法不认；选2描述的是改革法（如wait-and-see）下才可能的结果。"
+      "explainZh": "“可生育推定”不可反驳——80岁也可能再生育（收养同理）。新生子女不是创设时在世生命，其子女（孙辈）可能在所有验证生命死后21年才出生并加入集体，故过不了RAP；而集体赠与“一损俱损”（all-or-nothing），已出生的孙辈也被拖下水。「80岁必不能再生育」与「在世孙辈可作验证生命」两项都试图引入例外，普通法不认；「仅对后出生子女所生的孙辈无效」一项描述的是改革法（如wait-and-see）下才可能的结果。"
     },
     {
       "id": "rp014",
@@ -181,7 +181,7 @@
       ],
       "answer": 0,
       "explain": "A's widow is identified at A's death, so her interest vests in time (A is the validating life) — but she might be someone born after T's death who lives beyond every measuring life plus 21 years, so the issue's survival-contingent remainder may vest too remotely.",
-      "explainZh": "陷阱：“遗孀”是身份而非具体人，可能是T死后才出生的女子，她可以在所有验证生命死后21年仍然在世，届时才能确定“彼时在世的后裔”→太迟，无效。遗孀本人的权益在A死亡时即确定（A是验证生命）→有效，故选2错。同族陷阱：怠惰遗嘱执行人（“遗产管理完毕时分配”——管理可能拖过21年，赠与无效）。"
+      "explainZh": "陷阱：“遗孀”是身份而非具体人，可能是T死后才出生的女子，她可以在所有验证生命死后21年仍然在世，届时才能确定“彼时在世的后裔”→太迟，无效。遗孀本人的权益在A死亡时即确定（A是验证生命）→有效，故「遗孀与后裔的权益均无效」一项错。同族陷阱：怠惰遗嘱执行人（“遗产管理完毕时分配”——管理可能拖过21年，赠与无效）。"
     },
     {
       "id": "rp015",
@@ -257,7 +257,7 @@
       ],
       "answer": 2,
       "explain": "Severance operates only on the conveyed share: D lacks unity of time and title with B and C, but B's and C's unities with each other remain intact. No cotenant consent is required to transfer one's own share.",
-      "explainZh": "切断只及于转让的份额：D与B、C之间四统一性被打破→按份共有；B与C之间原有统一性未受影响→彼此仍是联权共有。若B随后死亡，C自动吸收B的份额（合计2/3），再与D按份共有。选0过度切断；选3错在联权共有人可自由处分自己的份额。"
+      "explainZh": "切断只及于转让的份额：D与B、C之间四统一性被打破→按份共有；B与C之间原有统一性未受影响→彼此仍是联权共有。若B随后死亡，C自动吸收B的份额（合计2/3），再与D按份共有。「三人均为按份共有」一项过度切断；「未经B、C同意转让无效」一项错在联权共有人可自由处分自己的份额。"
     },
     {
       "id": "rp020",
@@ -320,7 +320,7 @@
       ],
       "answer": 0,
       "explain": "In lien theory a mortgage does not sever the joint tenancy (Harms v. Sprague); A's interest — and the lien that attached only to it — is extinguished at her death, so the survivor takes the whole unencumbered. Lenders must get every joint tenant's signature.",
-      "explainZh": "留置权理论下抵押只是“贴”在A的权益上，不切断JT；A一死，其权益因生存者取得权当然消灭，皮之不存毛将焉附——银行的抵押同归于尽（Harms诉Sprague案）。加州同此规则。反之在产权理论州抵押即切断，结果就是选2。教训：银行放贷必须让全体联权共有人签字。",
+      "explainZh": "留置权理论下抵押只是“贴”在A的权益上，不切断JT；A一死，其权益因生存者取得权当然消灭，皮之不存毛将焉附——银行的抵押同归于尽（Harms诉Sprague案）。加州同此规则。反之在产权理论州抵押即切断，结果就是「抵押切断联权共有、仅取得一半权益」一项。教训：银行放贷必须让全体联权共有人签字。",
       "caNote": "California follows lien theory — same result: the surviving joint tenant takes free of the deceased cotenant's unilateral encumbrance.",
       "caNoteZh": "加州采留置权理论——结果相同：生存共有人取得全部产权，不受已故共有人单方设定负担的约束。"
     },
@@ -393,7 +393,7 @@
       ],
       "answer": 1,
       "explain": "Constructive eviction requires Substantial interference, Notice to the landlord, and Getting out within a reasonable time; staying eight months defeats the claim. Habitability is a separate theory that lets the tenant remain — but it never terminates a lease automatically.",
-      "explainZh": "SING口诀：Substantial interference＋Notice＋Get out——必须及时搬走，赖着住就不是“被驱逐”。选0只看了第一要件；选2错，重大缺陷属房东违反安静享有默示义务；选3错在IWH虽允许不搬，但救济是修抵、减租或损害赔偿，不会自动解除租约。策略：想留下用IWH，想走人用推定驱逐。",
+      "explainZh": "SING口诀：Substantial interference＋Notice＋Get out——必须及时搬走，赖着住就不是“被驱逐”。「干扰重大故T胜」一项只看了第一要件；「污水问题非房东之责」一项错，重大缺陷属房东违反安静享有默示义务；「居住性默示担保自动终止租约」一项错在IWH虽允许不搬，但救济是修抵、减租或损害赔偿，不会自动解除租约。策略：想留下用IWH，想走人用推定驱逐。",
       "mnemonic": "SING: Substantial interference, Notice, Get out"
     },
     {
@@ -538,7 +538,7 @@
       ],
       "answer": 0,
       "explain": "Quasi-easement: common ownership was severed after a use that was apparent, continuous, and reasonably necessary to Lot 2's enjoyment. Necessity fails because the lot is not landlocked (strict necessity); prescription fails because O's use of his own land was never hostile; no expenditure supports estoppel.",
-      "explainZh": "默示地役权四件套：①同一所有权被分割；②分割前既有使用（准地役权）；③明显（可见即可，含合理检查可发现的地下管道）且持续；④对需役地的使用合理必要。选1败在“合理必要”≠“严格必要”——临公路就不算被围困；选2败在自己用自己的地谈不上敌意；选3无信赖支出。"
+      "explainZh": "默示地役权四件套：①同一所有权被分割；②分割前既有使用（准地役权）；③明显（可见即可，含合理检查可发现的地下管道）且持续；④对需役地的使用合理必要。「必要地役权」一项败在“合理必要”≠“严格必要”——临公路就不算被围困；「时效地役权」一项败在自己用自己的地谈不上敌意；「不可撤销许可」一项无信赖支出。"
     },
     {
       "id": "rp041",
@@ -589,7 +589,7 @@
       ],
       "answer": 3,
       "explain": "An oral 'easement' fails the Statute of Frauds and creates only a license — normally revocable at will — but substantial expenditure in reasonable reliance, with the licensor's knowledge, makes it irrevocable (easement by estoppel) for as long as needed to realize the investment. Permissive use defeats prescription.",
-      "explainZh": "推理链：口头授予→不满足书面要求→只是许可→原则上随时可撤销→但花大钱信赖＋对方明知＝禁反言，不得撤销（存续至收回投资所需期间）。选1败在书面要求；选择2败在“permissive”——经允许的使用不是敌意使用。另记：与利益相结合的许可（如买了地上木材附带的进入权）也不可撤销。"
+      "explainZh": "推理链：口头授予→不满足书面要求→只是许可→原则上随时可撤销→但花大钱信赖＋对方明知＝禁反言，不得撤销（存续至收回投资所需期间）。「口头授予创设了有效明示地役权」一项败在书面要求；「时效地役权」一项败在“permissive”——经允许的使用不是敌意使用。另记：与利益相结合的许可（如买了地上木材附带的进入权）也不可撤销。"
     },
     {
       "id": "rp045",
@@ -675,7 +675,7 @@
       ],
       "answer": 1,
       "explain": "An equitable servitude needs writing, intent, touch and concern, and notice — no privity; the recorded declaration supplies the writing and record notice, and injunction is the equitable remedy. Lot owners within the scheme are intended beneficiaries entitled to enforce.",
-      "explainZh": "登记的宣言＝书面＋登记通知：买受人没去查记录是自己的问题（推定知悉）。禁令走衡平地役路径，不需要任何相对性——选2把real covenant的要件错装到禁令上。小区内其他业主是规划受益人，有权执行（选3错）。此结论与加州Citizens案完全一致。"
+      "explainZh": "登记的宣言＝书面＋登记通知：买受人没去查记录是自己的问题（推定知悉）。禁令走衡平地役路径，不需要任何相对性——「禁令需要横向相对性」一项把real covenant的要件错装到禁令上。小区内其他业主是规划受益人，有权执行（「只有开发商可以执行」一项错）。此结论与加州Citizens案完全一致。"
     },
     {
       "id": "rp052",
@@ -739,7 +739,7 @@
       ],
       "answer": 2,
       "explain": "California requires all the ordinary elements plus timely payment of all state, county, and municipal taxes levied on the property during the five-year period (CCP §325). Boundary strips are proper subjects of adverse possession; the tax element is what defeats most neighbor-encroachment claims.",
-      "explainZh": "加州双要件：占有5年＋缴清这5年间课征的全部税款——大多数邻里越界案就死在税上（税单按登记地块寄给真正的所有人）。选1把规则说反了：单独课税的地役权才需缴税，取得所有权则一律要缴。实务后果：加州的越界者更多改走时效地役权或边界协定路线。",
+      "explainZh": "加州双要件：占有5年＋缴清这5年间课征的全部税款——大多数邻里越界案就死在税上（税单按登记地块寄给真正的所有人）。「只有时效地役权才要求缴税」一项把规则说反了：单独课税的地役权才需缴税，取得所有权则一律要缴。实务后果：加州的越界者更多改走时效地役权或边界协定路线。",
       "caNote": "CCP §325(b): five years' continuous possession plus timely payment of all taxes levied; the claimant must prove payment by certified tax records.",
       "caNoteZh": "《民事诉讼法典》§325(b)：连续占有5年并按期缴纳全部课征税款；主张者须以核证税务记录证明缴税事实。"
     },
@@ -791,7 +791,7 @@
       ],
       "answer": 0,
       "explain": "Equitable conversion: once a specifically enforceable contract is signed, the buyer is the equitable owner, and the majority places casualty risk on the buyer — though the seller must credit any insurance proceeds against the price. UVPRA states, including California, instead leave risk with the seller until possession or title passes.",
-      "explainZh": "衡平转换：签约瞬间买方成为“衡平所有人”，风险随之转移（多数规则）；卖方已投保的，保险金须折抵价款。加州采《统一卖方买方风险法》：占有或产权移转前风险留在卖方——与《民法典》第604条交付主义异曲同工。选1描述的正是少数/加州规则，在“多数规则”设问下不能选。",
+      "explainZh": "衡平转换：签约瞬间买方成为“衡平所有人”，风险随之转移（多数规则）；卖方已投保的，保险金须折抵价款。加州采《统一卖方买方风险法》：占有或产权移转前风险留在卖方——与《民法典》第604条交付主义异曲同工。「交付契据前风险随法定产权留在卖方」一项描述的正是少数/加州规则，在“多数规则”设问下不能选。",
       "caNote": "CA Civ. Code §1662 (UVPRA): risk of loss stays with the seller until the buyer takes possession or legal title transfers.",
       "caNoteZh": "加州《民法典》§1662（UVPRA）：买方取得占有或法律产权移转之前，毁损灭失风险由卖方承担。"
     },
@@ -858,7 +858,7 @@
       ],
       "answer": 3,
       "explain": "Under the merger doctrine, the contract's title obligations are extinguished at closing; post-closing claims lie on the deed covenants. The present covenant against encumbrances was breached at delivery, so that — not the contract — is Buyer's claim.",
-      "explainZh": "并入原则：一手交钱一手交契，合同上的产权承诺随交割“寿终正寝”，此后只能依契据担保起诉。本例中现时担保之一“无负担担保”在交付时即被违反→正确的请求权基础。注意并入只吞产权事项，附随义务（如卖方承诺修屋顶）不并入。选0、2用错时点：可交易产权只能在交割前主张。"
+      "explainZh": "并入原则：一手交钱一手交契，合同上的产权承诺随交割“寿终正寝”，此后只能依契据担保起诉。本例中现时担保之一“无负担担保”在交付时即被违反→正确的请求权基础。注意并入只吞产权事项，附随义务（如卖方承诺修屋顶）不并入。「交割时产权不可交易故买方胜」与「撤销交割并取回价款」两项用错时点：可交易产权只能在交割前主张。"
     },
     {
       "id": "rp066",
@@ -897,7 +897,7 @@
       ],
       "answer": 1,
       "explain": "Majority rule: an oral condition accompanying physical delivery directly TO THE GRANTEE is void — the delivery is absolute. Conditions survive only when the deed is deposited with a third-party escrow; a proper death escrow is valid, with title relating back to the deposit.",
-      "explainZh": "口头条件＋直接交给受让人＝条件蒸发、交付绝对有效（多数规则）。想附条件必须走第三人提存（escrow）：把契据交给中间人、指示“我死后交付”有效，且产权回溯至存入时（避免中途死亡或失能出问题）；但设立人保留取回权的提存无交付效力。选2错：契据无需对价。"
+      "explainZh": "口头条件＋直接交给受让人＝条件蒸发、交付绝对有效（多数规则）。想附条件必须走第三人提存（escrow）：把契据交给中间人、指示“我死后交付”有效，且产权回溯至存入时（避免中途死亡或失能出问题）；但设立人保留取回权的提存无交付效力。「缺乏对价故契据无效」一项错：契据无需对价。"
     },
     {
       "id": "rp069",
@@ -989,7 +989,7 @@
       ],
       "answer": 2,
       "explain": "A deed recorded without its grantor's own acquisition deed on record is a 'wild deed' — unlocatable through the grantor-grantee index — so it imparts no constructive notice and is treated as never recorded. C, a BFP who recorded a connected chain, wins even under race-notice.",
-      "explainZh": "登记不是把纸塞进档案馆就完事——必须能通过“出让人—受让人索引”从O一路检索到你。O→A没登记，A→B就成了“野契据”：C按标准流程根本查不到，故不构成通知，法律上视同未登记（C仍算“先登记”者）。教训：登记前先把上游链条补全。选3错在登记法正是先来先得原则的例外。"
+      "explainZh": "登记不是把纸塞进档案馆就完事——必须能通过“出让人—受让人索引”从O一路检索到你。O→A没登记，A→B就成了“野契据”：C按标准流程根本查不到，故不构成通知，法律上视同未登记（C仍算“先登记”者）。教训：登记前先把上游链条补全。「先来先得故A胜」一项错在登记法正是先来先得原则的例外。"
     },
     {
       "id": "rp076",
@@ -1041,7 +1041,7 @@
       ],
       "answer": 1,
       "explain": "'Subject to' means the land may be foreclosed but the buyer never promised to pay; any deficiency claim lies against the original mortgagor — or against an assuming grantee, who becomes primarily liable with the original mortgagor as surety. The transfer may also trigger an enforceable due-on-sale clause.",
-      "explainZh": "两种带押交易：“承担”（assume）＝新主人亲自负债，原借款人退居保证人（贷款人与新主人未经其同意修改贷款条款会使原借款人相应免责）；“带押受让”＝人不负债、地照样可拍。选3错：债务没有消灭，只是追不到B头上。另记Garn法案：“转让即到期”条款联邦法上有效（继承、夫妻间转让等除外）。在加州还要再叠一层反不足额规则（rp080）。"
+      "explainZh": "两种带押交易：“承担”（assume）＝新主人亲自负债，原借款人退居保证人（贷款人与新主人未经其同意修改贷款条款会使原借款人相应免责）；“带押受让”＝人不负债、地照样可拍。「止赎消灭了全部债务」一项错：债务没有消灭，只是追不到B头上。另记Garn法案：“转让即到期”条款联邦法上有效（继承、夫妻间转让等除外）。在加州还要再叠一层反不足额规则（rp080）。"
     },
     {
       "id": "rp080",
@@ -1071,7 +1071,7 @@
       ],
       "answer": 3,
       "explain": "A purchase-money mortgage — securing the very funds used to acquire the property and recorded promptly — beats earlier judgments, after-acquired-property clauses, and other claims arising through the purchaser: the buyer takes title already encumbered by the PMM, so the judgment lien attaches only to that encumbered title.",
-      "explainZh": "PMM超级优先权的逻辑：D取得产权的那一瞬间，产权“出生时就背着”PMM——判决留置权只能贴在D实际取得的（已设押的）产权上，天然排后。多个PMM并存时：卖方PMM优先于第三方贷款PMM，同类之间按登记顺序。选0是一般规则，恰好被这个著名例外推翻。"
+      "explainZh": "PMM超级优先权的逻辑：D取得产权的那一瞬间，产权“出生时就背着”PMM——判决留置权只能贴在D实际取得的（已设押的）产权上，天然排后。多个PMM并存时：卖方PMM优先于第三方贷款PMM，同类之间按登记顺序。「先设定先受偿」一项是一般规则，恰好被这个著名例外推翻。"
     },
     {
       "id": "rp082",
@@ -1088,7 +1088,7 @@
       ],
       "answer": 2,
       "explain": "Foreclosure extinguishes the foreclosing lien and all JUNIOR interests whose holders are joined, but leaves SENIOR liens intact — the buyer takes subject to them and bids accordingly. Proceeds: costs, then the foreclosing lender, then juniors in order, then the debtor; seniors take nothing from the sale.",
-      "explainZh": "铁律：止赎“向下清扫、向上无力”。P的出价＝心中估值−仍压在地上的20万优先按揭。价款瀑布：费用→止赎的信用社→更低顺位（财务公司）→剩余归业主；第一顺位银行不受影响也不分钱。未被追加的低顺位权利人其留置权存续（可自行止赎或赎回）——所以低顺位者是必要当事人，优先权人不是（选3错）。"
+      "explainZh": "铁律：止赎“向下清扫、向上无力”。P的出价＝心中估值−仍压在地上的20万优先按揭。价款瀑布：费用→止赎的信用社→更低顺位（财务公司）→剩余归业主；第一顺位银行不受影响也不分钱。未被追加的低顺位权利人其留置权存续（可自行止赎或赎回）——所以低顺位者是必要当事人，优先权人不是（「未追加银行故拍卖无效」一项错）。"
     },
     {
       "id": "rp083",
