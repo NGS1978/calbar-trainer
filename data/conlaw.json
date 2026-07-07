@@ -1,0 +1,1040 @@
+{
+  "subject": "conlaw",
+  "nameEn": "Constitutional Law",
+  "nameZh": "宪法",
+  "emoji": "📜",
+  "mcqTested": true,
+  "cards": [
+    {
+      "id": "con001",
+      "type": "basic",
+      "topic": "Justiciability",
+      "topicZh": "可诉性",
+      "q": "What three elements must every plaintiff show for Article III standing, and who bears the burden of proof?",
+      "qZh": "根据宪法第三条，任何原告都必须证明起诉资格的哪三项要素？举证责任由谁承担？",
+      "a": "(1) Injury in fact — concrete and particularized, actual or imminent, not conjectural; (2) causation — injury fairly traceable to defendant's challenged conduct; (3) redressability — a favorable decision will likely remedy the injury. The plaintiff bears the burden on all three, for each claim and each form of relief.",
+      "aZh": "（1）事实损害——具体的、特定化的，已实际发生或迫在眉睫，不能是猜测性的；（2）因果关系——损害可公正地追溯到被告被诉行为；（3）可救济性——胜诉判决很可能补救该损害。原告对三项要素、每项诉求及每种救济方式均负举证责任。",
+      "explainZh": "起诉资格是联邦法院'案件或争议'管辖权的宪法门槛，法院可依职权随时审查，不能由当事人合意创设——与中国行政诉讼的'利害关系'标准形似，但美国标准是宪法性的、法院无权放宽。MBE最常考'可救济性'缺失的情形。",
+      "mnemonic": "ICR — Injury, Causation, Redressability.",
+      "caNote": "Article III standing binds federal courts only. California state courts apply looser rules (e.g., broad taxpayer standing under CCP §526a).",
+      "caNoteZh": "第三条起诉资格只约束联邦法院；加州州法院适用更宽松的规则（如CCP §526a下宽泛的纳税人诉讼资格）。"
+    },
+    {
+      "id": "con002",
+      "type": "basic",
+      "topic": "Justiciability",
+      "topicZh": "可诉性",
+      "q": "Under TransUnion v. Ramirez (2021), does violation of a federal statute alone give a plaintiff standing to sue for damages?",
+      "qZh": "根据TransUnion v. Ramirez（2021），仅凭违反联邦制定法本身，原告是否有资格提起损害赔偿之诉？",
+      "a": "No — 'no concrete harm, no standing.' Congress cannot create standing by statute; plaintiff needs a concrete injury: physical, monetary, or an intangible harm closely related to one traditionally recognized (defamation, privacy invasion). Dissemination of false credit files was concrete; inaccurate but undisclosed internal files, and bare risk of future harm in damages suits, were not.",
+      "aZh": "不能——'没有具体损害，就没有起诉资格'。国会不能靠立法凭空创设资格；原告须有具体损害：人身、金钱损害，或与传统上受认可的损害（诽谤、侵犯隐私）密切类似的无形损害。错误信用档案被对外传播＝具体损害；仅内部存有错误记录、或在赔偿之诉中仅有未来受害风险，都不够。",
+      "explainZh": "考点：国会创设'程序性权利'≠自动有起诉资格，法院要独立审查损害是否具体。区分救济方式：未来风险可支持禁令救济，但通常不支持金钱赔偿。"
+    },
+    {
+      "id": "con003",
+      "type": "basic",
+      "topic": "Justiciability",
+      "topicZh": "可诉性",
+      "q": "When may a litigant assert the constitutional rights of third parties (third-party standing)?",
+      "qZh": "诉讼当事人何时可以主张第三人的宪法权利（第三人起诉资格）？",
+      "a": "The litigant must first have her own injury in fact, then show (1) a close relationship with the right-holder and (2) an obstacle hindering the right-holder from suing — e.g., doctor–patient, vendor–customer (Craig v. Boren). Separately, First Amendment overbreadth doctrine permits facial challenges on behalf of speakers not before the court.",
+      "aZh": "当事人首先必须有自己的事实损害，再证明：（1）与权利人关系密切；（2）权利人自行起诉存在障碍——如医生与患者、卖方与顾客（Craig v. Boren）。另外，第一修正案'过度宽泛'规则允许当事人代未到庭的言论者提起表面违宪之诉。",
+      "explainZh": "两道门：自身损害（宪法要求）＋审慎性规则的例外（密切关系＋起诉障碍）。经典组合：卖啤酒的商家替年轻男性顾客主张平等保护。"
+    },
+    {
+      "id": "con004",
+      "type": "mcq",
+      "topic": "Justiciability",
+      "topicZh": "可诉性",
+      "q": "An association of orchard owners sues to enjoin a state marketing regulation that injures its members. Which showing is NOT required for associational standing?",
+      "qZh": "某果园主协会起诉，请求禁止一项损害其会员利益的州营销法规。下列哪项不是社团起诉资格的要件？",
+      "choices": [
+        "At least one member would have standing to sue individually",
+        "The interests asserted are germane to the organization's purpose",
+        "Neither the claim nor the relief requires participation of individual members",
+        "A majority of the members voted to authorize the lawsuit"
+      ],
+      "answer": 3,
+      "explain": "Hunt requires only the first three showings; no membership vote is needed. An organization also cannot manufacture standing merely by diverting resources to oppose a policy (FDA v. Alliance for Hippocratic Medicine, 2024).",
+      "explainZh": "Hunt三要件：①至少一名会员自己有起诉资格；②所主张利益与组织宗旨相关；③诉求与救济无需会员个人参加。D是干扰项——无需会员表决。另注意：组织不能靠'自己花钱应对政策'制造损害（FDA v. Alliance for Hippocratic Medicine，2024）。"
+    },
+    {
+      "id": "con005",
+      "type": "basic",
+      "topic": "Justiciability",
+      "topicZh": "可诉性",
+      "q": "May a plaintiff sue as a federal taxpayer to challenge government spending?",
+      "qZh": "原告能否以联邦纳税人身份起诉，挑战政府开支？",
+      "a": "Generally no — a taxpayer's stake is too generalized. Narrow Flast exception: challenging congressional spending enacted under the Taxing and Spending Clause as violating the Establishment Clause. It does not reach executive discretionary spending (Hein), property transfers (Valley Forge), or state tax credits (Winn). Challenging one's own tax bill is always permitted.",
+      "aZh": "一般不能——纳税人的利害过于泛化。狭窄的Flast例外：挑战国会依征税与支出条款所作的拨款违反政教分离条款。该例外不适用于行政机关的自由裁量开支（Hein）、财产转让（Valley Forge）或州税收抵免（Winn）。就自己应缴的税款起诉当然可以。",
+      "explainZh": "记忆公式：Flast＝国会＋拨款＋政教分离，三者缺一不可。MBE陷阱选项常把'公民泛化不满'包装成纳税人损害——一律排除。"
+    },
+    {
+      "id": "con006",
+      "type": "cloze",
+      "topic": "Justiciability",
+      "topicZh": "可诉性",
+      "q": "A case that is otherwise moot may still be decided if the injury is {{c::capable of repetition, yet evading review}} — inherently too short in duration to be fully litigated, with a reasonable expectation the same plaintiff will face it again.",
+      "qZh": "案件即便已无现实争议，若损害属于'____'——其持续时间天然过短、来不及诉讼终结，且同一原告有合理可能再次遭遇——法院仍可裁判。",
+      "a": "capable of repetition, yet evading review",
+      "aZh": "可能重复发生、却总能逃避司法审查",
+      "explainZh": "经典例子：孕期、选举周期。另两个失效（mootness）例外：被告自愿停止——须由被告证明'绝无合理可能再犯'（FBI v. Fikre）；集团诉讼中代表人诉求消灭不影响集团整体。"
+    },
+    {
+      "id": "con007",
+      "type": "mcq",
+      "topic": "Justiciability",
+      "topicZh": "可诉性",
+      "q": "A company halts its challenged billing practice right after being sued, expressly reserving the right to resume it. Is the case moot?",
+      "qZh": "某公司被起诉后立即停止被诉的计费做法，但明确保留恢复的权利。案件是否已失效（moot）？",
+      "choices": [
+        "Yes — no ongoing injury remains once the practice stops",
+        "No — not unless the defendant shows it is absolutely clear the practice cannot reasonably be expected to recur",
+        "Yes — the defendant's representation is accepted at face value",
+        "No — cases never become moot once filed"
+      ],
+      "answer": 1,
+      "explain": "Voluntary cessation does not moot a case; the defendant bears a heavy burden of showing recurrence is not reasonably possible (Friends of the Earth v. Laidlaw; FBI v. Fikre, 2024). Otherwise defendants could stop, obtain dismissal, and resume.",
+      "explainZh": "自愿停止规则防止被告'停—撤诉—再犯'的规避策略，举证责任在被告且极重。A、C忽视再犯风险；D说反了——争议确实可能在诉讼中消灭（法律废止、当事人死亡、和解均可致失效）。"
+    },
+    {
+      "id": "con008",
+      "type": "basic",
+      "topic": "Justiciability",
+      "topicZh": "可诉性",
+      "q": "What is the political question doctrine? Give current examples of nonjusticiable versus justiciable issues.",
+      "qZh": "什么是政治问题原则？请举出当前不可审理与可审理事项的例子。",
+      "a": "Courts will not decide issues textually committed to a coordinate branch or lacking judicially manageable standards (Baker v. Carr). Nonjusticiable: partisan gerrymandering (Rucho), impeachment-trial procedures (Nixon v. US), Guarantee Clause claims. Justiciable: racial gerrymandering, one person one vote, state-court election rulings under state constitutions (Moore v. Harper), foreign-affairs statutes (Zivotofsky).",
+      "aZh": "宪法文本明确交由其他分支处理、或缺乏司法上可操作标准的问题，法院不予裁判（Baker v. Carr）。不可审理：党派性选区划分（Rucho）、弹劾审理程序（Nixon v. US）、共和政体保证条款主张。可审理：种族性选区划分、'一人一票'、州法院依州宪审查选举规则（Moore v. Harper）、涉外事务的制定法争议（Zivotofsky）。",
+      "explainZh": "联邦法院也不得出具咨询意见——必须有真实、对抗性的争议。另作预览：起诉州政府还要过第11修正案主权豁免这道门槛（详见'第二修正案与主权豁免'主题）。中国由全国人大常委会解释宪法、无司法违宪审查；美国司法审查虽强，政治问题原则是其自我设限。"
+    },
+    {
+      "id": "con009",
+      "type": "basic",
+      "topic": "State Action",
+      "topicZh": "国家行为",
+      "q": "Under the public function theory, when is a private entity treated as a state actor?",
+      "qZh": "根据公共职能理论，私主体何时被视为国家行为者？",
+      "a": "Only when it exercises powers traditionally AND exclusively reserved to the state — running elections (white-primary cases), governing a company town (Marsh). Not enough: operating utilities (Jackson), schools (Rendell-Baker), shopping centers (Hudgens), warehouse lien sales (Flagg Bros.), or public-access TV channels (Halleck, 2019).",
+      "aZh": "仅当其行使传统上且排他地专属于政府的权力——如主持选举（白人初选案）、管理公司镇（Marsh）。以下都不够：经营公用事业（Jackson）、学校（Rendell-Baker）、购物中心（Hudgens）、仓储留置拍卖（Flagg Bros.）、公共接入电视频道（Halleck，2019）。",
+      "explainZh": "关键是'传统＋排他'两者兼备——教育、供电政府在做，但私人历史上也做，所以不算。宪法权利原则上只约束政府（第13修正案除外）；这与中国语境下'宪法义务主体'不作此区分形成对照。"
+    },
+    {
+      "id": "con010",
+      "type": "cloze",
+      "topic": "State Action",
+      "topicZh": "国家行为",
+      "q": "Private conduct is attributable to the state when the government {{c::coerces, significantly encourages, or is jointly entwined with}} the private action — mere licensing, regulation, or funding is not enough.",
+      "qZh": "当政府____私人行为时，该行为可归属于国家——仅仅发放执照、进行监管或提供资助并不足够。",
+      "a": "coerces, significantly encourages, or is jointly entwined with",
+      "aZh": "强制、显著鼓励该私人行为，或与之共同纠缠（共同参与）",
+      "explainZh": "构成国家行为：法院执行种族限制性契约（Shelley）、公私共生租赁（Burton）、与官员共同扣押财产（Lugar）、体育协会与公立学校深度纠缠（Brentwood）。不构成：发酒牌（Moose Lodge）、高额资助＋严格监管（Rendell-Baker、Blum）。"
+    },
+    {
+      "id": "con011",
+      "type": "mcq",
+      "topic": "State Action",
+      "topicZh": "国家行为",
+      "q": "A private special-needs school, funded almost entirely by the state and heavily regulated, fires a counselor for criticizing school policy. Is the firing state action?",
+      "qZh": "一所几乎全靠州资助、受严格监管的私立特殊教育学校，因辅导员批评校方政策将其解雇。该解雇是否构成国家行为？",
+      "choices": [
+        "No — extensive funding and regulation alone do not convert private employment decisions into state action",
+        "Yes — near-total public funding makes the school a state actor",
+        "Yes — education is a traditional public function",
+        "No — but only because the counselor spoke on a private matter"
+      ],
+      "answer": 0,
+      "explain": "Rendell-Baker v. Kohn is on point: the state neither compelled nor encouraged the discharge, and education is not an exclusively public function. Option D confuses the merits of a speech claim with the threshold state-action requirement.",
+      "explainZh": "资助＋监管≠国家行为，除非政府强制或鼓励了'该具体决定'。B高估资金作用；C错在教育并非政府排他职能；D把言论实体问题与国家行为门槛混为一谈——门槛不过，根本到不了实体审查。"
+    },
+    {
+      "id": "con012",
+      "type": "basic",
+      "topic": "Congressional Powers",
+      "topicZh": "国会权力",
+      "q": "What three categories of activity may Congress regulate under the Commerce Clause?",
+      "qZh": "国会依商业条款可以规制哪三类活动？",
+      "a": "(1) Channels of interstate commerce (highways, waterways, internet); (2) instrumentalities of, and persons and things in, interstate commerce; (3) activities substantially affecting commerce — intrastate economic activity may be aggregated (Wickard; Raich), but non-economic activity may not (Lopez — gun possession near schools; Morrison — gender-motivated violence). A jurisdictional element can save a statute.",
+      "aZh": "（1）州际商业的通道（公路、水道、互联网）；（2）州际商业的工具及其中的人和物；（3）对州际商业有实质性影响的活动——州内经济性活动可累积计算（Wickard；Raich），非经济性活动不可（Lopez——校园附近持枪；Morrison——性别暴力）。法条加入'州际联系'管辖要件可获救。",
+      "explainZh": "第三类是考点：先问活动是否'经济性'——是则可累积、联邦几乎必胜；否则不可累积、联邦多半败诉。美国联邦是列举权力政府，商业条款是最常用立法依据；中国立法权不受此类列举限制。",
+      "mnemonic": "C-I-A: Channels, Instrumentalities, Affecting (substantially)."
+    },
+    {
+      "id": "con013",
+      "type": "basic",
+      "topic": "Congressional Powers",
+      "topicZh": "国会权力",
+      "q": "What did NFIB v. Sebelius hold about compelling commerce and about the taxing power?",
+      "qZh": "NFIB v. Sebelius就'强制进入商业'与征税权分别确立了什么规则？",
+      "a": "Commerce Clause: Congress regulates existing commercial activity; it cannot compel individuals to enter commerce (no mandated insurance purchase) — inactivity is beyond the power, and Necessary and Proper cannot bootstrap it. But the mandate survived as a tax: it raised revenue, was modest, lacked a scienter element, and was IRS-collected; the 'penalty' label was not controlling.",
+      "aZh": "商业条款：国会只能规制已存在的商业活动，不能强迫个人进入商业（不得强制购买保险）——'不作为'超出该权力，必要与适当条款也不能补救。但个人强制令作为'税'被维持：产生财政收入、数额温和、无主观故意要件、由国税局征收；法条上'罚款'的标签不具决定性。",
+      "explainZh": "答题套路：先按商业条款分析（强制交易→越权），再看能否功能性地重定性为税。这是Roberts首席的'一票两面'——考试两头都要写。"
+    },
+    {
+      "id": "con014",
+      "type": "mcq",
+      "topic": "Congressional Powers",
+      "topicZh": "国会权力",
+      "q": "Congress makes it a federal crime to possess a firearm within 1,000 feet of any school. The statute contains no jurisdictional element and no findings. A convicted defendant appeals. Result?",
+      "qZh": "国会立法将在任何学校1000英尺内持有枪支定为联邦犯罪，法条无'州际联系'管辖要件、无立法认定。被定罪的被告上诉，结果如何？",
+      "choices": [
+        "Conviction stands — schools affect the national economy through education",
+        "Conviction stands — guns move in interstate commerce",
+        "Conviction reversed — possession is non-economic intrastate activity whose effects cannot be aggregated",
+        "Conviction reversed — criminal law enforcement is exclusively reserved to the states by the Tenth Amendment"
+      ],
+      "answer": 2,
+      "explain": "United States v. Lopez. The costs-of-crime and national-productivity theories would erase all limits on the commerce power. Option D overstates: the defect is that the statute exceeds the enumerated power, not an affirmative Tenth Amendment bar — a jurisdictional hook would cure it.",
+      "explainZh": "Lopez原题。A是被否决的'万物皆商业'推理；B需要法条写明'曾跨州流通的枪支'这一管辖要件（国会后来正是这样修的法）；D说反了——问题在列举权力不够，不在第10修正案的独立禁止。"
+    },
+    {
+      "id": "con015",
+      "type": "basic",
+      "topic": "Congressional Powers",
+      "topicZh": "国会权力",
+      "q": "When may Congress attach conditions to federal grants to the states (South Dakota v. Dole; NFIB)?",
+      "qZh": "国会何时可以对给州的联邦拨款附加条件（South Dakota v. Dole；NFIB）？",
+      "a": "Spending must be for the general welfare, and conditions must be (1) unambiguous, (2) related to the federal interest in the program, (3) barred by no independent constitutional provision, and (4) not coercive. Dole: withholding 5% of highway funds was permissible pressure. NFIB: threatening all existing Medicaid funds was a 'gun to the head' — unconstitutionally coercive.",
+      "aZh": "支出须为公共福利，条件须：（1）明确无歧义；（2）与该联邦项目的利益相关；（3）不违反其他独立宪法条款；（4）不构成强迫。Dole案：扣留5%公路资金属允许的施压；NFIB案：以取消全部既有医疗补助资金相要挟是'顶在头上的枪'——违宪强迫。",
+      "explainZh": "拨款条件是联邦'花钱买合作'的合法工具，也是反强征原则下的合法替代路径。强迫与否看金额占州预算比重、是否'新项目捆绑旧资金'。",
+      "mnemonic": "Dole: General welfare + Unambiguous + Related + no independent Bar + not Coercive."
+    },
+    {
+      "id": "con016",
+      "type": "cloze",
+      "topic": "Congressional Powers",
+      "topicZh": "国会权力",
+      "q": "Under City of Boerne v. Flores, legislation enforcing the Fourteenth Amendment under §5 must show {{c::congruence and proportionality}} between the constitutional injury to be prevented or remedied and the means adopted.",
+      "qZh": "根据City of Boerne v. Flores，国会依第十四修正案第5款制定的执行立法，必须在所要预防或救济的违宪损害与所采手段之间体现____。",
+      "a": "congruence and proportionality",
+      "aZh": "一致性与相称性",
+      "explainZh": "第5款只授权国会'执行'法院已认定的权利——是救济性、预防性权力，不能重新定义权利内容（这正是RFRA不能适用于州的原因）。第5款立法针对州政府行为，不能规制纯私人行为（Morrison）。"
+    },
+    {
+      "id": "con017",
+      "type": "mcq",
+      "topic": "Congressional Powers",
+      "topicZh": "国会权力",
+      "q": "Which statement about the Necessary and Proper Clause is correct?",
+      "qZh": "关于必要与适当条款，下列哪项陈述正确？",
+      "choices": [
+        "It lets Congress choose any means rationally related and plainly adapted to executing an enumerated power, but it is never a freestanding source of power",
+        "It permits only means that are absolutely indispensable",
+        "It independently empowers Congress to address any genuinely national problem",
+        "It applies only to the commerce power"
+      ],
+      "answer": 0,
+      "explain": "McCulloch v. Maryland: 'necessary' means convenient or useful, not indispensable. On the MBE, an answer resting on the clause standing alone is wrong — it must be paired with another enumerated power.",
+      "explainZh": "记McCulloch名言：目的合法＋手段适当即可，'必要'≠不可或缺（排除B）。选择题铁律：单独以'必要与适当条款'为依据的选项基本是错误答案，它必须挂靠列举权力（征税、商业、战争等），故C、D皆错。"
+    },
+    {
+      "id": "con018",
+      "type": "basic",
+      "topic": "Congressional Powers",
+      "topicZh": "国会权力",
+      "q": "Summarize Congress's war, immigration, and federal property powers.",
+      "qZh": "请概述国会的战争权、移民权与联邦财产权。",
+      "a": "War powers: declare war, raise and support armies — supporting broad economic regulation during and even after hostilities (Woods — postwar rent control) and military courts for service members. Immigration/naturalization: plenary congressional power; aliens have no right of entry, but resident aliens get due process before deportation. Property Clause (Art. IV §3): essentially unlimited power over federal lands and property (Kleppe).",
+      "aZh": "战争权：宣战、招募与供养军队——可支撑战时乃至战后的广泛经济管制（Woods案——战后房租管制），并可为军人设军事法庭。移民与入籍：国会全权；外国人无入境权利，但居留外国人被驱逐前享有正当程序。财产条款（第四条第3款）：对联邦土地与财产的权力几乎不受限制（Kleppe）。",
+      "explainZh": "'全权'（plenary power）领域法院高度尊让——对入境限制仅作合理性式审查（Trump v. Hawaii）。财产条款考点：联邦可直接管制联邦土地上的野马野驴，无需州同意。"
+    },
+    {
+      "id": "con019",
+      "type": "basic",
+      "topic": "Congressional Powers",
+      "topicZh": "国会权力",
+      "q": "When is a federal exaction valid as an exercise of the taxing power?",
+      "qZh": "联邦征收的款项何时可作为征税权的有效行使？",
+      "a": "If it actually raises some revenue and functions as a tax, its regulatory motive is irrelevant (objective test). NFIB indicia: modest amount, no scienter requirement, IRS collection. Limits: indirect taxes must be geographically uniform; direct taxes must be apportioned (rare); no taxes on exports; an exaction so punitive it functions as a penalty needs another enumerated power.",
+      "aZh": "只要确实产生一定财政收入、功能上属于税，其背后的管制动机无关紧要（客观标准）。NFIB的判断标志：数额温和、无主观故意要件、由国税局征收。限制：间接税须全国地理统一；直接税须按州人口分摊（罕见）；不得对出口征税；惩罚性过强而实为罚款的，须另寻列举权力支撑。",
+      "explainZh": "与支出权对照记：征税看'功能上是不是税'，支出看'附加条件是否合规（Dole）'。规制动机不影响税的效力——这一点自Kahriger以来一贯如此。"
+    },
+    {
+      "id": "con020",
+      "type": "basic",
+      "topic": "Federalism Limits",
+      "topicZh": "联邦制限制",
+      "q": "What does the anticommandeering doctrine forbid, and what remains permissible?",
+      "qZh": "反强征原则禁止什么？哪些做法仍被允许？",
+      "a": "Congress may not order state legislatures to enact laws (New York v. United States), conscript state executive officers to administer federal programs (Printz), or prohibit states from legislating (Murphy v. NCAA — sports-betting ban). Permissible: conditional spending, conditional preemption, and generally applicable laws regulating states alongside private actors (Garcia; Reno v. Condon — states as data sellers).",
+      "aZh": "国会不得命令州立法机关立法（New York v. United States）、不得征用州行政官员执行联邦项目（Printz）、也不得禁止州立法（Murphy v. NCAA——体育博彩禁令）。允许：附条件拨款、附条件优先占领，以及把州与私人一体规制的普遍适用性法律（Garcia；Reno v. Condon——州作为数据出售者）。",
+      "explainZh": "美国联邦不能'借用'州政府机器，只能自己执行或用钱、用优先权引导——与中国单一制下地方必须执行中央法律形成鲜明对照。判断题眼：法条是否'只对州政府'发号施令。"
+    },
+    {
+      "id": "con021",
+      "type": "mcq",
+      "topic": "Federalism Limits",
+      "topicZh": "联邦制限制",
+      "q": "A federal statute sets safety standards for medical devices and provides that no state may impose 'any requirement different from, or in addition to' the federal ones. A state jury verdict would impose stricter design duties. Result?",
+      "qZh": "联邦法为医疗器械设定安全标准，并规定各州不得施加'任何不同于或额外于'联邦标准的要求。某州陪审团裁决将课以更严的设计义务，结果如何？",
+      "choices": [
+        "State law survives — health and safety are core police powers protected by a presumption against preemption",
+        "State law is preempted — the express preemption clause controls",
+        "State law survives unless compliance with both is physically impossible",
+        "State law is preempted only if Congress occupied the entire field"
+      ],
+      "answer": 1,
+      "explain": "An express preemption clause governs according to its terms (Riegel). Options C and D describe implied preemption — conflict (impossibility/obstacle) and field — which matter only absent express language; the presumption against preemption cannot defeat clear text.",
+      "explainZh": "先找明示优先条款，有则依文义办事；没有再谈默示优先：领域占领（如移民登记，Arizona v. US）、直接冲突（两法无法同时遵守）、妨碍联邦目的实现。A的'不优先推定'只是解释工具，敌不过明文。"
+    },
+    {
+      "id": "con022",
+      "type": "basic",
+      "topic": "Federalism Limits",
+      "topicZh": "联邦制限制",
+      "q": "How is a state law analyzed under the Dormant Commerce Clause?",
+      "qZh": "州法如何依休眠商业条款进行分析？",
+      "a": "If it discriminates against out-of-state commerce — facially, purposefully, or in practical effect — it is virtually per se invalid unless the state proves a legitimate local purpose achievable by no nondiscriminatory alternative (Maine v. Taylor). If evenhanded, it stands unless the burden on interstate commerce clearly exceeds local benefits (Pike). There is no per se rule against extraterritorial effects (Ross, 2023).",
+      "aZh": "若州法歧视州外商业——无论表面、目的还是实际效果——几乎当然违宪，除非州证明存在合法本地目的且无任何非歧视性替代手段（Maine v. Taylor）。若一视同仁，则除非对州际商业的负担明显超过本地收益（Pike），否则有效。不存在'域外效果'当然违宪的规则（Ross，2023）。",
+      "explainZh": "第一步定性'歧视与否'基本决定胜负——歧视＝州几乎必败（Philadelphia v. New Jersey垃圾案）；中立＝挑战者几乎必败。National Pork Producers v. Ross（2023）维持加州Prop 12猪肉福利法，拒绝把'影响州外价格'当作独立违宪理由。"
+    },
+    {
+      "id": "con023",
+      "type": "cloze",
+      "topic": "Federalism Limits",
+      "topicZh": "联邦制限制",
+      "q": "An evenhanded state law violates the Dormant Commerce Clause only if the burden it imposes on interstate commerce is {{c::clearly excessive in relation to the putative local benefits}} (Pike v. Bruce Church).",
+      "qZh": "一视同仁的州法只有在其对州际商业施加的负担____时，才违反休眠商业条款（Pike v. Bruce Church）。",
+      "a": "clearly excessive in relation to the putative local benefits",
+      "aZh": "与其宣称的本地收益相比明显过度",
+      "explainZh": "Pike衡量明显偏袒州法——'明显过度'门槛很高；历史上能打赢的多是运输类案件（相互冲突的卡车挡泥板、火车长度限制等）。"
+    },
+    {
+      "id": "con024",
+      "type": "basic",
+      "topic": "Federalism Limits",
+      "topicZh": "联邦制限制",
+      "q": "What are the exceptions to the Dormant Commerce Clause?",
+      "qZh": "休眠商业条款有哪些例外？",
+      "a": "(1) Congressional authorization — Congress may permit state discrimination (Prudential); (2) market participant — a state buying or selling may favor its own residents (Reeves; White), though it may not control downstream transactions (South-Central Timber); (3) traditional government function — favoring state or municipal entities is permitted (United Haulers flow-control). Subsidies paid from state funds are generally safe.",
+      "aZh": "（1）国会授权——国会可以允许州歧视（Prudential）；（2）市场参与者——州作为买方或卖方可优待本州居民（Reeves；White），但不得控制下游交易（South-Central Timber）；（3）传统政府职能——优待履行传统公共职能的州或市政实体（United Haulers垃圾流向管制）。以州财政直接补贴本州企业一般安全。",
+      "explainZh": "市场参与者例外只挡休眠商业条款，挡不住第四条特权与豁免条款的攻击（Camden）。国会授权例外说明：休眠商业条款只是国会沉默时的默认规则。",
+      "mnemonic": "C-M-T: Consent (congressional), Market participant, Traditional government function."
+    },
+    {
+      "id": "con025",
+      "type": "mcq",
+      "topic": "Federalism Limits",
+      "topicZh": "联邦制限制",
+      "q": "A state charges residents $25 and nonresidents $2,500 for commercial shrimping licenses. A nonresident fisherman sues. His strongest claim?",
+      "qZh": "某州商业捕虾执照对本州居民收25美元、对外州居民收2500美元。一名外州渔民起诉，其最有力的主张是什么？",
+      "choices": [
+        "Equal protection — alienage discrimination triggering strict scrutiny",
+        "Contracts Clause — the fee impairs his fishing contracts",
+        "Article IV Privileges and Immunities — discrimination against nonresidents pursuing a livelihood without substantial justification",
+        "Fourteenth Amendment Privileges or Immunities — the right to pursue a trade"
+      ],
+      "answer": 2,
+      "explain": "Toomer v. Witsell: earning a livelihood is a protected privilege, so the state must show a substantial reason for the discrimination and a close fit. Option A confuses out-of-state citizens with aliens; the Fourteenth Amendment clause (D) is nearly dead outside Saenz travel rights.",
+      "explainZh": "第四条特权与豁免条款专打'歧视外州公民＋基本权利或生计'的组合，且无市场参与者例外（Camden）。A混淆'外州人'与'外国人'；D的第十四修正案特权或豁免条款自屠宰场案后近乎死亡（仅Saenz迁徙权一度复活）。注意：公司和外国人不能援用第四条P&I，可改用休眠商业条款。"
+    },
+    {
+      "id": "con026",
+      "type": "cloze",
+      "topic": "Separation of Powers",
+      "topicZh": "三权分立",
+      "q": "Under Justice Jackson's Youngstown framework, when the President acts contrary to the express or implied will of Congress, his power is {{c::at its lowest ebb}} — he may rely only on his own constitutional powers minus any congressional power over the matter.",
+      "qZh": "按照Jackson大法官的Youngstown框架，总统违背国会明示或默示意志行事时，其权力处于____——只能依靠自身宪法权力减去国会对该事项的权力。",
+      "a": "at its lowest ebb",
+      "aZh": "最低谷",
+      "explainZh": "三区间：①经国会授权→权力顶峰；②国会沉默→'暮光地带'，看历史实践与情势；③国会反对→最低谷（杜鲁门扣押钢厂败诉即在此区间；Medellín亦用此框架）。答分权论述题先定区间再论证。"
+    },
+    {
+      "id": "con027",
+      "type": "basic",
+      "topic": "Separation of Powers",
+      "topicZh": "三权分立",
+      "q": "Who may appoint principal and inferior officers of the United States?",
+      "qZh": "美国的主要官员与下级官员分别由谁任命？",
+      "a": "Principal officers: the President, with Senate advice and consent. Inferior officers (directed and supervised by principal officers — Edmond): Congress may vest their appointment in the President alone, the courts of law, or heads of departments. Congress may never appoint executive officers itself (Buckley) or reserve removal to itself (Bowsher). Officials exercising significant authority are officers, not employees (Lucia — SEC ALJs).",
+      "aZh": "主要官员：总统提名＋参议院建议与同意。下级官员（受主要官员指挥监督——Edmond）：国会可将任命权授予总统单独行使、法院或部门首长。国会绝不能自己任命行政官员（Buckley），也不能把免职权留给自己（Bowsher）。行使重要职权者是'官员'而非'雇员'（Lucia——SEC行政法官）。",
+      "explainZh": "考点常设在'国会想自己安插或控制人事'——立法机关只能创设职位、设定资格，不能任命或免职（弹劾除外）。官员/雇员之分看是否行使'重要职权'。"
+    },
+    {
+      "id": "con028",
+      "type": "basic",
+      "topic": "Separation of Powers",
+      "topicZh": "三权分立",
+      "q": "When may Congress limit the President's power to remove executive officers?",
+      "qZh": "国会何时可以限制总统对行政官员的免职权？",
+      "a": "Default: the President removes executive officers at will (Myers). Surviving exceptions: for-cause protection for multimember, balanced expert agencies (Humphrey's Executor) and for inferior officers with narrowly defined duties (Morrison). Invalid: for-cause protection for a single director wielding substantial executive power (Seila Law — CFPB; Collins — FHFA) and dual-layer for-cause protection (Free Enterprise Fund).",
+      "aZh": "默认规则：总统可随意免除行政官员职务（Myers）。尚存例外：多委员、党派平衡的专家机构可设'正当理由'免职保护（Humphrey's Executor）；职责狭窄的下级官员亦可（Morrison）。无效：对掌握重大行政权的单一局长设正当理由保护（Seila Law——CFPB；Collins——FHFA）；双层正当理由保护（Free Enterprise Fund）。",
+      "explainZh": "趋势是'统一行政'理论不断收缩Humphrey's Executor——2025年最高法院已以临时命令允许总统先行免除NLRB/MSPB委员（Wilcox案），动向需关注；考试以现行规则作答：单一首长机构的免职限制违宪。"
+    },
+    {
+      "id": "con029",
+      "type": "cloze",
+      "topic": "Separation of Powers",
+      "topicZh": "三权分立",
+      "q": "INS v. Chadha: congressional action that alters the legal rights of persons outside the legislative branch must comply with {{c::bicameralism and presentment}} — so one-house (and two-house) legislative vetoes are unconstitutional.",
+      "qZh": "INS v. Chadha：凡改变立法分支以外主体法律权利的国会行为，都必须遵守____——因此一院（乃至两院）立法否决均违宪。",
+      "a": "bicameralism and presentment",
+      "aZh": "两院通过并向总统提交（签署）的程序",
+      "explainZh": "同理，Clinton v. New York宣告单项否决权（line-item veto）违宪——总统只能整体签署或否决法案。国会想推翻行政行为，只能重新走完整立法程序。"
+    },
+    {
+      "id": "con030",
+      "type": "mcq",
+      "topic": "Separation of Powers",
+      "topicZh": "三权分立",
+      "q": "Congress directs an agency to set air-quality standards 'requisite to protect the public health.' Challengers claim an unconstitutional delegation of legislative power. Result?",
+      "qZh": "国会授权某机构制定'为保护公众健康所必需'的空气质量标准。挑战者主张这是违宪的立法权授予，结果如何？",
+      "choices": [
+        "Invalid — Congress may never delegate rulemaking authority",
+        "Invalid — public-health standards are a major question requiring specific congressional authorization",
+        "Valid only if courts defer to the agency's statutory interpretation under Chevron",
+        "Valid — an intelligible principle guides the agency, a test nearly all delegations pass (Whitman)"
+      ],
+      "answer": 3,
+      "explain": "Whitman v. American Trucking upheld this exact language; only two 1935 statutes have ever failed the intelligible-principle test. The major questions doctrine is an interpretive canon about extraordinary agency claims of power (West Virginia v. EPA), not a delegation bar; Chevron was overruled by Loper Bright and was never the constitutional test.",
+      "explainZh": "'可理解原则'极宽松——1935年以来没有联邦法因违宪授权倒下（2025年FCC v. Consumers' Research再次确认）。B混入'重大问题原则'：那是解释机构授权范围的法门，不是违宪授权标准；C的Chevron尊让已被Loper Bright推翻，且从来不是宪法问题。"
+    },
+    {
+      "id": "con031",
+      "type": "basic",
+      "topic": "Separation of Powers",
+      "topicZh": "三权分立",
+      "q": "What immunity does a former President have from criminal prosecution (Trump v. United States, 2024)?",
+      "qZh": "前总统对刑事追诉享有何种豁免（Trump v. United States，2024）？",
+      "a": "Absolute immunity for exercising core, exclusive constitutional powers (pardons, removal, DOJ prosecutorial decisions); at least presumptive immunity for other official acts within the 'outer perimeter' — rebutted only if prosecution poses no danger to executive functions; no immunity for unofficial acts. Official-act evidence may not be used to prove charges based on unofficial conduct.",
+      "aZh": "行使核心专属宪法权力（赦免、免职、司法部追诉决定）——绝对豁免；其他处于'外围边界'内的公务行为——至少推定豁免，仅当追诉对行政职能毫无威胁时方可推翻；非公务（私人）行为——无豁免。公务行为的证据不得用于证明基于私人行为的指控。",
+      "explainZh": "民事对照：公务行为享绝对民事豁免（Nixon v. Fitzgerald）；就任前的私人行为无豁免、诉讼也不必等卸任（Clinton v. Jones）。豁免≠免于作证或提供证据——总统仍须遵守刑事传票（US v. Nixon；Vance）。"
+    },
+    {
+      "id": "con032",
+      "type": "mcq",
+      "topic": "Separation of Powers",
+      "topicZh": "三权分立",
+      "q": "A federal criminal trial subpoenas the President's recorded conversations with aides. The President asserts executive privilege. Under United States v. Nixon—",
+      "qZh": "联邦刑事审判传唤总统与幕僚的谈话录音，总统主张行政特权。根据United States v. Nixon——",
+      "choices": [
+        "The privilege is qualified and must yield to a demonstrated, specific need for evidence in a pending criminal trial",
+        "The privilege is absolute for all confidential presidential communications",
+        "No privilege exists because the Constitution does not mention it",
+        "The privilege protects only military and diplomatic secrets, which courts may never review"
+      ],
+      "answer": 0,
+      "explain": "Executive privilege is constitutionally rooted in Article II but presumptive, not absolute: a generalized confidentiality interest yields to specific evidentiary needs in a criminal trial. Military and diplomatic secrets get the strongest protection, but option D's 'only' and 'never' overstate it.",
+      "explainZh": "行政特权源于三权分立，属'推定特权'：泛泛的保密利益让位于刑事审判的具体证据需求。延伸：州刑事大陪审团传票同样可及总统、无需更高门槛（Vance）；国会传票适用Mazars平衡因素。B、C各走极端。"
+    },
+    {
+      "id": "con033",
+      "type": "basic",
+      "topic": "Separation of Powers",
+      "topicZh": "三权分立",
+      "q": "State the core rules for pardons, impeachment, and treaties versus executive agreements.",
+      "qZh": "请陈述赦免、弹劾以及条约与行政协定的核心规则。",
+      "a": "Pardons: federal offenses only — not state crimes, impeachment, or civil contempt; Congress cannot restrict the power. Impeachment: House majority to impeach; Senate two-thirds to convict; grounds are treason, bribery, high crimes and misdemeanors. Treaties: two-thirds Senate ratification; rank equal to federal statutes — last in time prevails. Executive agreements: no Senate role; override state law but never conflicting federal statutes.",
+      "aZh": "赦免：仅限联邦罪行——不及州罪、弹劾或民事藐视；国会不得限制该权力。弹劾：众议院过半数提出；参议院三分之二定罪；事由为叛国、受贿、重罪与轻罪。条约：参议院三分之二批准；效力与联邦制定法同级——后法优先。行政协定：无需参议院；高于州法，但不能对抗相抵触的联邦制定法。",
+      "explainZh": "条约与行政协定都不得违宪（Reid v. Covert）；非自动执行条约须国会立法才能国内适用（Medellín）。位阶顺序要背：宪法＞条约＝联邦法（后法优先）＞行政协定＞州法——中国由全国人大常委会决定批准条约，无此位阶考法。"
+    },
+    {
+      "id": "con034",
+      "type": "basic",
+      "topic": "Procedural Due Process",
+      "topicZh": "程序性正当程序",
+      "q": "When does procedural due process apply, and what counts as protected 'property' and 'liberty'?",
+      "qZh": "程序性正当程序何时适用？受保护的'财产'与'自由'指什么？",
+      "a": "It applies to intentional government deprivations of life, liberty, or property — negligence is not a deprivation (Daniels). Property: a legitimate claim of entitlement created by existing law or mutual understanding (Roth; Sindermann) — tenure, continuing benefits, licenses; not at-will jobs or unilateral hopes. Liberty: freedom from restraint or confinement, plus 'stigma-plus' — reputational harm coupled with a tangible change in legal status.",
+      "aZh": "适用于政府故意剥夺生命、自由或财产——过失不构成剥夺（Daniels）。财产：由现行法律或双方共识创设的正当权益期待（Roth；Sindermann）——终身教职、持续性福利、执照；不含随时可解雇的职位或单方期望。自由：免于人身约束或监禁，以及'污名＋'——名誉损害须叠加法律地位的实际改变。",
+      "explainZh": "先找'权益'（entitlement），没有权益就没有程序问题——美国法把程序保护挂在实体权益之上。仅名誉受损不够（Paul v. Davis），要'污名＋解雇'之类的组合。"
+    },
+    {
+      "id": "con035",
+      "type": "cloze",
+      "topic": "Procedural Due Process",
+      "topicZh": "程序性正当程序",
+      "q": "To decide what process is due, courts balance (1) the private interest affected, (2) {{c::the risk of erroneous deprivation under current procedures and the probable value of additional safeguards}}, and (3) the government's interest, including fiscal and administrative burdens (Mathews v. Eldridge).",
+      "qZh": "在确定应给予何种程序时，法院权衡：（1）受影响的私人利益；（2）____；（3）政府利益，包括财政与行政负担（Mathews v. Eldridge）。",
+      "a": "the risk of erroneous deprivation under current procedures and the probable value of additional safeguards",
+      "aZh": "现行程序导致错误剥夺的风险，以及增设程序保障可能带来的价值",
+      "explainZh": "Mathews三因素是程序性正当程序的万能公式：私人利益越重大、出错风险越高，要求的听证就越早、越正式。紧急情形（吊销危险驾照、查扣问题食品、银行挤兑）可'先行动、后听证'。",
+      "mnemonic": "P-I-G: Private interest, Increased accuracy, Government burden."
+    },
+    {
+      "id": "con036",
+      "type": "mcq",
+      "topic": "Procedural Due Process",
+      "topicZh": "程序性正当程序",
+      "q": "A tenured city employee is fired for alleged theft with no chance to respond beforehand, but is offered a full post-termination hearing. Due process?",
+      "qZh": "一名有编制的市政雇员因涉嫌盗窃被解雇，事前没有任何申辩机会，但事后可获完整听证。是否符合正当程序？",
+      "choices": [
+        "Satisfied — a full hearing after termination is always sufficient in employment",
+        "Violated — she was entitled to pretermination notice and an opportunity to respond (Loudermill)",
+        "Satisfied — tenure creates no property interest",
+        "Violated — a full evidentiary trial was required before any discharge"
+      ],
+      "answer": 1,
+      "explain": "With a property interest in continued employment, due process requires pre-discharge notice, an explanation of the evidence, and a chance to respond — a mini-hearing, not a trial (rejecting option D) — plus fuller post-termination process. Compare Goldberg (welfare: full pre-termination evidentiary hearing) and Mathews (disability: post-termination suffices).",
+      "explainZh": "记三档：福利救济金＝终止前证据听证（Goldberg，生存利益）；伤残津贴＝终止后听证即可（Mathews，有其他收入＋医学证据客观）；有编制公职＝终止前'通知＋申辩'简式程序＋终止后完整程序（Loudermill）。C错在编制恰恰创设财产权益；D把简式听证夸大成审判。"
+    },
+    {
+      "id": "con037",
+      "type": "basic",
+      "topic": "Procedural Due Process",
+      "topicZh": "程序性正当程序",
+      "q": "Summarize what process is due in recurring contexts.",
+      "qZh": "请概述常见情形下应给予的程序。",
+      "a": "Welfare termination: prior evidentiary hearing (Goldberg). Disability benefits: post-termination review suffices (Mathews). School suspension up to 10 days: informal notice and chance to explain (Goss). Prisoners: hearing only for atypical, significant hardships (Sandin). Parental-rights termination: clear and convincing evidence (Santosky). Licenses: pre-revocation hearing absent emergency. Grossly excessive punitive damages violate due process (State Farm).",
+      "aZh": "终止福利救济：事前证据听证（Goldberg）。伤残津贴：事后复核即可（Mathews）。停学10天以内：非正式告知＋申辩机会（Goss）。囚犯：仅'非典型且重大困苦'才需听证（Sandin）。剥夺亲权：须'清晰且有说服力'的证据（Santosky）。执照：除紧急情形外吊销前听证。惩罚性赔偿严重过度即违反正当程序（State Farm）。",
+      "explainZh": "考试给场景就对号入座。惩罚性赔偿经验法则：超过补偿性赔偿约10倍（两位数倍数）基本违宪。紧急剥夺可后置听证，但必须事后及时提供。"
+    },
+    {
+      "id": "con038",
+      "type": "basic",
+      "topic": "Substantive Due Process & Privacy",
+      "topicZh": "实体性正当程序",
+      "q": "Outline the substantive due process framework.",
+      "qZh": "请概述实体性正当程序的分析框架。",
+      "a": "Government infringement of a fundamental right must survive strict scrutiny — narrowly tailored to a compelling interest, burden on the government. All other liberty and economic regulation gets rational basis review — rationally related to a legitimate purpose, burden on the challenger, virtually always upheld. Fundamental rights are those deeply rooted in the Nation's history and tradition (Glucksberg; Dobbs).",
+      "aZh": "政府侵犯基本权利须经受严格审查——手段须为达成迫切利益而严密剪裁，举证责任在政府。其他自由与经济规制只受合理性审查——与合法目的有合理关联即可，举证责任在挑战者，几乎一律有效。基本权利指深深植根于本国历史与传统的权利（Glucksberg；Dobbs）。",
+      "explainZh": "经济性实体正当程序自1937年后已死（Lochner时代终结）——经济管制一律合理性审查。实体vs程序之分：实体问'政府究竟能不能这么做'，程序问'做之前要走什么流程'。"
+    },
+    {
+      "id": "con039",
+      "type": "cloze",
+      "topic": "Substantive Due Process & Privacy",
+      "topicZh": "实体性正当程序",
+      "q": "A liberty interest qualifies as fundamental only if it is {{c::deeply rooted in this Nation's history and tradition and implicit in the concept of ordered liberty}} (Washington v. Glucksberg, applied in Dobbs).",
+      "qZh": "某项自由利益只有在____时，才构成基本权利（Washington v. Glucksberg，Dobbs案予以适用）。",
+      "a": "deeply rooted in this Nation's history and tradition and implicit in the concept of ordered liberty",
+      "aZh": "深深植根于本国历史与传统、并内含于'有序自由'概念之中",
+      "explainZh": "Glucksberg两步法：①精确（狭义）界定所主张的权利——界定越具体越难赢；②考察历史与传统。Dobbs正是用它认定堕胎非基本权利。主张新权利的一方必须过'历史'这一关——当前最重要的方法论考点。"
+    },
+    {
+      "id": "con040",
+      "type": "basic",
+      "topic": "Substantive Due Process & Privacy",
+      "topicZh": "实体性正当程序",
+      "q": "What is the constitutional status of abortion after Dobbs v. Jackson Women's Health (2022)?",
+      "qZh": "Dobbs v. Jackson Women's Health（2022）之后，堕胎的宪法地位如何？",
+      "a": "There is no federal constitutional right to abortion; Roe and Casey are overruled and the undue-burden test is gone. Regulation returns to the people: abortion laws receive rational basis review and stand if rationally related to legitimate interests such as protecting prenatal life and maternal health. States may prohibit or protect abortion as they choose.",
+      "aZh": "联邦宪法不再保护堕胎权；Roe与Casey被推翻，'不当负担'标准废除。规制权回归人民：堕胎立法只受合理性审查，只要与保护胎儿生命、孕产妇健康等合法利益有合理关联即有效。各州可自行选择禁止或保障堕胎。",
+      "explainZh": "陷阱：旧真题里的'孕体外存活前不得禁止''不当负担'等标准全部过时——见到即排除。多数意见明言避孕、婚姻等相关先例不受影响（Thomas协同意见虽主张重审，考试按多数意见作答）。"
+    },
+    {
+      "id": "con041",
+      "type": "mcq",
+      "topic": "Substantive Due Process & Privacy",
+      "topicZh": "实体性正当程序",
+      "q": "Which law would most likely trigger heightened (strict) scrutiny today?",
+      "qZh": "下列哪部法律在今天最可能触发更高（严格）审查？",
+      "choices": [
+        "A ban on abortion after six weeks of pregnancy",
+        "A one-year residency requirement before filing for divorce",
+        "A housing ordinance defining 'family' so narrowly that a grandmother may not live with her two grandsons",
+        "A zoning rule barring more than two unrelated persons from sharing a house"
+      ],
+      "answer": 2,
+      "explain": "Moore v. City of East Cleveland protects extended-family living arrangements as fundamental. Abortion gets rational basis after Dobbs; Sosna upheld divorce residency requirements; Belle Terre upheld limits on unrelated households.",
+      "explainZh": "家庭同居权保护'血亲大家庭'（Moore），不保护无血缘合租（Belle Terre）——血缘一字之差定生死。A是Dobbs后的合理性审查；B是Sosna维持的合理等待期（保护离婚判决的既判力）。"
+    },
+    {
+      "id": "con042",
+      "type": "basic",
+      "topic": "Substantive Due Process & Privacy",
+      "topicZh": "实体性正当程序",
+      "q": "Which privacy and family rights remain fundamental after Dobbs?",
+      "qZh": "Dobbs之后，哪些隐私与家庭权利仍是基本权利？",
+      "a": "Marriage, including interracial and same-sex (Loving; Obergefell); contraception (Griswold; Eisenstadt); procreation (Skinner); extended-family living arrangements (Moore); parents' care, custody, and control of their children's upbringing and education (Troxel; Pierce; Meyer); private consensual adult intimacy (Lawrence). The Dobbs majority expressly disclaimed casting doubt on these non-abortion precedents.",
+      "aZh": "婚姻，包括跨种族与同性婚姻（Loving；Obergefell）；避孕（Griswold；Eisenstadt）；生育（Skinner）；大家庭共同居住（Moore）；父母对子女抚养、监护与教育的控制（Troxel；Pierce；Meyer）；成年人自愿的私密行为（Lawrence）。Dobbs多数意见明确表示不动摇这些非堕胎先例。",
+      "explainZh": "父母权利考点：法院须对'适格父母'的决定给予特别分量（Troxel——祖父母探视令案），但父母权不阻却义务教育、疫苗等一般规制。Lawrence未标明审查等级——答'受实体正当程序保护'即可。"
+    },
+    {
+      "id": "con043",
+      "type": "cloze",
+      "topic": "Substantive Due Process & Privacy",
+      "topicZh": "实体性正当程序",
+      "q": "Durational residency requirements that penalize new residents' access to vital benefits are subject to {{c::strict scrutiny}} under the fundamental right to interstate travel (Shapiro; Saenz — Privileges or Immunities of the Fourteenth Amendment).",
+      "qZh": "惩罚新居民获取重要福利的居住时长要求，依州际迁徙这一基本权利须接受____（Shapiro；Saenz——第十四修正案特权或豁免条款）。",
+      "a": "strict scrutiny",
+      "aZh": "严格审查",
+      "explainZh": "迁徙权三项内容：自由进出各州、作为访客受平等对待、迁入后即成平等公民。有效的例外：真实居民身份要求、离婚一年等待期（Sosna）、州立大学学费的合理居住期。国际旅行只受合理性审查。"
+    },
+    {
+      "id": "con044",
+      "type": "basic",
+      "topic": "Substantive Due Process & Privacy",
+      "topicZh": "实体性正当程序",
+      "q": "How, and which, Bill of Rights guarantees apply to the states?",
+      "qZh": "权利法案如何、以及哪些条款适用于各州？",
+      "a": "Through Fourteenth Amendment due process, rights fundamental to ordered liberty are selectively incorporated — now nearly all, including the Second Amendment (McDonald), the Excessive Fines Clause (Timbs, 2019), and the unanimous-jury requirement (Ramos). Still unincorporated: Fifth Amendment grand jury indictment and Seventh Amendment civil jury. Incorporated rights bind states exactly as they bind the federal government.",
+      "aZh": "经由第十四修正案正当程序条款，对'有序自由'具有根本意义的权利被选择性并入——如今几乎全部并入，包括第二修正案（McDonald）、过度罚金条款（Timbs，2019）与陪审团一致裁决要求（Ramos）。仍未并入：第五修正案大陪审团起诉、第七修正案民事陪审团。已并入的权利对州与对联邦的约束完全相同。",
+      "explainZh": "MBE陷阱：题干说'州检察官未经大陪审团起诉'——不违联邦宪法，因为该条款未并入。Timbs与McDonald是近年新并入的两条，常考。"
+    },
+    {
+      "id": "con045",
+      "type": "basic",
+      "topic": "Equal Protection",
+      "topicZh": "平等保护",
+      "q": "State the three equal protection tiers, their tests, and who bears the burden.",
+      "qZh": "请陈述平等保护的三级审查、各自标准及举证责任。",
+      "a": "Strict — race, national origin, state alienage classifications, and burdens on fundamental rights: government must prove narrow tailoring to a compelling interest. Intermediate — sex and nonmarital parentage: government must prove substantial relation to an important interest; for sex, an exceedingly persuasive justification. Rational basis — everything else: challenger must negate any conceivable rational relation to a legitimate purpose.",
+      "aZh": "严格审查——种族、民族出身、州对外国人身份的分类，以及对基本权利的负担：政府须证明手段为达成迫切利益而严密剪裁。中间审查——性别与非婚生身份：政府须证明与重要利益实质相关；性别分类还须'极具说服力的理由'。合理性审查——其余一切：挑战者须排除与任何可想见合法目的的合理关联。",
+      "explainZh": "举证责任跟着审查等级走：严格/中间在政府，合理性在挑战者——选择题常靠这一点排除。还要看'谁的法律'：联邦歧视用第五修正案正当程序（反向并入，Bolling），州用第十四修正案平等保护。"
+    },
+    {
+      "id": "con046",
+      "type": "basic",
+      "topic": "Equal Protection",
+      "topicZh": "平等保护",
+      "q": "Is discriminatory impact alone enough to trigger heightened equal protection scrutiny?",
+      "qZh": "仅有歧视性效果能否触发更高等级的平等保护审查？",
+      "a": "No. A facially neutral law needs proof of discriminatory purpose plus disparate impact (Washington v. Davis) — action taken 'because of,' not merely 'in spite of,' its effects (Feeney). Purpose may be inferred from stark impact, historical background, procedural and substantive departures, and legislative history (Arlington Heights). Discriminatory administration also qualifies (Yick Wo). Impact alone: rational basis.",
+      "aZh": "不能。表面中立的法律须证明歧视目的＋差别影响（Washington v. Davis）——即'因为'而非'尽管'存在该效果而行动（Feeney）。目的可从悬殊影响、历史背景、程序与实体上的异常、立法史推断（Arlington Heights）。歧视性执行同样构成（Yick Wo）。仅有差别影响：合理性审查。",
+      "explainZh": "平等保护最大陷阱：统计差异再悬殊，无歧视目的即无高等级审查。Yick Wo是1886年华人洗衣店案——表面中立的执照制度被专门用来打击华人，构成违宪的歧视性执行，对中国律师有历史亲切感。"
+    },
+    {
+      "id": "con047",
+      "type": "mcq",
+      "topic": "Equal Protection",
+      "topicZh": "平等保护",
+      "q": "After Students for Fair Admissions v. Harvard (2023), which university admissions practice remains permissible?",
+      "qZh": "Students for Fair Admissions v. Harvard（2023）之后，大学招生中哪种做法仍被允许？",
+      "choices": [
+        "Awarding a uniform admissions bonus to underrepresented racial groups",
+        "Race-based quotas justified by the educational benefits of diversity",
+        "Using race as a contextual plus factor to pursue a critical mass of minority students",
+        "Considering an applicant's essay about how race affected her life, tied to her individual character or abilities"
+      ],
+      "answer": 3,
+      "explain": "SFFA held race-conscious admissions fail strict scrutiny: the diversity interests were unmeasurable, race was used as a negative and a stereotype, and the programs lacked an endpoint — effectively abandoning Grutter. Universities may still weigh an applicant's own experience of race as evidence of individual qualities.",
+      "explainZh": "SFFA终结大学招生的种族优待：A是Gratz早已禁止的机械加分；B是Bakke禁止的配额；C是被SFFA实质推翻的Grutter'临界规模'路径。仅存'个体经历'窗口——种族只能作为个人品格的证据，不能因身份本身加分；军校问题被明确留待日后。",
+      "caNote": "California banned racial preferences in public education, employment, and contracting back in 1996 (Prop 209, Cal. Const. art. I, §31) — stricter than federal law even before SFFA.",
+      "caNoteZh": "加州早在1996年即通过209号提案（加州宪法第一条第31款），禁止公立教育、就业与政府合同中的种族优待——在SFFA之前就比联邦法更严格。"
+    },
+    {
+      "id": "con048",
+      "type": "basic",
+      "topic": "Equal Protection",
+      "topicZh": "平等保护",
+      "q": "When does the use of race in districting or school assignment violate equal protection?",
+      "qZh": "在选区划分或学校学生分配中使用种族，何时违反平等保护？",
+      "a": "Districting: strict scrutiny when race was the predominant factor subordinating traditional districting principles (Shaw; Miller); complying with the Voting Rights Act can justify majority-minority districts (Allen v. Milligan, 2023). Schools: de jure segregation is unconstitutional (Brown) and judicially remediable; de facto imbalance is not, and voluntary racial-balancing assignment plans were struck down (Parents Involved).",
+      "aZh": "选区划分：当种族是压倒传统划界原则的主导因素时适用严格审查（Shaw；Miller）；为遵守《投票权法》而划设少数族裔多数选区可获正当化（Allen v. Milligan，2023）。学校：法律上的种族隔离违宪（Brown）且可由法院救济；事实上的失衡不违宪，自愿的种族配额分配方案也被否决（Parents Involved）。",
+      "explainZh": "区分三种案型：党派性划界＝政治问题、联邦法院不审（Rucho）；种族性划界＝严格审查；《投票权法》第2条本身合宪。学校案件的胜负手是de jure（法律上）与de facto（事实上）之分。"
+    },
+    {
+      "id": "con049",
+      "type": "basic",
+      "topic": "Equal Protection",
+      "topicZh": "平等保护",
+      "q": "What scrutiny applies to alienage classifications?",
+      "qZh": "针对外国人身份的分类适用何种审查？",
+      "a": "State and local discrimination against lawful resident aliens: strict scrutiny (Graham — welfare), except the political-function exception — rational basis for roles bound up with self-government: voting, juries, police (Foley), public-school teachers (Ambach), probation officers (Cabell). Federal alienage rules: highly deferential review (plenary power). Undocumented status is not suspect, but excluding undocumented children from free public schooling failed even rational review (Plyler).",
+      "aZh": "州和地方歧视合法居留外国人：严格审查（Graham——福利案）；例外是'政治职能'——与自治密切相关的职位适用合理性审查：投票、陪审、警察（Foley）、公立学校教师（Ambach）、缓刑官（Cabell）。联邦的外国人规则：高度尊让审查（全权原则）。无证身份不是可疑分类，但将无证儿童排除出免费公立教育连合理性审查都未通过（Plyler）。",
+      "explainZh": "口诀：州管外国人→严格；联邦管外国人→放行；涉'政治共同体'职位→州也放行。Plyler是'有牙齿的合理性审查'代表——身份非儿童本人过错＋剥夺教育代价终身。"
+    },
+    {
+      "id": "con050",
+      "type": "cloze",
+      "topic": "Equal Protection",
+      "topicZh": "平等保护",
+      "q": "Sex classifications are unconstitutional unless the government shows an {{c::exceedingly persuasive justification}} — the classification must be substantially related to important governmental objectives, not overbroad generalizations about the sexes (United States v. Virginia).",
+      "qZh": "性别分类除非政府证明存在____，否则违宪——该分类须与重要政府目标实质相关，不得依赖对两性的过度概括（United States v. Virginia——弗吉尼亚军校案）。",
+      "a": "exceedingly persuasive justification",
+      "aZh": "极具说服力的理由",
+      "explainZh": "真实生理差异可以正当考虑（如法定强奸、仅男性征兵登记Rostker），性别刻板印象不行（VMI案'女性不适合军校教育'）。新动向：US v. Skrmetti（2025）认定限制未成年人性别转换医疗的州法按年龄与医疗用途分类、非性别分类→仅合理性审查。"
+    },
+    {
+      "id": "con051",
+      "type": "cloze",
+      "topic": "Equal Protection",
+      "topicZh": "平等保护",
+      "q": "Classifications disadvantaging nonmarital (illegitimate) children receive {{c::intermediate scrutiny}}, while age, wealth, and disability classifications receive only rational basis review.",
+      "qZh": "不利于非婚生子女的分类适用____，而年龄、贫富与残障分类只适用合理性审查。",
+      "a": "intermediate scrutiny",
+      "aZh": "中间审查",
+      "explainZh": "非婚生子女（Clark v. Jeter明确中间审查）：为'惩罚私生'而设的全面排除必败；合理的亲子关系证明程序（如继承须生前确认生父）可以过关。残障虽只受合理性审查，但基于偏见与无端恐惧的区别对待仍会被推翻（Cleburne）。"
+    },
+    {
+      "id": "con052",
+      "type": "mcq",
+      "topic": "Equal Protection",
+      "topicZh": "平等保护",
+      "q": "A state constitutional amendment bars every level of government from enacting any protection for gay and lesbian persons. Under equal protection—",
+      "qZh": "某州宪法修正案禁止各级政府制定任何保护同性恋者的法律。依平等保护条款——",
+      "choices": [
+        "Invalid — a bare desire to harm a politically unpopular group is not a legitimate state interest (Romer)",
+        "Valid — sexual-orientation classifications get rational basis, and any conceivable purpose suffices",
+        "Invalid — sexual orientation is a suspect classification triggering strict scrutiny",
+        "Valid — states have plenary power to structure their own lawmaking processes"
+      ],
+      "answer": 0,
+      "explain": "Romer v. Evans struck Colorado's Amendment 2 under rational basis: its sheer breadth, divorced from any legitimate purpose, bespoke animus. The Court has never declared sexual orientation a suspect class; options B and D ignore that even rational basis requires a legitimate — not animus-driven — purpose.",
+      "explainZh": "'有牙齿的合理性审查'三部曲：Moreno（嬉皮士食品券）、Cleburne（智障者之家）、Romer——共同点是立法动机为赤裸敌意。B说对等级、说错结论：恶意目的连合理性审查也过不了；C无此判例——Obergefell走的是婚姻基本权＋平等保护交织路径，并未宣布性取向为可疑分类。"
+    },
+    {
+      "id": "con053",
+      "type": "basic",
+      "topic": "Equal Protection",
+      "topicZh": "平等保护",
+      "q": "What is the fundamental-rights strand of equal protection?",
+      "qZh": "平等保护中的'基本权利分支'是什么？",
+      "a": "Unequal distribution of fundamental rights triggers strict scrutiny: voting — poll taxes invalid (Harper), one person one vote (Reynolds), selective franchises struck (Kramer); ballot access — only reasonable, nondiscriminatory requirements allowed; court access for indigents — free transcripts and counsel on first criminal appeal (Griffin; Douglas), fee waivers for divorce and parental-termination appeals (Boddie; M.L.B.). Education is not a fundamental right (Rodriguez).",
+      "aZh": "基本权利的不平等分配触发严格审查：投票——人头税违宪（Harper）、一人一票（Reynolds）、选择性给予选举权被否（Kramer）；参选资格——只允许合理且非歧视的要求；穷人诉诸法院——刑事初次上诉免费笔录与律师（Griffin；Douglas）、离婚与剥夺亲权上诉免收费用（Boddie；M.L.B.）。教育不是基本权利（Rodriguez）。",
+      "explainZh": "同一部法律，走'平等保护＋基本权利'与走'实体正当程序'往往可互换——考试选提供该分析的选项即可。费用豁免只及'根本利益'（婚姻、亲权、刑事），破产、普通民事上诉不豁免（Kras）。"
+    },
+    {
+      "id": "con054",
+      "type": "basic",
+      "topic": "Takings & Contracts Clause",
+      "topicZh": "征收与合同条款",
+      "q": "Which government actions are per se takings?",
+      "qZh": "哪些政府行为构成'当然征收'？",
+      "a": "(1) Permanent physical occupation authorized by government, however trivial (Loretto — cable box); (2) regulation destroying all economically beneficial use (Lucas), unless background principles of property or nuisance law already prohibited the use; (3) mandated physical invasion or access rights (Cedar Point — union organizers' access to farms). Just compensation equals fair market value at the time of the taking.",
+      "aZh": "（1）政府授权的永久性物理占据，无论多么轻微（Loretto——有线电视盒）；（2）剥夺全部经济有益用途的管制（Lucas），除非物权法或妨害法的既有原则本就禁止该用途；（3）强制的物理侵入或准入权（Cedar Point——工会组织者进入农场）。公正补偿＝征收时的公平市场价值。",
+      "explainZh": "Lucas的'全部'是百分之百——哪怕剩5%价值也转入Penn Central衡量。动产同样受征收条款保护（Horne——葡萄干征缴案）。补偿以所有权人的损失计，不看政府得益。"
+    },
+    {
+      "id": "con055",
+      "type": "basic",
+      "topic": "Takings & Contracts Clause",
+      "topicZh": "征收与合同条款",
+      "q": "How are partial regulatory takings analyzed under Penn Central?",
+      "qZh": "部分性管制征收如何依Penn Central分析？",
+      "a": "Ad hoc balancing of (1) the regulation's economic impact on the claimant; (2) its interference with distinct, reasonable investment-backed expectations; and (3) the character of the government action — physical invasion versus a public program adjusting benefits and burdens. Mere diminution in value or loss of the most profitable use is not a taking; temporary development moratoria are judged the same way (Tahoe-Sierra).",
+      "aZh": "个案权衡：（1）管制对主张人的经济影响；（2）对明确、合理的投资预期的干扰程度；（3）政府行为的性质——是物理侵入，还是调整社会负担与收益的公共项目。单纯贬值或丧失最有利可图的用途不构成征收；临时开发冻结同样按此衡量（Tahoe-Sierra）。",
+      "explainZh": "Penn Central（纽约中央车站上盖案）是兜底测试——过不了Loretto/Lucas的都进这里，而业主在此几乎总输。取得产权时管制已存在≠自动败诉（Palazzolo）。"
+    },
+    {
+      "id": "con056",
+      "type": "mcq",
+      "topic": "Takings & Contracts Clause",
+      "topicZh": "征收与合同条款",
+      "q": "A county grants building permits only if owners pay a traffic-impact fee set by a legislatively adopted schedule. A homeowner claims an unconstitutional exaction. What must the county show?",
+      "qZh": "某县规定：业主须按立法通过的收费表缴纳交通影响费方可获建筑许可。一名业主主张这是违宪的'附条件征收'。县政府须证明什么？",
+      "choices": [
+        "Nothing — legislatively imposed fees are exempt from takings scrutiny",
+        "An essential nexus and rough proportionality between the condition and the development's impacts (Nollan/Dolan), which apply to legislative exactions too (Sheetz, 2024)",
+        "Only a rational basis, because money is not property for takings purposes",
+        "That the fee stays under a fixed percentage of the project's value"
+      ],
+      "answer": 1,
+      "explain": "Sheetz v. County of El Dorado (2024) held the Takings Clause draws no distinction between legislative and administrative permit conditions; Koontz had already extended Nollan/Dolan to monetary exactions and permit denials. Option C contradicts Koontz; option A was Sheetz's rejected premise.",
+      "explainZh": "土地开发'要挟式许可条件'规则：政府以要地/要钱换许可，必须证明'实质关联'（条件与开发造成的公共问题同类，Nollan）＋'大致相称'（程度上个案匹配，Dolan）。Sheetz（2024）补上最后缺口：立法定的收费表也逃不掉这套审查。"
+    },
+    {
+      "id": "con057",
+      "type": "cloze",
+      "topic": "Takings & Contracts Clause",
+      "topicZh": "征收与合同条款",
+      "q": "A taking satisfies the Public Use Clause if it is {{c::rationally related to a conceivable public purpose}} — including economic development with resale to private developers (Kelo v. City of New London).",
+      "qZh": "征收只要____即满足'公共使用'条款——包括伴随转售给私人开发商的经济开发（Kelo v. City of New London）。",
+      "a": "rationally related to a conceivable public purpose",
+      "aZh": "与可想见的公共目的有合理关联",
+      "explainZh": "联邦标准极宽：消除产权集中（Midkiff）、城市更新（Berman）、经济开发（Kelo）都行；Kelo后许多州立法自我设限，但考试考联邦底线。可与中国征收法目录式'公共利益'对照：美国联邦几乎不设实体限制，主战场在'公正补偿'。"
+    },
+    {
+      "id": "con058",
+      "type": "basic",
+      "topic": "Takings & Contracts Clause",
+      "topicZh": "征收与合同条款",
+      "q": "When does a state law violate the Contracts Clause?",
+      "qZh": "州法何时违反合同条款？",
+      "a": "Only state legislation retroactively impairing existing contracts is covered. Test (Sveen; Energy Reserves): does the law substantially impair a contractual relationship? If so, is it an appropriate and reasonable means to a significant and legitimate public purpose? Courts defer to the legislature — except heightened scrutiny when the state impairs its own contracts (U.S. Trust). Federal impairment is tested under Fifth Amendment due process instead.",
+      "aZh": "只有溯及既往地损害既存合同的州立法才受该条款约束。标准（Sveen；Energy Reserves）：是否实质性损害合同关系？若是，该法是否为达成重大且合法公共目的的适当、合理手段？法院通常尊让立法机关——但州损害'自己签订'的合同时审查从严（U.S. Trust）。联邦立法的损害改用第五修正案正当程序（合理性）审查。",
+      "explainZh": "大萧条时期的房贷延付令都能过关（Blaisdell）——可见门槛之低；真正会输的是州赖自己的债。辨析：只管'既存'合同，规制未来合同悉听尊便。"
+    },
+    {
+      "id": "con059",
+      "type": "basic",
+      "topic": "Speech: Frameworks & Categories",
+      "topicZh": "言论自由—框架与类别",
+      "q": "When is a speech regulation content based, and what follows from the classification?",
+      "qZh": "言论规制何时属于'基于内容'？分类之后各适用什么标准？",
+      "a": "Content based if on its face it targets speech by topic, idea, or message — or if justified by disagreement with the message (Reed). Consequence: strict scrutiny, presumptively invalid. Content neutral: intermediate scrutiny. Viewpoint discrimination — taking sides within a topic — is virtually never permissible, even in nonpublic forums. Needing to read a sign to apply a rule does not itself make it content based (City of Austin).",
+      "aZh": "法律表面上按主题、观念或讯息针对言论，或其理由在于不认同讯息内容（Reed），即属基于内容。后果：严格审查、推定违宪。内容中立：中间审查。观点歧视——在同一主题内偏袒一方——几乎绝对禁止，即便在非公共论坛。执法需读一眼标语内容，不当然构成基于内容（City of Austin）。",
+      "explainZh": "这是言论自由的总开关：先分类、再定审查等级。对照：中国宪法第35条亦载言论自由，但无司法违宪审查路径；美国保护的核心正是'政府不得因讨厌讯息而压制'。"
+    },
+    {
+      "id": "con060",
+      "type": "basic",
+      "topic": "Speech: Frameworks & Categories",
+      "topicZh": "言论自由—框架与类别",
+      "q": "Name the forum categories and the standard governing each.",
+      "qZh": "请列举论坛类型及各自适用的标准。",
+      "a": "Traditional public forums (streets, sidewalks, parks) and designated public forums (property the government chooses to open): content-based exclusions get strict scrutiny; content-neutral time-place-manner rules get intermediate scrutiny. Limited public forums (opened only for certain groups or topics) and nonpublic forums (airports, military bases, polling places): restrictions need only be reasonable and viewpoint neutral — but a 'political apparel' ban was too indeterminate to be reasonable (Mansky).",
+      "aZh": "传统公共论坛（街道、人行道、公园）与指定公共论坛（政府自愿开放的场所）：基于内容的排除受严格审查；内容中立的时间地点方式规则受中间审查。有限公共论坛（仅向特定群体或话题开放）与非公共论坛（机场、军事基地、投票站）：限制只需合理且观点中立——但'政治服饰'禁令因漫无边际而不合理（Mansky）。",
+      "explainZh": "先定论坛、再选标准；观点中立是一切论坛的底线。私人物业不是论坛——联邦第一修正案不及私人购物中心（Hudgens）。",
+      "caNote": "California's constitution goes further: large private shopping centers must permit reasonable speech activity (Pruneyard) — and the U.S. Supreme Court held that state rule is not a taking.",
+      "caNoteZh": "加州宪法更进一步：大型私人购物中心须容许合理的言论活动（Pruneyard）——联邦最高法院认定该州规则本身不构成征收。"
+    },
+    {
+      "id": "con061",
+      "type": "cloze",
+      "topic": "Speech: Frameworks & Categories",
+      "topicZh": "言论自由—框架与类别",
+      "q": "Content-neutral time, place, and manner restrictions in public forums must be {{c::narrowly tailored to serve a significant government interest and leave open ample alternative channels}} of communication (Ward v. Rock Against Racism).",
+      "qZh": "公共论坛中内容中立的时间、地点、方式限制必须____（Ward v. Rock Against Racism）。",
+      "a": "narrowly tailored to serve a significant government interest and leave open ample alternative channels",
+      "aZh": "为服务重要政府利益而严密剪裁，并留出充分的替代表达渠道",
+      "explainZh": "此处'严密剪裁'≠最少限制手段——只要不明显过度即可（Ward）。但一刀切的过宽限制仍会倒（McCullen——诊所35英尺缓冲区违宪）。三要件缺一不可，答题逐项检验。"
+    },
+    {
+      "id": "con062",
+      "type": "basic",
+      "topic": "Speech: Frameworks & Categories",
+      "topicZh": "言论自由—框架与类别",
+      "q": "When may government punish advocacy of lawbreaking or insulting speech?",
+      "qZh": "政府何时可以惩罚鼓吹违法的言论或侮辱性言论？",
+      "a": "Incitement: only speech directed to inciting imminent lawless action and likely to produce it (Brandenburg) — abstract advocacy, even of violence, is protected (Hess; Claiborne). Fighting words: face-to-face personal insults likely to provoke an immediate violent response (Chaplinsky) — convictions almost never sustained today, and government may not single out fighting words by subject or viewpoint (R.A.V. — cross-burning ordinance).",
+      "aZh": "煽动：仅限旨在煽起迫在眉睫的违法行动且很可能产生该行动的言论（Brandenburg）——抽象鼓吹即便宣扬暴力也受保护（Hess；Claiborne）。挑衅性言论：面对面、可能立即引发暴力回应的人身侮辱（Chaplinsky）——如今几乎不再有定罪成立，且政府不得按主题或观点挑拣惩罚（R.A.V.——烧十字架条例案）。",
+      "explainZh": "Brandenburg三要素：意图＋迫近＋可能性——'将来某天推翻政府'不够迫近。给中国律师的提示：美国对煽动性言论容忍度极高，只有'擦火柴点火'的瞬间才可罚。"
+    },
+    {
+      "id": "con063",
+      "type": "mcq",
+      "topic": "Speech: Frameworks & Categories",
+      "topicZh": "言论自由—框架与类别",
+      "q": "A man bombards a musician with unwanted messages, some threatening. To convict him for true threats consistent with the First Amendment, the state must prove he—",
+      "qZh": "一名男子向一位音乐人发送大量不受欢迎的讯息，其中一些具有威胁性。要在符合第一修正案的前提下以'真实威胁'定罪，州必须证明他——",
+      "choices": [
+        "specifically intended to carry out the violence",
+        "knew with certainty the messages would be received as threats",
+        "consciously disregarded a substantial risk that his statements would be viewed as threatening violence",
+        "failed to realize what a reasonable person would have realized — objective negligence"
+      ],
+      "answer": 2,
+      "explain": "Counterman v. Colorado (2023): a true-threats prosecution requires an objectively threatening statement plus a subjective mens rea of at least recklessness; purpose or knowledge is not required, but objective negligence alone is insufficient.",
+      "explainZh": "真实威胁2023年新规：客观威胁性＋主观至少'轻率'（明知重大风险仍放任）。A、B把门槛抬得过高（那是目的/明知标准）；D的客观过失正是Counterman否定的标准。跟踪骚扰、网络威胁案照此办理。"
+    },
+    {
+      "id": "con064",
+      "type": "basic",
+      "topic": "Speech: Frameworks & Categories",
+      "topicZh": "言论自由—框架与类别",
+      "q": "Define obscenity (Miller) and state the child-pornography rules.",
+      "qZh": "请定义淫秽（Miller标准）并陈述儿童色情的规则。",
+      "a": "Miller: (1) the average person, applying contemporary community standards, finds the work as a whole appeals to the prurient interest; (2) it depicts sexual conduct specifically defined by law in a patently offensive way (community standard); (3) it lacks serious literary, artistic, political, or scientific value (national reasonable-person standard). Child pornography using real minors is unprotected regardless of Miller (Ferber), even possessed at home (Osborne); purely virtual images are protected (Ashcroft).",
+      "aZh": "Miller：（1）普通人按当代社区标准认为作品整体上迎合淫欲；（2）以明显令人反感的方式描绘法律明确界定的性行为（社区标准）；（3）整体上缺乏严肃的文学、艺术、政治或科学价值（全国性理性人标准）。使用真实未成年人的儿童色情不适用Miller、一律不受保护（Ferber），在家持有也可罚（Osborne）；纯虚拟影像受保护（Ashcroft）。",
+      "explainZh": "对照记忆：淫秽物品在家私藏不可罚（Stanley），儿童色情在家私藏可罚（Osborne）——因为保护对象是真实儿童。对未成年人销售可用更宽的'对未成年人淫秽'标准（Ginsberg；2025年Paxton案维持成人网站年龄验证法）。",
+      "mnemonic": "Miller prong 3 = SLAPS: Serious Literary, Artistic, Political, Scientific value."
+    },
+    {
+      "id": "con065",
+      "type": "mcq",
+      "topic": "Speech: Frameworks & Categories",
+      "topicZh": "言论自由—框架与类别",
+      "q": "A newspaper falsely reports that a private citizen embezzled charity funds — a matter of public concern. To recover presumed or punitive damages, she must prove—",
+      "qZh": "报纸失实报道称一名普通公民侵吞慈善款项——属公共议题。她若要获得推定损害赔偿或惩罚性赔偿，必须证明——",
+      "choices": [
+        "actual malice — knowledge of falsity or reckless disregard of the truth",
+        "negligence as to falsity",
+        "falsity alone; damages are then presumed at common law",
+        "nothing further; defamation is a strict-liability tort"
+      ],
+      "answer": 0,
+      "explain": "Gertz: a private plaintiff suing over a matter of public concern needs negligence plus actual injury for compensatory damages, but actual malice for presumed or punitive damages. Public officials and public figures need actual malice for any recovery (New York Times v. Sullivan).",
+      "explainZh": "三档记忆：公职人员/公众人物→任何赔偿都须实际恶意（NYT v. Sullivan）；私人＋公共议题→过失可获实际损害赔偿，推定/惩罚性赔偿须实际恶意（Gertz）；私人＋纯私人议题→无宪法限制（Dun & Bradstreet）。公共议题案件中原告还须自证陈述虚假（Hepps）。"
+    },
+    {
+      "id": "con066",
+      "type": "cloze",
+      "topic": "Speech: Frameworks & Categories",
+      "topicZh": "言论自由—框架与类别",
+      "q": "Regulation of non-misleading commercial speech about lawful activity must serve a substantial government interest, directly advance that interest, and be {{c::no more extensive than necessary — a reasonable fit, not the least restrictive means}} (Central Hudson; Board of Trustees v. Fox).",
+      "qZh": "对合法活动且不具误导性的商业言论的规制，须服务于实质性政府利益、直接促进该利益，并且____（Central Hudson；Fox）。",
+      "a": "no more extensive than necessary — a reasonable fit, not the least restrictive means",
+      "aZh": "不得超过必要限度——要求手段合理契合即可，而非最少限制手段",
+      "explainZh": "先过门槛：虚假、误导或宣传非法交易的商业言论根本不受保护。全面禁止真实的价格、酒类广告近乎必死（44 Liquormart）——法院对'家长式禁真话'极为敌视（Sorrell）。"
+    },
+    {
+      "id": "con067",
+      "type": "basic",
+      "topic": "Speech: Frameworks & Categories",
+      "topicZh": "言论自由—框架与类别",
+      "q": "When may government regulate symbolic (expressive) conduct?",
+      "qZh": "政府何时可以规制象征性（表达性）行为？",
+      "a": "O'Brien test: the regulation must (1) be within the government's constitutional power; (2) further an important or substantial interest (3) unrelated to the suppression of expression; and (4) burden no more speech than essential. If the interest targets the message's communicative impact, ordinary content-based strict scrutiny applies — so flag-burning bans fail (Texas v. Johnson), while the draft-card-burning ban stood.",
+      "aZh": "O'Brien标准：规制须（1）属政府权限之内；（2）促进重要或实质性利益；（3）该利益与压制表达无关；（4）对言论的附带限制不超过必要。若政府利益恰恰指向讯息的传播效果，则回到基于内容的严格审查——所以焚烧国旗禁令违宪（Texas v. Johnson），而焚烧征兵卡禁令有效（保护征兵系统运转）。",
+      "explainZh": "第（3）步是胜负手：政府针对的是'烧'这个行为，还是'烧所表达的意思'。表达性行为的门槛：意图传达特定讯息＋观者很可能理解（Spence）。"
+    },
+    {
+      "id": "con068",
+      "type": "mcq",
+      "topic": "Speech: Frameworks & Categories",
+      "topicZh": "言论自由—框架与类别",
+      "q": "A state accommodations law requires a designer who creates customized, expressive wedding websites to design them for same-sex weddings, contrary to her beliefs. Under 303 Creative v. Elenis (2023)—",
+      "qZh": "州公共设施反歧视法要求一名制作定制化、表达性婚礼网站的设计师违背其信念为同性婚礼设计网站。根据303 Creative v. Elenis（2023）——",
+      "choices": [
+        "The state wins — public-accommodations laws regulate conduct and never implicate speech",
+        "The state wins if it shows a rational basis for the requirement",
+        "The designer wins only if she proves a sincere religious objection",
+        "The designer wins — the state cannot compel her to create expressive products carrying messages she rejects"
+      ],
+      "answer": 3,
+      "explain": "303 Creative is a compelled-speech case: expressive, customized creations cannot be conscripted (Barnette flag salute; Wooley license motto; Hurley parade). The ruling rests on speech, not religion (option C); accommodations laws remain fully valid for non-expressive goods and services (qualifying option A).",
+      "explainZh": "强迫言论线：政府既不得禁言，也不得逼人说话——效忠宣誓（Barnette）、车牌格言（Wooley）、游行队伍（Hurley）、定制婚礼网站（303 Creative）。关键限定：普通商品服务照卖不误、反歧视法依然全面有效，只有'定制的表达性产品'才触发本规则。"
+    },
+    {
+      "id": "con069",
+      "type": "basic",
+      "topic": "Speech: Frameworks & Categories",
+      "topicZh": "言论自由—框架与类别",
+      "q": "State the rules on prior restraints, licensing schemes, overbreadth, and vagueness.",
+      "qZh": "请陈述事前限制、许可制度、过度宽泛与模糊性的规则。",
+      "a": "Prior restraints carry a heavy presumption of invalidity (Near; Pentagon Papers). Licensing and permit schemes must contain definite, narrow standards leaving no unbridled discretion, plus prompt decision and judicial review (Freedman; Lakewood). Overbreadth: a law punishing substantial protected speech relative to its plainly legitimate sweep is facially void (Stevens). Vagueness: failing to give fair notice of what is prohibited violates due process (Coates).",
+      "aZh": "事前限制负有沉重的违宪推定（Near；五角大楼文件案）。许可与审批制度必须有明确、狭窄的标准、不留不受约束的裁量，并保证迅速决定＋司法审查（Freedman；Lakewood）。过度宽泛：相对其合法适用范围惩罚了大量受保护言论的法律表面无效（Stevens）。模糊性：未就何为被禁行为给予公平告知即违反正当程序（Coates）。",
+      "explainZh": "程序陷阱：明显违宪的'法律'可以违反后再抗辩，但法院'禁令'必须先遵守、再上诉——径行违反即构成藐视法庭（附随禁止规则，Walker v. Birmingham）。过度宽泛是第三人起诉资格的特例：自己行为可罚也能替他人主张。"
+    },
+    {
+      "id": "con070",
+      "type": "mcq",
+      "topic": "Speech: Frameworks & Categories",
+      "topicZh": "言论自由—框架与类别",
+      "q": "A deputy district attorney is disciplined over an internal memorandum — written as part of his job — questioning a warrant's validity. His First Amendment retaliation claim—",
+      "qZh": "一名副地区检察官因一份职务内撰写、质疑搜查令效力的内部备忘录而受处分。他的第一修正案报复之诉——",
+      "choices": [
+        "succeeds if the memo addressed a matter of public concern",
+        "fails — statements made pursuant to official duties are not protected citizen speech (Garcetti)",
+        "succeeds — government employees enjoy the same speech rights at work as ordinary citizens",
+        "fails — public employees categorically waive First Amendment rights"
+      ],
+      "answer": 1,
+      "explain": "Garcetti v. Ceballos: when employees speak pursuant to official duties, the First Amendment does not insulate them from employer discipline. Speech as a citizen on a matter of public concern instead triggers Pickering balancing — the employee's expressive interest against workplace disruption.",
+      "explainZh": "公职雇员言论三步走：①职务行为？是→无保护（Garcetti，本题）；②以公民身份就公共议题发言？否→无宪法诉因（Connick）；③是→Pickering权衡（表达利益vs机关运转）。教练场边祈祷被认定为私人身份言论（Kennedy v. Bremerton）——'职务'范围并非无限。"
+    },
+    {
+      "id": "con071",
+      "type": "basic",
+      "topic": "Speech: Frameworks & Categories",
+      "topicZh": "言论自由—框架与类别",
+      "q": "Summarize government speech, student speech, and freedom of association.",
+      "qZh": "请概述政府言论、学生言论与结社自由的规则。",
+      "a": "Government's own speech requires no viewpoint neutrality (Summum monuments; Walker license plates) — but a program open to all comers is private speech, and viewpoint rules apply (Shurtleff flags; Matal trademarks). Students: punishable for substantially disruptive speech (Tinker), lewd speech (Fraser), and school-sponsored expression (Hazelwood); off-campus speech gets heightened protection (Mahanoy). Association: burdens on expressive association get strict scrutiny (Dale); compelled donor disclosure gets exacting scrutiny (Bonta).",
+      "aZh": "政府自己的言论无需观点中立（Summum纪念碑；Walker车牌）——但向所有人开放的项目属私人言论、须守观点中立（Shurtleff升旗；Matal商标）。学生：实质扰乱校园的言论可罚（Tinker）、低俗言论（Fraser）、学校主办的表达（Hazelwood）；校外言论获更高保护（Mahanoy——啦啦队员爆粗案）。结社：对表达性结社的负担受严格审查（Dale）；强制披露捐款人受'严格对应'审查（AFP v. Bonta）。",
+      "explainZh": "政府言论vs论坛：政府说自己的话可以偏心，一旦开放给公众发言就要守论坛规则——判断因素：历史、公众观感、政府控制程度（Shurtleff）。学生言论案先问'校内还是校外''谁的言论'。"
+    },
+    {
+      "id": "con072",
+      "type": "basic",
+      "topic": "Religion Clauses",
+      "topicZh": "宗教条款",
+      "q": "When does a law burdening religious exercise violate the Free Exercise Clause?",
+      "qZh": "加重宗教活动负担的法律何时违反宗教活动自由条款？",
+      "a": "A neutral law of general applicability is valid despite religious burdens, with no heightened scrutiny (Smith — peyote). Laws targeting religion (Lukumi — Santeria sacrifice ban) or lacking general applicability trigger strict scrutiny. Beliefs are absolutely protected: no punishing belief, no adjudicating religious truth (Ballard), and no denying unemployment benefits for religiously motivated refusals to work (Sherbert line).",
+      "aZh": "中立且普遍适用的法律即便加重宗教负担也有效，不适用更高审查（Smith——佩奥特掌案）。针对宗教的法律（Lukumi——桑特里亚献祭禁令）或欠缺普遍适用性的法律触发严格审查。信仰本身受绝对保护：不得惩罚信仰、不得裁断教义真伪（Ballard）、不得因宗教原因拒绝工作而拒发失业救济（Sherbert线）。",
+      "explainZh": "行为可规制、信仰不可碰。Smith仍是正式规则，但下一张卡的Tandon/Fulton把'普遍适用'解释得极窄——实务上严格审查越来越常见。"
+    },
+    {
+      "id": "con073",
+      "type": "basic",
+      "topic": "Religion Clauses",
+      "topicZh": "宗教条款",
+      "q": "Under current doctrine, when is a law NOT 'generally applicable,' triggering strict scrutiny?",
+      "qZh": "按现行法理，法律何时不具'普遍适用性'，从而触发严格审查？",
+      "a": "(1) Comparable secular exemptions: the law treats any comparable secular activity more favorably than religious exercise, comparability judged against the asserted government interest (Tandon — home worship versus retail); (2) individualized exemptions: a mechanism for discretionary, case-by-case exceptions exists (Fulton — foster-care contract clause). Either route triggers strict scrutiny, which such laws almost never survive.",
+      "aZh": "（1）存在可比的世俗豁免：法律对任何可比的世俗活动比对宗教活动更优待——可比性以政府所主张的利益为参照（Tandon——家庭礼拜vs零售店）；（2）存在个案裁量豁免机制：官员可逐案给予例外（Fulton——寄养合同条款）。两条路径任一成立即严格审查，而此类法律几乎必败。",
+      "explainZh": "Tandon被称为'最惠国待遇'规则：宗教活动必须享受不低于最优待世俗活动的待遇。新案Mahmoud v. Taylor（2025）：公立小学使用LGBTQ绘本课程且不设退出权、抵触父母宗教教养的，构成对宗教活动自由的负担、须过严格审查——家长权＋宗教的组合考点。"
+    },
+    {
+      "id": "con074",
+      "type": "mcq",
+      "topic": "Religion Clauses",
+      "topicZh": "宗教条款",
+      "q": "A state tuition-assistance program excludes otherwise-qualified religious schools. Constitutional?",
+      "qZh": "某州学费资助计划将本已符合条件的宗教学校排除在外。是否合宪？",
+      "choices": [
+        "Yes — the Establishment Clause forbids channeling public funds to religious schools",
+        "Yes — states may enforce stricter church-state separation than the federal Constitution requires",
+        "No — excluding schools from a generally available benefit because of religious status or religious use violates Free Exercise (Trinity Lutheran; Espinoza; Carson)",
+        "No — but only if the funds never reach religious instruction"
+      ],
+      "answer": 2,
+      "explain": "The trilogy holds a state need not subsidize private education, but once it does, it cannot disqualify schools for being religious or for using funds religiously (Carson erased the status/use line). Option A is wrong — neutral aid driven by private choice does not violate the Establishment Clause (Zelman).",
+      "explainZh": "反向政教分离考点：排除宗教＝歧视宗教。A错——经家长自由选择流向宗教学校的中立资助不违反政教分离（Zelman）；B的'州更严分离'空间已被三部曲压缩殆尽（Locke v. Davey牧师培养奖学金是仅存孤例）；D恰是Carson抹掉的'身份/用途'区分。"
+    },
+    {
+      "id": "con075",
+      "type": "basic",
+      "topic": "Religion Clauses",
+      "topicZh": "宗教条款",
+      "q": "What are the ministerial exception and RFRA?",
+      "qZh": "什么是'神职人员例外'与RFRA？",
+      "a": "Ministerial exception: the Religion Clauses bar employment-discrimination suits by 'ministers' — employees performing vital religious duties, including parochial-school teachers who teach the faith (Hosanna-Tabor; Our Lady of Guadalupe); courts also may not resolve internal ecclesiastical disputes. RFRA: a federal statute imposing strict scrutiny on substantial federal burdens on religion (Hobby Lobby); invalid as applied to the states (Boerne). RLUIPA covers prisons and land use.",
+      "aZh": "神职人员例外：宗教条款禁止'神职人员'提起就业歧视之诉——凡承担重要宗教职能的雇员均算，包括讲授教义的教会学校教师（Hosanna-Tabor；Our Lady of Guadalupe）；法院亦不得裁断教会内部纠纷。RFRA：联邦制定法，对联邦政府实质加重宗教负担的行为课以严格审查（Hobby Lobby）；适用于州的部分违宪（Boerne）。RLUIPA覆盖监狱与土地使用。",
+      "explainZh": "层次要分清：宪法（Smith框架）vs制定法（RFRA只约束联邦；RLUIPA限于监狱与土地使用）。答题先问'谁的法律、告谁'——告联邦优先想RFRA，告州走宪法＋Tandon/Fulton路径。"
+    },
+    {
+      "id": "con076",
+      "type": "cloze",
+      "topic": "Religion Clauses",
+      "topicZh": "宗教条款",
+      "q": "Kennedy v. Bremerton (2022) abandoned the Lemon and endorsement tests; Establishment Clause questions are now resolved by {{c::reference to historical practices and understandings}}, with coercion of religious exercise a central concern.",
+      "qZh": "Kennedy v. Bremerton（2022）废弃了Lemon标准与'背书'标准；政教分离问题现在依____解决，其中'对宗教活动的强迫'是核心关切。",
+      "a": "reference to historical practices and understandings",
+      "aZh": "参照历史实践与历史理解",
+      "explainZh": "Lemon三叉戟（世俗目的/主要效果/过度纠缠）正式死亡——旧真题答案作废。新框架下：历史悠久的立法祈祷、纪念性十字架都站得住；但对'被迫参与宗教活动'的审查依旧严格，尤其在公立中小学。"
+    },
+    {
+      "id": "con077",
+      "type": "mcq",
+      "topic": "Religion Clauses",
+      "topicZh": "宗教条款",
+      "q": "Which practice most likely violates the Establishment Clause under current doctrine?",
+      "qZh": "按现行法理，下列哪种做法最可能违反政教分离条款？",
+      "choices": [
+        "A state legislature opening sessions with a paid chaplain's prayer (Marsh; Town of Greece)",
+        "A 94-year-old Latin cross maintained as a war memorial on public land (American Legion)",
+        "A football coach praying quietly at midfield after games (Kennedy v. Bremerton)",
+        "Clergy delivering prayers at a public middle-school graduation ceremony (Lee v. Weisman)"
+      ],
+      "answer": 3,
+      "explain": "School-sponsored prayer coerces attendance-bound minors — Lee and Santa Fe (student-led football-game prayer) remain good law under the coercion focus. Legislative prayer and longstanding monuments fit historical tradition; Kennedy's coach spoke privately without requiring student participation.",
+      "explainZh": "公立中小学是政教分离最严地带：毕业典礼祈祷（Lee）、球赛广播祈祷（Santa Fe）、课堂张贴十诫（Stone）都违宪——未成年人＋出席压力＝强迫。A、B、C都被'历史与传统'框架明确放行。"
+    },
+    {
+      "id": "con078",
+      "type": "basic",
+      "topic": "Second Amendment & Sovereign Immunity",
+      "topicZh": "第二修正案与主权豁免",
+      "q": "What framework governs Second Amendment claims after Heller and Bruen?",
+      "qZh": "Heller与Bruen之后，第二修正案主张适用什么分析框架？",
+      "a": "Heller: an individual right to keep and bear arms for self-defense (handguns in the home), incorporated against the states (McDonald). Bruen: if the Second Amendment's plain text covers the conduct, it is presumptively protected; the government must prove the regulation is consistent with the Nation's historical tradition of firearm regulation. No interest balancing or tiered scrutiny; 'shall-issue' licensing remains presumptively valid.",
+      "aZh": "Heller：为自卫而持有并携带武器的个人权利（在家持有手枪），并经McDonald适用于各州。Bruen：若第二修正案文本涵盖该行为，则该行为受推定保护；政府须证明其规制符合本国枪支规制的历史传统。不做利益衡量、不分审查等级；'符合条件即发证'的持枪许可制度推定有效。",
+      "explainZh": "方法论巨变：从分级审查改为'文本＋历史'。敏感场所（法院、学校、投票站）禁枪仍可行。举证责任在政府——须提出历史类比法例。",
+      "mnemonic": "Bruen = Text first, then History; no tiers."
+    },
+    {
+      "id": "con079",
+      "type": "mcq",
+      "topic": "Second Amendment & Sovereign Immunity",
+      "topicZh": "第二修正案与主权豁免",
+      "q": "A federal statute disarms individuals subject to domestic-violence restraining orders entered after a judicial finding of dangerousness. Under United States v. Rahimi (2024)—",
+      "qZh": "联邦法规定：经法院认定具有危险性、受家庭暴力限制令约束的人不得持有枪支。根据United States v. Rahimi（2024）——",
+      "choices": [
+        "Invalid — no founding-era law disarmed domestic abusers, so there is no historical twin",
+        "Valid — surety and going-armed laws show a tradition of temporarily disarming individuals judicially found dangerous; analogues need only be relevantly similar, not identical",
+        "Valid — gun regulations need only survive rational basis review",
+        "Invalid — only persons convicted of felonies may ever be disarmed"
+      ],
+      "answer": 1,
+      "explain": "Rahimi clarified Bruen: courts ask whether the challenged law is consistent with the principles underlying the historical tradition — not whether a 'dead ringer' or 'historical twin' exists. Option C contradicts Bruen's rejection of means-end scrutiny; option D states a rule the Court has never adopted.",
+      "explainZh": "Rahimi给Bruen降温：历史类比看'原理相当'（对经司法认定的危险者临时缴械），不必找一模一样的建国时期法律——A的'历史孪生'标准被明确拒绝。C用了Bruen明确抛弃的合理性审查；D把'重罪犯缴械'说成唯一许可情形，无此规则。"
+    },
+    {
+      "id": "con080",
+      "type": "basic",
+      "topic": "Second Amendment & Sovereign Immunity",
+      "topicZh": "第二修正案与主权豁免",
+      "q": "When can a private party overcome state sovereign immunity?",
+      "qZh": "私人当事人何时能突破州主权豁免？",
+      "a": "States are immune from private suits in federal court, their own courts (Alden), and sister-state courts (Hyatt). Exceptions: express waiver; congressional abrogation by clear statement under §5 of the Fourteenth Amendment (Article I will not do — Seminole Tribe — except bankruptcy, eminent domain, and war powers); Ex parte Young — prospective injunctive relief against state officers; suits by the United States or sister states. Municipalities and officers sued personally are unprotected.",
+      "aZh": "州在联邦法院、本州法院（Alden）及他州法院（Hyatt）均免于私人起诉。例外：州明示放弃豁免；国会依第十四修正案第5款以明确文字剥夺豁免（依第一条不行——Seminole Tribe——但破产、征收、战争权除外）；Ex parte Young——对州官员请求面向将来的禁令救济；美国或他州提起的诉讼。市县政府与被以个人身份索赔的官员不受豁免保护。",
+      "explainZh": "Ex parte Young是最常考的绕行道：告'官员'、求'将来'的禁令可以；向州库要'过去'的钱不行（Edelman）。豁免主体只有州及州机关——市政府随便告。",
+      "mnemonic": "W-A-Y-S around the 11th: Waiver, Abrogation (§5), Young, Suits by US/sister states."
+    },
+    {
+      "id": "con081",
+      "type": "cloze",
+      "topic": "Second Amendment & Sovereign Immunity",
+      "topicZh": "第二修正案与主权豁免",
+      "q": "An ex post facto law {{c::retroactively criminalizes previously innocent conduct, increases punishment, or reduces the evidence needed to convict}} — the ban binds both Congress and the states but reaches only criminal, punitive laws.",
+      "qZh": "溯及既往刑法是指____——该禁令同时约束国会与各州，但仅适用于刑事性、惩罚性法律。",
+      "a": "retroactively criminalizes previously innocent conduct, increases punishment, or reduces the evidence needed to convict",
+      "aZh": "溯及既往地把原本无罪的行为入罪、加重刑罚，或降低定罪所需的证据要求",
+      "explainZh": "民事追溯立法不在此列，除非其目的或效果实为惩罚（Smith v. Doe——性犯罪者登记属民事监管，合宪）。姊妹条款：褫夺公权法案（bill of attainder）——立法不经审判直接惩罚特定个人或群体，对联邦与州同样禁止。"
+    }
+  ]
+}

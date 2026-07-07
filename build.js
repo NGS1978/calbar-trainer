@@ -11,8 +11,11 @@ const decks = [];
 for (const slug of ORDER) {
   const p = path.join(__dirname, "data", slug + ".json");
   if (!fs.existsSync(p)) { console.warn(`⚠ missing deck: ${slug}.json — skipped`); continue; }
-  const deck = JSON.parse(fs.readFileSync(p, "utf8"));
-  decks.push(deck);
+  try {
+    decks.push(JSON.parse(fs.readFileSync(p, "utf8")));
+  } catch (e) {
+    console.warn(`⚠ unparseable deck: ${slug}.json — skipped (${e.message.slice(0, 60)})`);
+  }
 }
 const nCards = decks.reduce((n, d) => n + d.cards.length, 0);
 

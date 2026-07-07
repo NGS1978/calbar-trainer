@@ -1,0 +1,838 @@
+{"subject":"wills","nameEn":"Wills & Succession","nameZh":"遗嘱与继承法","emoji":"✍️","mcqTested":false,"cards":[
+  {
+    "id": "wil001",
+    "type": "basic",
+    "topic": "Intestate Succession",
+    "topicZh": "无遗嘱继承",
+    "q": "Intestacy: what happens to the community property and quasi-community property when a Californian dies without a will?",
+    "qZh": "无遗嘱继承：加州死者未立遗嘱时，共同财产（CP）和准共同财产（QCP）如何处理？",
+    "a": "The decedent's one-half of the CP and QCP passes outright to the surviving spouse (§6401(a)-(b)). Since the survivor already owns the other half, the spouse ends up with 100% of the community and quasi-community property.",
+    "aZh": "死者名下的一半共同财产及准共同财产直接归尚存配偶（§6401(a)-(b)）。配偶本已拥有另一半，故最终取得全部共同财产和准共同财产。",
+    "explainZh": "加州是夫妻共同财产制州：先析产一半归配偶，死者那一半在无遗嘱时也归配偶。对比中国《民法典》第1153条：同样先析出配偶一半，但死者的一半作为遗产由配偶、子女、父母（第一顺序）均分，配偶通常拿不到全部。"
+  },
+  {
+    "id": "wil002",
+    "type": "basic",
+    "topic": "Intestate Succession",
+    "topicZh": "无遗嘱继承",
+    "q": "State the surviving spouse's intestate share of the decedent's separate property (§6401(c)).",
+    "qZh": "请说明尚存配偶对死者独立财产（SP）的法定继承份额（§6401(c)）。",
+    "a": "All: decedent left no issue, parent, sibling, or issue of a deceased sibling. One-half: one child or issue of one deceased child; or no issue but a parent, or sibling or sibling's issue, survives. One-third: two or more children; one child plus issue of a deceased child; or issue of two or more deceased children.",
+    "aZh": "全部：死者无直系卑亲属、父母、兄弟姐妹或已故兄弟姐妹的卑亲属。二分之一：仅有一名子女或一名已故子女的卑亲属；或无卑亲属但有父母、兄弟姐妹或其卑亲属。三分之一：有两名以上子女；一名子女加已故子女的卑亲属；或两名以上已故子女的卑亲属。",
+    "explainZh": "记忆法：独立财产按“1个继承支系＝1/2、2个以上支系＝1/3、都没有＝全部”。若最终无任何继承人，遗产收归加州（escheat，§6404）；中国则归国家用于公益事业（民法典第1160条）。",
+    "mnemonic": "SP ladder: 0 takers → all; 1 line → 1/2; 2+ lines → 1/3"
+  },
+  {
+    "id": "wil003",
+    "type": "mcq",
+    "topic": "Intestate Succession",
+    "topicZh": "无遗嘱继承",
+    "q": "T dies intestate, unmarried. Child A survives. Child B predeceased leaving children B1 and B2; child C predeceased leaving child C1. How is the estate divided under §240?",
+    "qZh": "T未婚、无遗嘱死亡。子女A尚在；B先亡留有子女B1、B2；C先亡留有子女C1。依§240遗产如何分配？",
+    "choices": [
+      "A, B1, B2, and C1 each take one-quarter",
+      "A takes 1/3; B1, B2, and C1 each take 2/9",
+      "A takes 1/3; B1 and B2 each take 1/6; C1 takes 1/3",
+      "A takes 1/2; B1 and B2 each take 1/8; C1 takes 1/4"
+    ],
+    "answer": 2,
+    "explain": "§240 divides into equal shares at the nearest generation with a living member (three shares at the child level); each deceased child's share drops only to that child's own issue. Had ALL children predeceased, the grandchildren would instead have shared equally.",
+    "explainZh": "加州默认采“按人头代位继承”（per capita with representation，§240）：在最近有在世成员的一代分股，先亡者的份额只传给其自己的卑亲属。中国《民法典》第1128条的代位继承与此近似，但仅限被代位人的晚辈直系血亲。若要严格按支分配（per stirpes），须在遗嘱中明示（§246）。"
+  },
+  {
+    "id": "wil004",
+    "type": "cloze",
+    "topic": "Intestate Succession",
+    "topicZh": "无遗嘱继承",
+    "q": "For intestate succession, an heir must survive the decedent by {{c::120 hours}}, established by clear and convincing evidence, or the heir is deemed to have predeceased the decedent (§6403).",
+    "qZh": "无遗嘱继承中，继承人须比被继承人多存活____，并以明确且令人信服的证据证明，否则视为先于被继承人死亡（§6403）。",
+    "a": "120 hours",
+    "aZh": "120小时（5天）",
+    "explainZh": "120小时规则只适用于无遗嘱继承；遗嘱继承默认只须“明确且令人信服地证明后死”（§21109，见对比卡）。若适用本规则会导致遗产收归州政府，则不适用。中国民法典第1121条对不能确定死亡先后的采推定规则：都有继承人的，推定长辈先死。"
+  },
+  {
+    "id": "wil005",
+    "type": "cloze",
+    "topic": "Intestate Succession",
+    "topicZh": "无遗嘱继承",
+    "q": "Relatives of the halfblood inherit {{c::the same share they would inherit if they were of the whole blood}} (§6406).",
+    "qZh": "半血缘亲属（如同父异母的兄弟姐妹）继承____（§6406）。",
+    "a": "the same share they would inherit if they were of the whole blood",
+    "aZh": "与全血缘亲属完全相同的份额",
+    "explainZh": "加州对半血缘、全血缘一视同仁（个别州减半属少数派规则）。中国《民法典》中“兄弟姐妹”同样包括同父异母、同母异父的兄弟姐妹，结论一致。"
+  },
+  {
+    "id": "wil006",
+    "type": "basic",
+    "topic": "Intestate Succession",
+    "topicZh": "无遗嘱继承",
+    "q": "How does adoption affect intestate succession between the child and the birth parents?",
+    "qZh": "收养如何影响子女与亲生父母之间的无遗嘱继承？",
+    "a": "Adoption severs inheritance to and from birth parents, unless (1) child and birth parent ever lived together as parent and child (or the parent died before birth), and (2) the adoption was by a stepparent or after a birth parent's death (§6451). Birth relatives still generally cannot inherit from the adopted-away child.",
+    "aZh": "收养原则上双向切断与亲生父母的继承。例外（§6451）：(1)子女与亲生父/母曾以亲子关系共同生活（或其在子女出生前死亡），且(2)收养人为继父母或收养发生于亲生父/母死亡之后——此时子女仍可继承亲生家庭；但亲生家庭一方一般仍不能继承该子女。",
+    "explainZh": "典型考点：母亲再婚、继父收养——子女照样继承生父家族。中国《民法典》第1111条则彻底双向消除与生父母的权利义务关系，没有继父母收养这一单向保留例外。"
+  },
+  {
+    "id": "wil007",
+    "type": "basic",
+    "topic": "Intestate Succession",
+    "topicZh": "无遗嘱继承",
+    "q": "When may a foster child or stepchild inherit from the foster parent or stepparent without a legal adoption?",
+    "qZh": "寄养子女或继子女在未经合法收养的情况下，何时可以继承寄养/继父母的遗产？",
+    "a": "Under §6454, if (1) the relationship began during the child's minority and continued through the parties' joint lifetimes, and (2) clear and convincing evidence shows the parent would have adopted but for a legal barrier (e.g., a birth parent's refusal to consent). The doctrine runs one way: the child inherits from the parent.",
+    "aZh": "依§6454：(1)亲子关系始于子女未成年时并持续至双方共同生存期终了；且(2)有明确且令人信服的证据证明，若非法律障碍（如生父母拒绝同意收养），该家长本会收养。此“衡平收养”是单向的：只有子女可继承家长。",
+    "explainZh": "中国的对应规则更宽松：《民法典》第1127条把“有扶养关系的继子女”直接列为第一顺序继承人，无须证明“本欲收养”。加州另有判例上的衡平收养（Estate of Ford），要求收养意图的明确证据。"
+  },
+  {
+    "id": "wil008",
+    "type": "mcq",
+    "topic": "Intestate Succession",
+    "topicZh": "无遗嘱继承",
+    "q": "H dies intestate. Claimant 1: daughter D, conceived naturally before H's death, born three months after. Claimant 2: son S, conceived by IVF from H's banked sperm 18 months after death, per H's signed and dated written consent, with timely notice to the estate. Who inherits?",
+    "qZh": "H无遗嘱死亡。主张人一：女儿D，死亡前自然受孕、死后三个月出生。主张人二：儿子S，依H签名并注明日期的书面同意，用其冷冻精子于死后18个月经试管受孕，并已及时通知遗产管理人。谁有继承权？",
+    "choices": [
+      "Only D — posthumous conception never qualifies",
+      "Both D and S",
+      "Only S — D was nonmarital",
+      "Neither child"
+    ],
+    "answer": 1,
+    "explain": "§6407 treats relatives conceived before but born after death as born in the decedent's lifetime; §249.5 adds posthumously conceived children where there is signed, dated written consent, notice within four months, and the child is in utero within two years of the death certificate.",
+    "explainZh": "非婚生子女与遗腹子女均有完全继承权；死后人工受孕子女须满足§249.5的严格要件（书面同意＋4个月内通知＋2年内受孕着床）。中国《民法典》第1155条同样为胎儿保留应继份额，但对死后冷冻精子/胚胎受孕的继承尚无明文规定。"
+  },
+  {
+    "id": "wil009",
+    "type": "cloze",
+    "topic": "Intestate Succession",
+    "topicZh": "无遗嘱继承",
+    "q": "A lifetime gift counts as an advancement against the heir's intestate share only if the decedent declares it in {{c::a contemporaneous writing}}, or the heir acknowledges it in a writing made at any time (§6409).",
+    "qZh": "生前赠与仅在下列情形才作为预付遗产折抵继承人的法定应继份：被继承人在____中声明，或继承人在任何时间以书面承认（§6409）。",
+    "a": "a contemporaneous writing",
+    "aZh": "（作出赠与时的）同时书面文件",
+    "explainZh": "没有书面就不折抵——加州反转了普通法“生前大额赠与推定为预付遗产”的立场。折抵按继承人取得占有或被继承人死亡（以先者为准）时的价值计算。中国法无预付遗产折抵制度，生前赠与原则上不影响法定应继份。"
+  },
+  {
+    "id": "wil010",
+    "type": "basic",
+    "topic": "Intestate Succession",
+    "topicZh": "无遗嘱继承",
+    "q": "Requirements and effect of disclaiming an inheritance or devise?",
+    "qZh": "放弃继承或遗赠的要件和效果是什么？",
+    "a": "A disclaimer must be in writing, signed by the disclaimant, identify the decedent and the interest, and be filed within a reasonable time (conclusively reasonable within nine months). It is irrevocable and barred after acceptance. The interest then passes as if the disclaimant predeceased the decedent; the disclaimant cannot direct where it goes.",
+    "aZh": "放弃须采书面形式、由放弃人签名、写明被继承人及所放弃的权益，并在合理期限内提交（死亡后九个月内提交的，终局推定为合理）。放弃不可撤回；接受遗产后不得再放弃。效果：该权益按放弃人先于被继承人死亡处理，放弃人无权指定其归属。",
+    "explainZh": "与中国《民法典》第1124条相似：继承开始后、遗产处理前以书面形式放弃。加州的特色是“视为先死”拟制——份额通常顺延给放弃人的晚辈直系血亲，常用于节税或避债（但躲不开联邦税收留置权）。"
+  },
+  {
+    "id": "wil011",
+    "type": "basic",
+    "topic": "Attested Wills & Harmless Error",
+    "topicZh": "见证遗嘱与无害错误",
+    "q": "State the test for testamentary capacity (§6100.5).",
+    "qZh": "请说明遗嘱能力的判断标准（§6100.5）。",
+    "a": "T must be at least 18 and able to (1) understand the nature of the testamentary act, (2) understand and recollect the nature and situation of T's property, and (3) remember and understand T's relations to living descendants, spouse, parents, and those whose interests are affected by the will. Measured at execution; the bar is low.",
+    "aZh": "遗嘱人须年满18岁，并能够：(1)理解立遗嘱行为的性质；(2)理解并记得自己财产的性质与状况；(3)记得并理解自己与在世卑亲属、配偶、父母及遗嘱利害关系人的关系。以签署时点判断；门槛很低。",
+    "explainZh": "遗嘱能力低于订立合同的能力标准，患病、年老、行为古怪均不当然否定。中国《民法典》第1143条要求立遗嘱时具有完全民事行为能力——与整体行为能力挂钩，比加州的专门低门槛更严格。"
+  },
+  {
+    "id": "wil012",
+    "type": "basic",
+    "topic": "Attested Wills & Harmless Error",
+    "topicZh": "见证遗嘱与无害错误",
+    "q": "List the execution requirements for a California attested will (§6110).",
+    "qZh": "请列出加州见证遗嘱的形式要件（§6110）。",
+    "a": "(1) In writing. (2) Signed by T, by another in T's presence and at T's direction, or by a court-authorized conservator. (3) At least two witnesses, each of whom signs during T's lifetime, was present at the same time to witness the signing or T's acknowledgment of the signature or will, and understands it is T's will.",
+    "aZh": "(1)书面。(2)由遗嘱人签名，或由他人在其面前依其指示代签，或由法院授权的监护人签署。(3)至少两名见证人：均须在遗嘱人生前签名；曾同时在场见证遗嘱人签署或其对签名/遗嘱的确认；并明白所签署的是遗嘱人的遗嘱。",
+    "explainZh": "对比中国代书遗嘱（民法典第1135条）：两名以上见证人在场见证全过程，一人代书，遗嘱人、代书人及其他见证人均须签名并注明年、月、日。加州不要求注明日期，见证人也不必当场签名。"
+  },
+  {
+    "id": "wil013",
+    "type": "cloze",
+    "topic": "Attested Wills & Harmless Error",
+    "topicZh": "见证遗嘱与无害错误",
+    "q": "The two witnesses to an attested will must, {{c::being present at the same time}}, witness either the signing of the will or the testator's acknowledgment of the signature or of the will (§6110(c)).",
+    "qZh": "见证遗嘱的两名见证人必须____，见证遗嘱人签署遗嘱，或见证其对签名或遗嘱的确认（§6110(c)）。",
+    "a": "being present at the same time",
+    "aZh": "同时在场",
+    "explainZh": "“同时在场”只针对见证签署/确认这一环节；见证人自己签名时不必同时在场、不必当着遗嘱人的面，只须在遗嘱人生前完成。遗嘱人也无须当面签署——事后向两名同时在场的见证人“确认”签名或遗嘱即可。"
+  },
+  {
+    "id": "wil014",
+    "type": "mcq",
+    "topic": "Attested Wills & Harmless Error",
+    "topicZh": "见证遗嘱与无害错误",
+    "q": "T's attested will leaves $50,000 to neighbor N. N served as one of the two subscribing witnesses. N would take nothing in intestacy. Result under §6112?",
+    "qZh": "T的见证遗嘱给邻居N五万美元，而N正是两名见证人之一。若无遗嘱，N分文不得。依§6112结果如何？",
+    "choices": [
+      "The will is invalid because a beneficiary witnessed it",
+      "The gift to N is automatically void",
+      "N takes the full $50,000; witness interest is irrelevant",
+      "The will stands, but N's gift is presumed procured by wrongdoing; if N cannot rebut, N takes only an intestate share — here, nothing"
+    ],
+    "answer": 3,
+    "explain": "An interested witness never invalidates the will (§6112). Unless there are two other disinterested subscribing witnesses, a presumption arises that the devise was procured by duress, menace, fraud, or undue influence; unrebutted, the witness is capped at the intestate share.",
+    "explainZh": "加州不采“利害关系见证条款当然无效”：遗嘱有效，但推定该见证人以胁迫、欺诈或不当影响取得遗赠，可反驳；反驳不成则以其法定应继份为上限（本题为零）。中国法更直接：继承人、受遗赠人及其利害关系人根本不得担任遗嘱见证人（民法典第1140条）。"
+  },
+  {
+    "id": "wil015",
+    "type": "cloze",
+    "topic": "Attested Wills & Harmless Error",
+    "topicZh": "见证遗嘱与无害错误",
+    "q": "Harmless error: a will not executed in compliance with the witnessing requirements is treated as valid if the proponent establishes by {{c::clear and convincing evidence}} that, at the time the testator signed it, the testator intended it to be the testator's will (§6110(c)(2)).",
+    "qZh": "无害错误规则：不符合见证要件的遗嘱，若提出遗嘱的一方以____证明遗嘱人签署时确有以该文件为遗嘱的意思，则视为符合要件（§6110(c)(2)）。",
+    "a": "clear and convincing evidence",
+    "aZh": "明确且令人信服的证据",
+    "explainZh": "这是加州有限版“无害错误”规则，只救见证瑕疵，证明标准高于一般民事的优势证据。中国法无对应制度——形式要件缺失的遗嘱原则上无效。"
+  },
+  {
+    "id": "wil016",
+    "type": "mcq",
+    "topic": "Attested Wills & Harmless Error",
+    "topicZh": "见证遗嘱与无害错误",
+    "q": "T typed and signed a one-page will before a single witness, telling three friends it was T's will. T's lawyer also holds an unsigned draft will. Which document can §6110(c)(2) harmless error save?",
+    "qZh": "T打印了一页遗嘱并签名，但只有一名见证人在场，事后告诉三位朋友那是自己的遗嘱。T的律师还保管着一份未签名的遗嘱草稿。§6110(c)(2)的无害错误规则能挽救哪份文件？",
+    "choices": [
+      "The signed, under-witnessed document, on clear and convincing evidence that T intended it as T's will",
+      "Both documents, on a preponderance of the evidence",
+      "The unsigned draft, because the drafting lawyer can testify to T's intent",
+      "Neither; California requires strict compliance with §6110"
+    ],
+    "answer": 0,
+    "explain": "California's harmless-error provision cures witnessing defects only — the statute presupposes that 'the testator signed the will.' It cannot supply a missing signature, and the standard is clear and convincing evidence, not preponderance.",
+    "explainZh": "加州的无害错误比UPC §2-503更窄：只治愈见证瑕疵，不能补签名（条文以“遗嘱人签署时”为前提），也救不了口头遗嘱。未签名草稿无论证据多充分都不能认证。中国的危急情况口头遗嘱（民法典第1138条）在加州完全不被承认。"
+  },
+  {
+    "id": "wil017",
+    "type": "basic",
+    "topic": "Attested Wills & Harmless Error",
+    "topicZh": "见证遗嘱与无害错误",
+    "q": "T's will reads: 'If I die on my trek in Nepal, everything to my sister.' T returns safely and dies years later, will unchanged. Effective?",
+    "qZh": "T的遗嘱写道：“如果我在尼泊尔徒步时死亡，遗产全部归姐姐。”T平安归来，多年后去世，遗嘱未改。遗嘱是否有效？",
+    "a": "Courts avoid forfeiture by construing such language, where possible, as expressing the motive or occasion for making the will rather than a true condition precedent — so the will remains operative. If the language is unmistakably conditional and the condition failed, the will is inoperative. Extrinsic evidence is admissible on intent.",
+    "aZh": "法院倾向于将这类措辞解释为立遗嘱的动机或缘由，而非真正的生效条件，从而维持遗嘱效力。若措辞明确无误地设定条件且条件未成就，遗嘱不生效。就遗嘱意图可采纳外部证据。",
+    "explainZh": "答题套路：条件性措辞→先论证“动机说”维持效力，再讨论真条件的后果。中国法附条件遗嘱同样有效，实务也倾向作有利于遗嘱效力的解释。"
+  },
+  {
+    "id": "wil018",
+    "type": "basic",
+    "topic": "Attested Wills & Harmless Error",
+    "topicZh": "见证遗嘱与无害错误",
+    "q": "When will California treat a will executed outside California as validly executed (§6113)?",
+    "qZh": "在加州以外签立的遗嘱，何时会被加州认定为有效签立（§6113）？",
+    "a": "If its execution complies with (1) California law (§§6110-6111), (2) the law of the place where it was executed, at the time of execution, or (3) the law of the place where, at execution or at death, the testator was domiciled, had a place of abode, or was a national.",
+    "aZh": "只要其签立符合下列任一法律即可：(1)加州法（§§6110-6111）；(2)签立时签立地的法律；(3)遗嘱人在签立时或死亡时的住所地、居所地或国籍国的法律。",
+    "explainZh": "对跨国当事人极其实用：在北京依中国《民法典》有效订立的自书或公证遗嘱，即使不符合加州形式要件，也可在加州获得认证。思路类似中国《涉外民事关系法律适用法》第32条的多连结点有效原则。"
+  },
+  {
+    "id": "wil019",
+    "type": "basic",
+    "topic": "Holographic Wills",
+    "topicZh": "自书遗嘱",
+    "q": "State the requirements for a valid holographic will (§6111).",
+    "qZh": "请说明自书遗嘱的有效要件（§6111）。",
+    "a": "The signature and the material provisions — the gifts and the beneficiaries — must be in the testator's own handwriting, and the document must show testamentary intent. No witnesses are required. No date is required, though an undated holograph invites the §6111(b) traps. The signature may appear anywhere on the document.",
+    "aZh": "签名和实质条款（遗产给谁、给什么）必须由遗嘱人亲笔书写，且文件须体现立遗嘱的意思。无须见证人；无须注明日期（但未注明日期会落入§6111(b)的两个陷阱）；签名位置不限。",
+    "explainZh": "黄金对比卡：中国自书遗嘱（民法典第1134条）须全文亲笔书写＋签名＋注明年、月、日，缺一即无效；加州只要求签名和实质条款亲笔，打印部分不致命，日期亦非要件——宽松得多。"
+  },
+  {
+    "id": "wil020",
+    "type": "mcq",
+    "topic": "Holographic Wills",
+    "topicZh": "自书遗嘱",
+    "q": "T completed a commercial will form by hand-writing the beneficiaries and gifts, then signed it. No witnesses. The form's printed text declares: 'This is my last will.' Valid holographic will?",
+    "qZh": "T在市售遗嘱表格上亲笔填写受益人和遗产分配并签名，无见证人。表格的印刷文字载明：“此为本人最后遗嘱。”这是有效的自书遗嘱吗？",
+    "choices": [
+      "No — printed material on the page defeats a holograph",
+      "Yes — the signature and material provisions are handwritten, and printed form language may even supply the statement of testamentary intent",
+      "No — a holographic will requires a handwritten date",
+      "Yes, but only if two witnesses later sign it"
+    ],
+    "answer": 1,
+    "explain": "§6111 disregards non-material printed text so long as the material provisions and signature are in T's hand, and §6111(c) expressly allows the statement of testamentary intent to appear in the commercially printed portions of a form will.",
+    "explainZh": "加州允许“印刷表格＋亲笔实质条款”的混合体，立遗嘱意思甚至可由印刷文字提供（§6111(c)）。中国的打印遗嘱（民法典第1136条）则须两名以上见证人全程见证、遗嘱人和见证人每页签名并注明日期——完全是另一条路径。"
+  },
+  {
+    "id": "wil021",
+    "type": "basic",
+    "topic": "Holographic Wills",
+    "topicZh": "自书遗嘱",
+    "q": "What two problems does an undated holographic will face under §6111(b)?",
+    "qZh": "未注明日期的自书遗嘱依§6111(b)面临哪两个问题？",
+    "a": "(1) Inconsistency: if inconsistent with another will's provisions, the undated holograph is invalid to the extent of the inconsistency unless shown to have been executed after that will. (2) Capacity: if T lacked capacity at any time during which it might have been executed, it is invalid unless execution during capacity is established.",
+    "aZh": "(1)冲突问题：与另一份遗嘱内容不一致时，除非证明其签立于该遗嘱之后，否则在不一致范围内无效。(2)能力问题：若遗嘱人在该遗嘱可能签立的任一期间欠缺遗嘱能力，除非证明签立于有能力期间，否则无效。",
+    "explainZh": "日期不是要件，但缺日期时举证不利后果由主张遗嘱有效的一方承担。中国自书遗嘱把“注明年、月、日”定为强制要件，缺日期直接无效——加州只是设置证明陷阱，性质不同。"
+  },
+  {
+    "id": "wil022",
+    "type": "cloze",
+    "topic": "Holographic Wills",
+    "topicZh": "自书遗嘱",
+    "q": "Under §6111.5, {{c::extrinsic evidence}} is admissible both to determine whether a document constitutes a will under §6110 or §6111, and to determine the meaning of a will or any portion whose meaning is unclear.",
+    "qZh": "依§6111.5，____既可用于认定某文件是否构成§6110或§6111意义上的遗嘱，也可用于确定遗嘱或其条款含义不明时的意思。",
+    "a": "extrinsic evidence",
+    "aZh": "外部证据（遗嘱文本以外的证据）",
+    "explainZh": "自书遗嘱常是便条、书信，是否具有立遗嘱意思往往靠证人证言、书写情境等外部证据认定。中国司法实践对遗嘱真实性和意思的认定同样综合全案证据，但对形式要件本身不容以证据补正。"
+  },
+  {
+    "id": "wil023",
+    "type": "basic",
+    "topic": "Holographic Wills",
+    "topicZh": "自书遗嘱",
+    "q": "Can an informal document — a letter, a note, a diary entry — be probated as a holographic will?",
+    "qZh": "书信、便条、日记等非正式文件能否作为自书遗嘱获得认证？",
+    "a": "Yes, if the signature and material provisions are in T's handwriting and the writing reflects present testamentary intent rather than a statement of future plans ('I will make a will leaving you the farm' fails). Extrinsic evidence is admissible on intent (§6111.5). Courts have probated letters and even a series of them.",
+    "aZh": "可以——只要签名和实质条款为亲笔，且文字体现现时处分遗产的意思，而非未来打算（“我将来会立遗嘱把农场留给你”不行）。就立遗嘱意思可采外部证据（§6111.5）。法院曾认证过单封乃至一系列书信。",
+    "explainZh": "关键区分：现在时的处分意思 vs 将来立遗嘱的计划。中国实务中，亲笔遗书若符合第1134条全部要件（全文亲笔＋签名＋注明年月日）亦可认定为自书遗嘱——思路相通，但要件更严。"
+  },
+  {
+    "id": "wil024",
+    "type": "basic",
+    "topic": "Revocation, DRR & Revival",
+    "topicZh": "撤销、相对撤销原则与复效",
+    "q": "How is a will revoked by physical act (§6120(b))?",
+    "qZh": "如何以毁损行为撤销遗嘱（§6120(b)）？",
+    "a": "The will must be burned, torn, canceled, obliterated, or destroyed, with simultaneous intent to revoke, by T or by another person in T's presence and at T's direction. California permits partial revocation by physical act: lining out one gift revokes just that gift, and the revoked gift falls into the residue.",
+    "aZh": "须对遗嘱实施焚烧、撕毁、划销、涂抹或销毁行为，且行为与撤销意思同时存在；可由遗嘱人本人实施，或由他人在其面前依其指示实施。加州允许部分撤销：划掉某项遗赠只撤销该项，被撤销部分落入剩余遗产。",
+    "explainZh": "行为＋意思缺一不可：误毁不构成撤销，仅有意思而无行为也不构成。中国《民法典》无“毁损撤回”明文，第1142条靠新遗嘱或与遗嘱内容相抵触的生前处分行为撤回——机制不同，值得对照。"
+  },
+  {
+    "id": "wil025",
+    "type": "cloze",
+    "topic": "Revocation, DRR & Revival",
+    "topicZh": "撤销、相对撤销原则与复效",
+    "q": "A will executed in duplicate is revoked when {{c::one of the duplicates}} is burned, torn, canceled, obliterated, or destroyed with intent to revoke (§6121).",
+    "qZh": "一式两份签立的遗嘱，当____被以撤销的意思焚烧、撕毁、划销、涂抹或销毁时，整份遗嘱即被撤销（§6121）。",
+    "a": "one of the duplicates",
+    "aZh": "其中任何一份经签署的正本",
+    "explainZh": "“duplicate”指两份都经正式签署的正本；销毁其一即撤销整份遗嘱。注意与未签署的复印件区分：撕掉复印件不生撤销效力。§6124遗失推定也要求正本及签署副本均找不到才触发。"
+  },
+  {
+    "id": "wil026",
+    "type": "mcq",
+    "topic": "Revocation, DRR & Revival",
+    "topicZh": "撤销、相对撤销原则与复效",
+    "q": "T's validly executed will was last in T's possession; T was competent until death. After death, neither the will nor any executed duplicate can be found. What result (§6124)?",
+    "qZh": "T有效签立的遗嘱最后由其本人保管，T直至死亡均有行为能力。死后遗嘱及其签署副本均遍寻不获。依§6124结果如何？",
+    "choices": [
+      "The will is probated from the attorney's photocopy automatically",
+      "The will is conclusively deemed revoked",
+      "A rebuttable presumption arises that T destroyed the will with intent to revoke",
+      "The estate escheats to California"
+    ],
+    "answer": 2,
+    "explain": "§6124's lost-will presumption is rebuttable — for example, by evidence of T's continued attachment to the plan or that a disappointed heir had access to T's papers. If rebutted, the will's contents may be proved by a copy or testimony and admitted to probate.",
+    "explainZh": "遗失遗嘱三要件：最后由遗嘱人保管＋至死有行为能力＋遗嘱和签署副本均未找到→推定其已销毁并有撤销意思，但可反驳。反驳成功后，可用复印件、起草律师证言等证明内容并予认证。"
+  },
+  {
+    "id": "wil027",
+    "type": "basic",
+    "topic": "Revocation, DRR & Revival",
+    "topicZh": "撤销、相对撤销原则与复效",
+    "q": "How does a subsequent instrument revoke an earlier will without any physical act (§6120(a))?",
+    "qZh": "后立文件如何在没有毁损行为的情况下撤销先前的遗嘱（§6120(a)）？",
+    "a": "By an express revocation clause, or by inconsistency — the later instrument controls wherever its terms contradict the earlier will. A later will disposing of the entire estate revokes the earlier will entirely; a later instrument making only partial dispositions is read as a codicil, revoking only what it contradicts.",
+    "aZh": "两种方式：明示撤销条款；或内容抵触——抵触之处以后立文件为准。后立遗嘱处分全部遗产的，先前遗嘱全部被撤销；仅作部分处分的，视为遗嘱附录，只撤销相抵触的部分。",
+    "explainZh": "中国《民法典》第1142条第3款如出一辙：立有数份遗嘱、内容相抵触的，以最后的遗嘱为准。2021年起中国废除公证遗嘱优先效力，全面转向“最后遗嘱优先”，与加州一致。"
+  },
+  {
+    "id": "wil028",
+    "type": "mcq",
+    "topic": "Revocation, DRR & Revival",
+    "topicZh": "撤销、相对撤销原则与复效",
+    "q": "W's 2020 will left everything to husband H and named him executor; her revocable trust also named H beneficiary. They legally separated in 2024; the marriage was dissolved in 2025. W died in 2026 without updating anything. What does H take?",
+    "qZh": "W在2020年立遗嘱将全部遗产留给丈夫H并指定其为遗嘱执行人，其可撤销信托也以H为受益人。两人2024年合法分居，2025年离婚。W于2026年去世，未作任何变更。H能得到什么？",
+    "choices": [
+      "Everything — revocation requires a physical act or new will",
+      "Only the gift under the will",
+      "Only the revocable-trust interest",
+      "Nothing — dissolution revoked both the will provisions (§6122) and the revocable nonprobate designation (§5040)"
+    ],
+    "answer": 3,
+    "explain": "Final dissolution or annulment — not mere legal separation — revokes testamentary provisions favoring the former spouse, the executor nomination, and revocable nonprobate transfers, absent clear evidence of contrary intent; H is treated as having predeceased W.",
+    "explainZh": "离婚判决生效自动撤销给前配偶的遗嘱利益和可撤销非遗嘱指定；仅分居不触发；若与前配偶复婚，被撤销条款复活。中国法无此自动撤销规则——离婚后未改遗嘱，前配偶原则上仍可受遗赠，务必对比记忆。"
+  },
+  {
+    "id": "wil029",
+    "type": "basic",
+    "topic": "Revocation, DRR & Revival",
+    "topicZh": "撤销、相对撤销原则与复效",
+    "q": "State the doctrine of dependent relative revocation (DRR).",
+    "qZh": "请陈述“相对撤销原则”（DRR）。",
+    "a": "A revocation premised on a mistake of law or fact — typically T's belief that another disposition was valid — is disregarded if T would not have revoked but for the mistake, and disregarding the revocation comes closer to T's intent than the alternative (usually intestacy). A court-made fiction serving intent, applied cautiously.",
+    "aZh": "撤销行为若基于法律或事实上的错误认识（典型情形：误以为另一项处分有效）而作出，且若无该错误遗嘱人本不会撤销，法院可无视该撤销——但仅当无视撤销比替代结果（通常是无遗嘱继承）更接近遗嘱人意图时。这是服务于遗嘱人意图的司法拟制，须谨慎适用。",
+    "explainZh": "DRR的本质是两害相权取其轻：旧遗嘱虽被撤销，但比无遗嘱继承更贴近本意时，让撤销失效。中国法无对应制度，可借助重大误解的意思表示瑕疵思路来理解。"
+  },
+  {
+    "id": "wil030",
+    "type": "mcq",
+    "topic": "Revocation, DRR & Revival",
+    "topicZh": "撤销、相对撤销原则与复效",
+    "q": "T tore up Will 1 immediately after signing Will 2, believing Will 2 valid. Will 2 is later denied probate for defective witnessing, and harmless error cannot be proved. Can Will 1 be probated?",
+    "qZh": "T在签署遗嘱二后当即撕毁遗嘱一，深信遗嘱二有效。遗嘱二后来因见证瑕疵被拒绝认证，且无害错误无法证明。遗嘱一还能获得认证吗？",
+    "choices": [
+      "Yes — under DRR the revocation was dependent on Will 2's validity; a copy may prove Will 1's contents",
+      "No — physical destruction is absolute and irreversible",
+      "Yes — §6123 automatically revives Will 1",
+      "No — the estate must pass by intestacy"
+    ],
+    "answer": 0,
+    "explain": "DRR disregards a revocation induced by the mistaken belief that a new disposition was effective, provided Will 1 tracks T's intent better than intestacy. Revival (§6123) is inapplicable — it presupposes that Will 2 validly revoked Will 1 and was itself later revoked.",
+    "explainZh": "区分DRR与复效（revival）：DRR处理“撤销本身因错误认识而被无视”；复效处理“有效撤销之后，撤销者又被撤销，旧遗嘱是否回生”。本题遗嘱二自始无效，其撤销条款亦无效，故靠DRR无视撕毁行为、以副本证明内容。"
+  },
+  {
+    "id": "wil031",
+    "type": "basic",
+    "topic": "Revocation, DRR & Revival",
+    "topicZh": "撤销、相对撤销原则与复效",
+    "q": "Will 1 was revoked by Will 2; Will 2 is later revoked. When does Will 1 revive (§6123)?",
+    "qZh": "遗嘱一被遗嘱二撤销，遗嘱二后来又被撤销。遗嘱一何时复效（§6123）？",
+    "a": "If Will 2 was revoked by physical act, Will 1 revives only if T's contemporaneous or subsequent declarations, or the circumstances, show T intended it to take effect. If Will 2 was revoked by Will 3, Will 1 stays revoked except to the extent Will 3's terms show intent to revive it.",
+    "aZh": "若遗嘱二系以毁损行为撤销：仅当情境或遗嘱人当时/事后的言词表明其欲使遗嘱一生效时，遗嘱一才复效。若遗嘱二被遗嘱三撤销：遗嘱一维持被撤销状态，除非遗嘱三的条款本身显示复效意图。",
+    "explainZh": "记忆：毁损撤销→看意图的一切证据（口头亦可）；书面撤销→只看遗嘱三的文字。中国法未规定复效制度，被撤回的遗嘱不当然回生，默认立场更接近“不复效”。"
+  },
+  {
+    "id": "wil032",
+    "type": "basic",
+    "topic": "Will Components & Related Instruments",
+    "topicZh": "遗嘱组成部分",
+    "q": "What is integration, and how is it proved?",
+    "qZh": "什么是遗嘱的“整合”？如何证明？",
+    "a": "All pages (1) physically present at execution and (2) intended by T to be part of the will are integrated into it. Proof: physical attachment, internal coherence — pages that read continuously — or the drafting and execution circumstances. Pages substituted or added after execution are not part of the will.",
+    "aZh": "凡(1)签署时实际在场且(2)遗嘱人有意作为遗嘱组成部分的纸页，均整合为遗嘱的一部分。证明方式：物理装订、文义连贯（页与页连续可读）或起草与签署时的情境。签署后替换或添加的纸页不属于遗嘱。",
+    "explainZh": "考试信号：遗嘱只有末页有签名和见证，前几页算不算？用整合原则分析。中国自书遗嘱须全文亲笔，天然排除拼页问题；公证遗嘱由公证机构固定文本，也少有此争点。"
+  },
+  {
+    "id": "wil033",
+    "type": "basic",
+    "topic": "Will Components & Related Instruments",
+    "topicZh": "遗嘱组成部分",
+    "q": "Elements of incorporation by reference (§6130)?",
+    "qZh": "“援引并入”的要件是什么（§6130）？",
+    "a": "A writing lacking will formalities is given testamentary effect if (1) it existed when the will was executed, (2) the will manifests an intent to incorporate it, and (3) the will describes it sufficiently to permit identification. Classic uses: an earlier invalid will, a pre-existing list of gifts, trust terms.",
+    "aZh": "未按遗嘱形式签署的文件可发生遗嘱效力，条件是：(1)该文件在遗嘱签署时已经存在；(2)遗嘱表明将其并入的意图；(3)遗嘱对该文件的描述足以将其特定化。典型应用：先前无效的遗嘱、既存的赠与清单、信托条款。",
+    "explainZh": "与§6132动产备忘录的区别：援引并入要求文件先于遗嘱存在，但无金额上限；§6132允许清单事后作成，却仅限有形动产且有5,000/25,000美元限额。中国法无援引并入制度，遗嘱内容须在符合形式要件的文件内完成。"
+  },
+  {
+    "id": "wil034",
+    "type": "cloze",
+    "topic": "Will Components & Related Instruments",
+    "topicZh": "遗嘱组成部分",
+    "q": "A will may dispose of property by reference to acts and events that have significance {{c::apart from their effect upon the dispositions made by the will}}, whether they occur before or after execution or the testator's death (§6131).",
+    "qZh": "遗嘱可以通过援引某些行为或事件来处分财产，只要这些行为或事件具有____的意义，无论其发生在遗嘱签署之前、之后，甚至遗嘱人死亡之后（§6131）。",
+    "a": "apart from their effect upon the dispositions made by the will",
+    "aZh": "独立于遗嘱处分效果之外（即具有独立的生前意义）",
+    "explainZh": "例：“把我死时车库里的那辆车给A”“给我死时仍受雇于我的每位员工一万元”——买什么车、雇用谁都有独立的生活或经营意义，并非为规避遗嘱形式而设，故有效。本条是防止以非正式行为变相改遗嘱的过滤器。"
+  },
+  {
+    "id": "wil035",
+    "type": "basic",
+    "topic": "Will Components & Related Instruments",
+    "topicZh": "遗嘱组成部分",
+    "q": "Requirements and limits of the §6132 tangible-personal-property memorandum?",
+    "qZh": "§6132有形动产备忘录的要件与限额是什么？",
+    "a": "The will must refer to a writing that is dated and either handwritten or signed by T, describing items and recipients with reasonable certainty; it may be prepared before or after the will. Limits: tangible personal property only — no money or business property; $5,000 per item; $25,000 aggregate. Items over the limits pass under the will instead.",
+    "aZh": "遗嘱须提及一份书面清单；清单须注明日期，且为亲笔书写或经遗嘱人签名；对物品和受赠人的描述须合理确定；可在立遗嘱之前或之后作成。限制：仅限有形动产（不含金钱和经营性财产）；单件不超过5,000美元；合计不超过25,000美元。超限物品改依遗嘱本身处分。",
+    "explainZh": "这是加州对“援引并入须文件先存在”规则的法定突破：清单可以事后写、随时改。类似中国老人常见的“财物分配字条”，但在中国此类字条若不满足自书/代书遗嘱要件即无效——加州为小额财物开了一条正式通道。"
+  },
+  {
+    "id": "wil036",
+    "type": "mcq",
+    "topic": "Will Components & Related Instruments",
+    "topicZh": "遗嘱组成部分",
+    "q": "T's will devises the residue 'to the trustee of the T Family Trust established today.' The trust instrument was signed the same day, before the will. T amended the trust two years later, then died. Valid pour-over, and which terms govern?",
+    "qZh": "T的遗嘱将剩余遗产“遗赠给今日设立的T家族信托的受托人”。信托文件当天在遗嘱之前签署。两年后T修改了信托，随后去世。倾注条款是否有效？以哪一版信托条款为准？",
+    "choices": [
+      "Invalid — a will may not pour into an amendable trust",
+      "Valid — but only the trust terms existing at the will's execution govern",
+      "Valid under UTATA — the trust terms including the later amendments govern",
+      "Valid — but only if the trust was funded during T's lifetime"
+    ],
+    "answer": 2,
+    "explain": "UTATA (§6300) validates a devise to a trust identified in the will whose terms are set out in an instrument executed before or concurrently with the will — even if unfunded — and post-will amendments govern unless the will provides otherwise. If the trust is revoked before death, the devise lapses.",
+    "explainZh": "UTATA三要点：信托须在遗嘱中特定化；信托文件须在遗嘱之前或同时签署；之后的修改依然适用。信托在死亡前被撤销的，遗赠失效。倾注遗嘱＋可撤销生前信托是加州最常见的遗产规划组合。"
+  },
+  {
+    "id": "wil037",
+    "type": "basic",
+    "topic": "Will Components & Related Instruments",
+    "topicZh": "遗嘱组成部分",
+    "q": "What is republication by codicil, and why does the new date matter?",
+    "qZh": "什么是“遗嘱附录再公布”？重新确定日期有何意义？",
+    "a": "A codicil re-executes the will, which is treated as re-dated to the codicil's date. Consequences: writings existing by the codicil date can be incorporated by reference; a spouse married — or child born — before the codicil is no longer 'omitted'; and a codicil witnessed by disinterested witnesses can cure an interested-witness problem.",
+    "aZh": "遗嘱附录（codicil）使原遗嘱视为在附录签署之日重新签立。后果：截至附录日已存在的文件可被援引并入；在附录之前结婚的配偶或出生的子女不再属于“被遗漏”；由无利害关系见证人见证的附录还可治愈原遗嘱的利害关系见证人问题。",
+    "explainZh": "看到codicil立即检查三件事：并入文件的时间线、被遗漏配偶/子女的时间线、见证人资格。中国法无“再公布”概念，数份遗嘱按内容抵触规则以最后遗嘱为准。"
+  },
+  {
+    "id": "wil038",
+    "type": "basic",
+    "topic": "Capacity, Contests & Wrongdoers",
+    "topicZh": "遗嘱能力与争议",
+    "q": "T, under a conservatorship and suffering dementia, executed a will during a lucid interval. Can it stand?",
+    "qZh": "T处于监护（conservatorship）之下且患有痴呆，在神志清醒的间歇期立了遗嘱。遗嘱能否有效？",
+    "a": "Yes. Capacity is assessed at the moment of execution, and a lucid interval suffices. Old age, illness, eccentricity, medication, or an existing conservatorship is not conclusive — testamentary capacity demands less than contractual capacity. The contestant bears the burden of proving incapacity at execution.",
+    "aZh": "可以。遗嘱能力以签署那一刻为准，清醒间歇期即可满足。高龄、疾病、性情古怪、用药或已设监护均非决定性——遗嘱能力的要求低于订约能力。主张无效的一方须证明签署时点欠缺能力。",
+    "explainZh": "中国《民法典》第1143条以“完全民事行为能力”为门槛，无民事行为能力人或限制民事行为能力人所立遗嘱无效，并以行为能力状态为主要判断依据——比加州“时点判断＋低门槛”模式刚性得多。"
+  },
+  {
+    "id": "wil039",
+    "type": "basic",
+    "topic": "Capacity, Contests & Wrongdoers",
+    "topicZh": "遗嘱能力与争议",
+    "q": "Define insane delusion and its effect on a will.",
+    "qZh": "什么是“精神妄想”？它对遗嘱有何影响？",
+    "a": "A false belief that is the product of a mental disorder featuring delusions or hallucinations, without rational basis, which causes T to dispose of property in a way T otherwise would not (§6100.5(a)(2)). Causation is essential. Only the provisions produced by the delusion fail; the remainder of the will stands.",
+    "aZh": "指因伴有妄想或幻觉的精神障碍而产生、缺乏任何理性基础的错误信念，并导致遗嘱人作出若无该妄想便不会作出的财产处分（§6100.5(a)(2)）。因果关系是关键。仅受妄想影响的条款无效，遗嘱其余部分仍然有效。",
+    "explainZh": "与整体无能力不同，妄想只做“部分切除”。经典例子：毫无根据地坚信配偶不忠而剥夺其份额。注意与偏见、有事实基础的错误区分——后者走欺诈或错误的路径，不是妄想。"
+  },
+  {
+    "id": "wil040",
+    "type": "basic",
+    "topic": "Capacity, Contests & Wrongdoers",
+    "topicZh": "遗嘱能力与争议",
+    "q": "State the common-law case for undue influence in a will contest.",
+    "qZh": "请说明遗嘱争议中普通法上不当影响的认定框架。",
+    "a": "Undue influence is excessive persuasion that overcomes the testator's free will and causes an inequitable result (§86; W&I §15610.70). Contest factors: T's Susceptibility, the influencer's Opportunity, a Disposition to influence shown by active procurement, and an unnatural resulT benefiting the influencer. Statutory factors: vulnerability, apparent authority, tactics, equity of result.",
+    "aZh": "不当影响指过度劝诱压倒遗嘱人的自由意志并造成不公平结果（§86；《福利与机构法典》§15610.70）。四项争讼要素：遗嘱人的易受影响性、影响者的机会、通过积极参与订立遗嘱表现出的影响倾向、以及使影响者获益的反常结果。制定法要素：脆弱性、表面权威、手段策略、结果失衡。",
+    "explainZh": "记SODT四要素并逐项套用事实。中国《民法典》第1143条“受欺诈、胁迫所立的遗嘱无效”涵盖类似情形，但无系统的不当影响要素体系——答加州卷必须做要素分析，不能一句“违背真实意思”带过。",
+    "mnemonic": "SODT — Susceptibility, Opportunity, Disposition, unnatural resulT"
+  },
+  {
+    "id": "wil041",
+    "type": "mcq",
+    "topic": "Capacity, Contests & Wrongdoers",
+    "topicZh": "遗嘱能力与争议",
+    "q": "V, aged 88 and dependent on in-home caregiver C for daily needs, executed a will 30 days into C's employment leaving C $200,000. C is unrelated to V; no independent attorney reviewed the gift. Starting position when C claims the gift?",
+    "qZh": "88岁的V日常起居依赖住家护理员C。C受雇第30天，V立遗嘱给C二十万美元。C与V无亲属关系，也没有独立律师审查该赠与。C主张受赠时，法律上的出发点是什么？",
+    "choices": [
+      "C takes — caregivers are ordinary beneficiaries",
+      "The gift is presumed the product of fraud or undue influence; C must rebut by clear and convincing evidence",
+      "The gift is conclusively void",
+      "Contestants must first prove undue influence by a preponderance"
+    ],
+    "answer": 1,
+    "explain": "§21380 presumes invalid a donative transfer to a care custodian of a dependent adult where the instrument was executed during the custodianship or within 90 days of it; rebuttal requires clear and convincing evidence. A §21384 certificate of independent review would have removed the presumption; only the drafter faces a conclusive presumption.",
+    "explainZh": "§21380黑名单：文书起草人（推定不可反驳）、处于信义关系且誊写文书之人、依赖性成年人的照护人（照护期间或前后90日内立据）及上述人员的血亲、同居人、雇员。除起草人外均可用明确且令人信服的证据反驳；§21384独立律师审查证明书可整体豁免。中国无此类身份推定，甚至以遗赠扶养协议制度鼓励扶养人取得遗产——方向相反，注意对比。"
+  },
+  {
+    "id": "wil042",
+    "type": "mcq",
+    "topic": "Capacity, Contests & Wrongdoers",
+    "topicZh": "遗嘱能力与争议",
+    "q": "B, knowing it false, told T that T's only son had died in a car crash. Grief-stricken, T executed a will leaving the estate to B. The son is alive. Classify the wrongdoing and identify the remedy.",
+    "qZh": "B明知不实，仍告诉T其独子已死于车祸。悲痛之下，T立遗嘱将遗产全部留给B。儿子其实在世。请对该不法行为定性并指出救济。",
+    "choices": [
+      "Fraud in the execution — the entire will is void",
+      "Undue influence — the entire will is void",
+      "Mistake in the inducement — no relief is available",
+      "Fraud in the inducement — the tainted gift fails; a constructive trust may be imposed for the intended takers"
+    ],
+    "answer": 3,
+    "explain": "T knew the document was a will, so this is not fraud in the execution; a knowingly false statement that shapes the disposition is fraud in the inducement — only the affected provisions fail, with constructive trust available. The son may also claim independently as a child believed dead under §21622.",
+    "explainZh": "欺诈三分法：签署欺诈（不知所签是遗嘱→全部无效）；诱导欺诈（虚假陈述影响处分→受污染部分无效＋拟制信托）；阻止立遗嘱或撤销的欺诈（拟制信托）。胁迫（duress/menace）以不法威胁压制意志，处理同不当影响。中国法笼统规定受欺诈、胁迫所立遗嘱无效（第1143条），不作此精细区分。另勿忘§21622“误信子女已死”条款可给儿子法定应继份。"
+  },
+  {
+    "id": "wil043",
+    "type": "basic",
+    "topic": "Capacity, Contests & Wrongdoers",
+    "topicZh": "遗嘱能力与争议",
+    "q": "Can a California court reform an unambiguous will for mistake?",
+    "qZh": "加州法院能否因错误而改写（reform）文义清楚的遗嘱？",
+    "a": "Yes. Estate of Duke (2015): an unambiguous will may be reformed on clear and convincing evidence of (1) a mistake in the expression of intent at drafting and (2) T's actual specific intent at that time. Mistake in execution (signing the wrong document) is also correctable; pure mistake in the inducement generally receives no relief.",
+    "aZh": "可以。Estate of Duke案（2015年）：即使遗嘱文义没有歧义，只要有明确且令人信服的证据证明(1)起草时的表达错误和(2)遗嘱人当时的真实具体意图，法院即可改写遗嘱。签错文件（执行上的错误）亦可纠正；单纯的动机错误一般不获救济。",
+    "explainZh": "Duke案推翻了“无歧义即不得引入外部证据改写”的传统规则，是加州遗嘱法最重要的现代判例，论述题高频引用。中国法院以“探求遗嘱人真意”的解释方法处理，无正式的改写（reformation）制度。"
+  },
+  {
+    "id": "wil044",
+    "type": "mcq",
+    "topic": "Capacity, Contests & Wrongdoers",
+    "topicZh": "遗嘱能力与争议",
+    "q": "T's will leaves niece N $10,000 and contains a no-contest clause. Relying on a doctor's report and caregiver testimony, N reasonably believes she can prove undue influence and petitions to invalidate the will. She loses. Does N forfeit the $10,000?",
+    "qZh": "T的遗嘱给侄女N一万美元并含“禁止争议条款”。N基于医生报告和护理员证言，合理相信能证明不当影响，遂申请宣告遗嘱无效，但败诉。N是否丧失该一万美元？",
+    "choices": [
+      "No — a direct contest forfeits only if brought without probable cause",
+      "Yes — any unsuccessful contest triggers forfeiture",
+      "Yes — undue-influence contests are never protected",
+      "No — no-contest clauses are unenforceable in California"
+    ],
+    "answer": 0,
+    "explain": "§21311 enforces no-contest clauses against a direct contest (forgery, lack of due execution, incapacity, fraud, undue influence, revocation, etc.) only when filed without probable cause — facts known that would lead a reasonable person to believe a reasonable likelihood of relief after further investigation. Ownership challenges and creditor claims forfeit only if the clause expressly says so.",
+    "explainZh": "加州严格限缩no-contest条款：只有“无合理依据的直接争议”才触发没收；对财产权属异议和债权申报，须条款明文规定方可适用。另有侵害预期继承利益的侵权之诉（Beckwith v. Dahl），在遗嘱认证程序无法提供充分救济时可用。中国法无此制度，类似条款的效力存疑。"
+  },
+  {
+    "id": "wil045",
+    "type": "cloze",
+    "topic": "Capacity, Contests & Wrongdoers",
+    "topicZh": "遗嘱能力与争议",
+    "q": "A person who {{c::feloniously and intentionally}} kills the decedent takes nothing by will, trust, or intestacy; the property passes as if the killer predeceased the decedent, and the anti-lapse statute does not apply (§250).",
+    "qZh": "____杀害被继承人的人，不得通过遗嘱、信托或法定继承取得任何利益；财产按杀害者先于被继承人死亡处理，且反失效条款不适用（§250）。",
+    "a": "feloniously and intentionally",
+    "aZh": "以重罪且故意的方式",
+    "explainZh": "刑事定罪有终局效力；无定罪时民事法院按优势证据自行认定（§254）。反失效条款不适用意味着杀害者的子女不能顶替受益。姊妹规则§259：经明确且令人信服的证据证明对老年/依赖性成年被继承人实施身体虐待、疏于照料或经济虐待，且出于恶意并具鲁莽、压迫、欺诈或恶毒情节者，同样视为先死。中国《民法典》第1125条故意杀害被继承人同样丧失继承权，且属绝对丧失——异曲同工。"
+  },
+  {
+    "id": "wil046",
+    "type": "basic",
+    "topic": "Construction & Property Changes",
+    "topicZh": "遗嘱解释与财产变动",
+    "q": "Classify testamentary gifts, and state why classification matters.",
+    "qZh": "请对遗嘱赠与进行分类，并说明分类的意义。",
+    "a": "Specific: a particular identified asset ('my Rolex,' 'Blackacre'). General: payable from the general estate ('$50,000'). Demonstrative: a general amount payable first from a designated source ('$10,000 from my Wells Fargo account'). Residuary: whatever remains. Classification controls ademption (specific gifts only), the abatement order, exoneration, and accessions.",
+    "aZh": "特定遗赠：特定的具体财产（“我的劳力士”“黑亩地”）。一般遗赠：从遗产整体中支付（“五万美元”）。指示性遗赠：优先从指定来源支付的一般金额（“从我富国银行账户支付一万美元”）。剩余遗赠：其余全部。分类决定遗产灭失规则（仅特定遗赠）、削减顺序、担保债务承受和证券孳息归属。",
+    "explainZh": "所有财产变动类考题的第一步都是给赠与定性。中国法无此四分法，但遗嘱继承与遗赠的区分（受遗赠人须在知道后60日内接受，民法典第1124条）同样是先定性再论效果的思路。"
+  },
+  {
+    "id": "wil047",
+    "type": "basic",
+    "topic": "Construction & Property Changes",
+    "topicZh": "遗嘱解释与财产变动",
+    "q": "T's will leaves 'my house on Elm Street' to A. T sold the house before death. Does A take anything?",
+    "qZh": "T的遗嘱将“榆树街的房子”留给A，但T死前把房子卖了。A还能得到什么？",
+    "a": "The specific gift presumptively adeems by extinction. But California softens with intent: A takes any unpaid purchase price, unpaid condemnation award, unpaid casualty-insurance proceeds, or property obtained by foreclosing the gifted security (§21133), and courts ask whether T actually intended the gift to fail. Absent traceable rights or contrary intent, A takes nothing.",
+    "aZh": "特定遗赠推定因标的灭失而失效（ademption）。但加州以意图缓和之：A可取得死亡时尚未收取的购房价款、征收补偿金、财产保险金，或就所赠担保权实行拍卖取得的财产（§21133），法院还会探究T是否真有使赠与失效的意图。若无可追踪的权利且无相反意图，A一无所得。",
+    "explainZh": "加州拒绝机械的“同一性”规则，采温和的意图路径——答题先讲推定失效，再查§21133可追踪权利。中国《民法典》第1142条第2款：遗嘱人生前处分与遗嘱相抵触的，视为撤回相关内容——效果与ademption相似，同样以行为推断意思。"
+  },
+  {
+    "id": "wil048",
+    "type": "mcq",
+    "topic": "Construction & Property Changes",
+    "topicZh": "遗嘱解释与财产变动",
+    "q": "T's will specifically devises Blackacre to D. Years later T's conservator, with court approval, sold Blackacre for $300,000 net to fund T's care. T died without regaining capacity. What does D take?",
+    "qZh": "T的遗嘱将黑亩地特定遗赠给D。多年后，T的监护人经法院批准将其出售，净得三十万美元用于支付T的照护费。T至死未恢复行为能力。D能得到什么？",
+    "choices": [
+      "Nothing — the devise adeemed on sale",
+      "A general pecuniary gift equal to the $300,000 net sale price",
+      "Blackacre itself, recoverable from the buyer",
+      "Only a share of the residue"
+    ],
+    "answer": 1,
+    "explain": "Under §21134, when a conservator (or a DPOA agent for an incapacitated principal) sells specifically devised property, the beneficiary takes a pecuniary gift equal to the net sale price — ademption's premise of testator choice fails because T could not revise the will. The protection yields if the conservatorship ends and T survives it by a year.",
+    "explainZh": "监护人或持久授权代理人出售特定遗赠财产不发生灭失：受赠人改取等额金钱遗赠（征收补偿、保险金付给监护人的同理）。法理：ademption以“遗嘱人本可改遗嘱而不改”为前提，无行为能力者没有这个机会。若监护终止且T存活满一年仍未改遗嘱，保护即失效。"
+  },
+  {
+    "id": "wil049",
+    "type": "basic",
+    "topic": "Construction & Property Changes",
+    "topicZh": "遗嘱解释与财产变动",
+    "q": "When does a lifetime gift count as satisfaction of a testamentary gift (§21135)?",
+    "qZh": "生前赠与何时构成对遗嘱赠与的遗产减扣（satisfaction，§21135）？",
+    "a": "Only if (1) the instrument provides for deduction, (2) the transferor declares satisfaction in a contemporaneous writing, (3) the transferee acknowledges it in writing at any time, or (4) the very property given by will is transferred in life. Valued when the transferee gains possession or at death, whichever is first.",
+    "aZh": "仅限四种情形：(1)遗嘱本身规定应予扣减；(2)赠与人在同时作成的书面文件中声明系抵扣；(3)受赠人在任何时候书面承认；(4)生前转移的正是遗嘱所赠的那项财产。按受赠人取得占有时或死亡时（以先者为准）的价值计算。",
+    "explainZh": "satisfaction（有遗嘱）与advancement（无遗嘱，§6409）是一对镜像规则，都以书面为前提——先辨场景再作答。中国法无此制度：生前已给的，遗嘱未改仍按遗嘱执行，除非解释为第1142条的抵触处分而视为撤回。"
+  },
+  {
+    "id": "wil050",
+    "type": "cloze",
+    "topic": "Construction & Property Changes",
+    "topicZh": "遗嘱解释与财产变动",
+    "q": "Shares abate in this order: property not disposed of by the instrument, {{c::residuary gifts}}, general gifts to non-relatives, general gifts to relatives, specific gifts to non-relatives, then specific gifts to relatives — pro rata within each class (§§21402-21403).",
+    "qZh": "遗产不足清偿时按以下顺序削减：未被遗嘱处分的财产、____、给非亲属的一般遗赠、给亲属的一般遗赠、给非亲属的特定遗赠、最后是给亲属的特定遗赠——同一类别内按比例削减（§§21402-21403）。",
+    "a": "residuary gifts",
+    "aZh": "剩余遗赠",
+    "explainZh": "加州特色：每一档内非亲属先于亲属被削减（“外人先扣”）。指示性遗赠在指定资金范围内按特定遗赠对待，超出部分按一般遗赠。中国无遗嘱内部的削减顺位，遗产先清偿税款债务（民法典第1159条）后按遗嘱分配。",
+    "mnemonic": "Intestate → Residuary → General → Specific; strangers before family"
+  },
+  {
+    "id": "wil051",
+    "type": "cloze",
+    "topic": "Construction & Property Changes",
+    "topicZh": "遗嘱解释与财产变动",
+    "q": "A specific gift passes the property subject to any {{c::mortgage, deed of trust, or other lien}} existing at the date of death, with no right of exoneration — even if the will contains a general directive to pay debts (§21131).",
+    "qZh": "特定遗赠的财产连同死亡时存在的任何____一并转移，受赠人无权要求以遗产清偿该担保债务——即使遗嘱载有“清偿我的全部债务”的一般性指示（§21131）。",
+    "a": "mortgage, deed of trust, or other lien",
+    "aZh": "抵押、信托契据或其他留置负担",
+    "explainZh": "“不豁免”规则：受赠人拿到的是背着按揭的房子。要豁免必须在遗嘱中特别指明清偿该笔担保债务，一般性指示不够。中国实务同理：受遗赠财产上的负担不因遗赠而消灭，且继承人以遗产实际价值为限清偿债务。"
+  },
+  {
+    "id": "wil052",
+    "type": "basic",
+    "topic": "Construction & Property Changes",
+    "topicZh": "遗嘱解释与财产变动",
+    "q": "T left 'my 100 shares of Acme' to B. Before death Acme split 2-for-1 and declared a cash dividend. What does B take (§21132)?",
+    "qZh": "T将“我的100股Acme股票”留给B。死前Acme实施一拆二并宣派现金股利。B取得什么（§21132）？",
+    "a": "B takes 200 shares. A specific gift of securities carries additional securities of the same entity produced by action the entity initiated — splits, stock dividends — plus securities of another organization received in a merger or reorganization, and reinvestment-plan shares. Cash dividends declared before death are not included; they fall to the general estate.",
+    "aZh": "B取得200股。证券的特定遗赠包含发行主体主动行为产生的同一主体新增证券（拆股、股票股利）、并购重组中换得的其他公司证券，以及股息再投资计划的股份。死前宣派的现金股利不随赠与，归入遗产整体。",
+    "explainZh": "口诀：“股生股跟着走，股生钱留在家”。中国法无对应条文，孳息归属按遗嘱解释和孳息随主物的一般规则处理。"
+  },
+  {
+    "id": "wil053",
+    "type": "basic",
+    "topic": "Construction & Property Changes",
+    "topicZh": "遗嘱解释与财产变动",
+    "q": "State California's anti-lapse statute (§21110).",
+    "qZh": "请陈述加州的反失效条款（anti-lapse，§21110）。",
+    "a": "If a transferee who is kindred of the transferor — or kindred of the transferor's surviving, deceased, or former spouse — fails to survive, the transferee's issue take by representation. The spouse personally is not covered; friends are not. An express survivorship requirement ('if she survives me') defeats it. Class gifts are covered unless the member died before execution and T knew.",
+    "aZh": "先于遗嘱人死亡的受赠人若是遗嘱人的血亲，或遗嘱人现任、已故或前配偶的血亲，则由该受赠人的卑亲属代位取得。配偶本人不受保护；朋友也不受保护。明示的生存条件（“如果她活得比我久”）排除本条适用。集合赠与亦适用，除非该成员在遗嘱签署前已死亡且遗嘱人知情。",
+    "explainZh": "覆盖面记三点：遗嘱人的血亲＋配偶的血亲（因此继子女在内！），但不含配偶本人。功能上对应中国的代位继承（第1128条，限于法定继承中子女、兄弟姐妹的晚辈直系血亲）；中国遗嘱继承中受遗赠人先死则遗赠部分按法定继承办理（第1154条），无反失效保护。"
+  },
+  {
+    "id": "wil054",
+    "type": "mcq",
+    "topic": "Construction & Property Changes",
+    "topicZh": "遗嘱解释与财产变动",
+    "q": "T's will gives '$30,000 to my sister S; the residue to my friend F.' Both S and F predecease T; each leaves two children. Distribution?",
+    "qZh": "T的遗嘱：“三万美元给姐姐S；剩余遗产给朋友F。”S和F都先于T死亡，各留两名子女。遗产如何分配？",
+    "choices": [
+      "S's children take $30,000; F's children take the residue",
+      "Both gifts fail; the whole estate passes by intestacy",
+      "S's children take $30,000 under anti-lapse; F's residuary gift lapses and passes by intestacy",
+      "S's estate takes $30,000; F's estate takes the residue"
+    ],
+    "answer": 2,
+    "explain": "§21110 substitutes issue only for a predeceasing transferee who was kindred of T or of T's spouse. A sister qualifies; a friend does not — so the residuary gift lapses, and with no alternate residuary taker it descends by intestacy.",
+    "explainZh": "先问身份：S是血亲→反失效救济，其子女代位取得；F是朋友→不救，剩余遗赠失效。整个剩余遗赠失效且无备位受赠人时落入法定继承；若失效的仅是剩余遗产中某人的份额，则由其余剩余受赠人按比例吸收（§21111(b)）。"
+  },
+  {
+    "id": "wil055",
+    "type": "basic",
+    "topic": "Construction & Property Changes",
+    "topicZh": "遗嘱解释与财产变动",
+    "q": "How does California treat patent and latent ambiguities in a will?",
+    "qZh": "加州如何处理遗嘱中的“显性歧义”与“隐性歧义”？",
+    "a": "Identically: extrinsic evidence is admissible to interpret both patent ambiguities (apparent on the face) and latent ambiguities (emerging when the will is applied) — Estate of Russell abandoned the old distinction. Courts read the whole will in light of the circumstances at execution; and under Duke, even unambiguous wills can be reformed on clear and convincing proof.",
+    "aZh": "同等对待：无论显性歧义（文面即可见）还是隐性歧义（适用时才显现，如有两个同名侄子），均可采纳外部证据解释——Estate of Russell案废弃了新旧区分。法院结合签署时的情境通读全嘱；依Duke案，甚至无歧义的遗嘱也可凭明确且令人信服的证据改写。",
+    "explainZh": "解释阶梯：文义→整体解释＋签署情境→外部证据→（最后手段）Duke改写。中国《民法典》对遗嘱同样探求遗嘱人真意（参照第142条第1款意思表示解释规则），但没有英美法的歧义类型学。"
+  },
+  {
+    "id": "wil056",
+    "type": "cloze",
+    "topic": "Construction & Property Changes",
+    "topicZh": "遗嘱解释与财产变动",
+    "q": "If it cannot be established by clear and convincing evidence that a devisee survived the testator, the devisee is {{c::deemed to have predeceased the testator}} (§§220, 21109); the 120-hour survival rule governs intestacy only, unless the instrument imposes one.",
+    "qZh": "若无法以明确且令人信服的证据证明受遗赠人比遗嘱人后死，则该受遗赠人____（§§220、21109）；120小时生存规则仅适用于法定继承，除非遗嘱另有要求。",
+    "a": "deemed to have predeceased the testator",
+    "aZh": "视为先于遗嘱人死亡",
+    "explainZh": "对照记忆：遗嘱继承→只须“明确且令人信服地证明后死”，无120小时门槛；法定继承→须多活120小时（§6403）。同时罹难时各自财产按各自继承人处理；共同财产依§103一半按夫、一半按妻的路径分流。中国民法典第1121条采推定规则：不能确定先后的，推定没有其他继承人的人先死、长辈先死、同辈同时死而互不继承——机制不同。"
+  },
+  {
+    "id": "wil057",
+    "type": "cloze",
+    "topic": "Omitted Spouse & Children",
+    "topicZh": "被遗漏的配偶与子女",
+    "q": "An omitted spouse — one who married the testator after execution of all testamentary instruments — receives one-half of the community property, one-half of the quasi-community property, and an intestate share of the separate property capped at {{c::one-half of the separate property}} (§21610).",
+    "qZh": "被遗漏配偶（在全部遗嘱文件签立之后才与遗嘱人结婚者）取得：共同财产的一半、准共同财产的一半，以及独立财产的法定应继份，但以____为上限（§21610）。",
+    "a": "one-half of the separate property",
+    "aZh": "独立财产的二分之一",
+    "explainZh": "CP/QCP部分其实就是死者名下那一半，与无遗嘱结果相同；SP按§6401(c)计算但封顶一半——即使无遗嘱本可拿全部SP，也最多一半。中国无“被遗漏配偶”制度：婚后未改遗嘱不产生矫正份额，仅有第1141条必留份保护缺乏劳动能力又没有生活来源的继承人。"
+  },
+  {
+    "id": "wil058",
+    "type": "mcq",
+    "topic": "Omitted Spouse & Children",
+    "topicZh": "被遗漏的配偶与子女",
+    "q": "T executed his only will in 2019 leaving everything to his brother, married W in 2022, and died in 2026 without changes. Which fact defeats W's omitted-spouse claim (§21611)?",
+    "qZh": "T在2019年立下唯一的遗嘱，将全部遗产留给弟弟；2022年与W结婚；2026年去世，遗嘱未改。哪一事实能击败W的被遗漏配偶主张（§21611）？",
+    "choices": [
+      "T orally told friends he wanted W to take nothing",
+      "T and W were estranged when T died",
+      "The will predates the marriage by three years",
+      "T made W the beneficiary of a $2 million life-insurance policy, with statements showing it was intended in lieu of a will provision"
+    ],
+    "answer": 3,
+    "explain": "The §21611 exceptions are: intent to omit appearing on the face of the instrument; a transfer outside the estate intended in lieu, shown by T's statements, the amount, or other evidence; or a valid waiver — a signed writing after fair disclosure, with independent counsel or substantive fairness (§§140-147). Oral wishes and estrangement do not qualify.",
+    "explainZh": "三个例外：遗嘱文面明示故意不留；以遗嘱外安排（保险、信托等）替代并有替代意图的证据；有效放弃（签署书面＋公平披露＋独立律师或实质公平，§§140-147）。口头表态与感情疏远都不算。选项三正是“遗嘱外替代安排＋意图证据”的典型。"
+  },
+  {
+    "id": "wil059",
+    "type": "basic",
+    "topic": "Omitted Spouse & Children",
+    "topicZh": "被遗漏的配偶与子女",
+    "q": "Who qualifies as an omitted child, what does the child take, and what defeats the claim?",
+    "qZh": "谁是“被遗漏子女”？其取得什么？哪些抗辩可以击败其主张？",
+    "a": "A child born or adopted after execution of all the decedent's testamentary instruments, and unprovided for, takes an intestate share (§21620). Defenses (§21621): intentional omission apparent on the face of an instrument; the decedent devised substantially all of the estate to the child's other parent; or provision outside the instruments intended in lieu.",
+    "aZh": "在被继承人全部遗嘱文件签立之后出生或被收养、且遗嘱未作安排的子女，取得法定应继份（§21620）。抗辩（§21621）：文面显示故意不留；被继承人把遗产实质上全部留给该子女的另一位父/母；或以遗嘱外安排替代并有此意图。",
+    "explainZh": "“另一位父母”例外以立遗嘱时已有一名以上子女为前提——把遗产留给孩子的母亲，法律推定她会照顾孩子。中国仅为胎儿保留份额（第1155条），对遗嘱之后出生的子女无自动矫正制度，未成年人只能靠第1141条必留份部分兜底。"
+  },
+  {
+    "id": "wil060",
+    "type": "basic",
+    "topic": "Omitted Spouse & Children",
+    "topicZh": "被遗漏的配偶与子女",
+    "q": "T's will omitted a daughter who was alive when it was executed, because T believed she had died. Any protection?",
+    "qZh": "T立遗嘱时女儿在世，但T误以为她已经死亡而未作安排。她有救济吗？",
+    "a": "Yes — §21622: a child living at execution, omitted solely because the decedent believed the child dead or was unaware of the birth, receives a full intestate share. This is the sole protection for children alive when the will was made; otherwise California permits disinheritance by silence.",
+    "aZh": "有——§21622：立遗嘱时已在世的子女，若仅因被继承人误信其已死或不知其出生而被遗漏，可取得完整的法定应继份。这是对立遗嘱时已在世子女的唯一保护；除此之外，加州允许以沉默方式剥夺子女的继承。",
+    "explainZh": "抓住“solely”（唯一原因）这个限定词——若另有不留的理由则不适用。美国法（路易斯安那州除外）无子女强制继承份，父母可完全剥夺子女；中国第1141条必留份只保护缺乏劳动能力又没有生活来源的继承人，健康成年子女同样可被剥夺——两法在此点上意外接近。"
+  },
+  {
+    "id": "wil061",
+    "type": "basic",
+    "topic": "Omitted Spouse & Children",
+    "topicZh": "被遗漏的配偶与子女",
+    "q": "From what property are omitted-spouse and omitted-child shares satisfied (§§21612, 21623)?",
+    "qZh": "被遗漏配偶和被遗漏子女的份额从哪些财产中拨付（§§21612、21623）？",
+    "a": "First from decedent's property not passing by the will or trust; the balance from all beneficiaries pro rata, in proportion to the value each received. The court may exempt a specific gift or adjust the order where the obvious intention of the decedent regarding a gift would otherwise be defeated.",
+    "aZh": "先从未经遗嘱或信托处分的遗产中拨付；不足部分由全体受益人按各自所得价值的比例分摊。若按此顺序会挫败被继承人对某项赠与的明显意图，法院可豁免特定遗赠或调整分摊方式。",
+    "explainZh": "按比例分摊、尽量保全特定遗赠，目的在于最小限度扰动原遗产计划。中国必留份实务同样先从遗嘱处分财产中扣留必要份额，理念相通。"
+  },
+  {
+    "id": "wil062",
+    "type": "basic",
+    "topic": "Nonprobate Transfers & Family Protection",
+    "topicZh": "非遗嘱转移与家庭保障",
+    "q": "Map the principal nonprobate will substitutes in California.",
+    "qZh": "请列出加州主要的非遗嘱转移工具（遗嘱替代品）。",
+    "a": "Revocable inter vivos trusts; POD bank accounts and TOD securities registrations; the revocable transfer-on-death deed for residential realty (§5600 et seq. — signed, notarized, two witnesses, recorded within 60 days); joint tenancy survivorship; and life-insurance or retirement beneficiary designations. All pass outside probate, and a will generally cannot override them.",
+    "aZh": "可撤销生前信托；死亡即付（POD）银行账户与死亡转移（TOD）证券登记；住宅不动产的可撤销死亡转移契据（§5600以下——签署、公证、两名见证人、60日内登记）；联权共有的生存者取得权；人寿保险与退休金受益人指定。这些都绕开遗嘱认证程序，遗嘱一般不能推翻它们。",
+    "explainZh": "遗产规划的大头在非遗嘱工具，论述题常考“遗嘱能否改保险/账户受益人”（一般不能）。中国的近似物是保险受益人指定；无TOD契据和POD账户制度，存款与房产原则上统一进入继承程序。"
+  },
+  {
+    "id": "wil063",
+    "type": "mcq",
+    "topic": "Nonprobate Transfers & Family Protection",
+    "topicZh": "非遗嘱转移与家庭保障",
+    "q": "F deposited $40,000 into a joint account with son S, who contributed nothing. F's will leaves 'all my property' to daughter D. F dies. Who takes the account?",
+    "qZh": "F向与儿子S的联名账户存入四万美元，S分文未存。F的遗嘱把“我的全部财产”留给女儿D。F死后账户归谁？",
+    "choices": [
+      "S — at death the sums belong to the survivor absent clear and convincing evidence of contrary intent, and a will cannot alter survivorship",
+      "D — a will controls all of the decedent's property",
+      "S and D take one-half each",
+      "D — because S made no contributions"
+    ],
+    "answer": 0,
+    "explain": "Under the California Multiple-Party Accounts Law, lifetime ownership follows net contributions (§5301), but at death the account vests in the survivor unless clear and convincing evidence shows a different intent — and survivorship rights cannot be changed by will (§5302).",
+    "explainZh": "生前按净出资算（S生前无份额），死后按生存者取得权算（S全拿），除非有明确且令人信服的反证（如账户仅为方便老人付账而设）。遗嘱改变不了联名账户的生存者权。中国联名账户无默认生存者取得权，余额按出资关系和继承规则处理——结论往往相反。"
+  },
+  {
+    "id": "wil064",
+    "type": "basic",
+    "topic": "Nonprobate Transfers & Family Protection",
+    "topicZh": "非遗嘱转移与家庭保障",
+    "q": "What is a Totten trust and how does it pass at death?",
+    "qZh": "什么是Totten信托？死亡时账户如何转移？",
+    "a": "A bank account held 'in trust for' a named beneficiary. During life the depositor keeps complete control — the beneficiary has no rights, and the deposits remain the depositor's. At the depositor's death the balance passes to the surviving beneficiary outside probate, absent clear and convincing evidence of a different intent (§5302(c)).",
+    "aZh": "以“为某受益人信托持有”名义开立的银行账户。存款人生前保留完全控制权，受益人无任何权利，存款仍属存款人所有。存款人死亡时，余额径直归尚存受益人，无须遗嘱认证——除非有明确且令人信服的相反意图证据（§5302(c)）。",
+    "explainZh": "Totten信托号称“穷人的信托”，实质是可撤销的POD指定，生前随取随销。中国无此制度，最接近的是指定受益人的人身保险；普通存款仍须走继承程序。"
+  },
+  {
+    "id": "wil065",
+    "type": "basic",
+    "topic": "Nonprobate Transfers & Family Protection",
+    "topicZh": "非遗嘱转移与家庭保障",
+    "q": "How does dissolution of marriage affect nonprobate transfers to the former spouse (§5040)?",
+    "qZh": "婚姻解除如何影响以前配偶为受益人的非遗嘱转移（§5040）？",
+    "a": "A revocable nonprobate transfer to the former spouse made before or during marriage fails at dissolution or annulment, unless clear and convincing evidence shows the transferor intended it to survive, or a court order preserves it. Irrevocable transfers are unaffected. Divorce also severs spousal joint tenancies (§5042). ERISA-governed plans follow federal law instead.",
+    "aZh": "婚前或婚内设立、以前配偶为受益人的可撤销非遗嘱转移，于离婚或婚姻无效时失效——除非有明确且令人信服的证据证明设立人意欲其继续有效，或有法院命令予以维持。不可撤销的转移不受影响。离婚同时切断夫妻间的联权共有（§5042）。受ERISA规制的退休计划依联邦法处理。",
+    "explainZh": "与§6122配套记忆：离婚“双杀”——遗嘱条款和可撤销非遗嘱指定一并失效；但雇主退休金受联邦ERISA优先，州法失效规则可能被架空（Egelhoff案）。中国离婚不自动撤销保险受益人指定，须自行变更——实务陷阱方向正好相反。"
+  },
+  {
+    "id": "wil066",
+    "type": "cloze",
+    "topic": "Nonprobate Transfers & Family Protection",
+    "topicZh": "非遗嘱转移与家庭保障",
+    "q": "A contract to make a will, or not to revoke one, may be proved several ways under §21700 — but the execution of a joint will or of mutual wills {{c::does not create a presumption}} of a contract not to revoke.",
+    "qZh": "订立遗嘱或不撤销遗嘱的合同可依§21700的多种方式证明——但签立共同遗嘱或相互遗嘱本身____存在不撤销合同。",
+    "a": "does not create a presumption",
+    "aZh": "并不产生……的推定",
+    "explainZh": "§21700认可的证明途径：遗嘱载明合同实质条款；遗嘱明示提及合同＋外部证据证明条款；死者签署的书面文件；以明确且令人信服的证据证明协议或禁反言。救济不是拒绝认证新遗嘱，而是对受诺人施加拟制信托。中国的遗赠扶养协议（第1158条）是中国特色的“继承合同”，效力优先于遗嘱——可作对照。"
+  },
+  {
+    "id": "wil067",
+    "type": "basic",
+    "topic": "Nonprobate Transfers & Family Protection",
+    "topicZh": "非遗嘱转移与家庭保障",
+    "q": "What limit does community property place on T's will, and which family protections trump any will?",
+    "qZh": "共同财产制对遗嘱处分有何限制？哪些家庭保障的效力优先于遗嘱？",
+    "a": "T may devise all separate property but only T's one-half of the community and quasi-community property. A will purporting to dispose of the survivor's half forces a widow's election — take under the will or against it, not both. Independently, the court may award a probate homestead and a family allowance during administration, overriding the will.",
+    "aZh": "遗嘱人可处分全部独立财产，但只能处分自己名下那一半共同财产和准共同财产。遗嘱若企图处分尚存配偶的一半，将迫使配偶作出“寡妇选择”：要么按遗嘱受领，要么主张自己的共同财产权利，不能兼得。此外，法院可在遗产管理期间裁定遗属居住保障（probate homestead）和家庭生活津贴（family allowance），其效力优先于遗嘱。",
+    "explainZh": "加州没有普通法州的配偶选择份额（elective share）——共同财产制本身就是配偶保障。中国的配偶保护同样靠夫妻共同财产析产（第1153条）加必留份，结构上与加州同源，而与纽约式选择份额不同。"
+  }
+]}
