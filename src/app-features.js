@@ -345,6 +345,9 @@ function greetLine() {
   return personaLine(hasHistory && idle >= 3 ? "comeback" : "greet");
 }
 
+/* ---------------- haptics (Android; silently no-op elsewhere) ---------------- */
+function buzz(pattern) { try { if (navigator.vibrate) navigator.vibrate(pattern); } catch (_) {} }
+
 /* ---------------- 8. sound design (off by default) ---------------- */
 let AC = null;
 function sfx(kind) {

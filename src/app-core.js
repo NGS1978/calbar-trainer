@@ -191,6 +191,21 @@ function addXP(n) { S.xp += n; today().xp += n; }
 
 /* ---------- queues ---------- */
 function isSusp(id) { const c = peek(id); return !!(c && c.susp); }
+/* when is the next review batch due? (for the all-clear home state) */
+function nextDueIn() {
+  const t0 = now();
+  let min = Infinity;
+  for (const id of ALL_IDS) {
+    const c = peek(id);
+    if (!c || c.susp || c.st !== 2 || c.due <= t0) continue;
+    if (c.due < min) min = c.due;
+  }
+  if (!isFinite(min)) return null;
+  const h = (min - t0) / 3600000;
+  if (h >= 20) return t("home.tmrwShort");
+  if (h >= 1) return Math.ceil(h) + t("u.hour");
+  return Math.max(1, Math.ceil(h * 60)) + t("u.min");
+}
 function dueList() {
   const t0 = now(), t1 = tomorrow0(), out = [];
   for (const id of ALL_IDS) {
@@ -354,6 +369,7 @@ const I18N = {
     "toast.storage": "⚠️ 无法保存进度（浏览器存储不可用）",
     "box.explain": "解析", "box.ca": "CALIFORNIA 加州区别", "box.mn": "MNEMONIC 记忆钩", "card.lapses": "遗忘",
     "court.due": "宗案卷待审", "court.clear": "今日庭审已毕 ✓", "court.adjourn": "休庭 · COURT ADJOURNED", "court.verdict": "陪审团裁决",
+    "home.nextdue": "下一批", "home.tmrwShort": "明天", "u.hour": "小时", "home.quotatmrw": "明日恢复新卡额度",
     "diag.title": "摸底测试", "diag.desc": "考过几次？每科 12 题摸个底——答得好的科目，卡片直接按'已会'排期，不用从零学。",
     "diag.start": "测", "diag.done": "已摸底", "diag.hide": "不再显示", "diag.chip": "摸底",
     "diag.result": "摸底结果", "diag.seeded": "张卡已按你的水平预排期", "diag.weakt": "待补强专题", "diag.fresh": "该科将从新卡正常学起",
@@ -409,6 +425,7 @@ const I18N = {
     "toast.storage": "⚠️ Cannot save progress (browser storage unavailable)",
     "box.explain": "EXPLANATION", "box.ca": "CALIFORNIA RULE", "box.mn": "MNEMONIC", "card.lapses": "lapses",
     "court.due": "case files on the docket", "court.clear": "Docket clear ✓", "court.adjourn": "COURT ADJOURNED", "court.verdict": "Jury Verdict",
+    "home.nextdue": "next batch", "home.tmrwShort": "tomorrow", "u.hour": "h", "home.quotatmrw": "quota resets tomorrow",
     "diag.title": "Placement Diagnostic", "diag.desc": "Sat it before? Take 12 questions per subject — strong subjects get pre-scheduled as known instead of starting from zero.",
     "diag.start": "Test", "diag.done": "Diagnosed", "diag.hide": "Hide this", "diag.chip": "Diagnostic",
     "diag.result": "Diagnostic Result", "diag.seeded": "cards pre-scheduled to your level", "diag.weakt": "Topics to rebuild", "diag.fresh": "This subject starts fresh as new cards",

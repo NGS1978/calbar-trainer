@@ -59,11 +59,11 @@ function vHome() {
   const ringR = 34, circ = 2 * Math.PI * ringR;
   let h = `
   <div class="hero">
-    <div class="bearwrap">${bearSVG(streak() > 0 || doneToday > 0 ? "greet" : "doze", 86)}</div>
+    <button class="bearwrap" onclick="pokeBear()" aria-label="Judge Bear">${bearSVG(streak() > 0 || doneToday > 0 ? "greet" : "doze", 86)}</button>
     <h2>${esc(t("home.exam"))}</h2>
     <div class="count"><b>${daysToExam()}</b><span>${esc(t("home.days"))} · ${esc(S.settings.examDate)}</span></div>
     <div class="sub">California Bar Exam · 加州律师执照考试</div>
-    <div class="bubble">💬 ${esc(greetLine())}</div>
+    <div class="bubble" id="bubble">💬 ${esc(greetLine())}</div>
   </div>`;
 
   if (fresh) h += `
@@ -79,12 +79,12 @@ function vHome() {
     <button class="cta main" id="cta-review" ${due ? "" : "disabled"}>
       <span class="n">${due}<span class="unit">${esc(t("u.cards"))}</span></span>
       <span class="t">⚖️ ${esc(t("home.review"))}</span>
-      <span class="d">${due ? esc(t("court.due")) : esc(t("court.clear"))}</span>
+      <span class="d">${due ? esc(t("court.due")) : esc(t("court.clear")) + (nextDueIn() ? " · " + esc(t("home.nextdue")) + " " + esc(nextDueIn()) : "")}</span>
     </button>
     <button class="cta" id="cta-new" ${newAvail ? "" : "disabled"}>
       <span class="n">${newAvail}</span>
       <span class="t">＋ ${esc(t("home.new"))}</span>
-      <span class="d">${esc(t("home.newleft"))}</span>
+      <span class="d">${esc(newAvail === 0 && quota === 0 && pace.remaining > 0 ? t("home.quotatmrw") : t("home.newleft"))}</span>
     </button>
     <button class="cta" id="cta-quiz">
       <span class="n">🎯</span>
@@ -93,7 +93,7 @@ function vHome() {
     </button>
   </div>
 
-  ${diagPanel()}
+  ${Object.keys(S.diag || {}).length === 0 ? diagPanel() : ""}
 
   <div class="panel">
     <div class="goalrow">
@@ -115,6 +115,7 @@ function vHome() {
   </div>
 
   ${radarPanel()}
+  ${Object.keys(S.diag || {}).length > 0 ? diagPanel() : ""}
 
   <div class="panel"><h3>🌉 ${esc(t("bridge.title"))}<span class="sub">${Math.round(journeyP() * 100)}%</span></h3>
     ${bridgeSVG()}
@@ -131,6 +132,7 @@ function vHome() {
         <span>${st.rev + st.learn}/${st.total} · ${st.due} ${esc(t("state.due"))}</span></div>
       <div class="bar"><i style="width:${Math.round(st.mastery * 100)}%"></i></div>
       <span class="pc">${Math.round(st.mastery * 100)}%</span>
+      <span class="chev">›</span>
     </div>`;
   }
   h += `</div>`;
@@ -142,6 +144,18 @@ function vHome() {
   });
   return h;
 }
+window.pokeBear = () => {
+  const zh = S.settings.lang === "zh";
+  const bank = zh ? PERSONA.greetZh : PERSONA.greetEn;
+  const bub = document.getElementById("bubble");
+  const wrap = document.querySelector(".bearwrap");
+  if (!bub || !wrap) return;
+  let line = bank[(Math.random() * bank.length) | 0];
+  if (bub.textContent.includes(line) && bank.length > 1) line = bank[(bank.indexOf(line) + 1) % bank.length];
+  bub.textContent = "💬 " + line;
+  wrap.innerHTML = bearSVG("nod", 86);
+  buzz(6);
+};
 
 /* ============== home sub-panels: diagnostic + radar ============== */
 function diagPanel() {
@@ -246,10 +260,10 @@ function vTriage(subj) {
   const c = CARD[tri.ids[tri.idx]];
   return `
   <div class="study-top">
-    <button onclick="exitTriage()" title="${esc(t("triage.exit"))}">✕</button>
+    <button onclick="exitTriage()" title="${esc(t("triage.exit"))}" aria-label="${esc(t("triage.exit"))}">✕</button>
     <div class="prog"><i style="width:${Math.round(100 * tri.idx / tri.ids.length)}%"></i></div>
     <span class="cnt">${tri.idx + 1} / ${tri.ids.length}</span>
-    <button onclick="triUndo()" title="${esc(t("triage.undo"))}">↩︎</button>
+    <button onclick="triUndo()" title="${esc(t("triage.undo"))}" aria-label="${esc(t("triage.undo"))}">↩︎</button>
   </div>
   <div class="qcard">
     <div class="chips">
@@ -343,12 +357,12 @@ function vStudy() {
   else if (session._bear) { bearState = session._bear; session._bear = null; }
   let h = `
   <div class="study-top">
-    <button onclick="exitStudy()" title="${esc(t("study.exit"))}">✕</button>
+    <button onclick="exitStudy()" title="${esc(t("study.exit"))}" aria-label="${esc(t("study.exit"))}">✕</button>
     <span class="bearmini">${bearSVG(bearState, 26)}</span>
     <div class="prog"><i style="width:${pct}%"></i></div>
     <span class="cnt">${remaining}</span>
-    <button onclick="undoLast()" title="${esc(t("study.undo"))}">↩︎</button>
-    <button onclick="toggleFlag('${id}')" title="${esc(t("study.edit"))}" style="${flagged ? "color:var(--amber)" : ""}">⚑</button>
+    <button onclick="undoLast()" title="${esc(t("study.undo"))}" aria-label="${esc(t("study.undo"))}">↩︎</button>
+    <button onclick="toggleFlag('${id}')" title="${esc(t("study.edit"))}" aria-label="${esc(t("study.edit"))}" style="${flagged ? "color:var(--amber)" : ""}">⚑</button>
   </div>
   <div class="qcard" id="qcard">
     <div class="chips">
@@ -420,13 +434,19 @@ function bindStudy() {
 }
 function rerenderStudy() { $("#view").innerHTML = vStudy(); bindStudy(); }
 window.toggleZh = () => { session.zh = !session.zh; rerenderStudy(); };
-window.reveal = () => { session.revealed = true; sfx("flip"); rerenderStudy(); };
+/* on long cards the answer lands below the fold — glide it into view */
+function showAnswer() {
+  const a = document.querySelector(".answer");
+  if (a) a.scrollIntoView({ behavior: "smooth", block: "nearest" });
+}
+window.reveal = () => { session.revealed = true; sfx("flip"); rerenderStudy(); setTimeout(showAnswer, 60); };
 window.pickOpt = (orig) => {
   if (session.revealed) return;
   const id = session.cur || currentId(), c = CARD[id];
   session.mcqPick = orig; session.revealed = true;
   session.mcqRight = orig === c.answer;
   rerenderStudy();
+  setTimeout(showAnswer, 60);
 };
 window.doGrade = (g) => {
   const id = session.cur || currentId();
@@ -436,6 +456,7 @@ window.doGrade = (g) => {
   session.snap = grade(id, g);
   session.snap.sess = prevSess;
   tickTime();
+  buzz(8);
   session.att++;
   if (g >= 3) session.ok++;
   /* remove from queue; re-insert if it comes back soon (learning/relearning) */
@@ -489,7 +510,7 @@ function studySummary() {
     <div style="height:8px"></div>
     ${dueList().length ? `<button class="btn" style="width:100%;padding:12px" onclick="startReview()">${esc(t("sum.more"))} (${dueList().length})</button>` : ""}
   </div>`;
-  setTimeout(() => { confetti(); sfx("gavel"); setTimeout(() => sfx("stamp"), 500); announceBadges(fresh); }, 200);
+  setTimeout(() => { confetti(); sfx("gavel"); buzz([12, 60, 14]); setTimeout(() => sfx("stamp"), 500); announceBadges(fresh); }, 200);
   return h;
 }
 
@@ -523,8 +544,9 @@ function vQuiz() {
   const pct = Math.round(100 * quiz.idx / quiz.ids.length);
   let h = `
   <div class="study-top">
-    <button onclick="exitQuiz()">✕</button>
+    <button onclick="exitQuiz()" aria-label="${esc(t("study.exit"))}">✕</button>
     <div class="prog"><i style="width:${pct}%"></i></div>
+    ${quiz.idx > 0 ? `<span class="cnt" style="color:var(--jade)">✓${quiz.right}</span><span class="cnt" style="color:var(--red)">✗${quiz.wrongIds.length}</span>` : ""}
     <span class="cnt">${quiz.idx + 1} / ${quiz.ids.length}</span>
   </div>
   <div class="qcard">
@@ -578,8 +600,10 @@ window.quizPick = (orig) => {
   if (correct) { quiz.right++; graded = quizHit(id); }
   else { quiz.wrongIds.push(id); graded = quizMiss(id); }
   if (!graded) { today().q++; addXP(correct ? 12 : 2); }   // count once: either as a grade or as a quiz answer
+  buzz(8);
   save();
   $("#view").innerHTML = vQuiz();
+  setTimeout(() => { const a = document.querySelector(".answer"); if (a) a.scrollIntoView({ behavior: "smooth", block: "nearest" }); }, 60);
 };
 window.quizNext = () => {
   quiz.idx++; quiz.answered = false; quiz.pick = null; quiz.zh = false;
@@ -614,7 +638,7 @@ function quizResults() {
 
 /* ============================ BROWSE ============================ */
 function vBrowse() {
-  let h = `<input class="search" id="srch" placeholder="${esc(t("browse.search"))}" oninput="doSearch(this.value)">
+  let h = `<input class="search" id="srch" placeholder="${esc(t("browse.search"))}" oninput="queueSearch(this.value)">
   <div id="srchout"></div><div id="decklist">`;
   for (const d of DECKS) {
     const st = deckStats(d.subject);
@@ -632,6 +656,8 @@ function vBrowse() {
   h += `</div>`;
   return h;
 }
+let srchT = null;
+window.queueSearch = (q) => { clearTimeout(srchT); srchT = setTimeout(() => doSearch(q), 140); };
 window.doSearch = (q) => {
   const out = $("#srchout"), list = $("#decklist");
   q = q.trim().toLowerCase();
@@ -862,7 +888,7 @@ function vSettings() {
     <div class="setrow" style="cursor:pointer;color:var(--red)" onclick="doReset()"><span class="lab">🗑 ${esc(t("set.reset"))}</span><span>→</span></div>
   </div>
   <div class="panel tiny">
-    <b>Ron 的加州律考通 · Ron's CalBar Trainer</b> · v1.2 · ${ALL_IDS.length} cards<br><br>
+    <b>Ron 的加州律考通 · Ron's CalBar Trainer</b> · v1.3 · ${ALL_IDS.length} cards<br><br>
     内容由 AI 辅助编写，供复习记忆使用；规则表述以官方资料及你的课程讲义为准，发现疑问请用 ⚑ 标记并查证。<br>
     Content is AI-assisted and for memorization practice; verify anything doubtful against official sources (flag with ⚑).<br><br>
     进度保存在本机浏览器 (localStorage)。换设备或清缓存前请先「导出学习进度」。<br>

@@ -6,6 +6,10 @@
 <title>Ron 的加州律考通 · Ron's CalBar Trainer</title>
 <meta name="description" content="Ron's California Bar Exam bilingual spaced-repetition trainer · Ron 的加州律师执照考试中英双语记忆训练器">
 <meta name="theme-color" content="#1c2440">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="律考通">
 <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="%23e8710a"/><text x="50" y="66" font-size="52" text-anchor="middle">⚖️</text></svg>'>
 <style>
 /* ==========================================================================
@@ -198,6 +202,7 @@ a { color: var(--sky); }
 .subj .bar i { display: block; height: 100%; border-radius: 4px; background: linear-gradient(90deg, #f0a35f, var(--poppy)); }
 .subj .pc { width: 38px; text-align: right; font-size: .74rem; font-weight: 700; color: var(--ink-soft); flex: none; }
 .subj .badge { font-size: .6rem; font-weight: 700; color: var(--sky); border: 1px solid currentColor; border-radius: 4px; padding: 0 4px; margin-left: 4px; vertical-align: 1px; }
+.subj .chev { color: var(--ink-faint); font-size: 1.1rem; font-weight: 700; flex: none; margin-left: 2px; }
 
 /* ---- study screen ---- */
 .study-top { display: flex; align-items: center; gap: 10px; padding: 8px 0 2px; }
@@ -220,7 +225,7 @@ a { color: var(--sky); }
 .chip.ca { background: var(--gold-bg); color: var(--gold); border: 1px solid color-mix(in srgb, var(--gold) 45%, transparent); }
 .chip.state-new { color: var(--sky); }
 .chip.state-lapse { color: var(--red); }
-.qtext { font-family: var(--font-serif); font-size: 1.18rem; line-height: 1.5; }
+.qtext { font-family: var(--font-serif); font-size: 1.18rem; line-height: 1.5; overflow-wrap: break-word; }
 .qtext .cloze { background: var(--gold-bg); color: var(--gold); border-radius: 6px; padding: 0 10px; font-weight: 700; }
 .qtext .cloze.filled { color: var(--poppy-deep); background: #fbe9d4; }
 [data-theme="dark"] .qtext .cloze.filled { background: #4a3620; color: #ffb96b; }
@@ -247,7 +252,9 @@ a { color: var(--sky); }
   display: flex; gap: 9px; transition: border-color .12s;
 }
 .opt .k { font-weight: 800; color: var(--ink-faint); font-family: var(--font-serif); }
+.opt { overflow-wrap: break-word; }
 .opt:not(:disabled):hover { border-color: var(--poppy); }
+.opt:not(:disabled):active { transform: scale(.985); border-color: var(--poppy); }
 .opt.sel-right { border-color: var(--jade); background: color-mix(in srgb, var(--jade) 12%, var(--card)); }
 .opt.sel-wrong { border-color: var(--red); background: color-mix(in srgb, var(--red) 10%, var(--card)); }
 .opt.reveal-right { border-color: var(--jade); }
@@ -337,7 +344,8 @@ a { color: var(--sky); }
 #toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
 /* ---- Judge Bear 金熊法官 ---- */
-.bearwrap { position: absolute; right: 12px; top: 10px; z-index: 1; filter: drop-shadow(0 3px 6px rgba(0,0,0,.3)); }
+.bearwrap { position: absolute; right: 12px; top: 10px; z-index: 2; filter: drop-shadow(0 3px 6px rgba(0,0,0,.3)); transition: transform .1s; }
+.bearwrap:active { transform: scale(.92); }
 .hero { padding-right: 104px; }
 .bear .bear-head { transform-origin: 50px 46px; animation: bearbreathe 4.2s ease-in-out infinite; }
 @keyframes bearbreathe { 0%,100% { transform: translateY(0); } 50% { transform: translateY(1.6px); } }
@@ -392,6 +400,7 @@ a { color: var(--sky); }
 .medal .mico { font-size: 1.5rem; }
 .medal .mname { font-size: .64rem; font-weight: 700; color: var(--ink-soft); text-align: center; line-height: 1.25; }
 .medal.stampstyle { border: 2px solid #c23a2b55; background: color-mix(in srgb, #c23a2b 6%, var(--card)); }
+.medal:not(.locked):not(.stampstyle) { border-color: color-mix(in srgb, var(--gold) 55%, transparent); box-shadow: 0 0 0 1px color-mix(in srgb, var(--gold) 30%, transparent), var(--shadow); }
 .medal.locked { opacity: .45; filter: grayscale(1); }
 
 /* ---- triage ---- */
@@ -642,6 +651,21 @@ function addXP(n) { S.xp += n; today().xp += n; }
 
 /* ---------- queues ---------- */
 function isSusp(id) { const c = peek(id); return !!(c && c.susp); }
+/* when is the next review batch due? (for the all-clear home state) */
+function nextDueIn() {
+  const t0 = now();
+  let min = Infinity;
+  for (const id of ALL_IDS) {
+    const c = peek(id);
+    if (!c || c.susp || c.st !== 2 || c.due <= t0) continue;
+    if (c.due < min) min = c.due;
+  }
+  if (!isFinite(min)) return null;
+  const h = (min - t0) / 3600000;
+  if (h >= 20) return t("home.tmrwShort");
+  if (h >= 1) return Math.ceil(h) + t("u.hour");
+  return Math.max(1, Math.ceil(h * 60)) + t("u.min");
+}
 function dueList() {
   const t0 = now(), t1 = tomorrow0(), out = [];
   for (const id of ALL_IDS) {
@@ -805,6 +829,7 @@ const I18N = {
     "toast.storage": "⚠️ 无法保存进度（浏览器存储不可用）",
     "box.explain": "解析", "box.ca": "CALIFORNIA 加州区别", "box.mn": "MNEMONIC 记忆钩", "card.lapses": "遗忘",
     "court.due": "宗案卷待审", "court.clear": "今日庭审已毕 ✓", "court.adjourn": "休庭 · COURT ADJOURNED", "court.verdict": "陪审团裁决",
+    "home.nextdue": "下一批", "home.tmrwShort": "明天", "u.hour": "小时", "home.quotatmrw": "明日恢复新卡额度",
     "diag.title": "摸底测试", "diag.desc": "考过几次？每科 12 题摸个底——答得好的科目，卡片直接按'已会'排期，不用从零学。",
     "diag.start": "测", "diag.done": "已摸底", "diag.hide": "不再显示", "diag.chip": "摸底",
     "diag.result": "摸底结果", "diag.seeded": "张卡已按你的水平预排期", "diag.weakt": "待补强专题", "diag.fresh": "该科将从新卡正常学起",
@@ -860,6 +885,7 @@ const I18N = {
     "toast.storage": "⚠️ Cannot save progress (browser storage unavailable)",
     "box.explain": "EXPLANATION", "box.ca": "CALIFORNIA RULE", "box.mn": "MNEMONIC", "card.lapses": "lapses",
     "court.due": "case files on the docket", "court.clear": "Docket clear ✓", "court.adjourn": "COURT ADJOURNED", "court.verdict": "Jury Verdict",
+    "home.nextdue": "next batch", "home.tmrwShort": "tomorrow", "u.hour": "h", "home.quotatmrw": "quota resets tomorrow",
     "diag.title": "Placement Diagnostic", "diag.desc": "Sat it before? Take 12 questions per subject — strong subjects get pre-scheduled as known instead of starting from zero.",
     "diag.start": "Test", "diag.done": "Diagnosed", "diag.hide": "Hide this", "diag.chip": "Diagnostic",
     "diag.result": "Diagnostic Result", "diag.seeded": "cards pre-scheduled to your level", "diag.weakt": "Topics to rebuild", "diag.fresh": "This subject starts fresh as new cards",
@@ -1298,6 +1324,9 @@ function greetLine() {
   return personaLine(hasHistory && idle >= 3 ? "comeback" : "greet");
 }
 
+/* ---------------- haptics (Android; silently no-op elsewhere) ---------------- */
+function buzz(pattern) { try { if (navigator.vibrate) navigator.vibrate(pattern); } catch (_) {} }
+
 /* ---------------- 8. sound design (off by default) ---------------- */
 let AC = null;
 function sfx(kind) {
@@ -1407,11 +1436,11 @@ function vHome() {
   const ringR = 34, circ = 2 * Math.PI * ringR;
   let h = `
   <div class="hero">
-    <div class="bearwrap">${bearSVG(streak() > 0 || doneToday > 0 ? "greet" : "doze", 86)}</div>
+    <button class="bearwrap" onclick="pokeBear()" aria-label="Judge Bear">${bearSVG(streak() > 0 || doneToday > 0 ? "greet" : "doze", 86)}</button>
     <h2>${esc(t("home.exam"))}</h2>
     <div class="count"><b>${daysToExam()}</b><span>${esc(t("home.days"))} · ${esc(S.settings.examDate)}</span></div>
     <div class="sub">California Bar Exam · 加州律师执照考试</div>
-    <div class="bubble">💬 ${esc(greetLine())}</div>
+    <div class="bubble" id="bubble">💬 ${esc(greetLine())}</div>
   </div>`;
 
   if (fresh) h += `
@@ -1427,12 +1456,12 @@ function vHome() {
     <button class="cta main" id="cta-review" ${due ? "" : "disabled"}>
       <span class="n">${due}<span class="unit">${esc(t("u.cards"))}</span></span>
       <span class="t">⚖️ ${esc(t("home.review"))}</span>
-      <span class="d">${due ? esc(t("court.due")) : esc(t("court.clear"))}</span>
+      <span class="d">${due ? esc(t("court.due")) : esc(t("court.clear")) + (nextDueIn() ? " · " + esc(t("home.nextdue")) + " " + esc(nextDueIn()) : "")}</span>
     </button>
     <button class="cta" id="cta-new" ${newAvail ? "" : "disabled"}>
       <span class="n">${newAvail}</span>
       <span class="t">＋ ${esc(t("home.new"))}</span>
-      <span class="d">${esc(t("home.newleft"))}</span>
+      <span class="d">${esc(newAvail === 0 && quota === 0 && pace.remaining > 0 ? t("home.quotatmrw") : t("home.newleft"))}</span>
     </button>
     <button class="cta" id="cta-quiz">
       <span class="n">🎯</span>
@@ -1441,7 +1470,7 @@ function vHome() {
     </button>
   </div>
 
-  ${diagPanel()}
+  ${Object.keys(S.diag || {}).length === 0 ? diagPanel() : ""}
 
   <div class="panel">
     <div class="goalrow">
@@ -1463,6 +1492,7 @@ function vHome() {
   </div>
 
   ${radarPanel()}
+  ${Object.keys(S.diag || {}).length > 0 ? diagPanel() : ""}
 
   <div class="panel"><h3>🌉 ${esc(t("bridge.title"))}<span class="sub">${Math.round(journeyP() * 100)}%</span></h3>
     ${bridgeSVG()}
@@ -1479,6 +1509,7 @@ function vHome() {
         <span>${st.rev + st.learn}/${st.total} · ${st.due} ${esc(t("state.due"))}</span></div>
       <div class="bar"><i style="width:${Math.round(st.mastery * 100)}%"></i></div>
       <span class="pc">${Math.round(st.mastery * 100)}%</span>
+      <span class="chev">›</span>
     </div>`;
   }
   h += `</div>`;
@@ -1490,6 +1521,18 @@ function vHome() {
   });
   return h;
 }
+window.pokeBear = () => {
+  const zh = S.settings.lang === "zh";
+  const bank = zh ? PERSONA.greetZh : PERSONA.greetEn;
+  const bub = document.getElementById("bubble");
+  const wrap = document.querySelector(".bearwrap");
+  if (!bub || !wrap) return;
+  let line = bank[(Math.random() * bank.length) | 0];
+  if (bub.textContent.includes(line) && bank.length > 1) line = bank[(bank.indexOf(line) + 1) % bank.length];
+  bub.textContent = "💬 " + line;
+  wrap.innerHTML = bearSVG("nod", 86);
+  buzz(6);
+};
 
 /* ============== home sub-panels: diagnostic + radar ============== */
 function diagPanel() {
@@ -1594,10 +1637,10 @@ function vTriage(subj) {
   const c = CARD[tri.ids[tri.idx]];
   return `
   <div class="study-top">
-    <button onclick="exitTriage()" title="${esc(t("triage.exit"))}">✕</button>
+    <button onclick="exitTriage()" title="${esc(t("triage.exit"))}" aria-label="${esc(t("triage.exit"))}">✕</button>
     <div class="prog"><i style="width:${Math.round(100 * tri.idx / tri.ids.length)}%"></i></div>
     <span class="cnt">${tri.idx + 1} / ${tri.ids.length}</span>
-    <button onclick="triUndo()" title="${esc(t("triage.undo"))}">↩︎</button>
+    <button onclick="triUndo()" title="${esc(t("triage.undo"))}" aria-label="${esc(t("triage.undo"))}">↩︎</button>
   </div>
   <div class="qcard">
     <div class="chips">
@@ -1691,12 +1734,12 @@ function vStudy() {
   else if (session._bear) { bearState = session._bear; session._bear = null; }
   let h = `
   <div class="study-top">
-    <button onclick="exitStudy()" title="${esc(t("study.exit"))}">✕</button>
+    <button onclick="exitStudy()" title="${esc(t("study.exit"))}" aria-label="${esc(t("study.exit"))}">✕</button>
     <span class="bearmini">${bearSVG(bearState, 26)}</span>
     <div class="prog"><i style="width:${pct}%"></i></div>
     <span class="cnt">${remaining}</span>
-    <button onclick="undoLast()" title="${esc(t("study.undo"))}">↩︎</button>
-    <button onclick="toggleFlag('${id}')" title="${esc(t("study.edit"))}" style="${flagged ? "color:var(--amber)" : ""}">⚑</button>
+    <button onclick="undoLast()" title="${esc(t("study.undo"))}" aria-label="${esc(t("study.undo"))}">↩︎</button>
+    <button onclick="toggleFlag('${id}')" title="${esc(t("study.edit"))}" aria-label="${esc(t("study.edit"))}" style="${flagged ? "color:var(--amber)" : ""}">⚑</button>
   </div>
   <div class="qcard" id="qcard">
     <div class="chips">
@@ -1768,13 +1811,19 @@ function bindStudy() {
 }
 function rerenderStudy() { $("#view").innerHTML = vStudy(); bindStudy(); }
 window.toggleZh = () => { session.zh = !session.zh; rerenderStudy(); };
-window.reveal = () => { session.revealed = true; sfx("flip"); rerenderStudy(); };
+/* on long cards the answer lands below the fold — glide it into view */
+function showAnswer() {
+  const a = document.querySelector(".answer");
+  if (a) a.scrollIntoView({ behavior: "smooth", block: "nearest" });
+}
+window.reveal = () => { session.revealed = true; sfx("flip"); rerenderStudy(); setTimeout(showAnswer, 60); };
 window.pickOpt = (orig) => {
   if (session.revealed) return;
   const id = session.cur || currentId(), c = CARD[id];
   session.mcqPick = orig; session.revealed = true;
   session.mcqRight = orig === c.answer;
   rerenderStudy();
+  setTimeout(showAnswer, 60);
 };
 window.doGrade = (g) => {
   const id = session.cur || currentId();
@@ -1784,6 +1833,7 @@ window.doGrade = (g) => {
   session.snap = grade(id, g);
   session.snap.sess = prevSess;
   tickTime();
+  buzz(8);
   session.att++;
   if (g >= 3) session.ok++;
   /* remove from queue; re-insert if it comes back soon (learning/relearning) */
@@ -1837,7 +1887,7 @@ function studySummary() {
     <div style="height:8px"></div>
     ${dueList().length ? `<button class="btn" style="width:100%;padding:12px" onclick="startReview()">${esc(t("sum.more"))} (${dueList().length})</button>` : ""}
   </div>`;
-  setTimeout(() => { confetti(); sfx("gavel"); setTimeout(() => sfx("stamp"), 500); announceBadges(fresh); }, 200);
+  setTimeout(() => { confetti(); sfx("gavel"); buzz([12, 60, 14]); setTimeout(() => sfx("stamp"), 500); announceBadges(fresh); }, 200);
   return h;
 }
 
@@ -1871,8 +1921,9 @@ function vQuiz() {
   const pct = Math.round(100 * quiz.idx / quiz.ids.length);
   let h = `
   <div class="study-top">
-    <button onclick="exitQuiz()">✕</button>
+    <button onclick="exitQuiz()" aria-label="${esc(t("study.exit"))}">✕</button>
     <div class="prog"><i style="width:${pct}%"></i></div>
+    ${quiz.idx > 0 ? `<span class="cnt" style="color:var(--jade)">✓${quiz.right}</span><span class="cnt" style="color:var(--red)">✗${quiz.wrongIds.length}</span>` : ""}
     <span class="cnt">${quiz.idx + 1} / ${quiz.ids.length}</span>
   </div>
   <div class="qcard">
@@ -1926,8 +1977,10 @@ window.quizPick = (orig) => {
   if (correct) { quiz.right++; graded = quizHit(id); }
   else { quiz.wrongIds.push(id); graded = quizMiss(id); }
   if (!graded) { today().q++; addXP(correct ? 12 : 2); }   // count once: either as a grade or as a quiz answer
+  buzz(8);
   save();
   $("#view").innerHTML = vQuiz();
+  setTimeout(() => { const a = document.querySelector(".answer"); if (a) a.scrollIntoView({ behavior: "smooth", block: "nearest" }); }, 60);
 };
 window.quizNext = () => {
   quiz.idx++; quiz.answered = false; quiz.pick = null; quiz.zh = false;
@@ -1962,7 +2015,7 @@ function quizResults() {
 
 /* ============================ BROWSE ============================ */
 function vBrowse() {
-  let h = `<input class="search" id="srch" placeholder="${esc(t("browse.search"))}" oninput="doSearch(this.value)">
+  let h = `<input class="search" id="srch" placeholder="${esc(t("browse.search"))}" oninput="queueSearch(this.value)">
   <div id="srchout"></div><div id="decklist">`;
   for (const d of DECKS) {
     const st = deckStats(d.subject);
@@ -1980,6 +2033,8 @@ function vBrowse() {
   h += `</div>`;
   return h;
 }
+let srchT = null;
+window.queueSearch = (q) => { clearTimeout(srchT); srchT = setTimeout(() => doSearch(q), 140); };
 window.doSearch = (q) => {
   const out = $("#srchout"), list = $("#decklist");
   q = q.trim().toLowerCase();
@@ -2210,7 +2265,7 @@ function vSettings() {
     <div class="setrow" style="cursor:pointer;color:var(--red)" onclick="doReset()"><span class="lab">🗑 ${esc(t("set.reset"))}</span><span>→</span></div>
   </div>
   <div class="panel tiny">
-    <b>Ron 的加州律考通 · Ron's CalBar Trainer</b> · v1.2 · ${ALL_IDS.length} cards<br><br>
+    <b>Ron 的加州律考通 · Ron's CalBar Trainer</b> · v1.3 · ${ALL_IDS.length} cards<br><br>
     内容由 AI 辅助编写，供复习记忆使用；规则表述以官方资料及你的课程讲义为准，发现疑问请用 ⚑ 标记并查证。<br>
     Content is AI-assisted and for memorization practice; verify anything doubtful against official sources (flag with ⚑).<br><br>
     进度保存在本机浏览器 (localStorage)。换设备或清缓存前请先「导出学习进度」。<br>

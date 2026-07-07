@@ -188,6 +188,7 @@ a { color: var(--sky); }
 .subj .bar i { display: block; height: 100%; border-radius: 4px; background: linear-gradient(90deg, #f0a35f, var(--poppy)); }
 .subj .pc { width: 38px; text-align: right; font-size: .74rem; font-weight: 700; color: var(--ink-soft); flex: none; }
 .subj .badge { font-size: .6rem; font-weight: 700; color: var(--sky); border: 1px solid currentColor; border-radius: 4px; padding: 0 4px; margin-left: 4px; vertical-align: 1px; }
+.subj .chev { color: var(--ink-faint); font-size: 1.1rem; font-weight: 700; flex: none; margin-left: 2px; }
 
 /* ---- study screen ---- */
 .study-top { display: flex; align-items: center; gap: 10px; padding: 8px 0 2px; }
@@ -210,7 +211,7 @@ a { color: var(--sky); }
 .chip.ca { background: var(--gold-bg); color: var(--gold); border: 1px solid color-mix(in srgb, var(--gold) 45%, transparent); }
 .chip.state-new { color: var(--sky); }
 .chip.state-lapse { color: var(--red); }
-.qtext { font-family: var(--font-serif); font-size: 1.18rem; line-height: 1.5; }
+.qtext { font-family: var(--font-serif); font-size: 1.18rem; line-height: 1.5; overflow-wrap: break-word; }
 .qtext .cloze { background: var(--gold-bg); color: var(--gold); border-radius: 6px; padding: 0 10px; font-weight: 700; }
 .qtext .cloze.filled { color: var(--poppy-deep); background: #fbe9d4; }
 [data-theme="dark"] .qtext .cloze.filled { background: #4a3620; color: #ffb96b; }
@@ -237,7 +238,9 @@ a { color: var(--sky); }
   display: flex; gap: 9px; transition: border-color .12s;
 }
 .opt .k { font-weight: 800; color: var(--ink-faint); font-family: var(--font-serif); }
+.opt { overflow-wrap: break-word; }
 .opt:not(:disabled):hover { border-color: var(--poppy); }
+.opt:not(:disabled):active { transform: scale(.985); border-color: var(--poppy); }
 .opt.sel-right { border-color: var(--jade); background: color-mix(in srgb, var(--jade) 12%, var(--card)); }
 .opt.sel-wrong { border-color: var(--red); background: color-mix(in srgb, var(--red) 10%, var(--card)); }
 .opt.reveal-right { border-color: var(--jade); }
@@ -327,7 +330,8 @@ a { color: var(--sky); }
 #toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
 /* ---- Judge Bear 金熊法官 ---- */
-.bearwrap { position: absolute; right: 12px; top: 10px; z-index: 1; filter: drop-shadow(0 3px 6px rgba(0,0,0,.3)); }
+.bearwrap { position: absolute; right: 12px; top: 10px; z-index: 2; filter: drop-shadow(0 3px 6px rgba(0,0,0,.3)); transition: transform .1s; }
+.bearwrap:active { transform: scale(.92); }
 .hero { padding-right: 104px; }
 .bear .bear-head { transform-origin: 50px 46px; animation: bearbreathe 4.2s ease-in-out infinite; }
 @keyframes bearbreathe { 0%,100% { transform: translateY(0); } 50% { transform: translateY(1.6px); } }
@@ -382,6 +386,7 @@ a { color: var(--sky); }
 .medal .mico { font-size: 1.5rem; }
 .medal .mname { font-size: .64rem; font-weight: 700; color: var(--ink-soft); text-align: center; line-height: 1.25; }
 .medal.stampstyle { border: 2px solid #c23a2b55; background: color-mix(in srgb, #c23a2b 6%, var(--card)); }
+.medal:not(.locked):not(.stampstyle) { border-color: color-mix(in srgb, var(--gold) 55%, transparent); box-shadow: 0 0 0 1px color-mix(in srgb, var(--gold) 30%, transparent), var(--shadow); }
 .medal.locked { opacity: .45; filter: grayscale(1); }
 
 /* ---- triage ---- */
