@@ -1021,7 +1021,7 @@ function vSettings() {
     <div class="setrow" style="cursor:pointer;color:var(--red)" onclick="doReset()"><span class="lab">🗑 ${esc(t("set.reset"))}</span><span>→</span></div>
   </div>
   <div class="panel tiny">
-    <b>Ron 的加州律考通 · Ron's CalBar Trainer</b> · v1.5.1 · ${ALL_IDS.length} cards<br><br>
+    <b>Ron 的加州律考通 · Ron's CalBar Trainer</b> · v1.6 · ${ALL_IDS.length} cards<br><br>
     内容由 AI 辅助编写，供复习记忆使用；规则表述以官方资料及你的课程讲义为准，发现疑问请用 ⚑ 标记并查证。<br>
     Content is AI-assisted and for memorization practice; verify anything doubtful against official sources (flag with ⚑).<br><br>
     进度保存在本机浏览器 (localStorage)。换设备或清缓存前请先「导出学习进度」。<br>
@@ -1155,7 +1155,7 @@ function vGuide() {
     </ul>
     <h4>🧪 考过的人从这里开始：摸底与分拣</h4>
     <ul>
-      <li><b>摸底测试</b>（首页或科目页）：每科 12 题。答得好（≥50%），该科大部分卡直接按「已会」进入复习轨道，错题所在专题保留为新卡重学——不用从零刷 1108 张。</li>
+      <li><b>摸底测试</b>（首页或科目页）：每科 12 题。答得好（≥50%），该科大部分卡直接按「已会」进入复习轨道，错题所在专题保留为新卡重学——不用从零刷 1109 张。</li>
       <li><b>快速分拣</b>（科目页）：只看题面，按「已掌握 / 要学」秒分。已掌握的卡片直接排进复习；判断权完全在你。</li>
       <li><b>弱项优先</b>：默认设置下，新卡自动多发弱科目、少发强科目（设置里可改回均衡轮换）。</li>
     </ul>
@@ -1227,7 +1227,7 @@ function vGuide() {
     </ul>
     <h4>🧪 Repeat takers start here: diagnostic & triage</h4>
     <ul>
-      <li><b>Placement diagnostic</b> (home or deck page): 12 questions per subject. Score ≥50% and most of that deck is pre-scheduled as known review material — missed topics stay as new cards. No grinding through 1,108 cards you already know.</li>
+      <li><b>Placement diagnostic</b> (home or deck page): 12 questions per subject. Score ≥50% and most of that deck is pre-scheduled as known review material — missed topics stay as new cards. No grinding through 1,109 cards you already know.</li>
       <li><b>Fast triage</b> (deck page): question-only, snap "know / learn" sorting — you keep full control.</li>
       <li><b>Weakest-first intake</b>: by default new cards flow faster from your weak subjects (Settings can restore even rotation).</li>
     </ul>

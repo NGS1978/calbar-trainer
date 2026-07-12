@@ -406,13 +406,13 @@
     "type": "cloze",
     "topic": "Witnesses & Impeachment",
     "topicZh": "证人与弹劾",
-    "q": "A prior inconsistent statement is admissible SUBSTANTIVELY under FRE 801(d)(1)(A) only if the declarant testifies subject to cross-examination and the statement was given {{c::under penalty of perjury at a trial, hearing, or other proceeding, or in a deposition}}.",
-    "qZh": "先前不一致陈述要作为实体证据（证明真实性）依FRE 801(d)(1)(A)采纳，须declarant出庭接受盘问，且该陈述是____作出的。",
-    "a": "under penalty of perjury at a trial, hearing, or other proceeding, or in a deposition",
-    "aZh": "在审判、听证或其他程序中、或在庭外取证（deposition）中以伪证罪责宣誓",
-    "explainZh": "联邦：未经宣誓的不一致陈述（如对警察的陈述）只能弹劾、不能证真。加州CEC 1235则一律可证真——这是证据法最高频的联邦/加州分歧，论文必写。",
-    "caNote": "CEC 1235: ANY prior inconsistent statement of a testifying witness is substantively admissible — no oath or formal proceeding required (subject to the CEC 770 foundation). The single most-tested FRE/CEC split.",
-    "caNoteZh": "CEC 1235：出庭证人的'任何'先前不一致陈述均可作实体证据——无需宣誓或正式程序（须满足CEC 770基础）。这是考试中最常考的联邦/加州分歧。"
+    "q": "Under FRE 801(d)(1)(A) as amended effective Dec. 1, 2026, ANY prior inconsistent statement is admissible SUBSTANTIVELY if the declarant {{c::testifies and is subject to cross-examination about it}} — the former oath-at-a-formal-proceeding requirement is eliminated.",
+    "qZh": "根据2026年12月1日生效的修正版FRE 801(d)(1)(A)，任何先前不一致陈述均可作为实体证据采纳，只要declarant____——原'在正式程序中以伪证罪责宣誓作出'的要求已被删除。",
+    "a": "testifies and is subject to cross-examination about it",
+    "aZh": "出庭作证并可就该陈述接受盘问",
+    "explainZh": "重大规则变化，且在你2027年2月考试之前生效：联邦规则向加州CEC 1235看齐——不再要求先前陈述经宣誓、在正式程序中作出，对警察的口头陈述也可证真。历史上最常考的联邦/加州分歧就此关闭；若备考资料仍写旧规则（未宣誓只能弹劾），以修正版为准。",
+    "caNote": "CEC 1235 reached this result decades earlier (subject to the CEC 770 foundation). From Dec. 1, 2026 the federal rule matches — the once most-tested FRE/CEC split has closed. Pre-amendment federal law required penalty of perjury at a trial, hearing, other proceeding, or deposition.",
+    "caNoteZh": "CEC 1235数十年前即已如此（须满足CEC 770基础）。自2026年12月1日起联邦规则与之一致——昔日最常考的联邦/加州分歧已经关闭。修正前的联邦旧规则要求：在审判、听证、其他程序或庭外取证中以伪证罪责宣誓作出。"
   },
   {
     "id": "ev030",
@@ -598,8 +598,8 @@
     "a": "Hearsay is a statement — a person's oral assertion, written assertion, or nonverbal conduct intended as an assertion (e.g., pointing) — that the declarant does not make while testifying at the current trial or hearing, offered in evidence to prove the truth of the matter asserted. Hearsay is inadmissible unless an exemption or exception applies (FRE 802).",
     "aZh": "传闻是一项'陈述'——某人的口头主张、书面主张、或意在作出主张的非言语行为（如用手指认）——并非declarant在本案庭审作证时作出，且被提出用以证明'所主张事项的真实性'。除非有排除（exemption）或例外（exception）适用，传闻不可采（FRE 802）。",
     "explainZh": "中国法没有传闻规则（书面证言、笔录大量使用），这是你要建立的核心新框架：先问'谁在庭外说的'，再问'是否为证其真'。两问缺一即非传闻。",
-    "caNote": "CEC 1200 matches. Structural quirk: under the CEC a testifying witness's OWN prior statements are still hearsay, admitted through exceptions (1235-1238), whereas FRE 801(d) labels them 'not hearsay.' Results usually converge — but California's versions differ in substance (e.g., 1235).",
-    "caNoteZh": "CEC 1200一致。结构差异：CEC下出庭证人'自己'的先前陈述仍是传闻，经例外（1235-1238）采纳；FRE 801(d)则直接定义为'非传闻'。结论通常趋同——但加州版本实质更宽（如1235）。"
+    "caNote": "CEC 1200 matches. Structural quirk: under the CEC a testifying witness's OWN prior statements are still hearsay, admitted through exceptions (1235-1238), whereas FRE 801(d) labels them 'not hearsay.' Results usually converge — and the famous 1235 substantive-use gap closes Dec. 1, 2026, when amended FRE 801(d)(1)(A) drops its oath requirement.",
+    "caNoteZh": "CEC 1200一致。结构差异：CEC下出庭证人'自己'的先前陈述仍是传闻，经例外（1235-1238）采纳；FRE 801(d)则直接定义为'非传闻'。结论通常趋同——著名的1235实体采纳差异也将关闭：修正版FRE 801(d)(1)(A)自2026年12月1日起删除宣誓要求。"
   },
   {
     "id": "ev043",

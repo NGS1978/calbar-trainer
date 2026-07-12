@@ -234,9 +234,9 @@
       "topicZh": "国会权力",
       "q": "Summarize Congress's war, immigration, and federal property powers.",
       "qZh": "请概述国会的战争权、移民权与联邦财产权。",
-      "a": "War powers: declare war, raise and support armies — supporting broad economic regulation during and even after hostilities (Woods — postwar rent control) and military courts for service members. Immigration/naturalization: plenary congressional power; aliens have no right of entry, but resident aliens get due process before deportation. Property Clause (Art. IV §3): essentially unlimited power over federal lands and property (Kleppe).",
-      "aZh": "战争权：宣战、招募与供养军队——可支撑战时乃至战后的广泛经济管制（Woods案——战后房租管制），并可为军人设军事法庭。移民与入籍：国会全权；外国人无入境权利，但居留外国人被驱逐前享有正当程序。财产条款（第四条第3款）：对联邦土地与财产的权力几乎不受限制（Kleppe）。",
-      "explainZh": "'全权'（plenary power）领域法院高度尊让——对入境限制仅作合理性式审查（Trump v. Hawaii）。财产条款考点：联邦可直接管制联邦土地上的野马野驴，无需州同意。"
+      "a": "War powers: declare war, raise and support armies — supporting broad economic regulation during and even after hostilities (Woods — postwar rent control) and military courts for service members. Immigration/naturalization: plenary congressional power; aliens have no right of entry, but resident aliens get due process before deportation. Property Clause (Art. IV §3): essentially unlimited power over federal lands and property (Kleppe). But the Citizenship Clause guarantees birthright citizenship to children born in the U.S. to parents unlawfully or temporarily present (Trump v. Barbara, 2026) — plenary immigration power cannot override it.",
+      "aZh": "战争权：宣战、招募与供养军队——可支撑战时乃至战后的广泛经济管制（Woods案——战后房租管制），并可为军人设军事法庭。移民与入籍：国会全权；外国人无入境权利，但居留外国人被驱逐前享有正当程序。财产条款（第四条第3款）：对联邦土地与财产的权力几乎不受限制（Kleppe）。但公民权条款保障出生地公民权：父母系非法居留或临时停留者，其在美出生子女出生即为公民（Trump v. Barbara，2026）——移民全权不能凌驾于此。",
+      "explainZh": "'全权'（plenary power）领域法院高度尊让——对入境限制仅作合理性式审查（Trump v. Hawaii）。财产条款考点：联邦可直接管制联邦土地上的野马野驴，无需州同意。Barbara案（2026）把'subject to the jurisdiction'钉死为宪法规则（仅排除外交官子女、敌对占领军等），行政令与普通立法均不能取消出生地公民权。"
     },
     {
       "id": "con019",
@@ -357,9 +357,9 @@
       "topicZh": "三权分立",
       "q": "When may Congress limit the President's power to remove executive officers?",
       "qZh": "国会何时可以限制总统对行政官员的免职权？",
-      "a": "Default: the President removes executive officers at will (Myers). Surviving exceptions: for-cause protection for multimember, balanced expert agencies (Humphrey's Executor) and for inferior officers with narrowly defined duties (Morrison). Invalid: for-cause protection for a single director wielding substantial executive power (Seila Law — CFPB; Collins — FHFA) and dual-layer for-cause protection (Free Enterprise Fund).",
-      "aZh": "默认规则：总统可随意免除行政官员职务（Myers）。尚存例外：多委员、党派平衡的专家机构可设'正当理由'免职保护（Humphrey's Executor）；职责狭窄的下级官员亦可（Morrison）。无效：对掌握重大行政权的单一局长设正当理由保护（Seila Law——CFPB；Collins——FHFA）；双层正当理由保护（Free Enterprise Fund）。",
-      "explainZh": "趋势是'统一行政'理论不断收缩Humphrey's Executor——2025年最高法院已以临时命令允许总统先行免除NLRB/MSPB委员（Wilcox案），动向需关注；考试以现行规则作答：单一首长机构的免职限制违宪。"
+      "a": "Default: the President removes executive officers at will (Myers) — and after Trump v. Slaughter (2026), which OVERRULED Humphrey's Executor, Congress may not impose for-cause removal protection on officers who exercise executive power, including members of multimember expert commissions (FTC, NLRB, SEC). Suggested carve-out: the Federal Reserve, on its distinct historical banking tradition. Still invalid: for-cause protection for a single director wielding substantial executive power (Seila Law — CFPB; Collins — FHFA) and dual-layer for-cause protection (Free Enterprise Fund). Morrison v. Olson (inferior officers with narrow duties) has not been formally overruled.",
+      "aZh": "默认规则：总统可随意免除行政官员职务（Myers）。Trump v. Slaughter（2026）已推翻Humphrey's Executor：凡行使行政权的官员——包括多委员专家委员会成员（FTC、NLRB、SEC）——国会均不得设'正当理由'免职保护。法院暗示美联储因其独特的银行历史传统可能例外。仍然无效：对掌握重大行政权的单一局长设正当理由保护（Seila Law——CFPB；Collins——FHFA）；双层正当理由保护（Free Enterprise Fund）。Morrison v. Olson（职责狭窄的下级官员）未被正式推翻。",
+      "explainZh": "'统一行政'理论的终点站：2025年Wilcox临时命令预演、2026年Slaughter正式推翻Humphrey's Executor。答题新默认：行政官员的免职保护违宪，除非机构'不行使行政权'（法院点名美联储可能自成一类）。旧考法'多委员专家机构例外'已成历史——若题目明显按旧法出，指出规则已变再作答。"
     },
     {
       "id": "con029",
@@ -386,8 +386,8 @@
         "Valid — an intelligible principle guides the agency, a test nearly all delegations pass (Whitman)"
       ],
       "answer": 3,
-      "explain": "Whitman v. American Trucking upheld this exact language; only two 1935 statutes have ever failed the intelligible-principle test. The major questions doctrine is an interpretive canon about extraordinary agency claims of power (West Virginia v. EPA), not a delegation bar; Chevron was overruled by Loper Bright and was never the constitutional test.",
-      "explainZh": "'可理解原则'极宽松——1935年以来没有联邦法因违宪授权倒下（2025年FCC v. Consumers' Research再次确认）。「重大问题须国会特别授权」一项混入'重大问题原则'：那是解释机构授权范围的法门，不是违宪授权标准；「须Chevron尊让」一项的Chevron尊让已被Loper Bright推翻，且从来不是宪法问题。"
+      "explain": "Whitman v. American Trucking upheld this exact language; only two 1935 statutes have ever failed the intelligible-principle test. The major questions doctrine is an interpretive canon about extraordinary agency claims of power (West Virginia v. EPA), not a delegation bar; Chevron was overruled by Loper Bright and was never the constitutional test. Learning Resources v. Trump (2026) shows the canon in action: IEEPA's emergency powers do not clearly authorize presidential tariffs.",
+      "explainZh": "'可理解原则'极宽松——1935年以来没有联邦法因违宪授权倒下（2025年FCC v. Consumers' Research再次确认）。「重大问题须国会特别授权」一项混入'重大问题原则'：那是解释机构授权范围的法门，不是违宪授权标准；「须Chevron尊让」一项的Chevron尊让已被Loper Bright推翻，且从来不是宪法问题。（Learning Resources（2026）：IEEPA紧急权力未'明确授权'总统征收关税——重大经济举措须国会明确授权，再次演示重大问题原则是解释法门而非授权禁令。）"
     },
     {
       "id": "con031",
@@ -610,9 +610,9 @@
       "topicZh": "平等保护",
       "q": "When does the use of race in districting or school assignment violate equal protection?",
       "qZh": "在选区划分或学校学生分配中使用种族，何时违反平等保护？",
-      "a": "Districting: strict scrutiny when race was the predominant factor subordinating traditional districting principles (Shaw; Miller); complying with the Voting Rights Act can justify majority-minority districts (Allen v. Milligan, 2023). Schools: de jure segregation is unconstitutional (Brown) and judicially remediable; de facto imbalance is not, and voluntary racial-balancing assignment plans were struck down (Parents Involved).",
-      "aZh": "选区划分：当种族是压倒传统划界原则的主导因素时适用严格审查（Shaw；Miller）；为遵守《投票权法》而划设少数族裔多数选区可获正当化（Allen v. Milligan，2023）。学校：法律上的种族隔离违宪（Brown）且可由法院救济；事实上的失衡不违宪，自愿的种族配额分配方案也被否决（Parents Involved）。",
-      "explainZh": "区分三种案型：党派性划界＝政治问题、联邦法院不审（Rucho）；种族性划界＝严格审查；《投票权法》第2条本身合宪。学校案件的胜负手是de jure（法律上）与de facto（事实上）之分。"
+      "a": "Districting: strict scrutiny when race was the predominant factor subordinating traditional districting principles (Shaw; Miller); VRA compliance justifies race-predominant districts only where the Act actually requires them — Louisiana v. Callais (2026) struck a second majority-Black district drawn without a §2 basis as an unconstitutional racial gerrymander (contrast Allen v. Milligan, 2023). Schools: de jure segregation is unconstitutional (Brown) and judicially remediable; de facto imbalance is not, and voluntary racial-balancing assignment plans were struck down (Parents Involved).",
+      "aZh": "选区划分：当种族是压倒传统划界原则的主导因素时适用严格审查（Shaw；Miller）；仅当《投票权法》确实要求时，遵守该法才能正当化以种族为主导的选区——Louisiana v. Callais（2026）判定：无第2条依据而额外划设的多数黑人选区构成违宪的种族划界（对照Allen v. Milligan，2023）。学校：法律上的种族隔离违宪（Brown）且可由法院救济；事实上的失衡不违宪，自愿的种族配额分配方案也被否决（Parents Involved）。",
+      "explainZh": "区分三种案型：党派性划界＝政治问题、联邦法院不审（Rucho）；种族性划界＝严格审查；《投票权法》第2条本身合宪。学校案件的胜负手是de jure（法律上）与de facto（事实上）之分。Callais（2026）后VRA不再是'万能盾牌'：主张合规正当化须先证明VRA确有要求。"
     },
     {
       "id": "con049",
@@ -991,9 +991,9 @@
       "topicZh": "第二修正案与主权豁免",
       "q": "What framework governs Second Amendment claims after Heller and Bruen?",
       "qZh": "Heller与Bruen之后，第二修正案主张适用什么分析框架？",
-      "a": "Heller: an individual right to keep and bear arms for self-defense (handguns in the home), incorporated against the states (McDonald). Bruen: if the Second Amendment's plain text covers the conduct, it is presumptively protected; the government must prove the regulation is consistent with the Nation's historical tradition of firearm regulation. No interest balancing or tiered scrutiny; 'shall-issue' licensing remains presumptively valid.",
-      "aZh": "Heller：为自卫而持有并携带武器的个人权利（在家持有手枪），并经McDonald适用于各州。Bruen：若第二修正案文本涵盖该行为，则该行为受推定保护；政府须证明其规制符合本国枪支规制的历史传统。不做利益衡量、不分审查等级；'符合条件即发证'的持枪许可制度推定有效。",
-      "explainZh": "方法论巨变：从分级审查改为'文本＋历史'。敏感场所（法院、学校、投票站）禁枪仍可行。举证责任在政府——须提出历史类比法例。",
+      "a": "Heller: an individual right to keep and bear arms for self-defense (handguns in the home), incorporated against the states (McDonald). Bruen: if the Second Amendment's plain text covers the conduct, it is presumptively protected; the government must prove the regulation is consistent with the Nation's historical tradition of firearm regulation. No interest balancing or tiered scrutiny; 'shall-issue' licensing remains presumptively valid. 2026 applications: a default ban on licensed concealed carry on private property open to the public was struck (Wolford v. Lopez), and §922(g)(3) could not constitutionally reach a sober habitual drug user absent individualized dangerousness (Hemani, as-applied, 9-0).",
+      "aZh": "Heller：为自卫而持有并携带武器的个人权利（在家持有手枪），并经McDonald适用于各州。Bruen：若第二修正案文本涵盖该行为，则该行为受推定保护；政府须证明其规制符合本国枪支规制的历史传统。不做利益衡量、不分审查等级；'符合条件即发证'的持枪许可制度推定有效。2026年应用：对持证者在向公众开放的私人场所默认禁枪被判违宪（Wolford v. Lopez）；§922(g)(3)适用于未处于醉态、亦无个体化危险性证明的惯常吸毒者同样违宪（Hemani，就适用而言，9比0）。",
+      "explainZh": "方法论巨变：从分级审查改为'文本＋历史'。敏感场所（法院、学校、投票站）禁枪仍可行。举证责任在政府——须提出历史类比法例。Wolford与Hemani（均2026）显示该框架的实际威力：政府找不到历史类比即败诉。",
       "mnemonic": "Bruen = Text first, then History; no tiers."
     },
     {
