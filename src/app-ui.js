@@ -16,7 +16,7 @@ function applyTheme() {
 matchMedia("(prefers-color-scheme: dark)").addEventListener("change", applyTheme);
 
 /* ---------- router ---------- */
-const routes = { home: vHome, study: vStudy, quiz: vQuiz, browse: vBrowse, deck: vDeck, stats: vStats, settings: vSettings, method: vMethod, guide: vGuide, triage: vTriage };
+const routes = { home: vHome, study: vStudy, quiz: vQuiz, browse: vBrowse, deck: vDeck, stats: vStats, settings: vSettings, method: vMethod, guide: vGuide, triage: vTriage, essays: vEssays };
 function nav(h) { location.hash = "#" + h; }
 function route() {
   const h = (location.hash || "#home").slice(1);
@@ -25,7 +25,7 @@ function route() {
   const m = document.getElementById("modalbg"); if (m) m.remove();
   tickTime();
   $("#view").innerHTML = fn(arg) || "";
-  const tab = { home: "home", study: "home", quiz: "home", browse: "browse", deck: "browse", triage: "browse", stats: "stats", settings: "set", method: "set", guide: "set" }[name] || "home";
+  const tab = { home: "home", study: "home", quiz: "home", browse: "browse", deck: "browse", triage: "browse", essays: "browse", stats: "stats", settings: "set", method: "set", guide: "set" }[name] || "home";
   document.querySelectorAll(".nav button").forEach(b => b.classList.toggle("on", b.dataset.tab === tab));
   renderTopbar();
   window.scrollTo(0, 0);
@@ -131,6 +131,12 @@ function vHome() {
 
   ${radarPanel()}
   ${Object.keys(S.diag || {}).length > 0 ? diagPanel() : ""}
+
+  <button class="panel essaylink" onclick="nav('essays')">
+    <span style="font-size:1.3rem">✍️</span>
+    <span style="flex:1;text-align:left"><b>${esc(t("ess.title"))}</b><br><span class="tiny">${esc(t("ess.home"))}</span></span>
+    <span class="chev">›</span>
+  </button>
 
   <div class="panel"><h3>🌉 ${esc(t("bridge.title"))}<span class="sub">${Math.round(journeyP() * 100)}%</span></h3>
     ${bridgeSVG()}
@@ -895,6 +901,28 @@ window.modSusp = (id) => { const c = cs(id); c.susp = !c.susp; save(); toast(t(c
 window.modFlag = (id) => { const c = cs(id); c.flag = !c.flag; save(); toast(t(c.flag ? "toast.flagged" : "toast.unflagged")); closeModal(); refreshInPlace(); };
 window.modReset = (id) => { delete S.cards[id]; save(); toast(t("toast.reset")); closeModal(); refreshInPlace(); };
 
+/* ==================== ESSAY ISSUE TRIGGERS (论述题触发词) ==================== */
+function vEssays() {
+  const zh = S.settings.lang === "zh";
+  let h = `<div class="panel"><h3>✍️ ${esc(t("ess.title"))}</h3>
+    <div class="tiny" style="margin-bottom:4px">${esc(t("ess.sub"))}</div>
+    <div class="tiny" style="opacity:.85">${esc(t("ess.hint"))}</div></div>`;
+  for (const d of DECKS) {
+    const set = ESSAY_TRIGGERS.find(x => x.s === d.subject);
+    if (!set) continue;
+    h += `<details class="trig"><summary>${d.emoji} ${esc(deckName(d))}<span class="sub2">${set.items.length}</span></summary>`;
+    for (const it of set.items) {
+      h += `<div class="trigrow">
+        <div class="cue">👀 ${esc(zh ? it.z : it.c)}</div>
+        <div class="cuez">${esc(zh ? it.c : it.z)}</div>
+        <div class="iss">${esc(it.i)}</div>
+      </div>`;
+    }
+    h += `</details>`;
+  }
+  return h;
+}
+
 /* ============================ STATS ============================ */
 function hardestPanel() {
   const hard = hardestList();
@@ -1046,6 +1074,7 @@ function vSettings() {
       </span></div>
   </div>
   <div class="panel">
+    <div class="setrow" style="cursor:pointer" onclick="nav('essays')"><span class="lab">✍️ ${esc(t("ess.title"))}</span><span>→</span></div>
     <div class="setrow" style="cursor:pointer" onclick="nav('guide')"><span class="lab">📖 ${esc(t("set.guide"))}</span><span>→</span></div>
     <div class="setrow" style="cursor:pointer" onclick="nav('method')"><span class="lab">🎓 ${esc(t("set.method"))}</span><span>→</span></div>
     <div class="setrow" style="cursor:pointer" onclick="doExport()"><span class="lab">📤 ${esc(t("set.export"))}</span><span>→</span></div>
@@ -1054,7 +1083,7 @@ function vSettings() {
     <div class="setrow" style="cursor:pointer;color:var(--red)" onclick="doReset()"><span class="lab">🗑 ${esc(t("set.reset"))}</span><span>→</span></div>
   </div>
   <div class="panel tiny">
-    <b>Ron 的加州律考通 · Ron's CalBar Trainer</b> · v1.7 · ${ALL_IDS.length} cards<br><br>
+    <b>Ron 的加州律考通 · Ron's CalBar Trainer</b> · v1.8 · ${ALL_IDS.length} cards<br><br>
     内容由 AI 辅助编写，供复习记忆使用；规则表述以官方资料及你的课程讲义为准，发现疑问请用 ⚑ 标记并查证。<br>
     Content is AI-assisted and for memorization practice; verify anything doubtful against official sources (flag with ⚑).<br><br>
     进度保存在本机浏览器 (localStorage)。换设备或清缓存前请先「导出学习进度」。<br>
@@ -1196,6 +1225,8 @@ function vGuide() {
     <p>系统按<b>专题</b>（不只科目）统计你的复习与演练正确率，首页列出当前最弱的三个专题，点「练」立即针对性加练一轮。做过摸底、复习越多，雷达越准。</p>
     <h4>🔥 最难卡片</h4>
     <p>统计页会按<b>遗忘次数</b>自动汇总你反复忘记的卡（真实复习数据，摸底测试不算），点「开始攻坚」一键连刷最顽固的 20 张。积累到足够遗忘数据后自动出现——考前把这些钉子逐颗敲平。</p>
+    <h4>✍️ 论述题触发词</h4>
+    <p>首页入口（设置页也有）。论述题得分的一半是<b>认出事实模式触发了哪些争点</b>——这份速查表按科目列出「看到这些事实 → 要写这些争点」。读题时用中文提示快速对号，写作时用英文争点清单自检有无漏项。临考冲刺阶段每天过一遍。</p>
     <h4>🐻 金熊法官、徽章与金门大桥</h4>
     <ul>
       <li><b>金熊法官</b>坐在首页陪你——随你的段位升级法袍，答对点头、答错也只是心疼一下。</li>
@@ -1270,6 +1301,8 @@ function vGuide() {
     <p>Accuracy is tracked per <b>topic</b>, not just per subject. The home screen names your three weakest topics with a one-tap Drill. The more you review (and diagnose), the sharper it gets.</p>
     <h4>🔥 Hardest cards</h4>
     <p>The Stats page auto-collects the cards you keep forgetting, ranked by <b>lapses</b> (real review data — diagnostics don't count), with a one-tap drill of the 20 most stubborn. It appears once you have enough lapse history — hammer these nails flat before exam day.</p>
+    <h4>✍️ Essay issue triggers</h4>
+    <p>Entry on the home screen (and Settings). Half of every essay score is <b>recognizing which issues the facts trigger</b> — this per-subject cheat sheet maps "see these facts → raise these issues." Read cues in Chinese for speed; self-check your answers against the English issue lists. Sweep it daily in the final stretch.</p>
     <h4>🐻 Judge Bear, badges & the bridge</h4>
     <ul>
       <li><b>Judge Bear</b> keeps you company — his robes upgrade with your rank; he nods at good recalls and merely winces at lapses.</li>

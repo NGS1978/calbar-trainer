@@ -427,6 +427,22 @@ a { color: var(--sky); }
 mark.hit { background: color-mix(in srgb, var(--jade) 22%, transparent); color: inherit; border-radius: 3px; padding: 0 1px; }
 mark.miss { background: color-mix(in srgb, var(--amber) 30%, transparent); color: inherit; border-radius: 3px; padding: 0 1px; box-shadow: inset 0 -2px 0 var(--amber); }
 
+/* ---- essay issue triggers (论述题触发词) ---- */
+.essaylink { display: flex; align-items: center; gap: 11px; width: 100%; cursor: pointer; font-family: var(--font-ui); font-size: .95rem; color: var(--ink); text-align: left; }
+.essaylink:active { transform: scale(.99); }
+details.trig { border: 1.5px solid var(--card-edge); border-radius: var(--radius); margin: 10px 0; background: var(--card); box-shadow: var(--shadow); overflow: hidden; }
+details.trig summary { cursor: pointer; padding: 12px 14px; font-weight: 800; display: flex; align-items: center; gap: 8px; list-style: none; user-select: none; }
+details.trig summary::-webkit-details-marker { display: none; }
+details.trig summary::after { content: "›"; margin-left: 4px; color: var(--ink-faint); transform: rotate(90deg); transition: transform .18s; }
+details.trig[open] summary::after { transform: rotate(-90deg); }
+details.trig summary .sub2 { margin-left: auto; font-size: .74rem; color: var(--ink-faint); font-weight: 700; }
+details.trig[open] summary { border-bottom: 1px dashed var(--card-edge); }
+.trigrow { padding: 10px 14px; border-bottom: 1px dashed color-mix(in srgb, var(--card-edge) 55%, transparent); }
+.trigrow:last-child { border-bottom: none; }
+.trigrow .cue { font-weight: 750; }
+.trigrow .cuez { font-size: .82rem; color: var(--ink-faint); margin: 1px 0 4px; }
+.trigrow .iss { font-size: .88rem; line-height: 1.55; color: var(--ink-soft); }
+
 /* ---- all-done celebration card ---- */
 .donecard { text-align: center; border-left: 4px solid var(--jade); }
 .donecard .dc-emoji { font-size: 2.2rem; margin-bottom: 4px; }
