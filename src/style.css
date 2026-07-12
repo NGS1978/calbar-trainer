@@ -443,6 +443,25 @@ details.trig[open] summary { border-bottom: 1px dashed var(--card-edge); }
 .trigrow .cuez { font-size: .82rem; color: var(--ink-faint); margin: 1px 0 4px; }
 .trigrow .iss { font-size: .88rem; line-height: 1.55; color: var(--ink-soft); }
 
+/* ---- certification trial & certificate (认证挑战/结业证书) ---- */
+.certpage { background: var(--card); border: 3px double var(--gold); border-radius: 10px; padding: 10px; box-shadow: var(--shadow-lg); }
+.certinner { border: 1.5px solid var(--gold); border-radius: 6px; padding: 26px 18px; text-align: center; background: var(--gold-bg); }
+.certseal { margin-bottom: 4px; }
+.certhead { font-family: var(--font-serif); font-size: 1.5rem; font-weight: 800; color: var(--navy); letter-spacing: .06em; }
+.certsub { font-size: .8rem; color: var(--ink-faint); letter-spacing: .25em; margin: 2px 0 16px; text-transform: uppercase; }
+.certline { font-size: .85rem; color: var(--ink-soft); margin: 8px 0 2px; }
+.certname { font-family: var(--font-serif); font-size: 2.1rem; font-weight: 800; color: var(--poppy-deep); margin: 2px 0; }
+.certname::after { content: ""; display: block; width: 140px; height: 2px; background: var(--gold); margin: 6px auto 0; }
+.certsubj { font-family: var(--font-serif); font-size: 1.15rem; font-weight: 800; margin: 10px 0 4px; }
+.certmeta { font-size: .85rem; margin: 10px 0 14px; }
+.certfoot { font-size: .74rem; color: var(--ink-faint); border-top: 1px dashed var(--gold); padding-top: 10px; margin-top: 6px; letter-spacing: .04em; }
+@media print {
+  .topbar, .nav, .noprint { display: none !important; }
+  body { background: #fff !important; }
+  #view { padding: 0 !important; max-width: none !important; }
+  .certpage { box-shadow: none; margin: 8vh auto 0; max-width: 640px; }
+}
+
 /* ---- all-done celebration card ---- */
 .donecard { text-align: center; border-left: 4px solid var(--jade); }
 .donecard .dc-emoji { font-size: 2.2rem; margin-bottom: 4px; }

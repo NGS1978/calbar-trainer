@@ -32,7 +32,7 @@ function load() {
       const s = JSON.parse(raw);
       s.settings = Object.assign({}, DEFAULT_SETTINGS, s.settings);
       s.cards = s.cards || {}; s.days = s.days || {}; s.xp = s.xp || 0;
-      s.topics = s.topics || {}; s.diag = s.diag || {}; s.badges = s.badges || {}; s.flags = s.flags || {};
+      s.topics = s.topics || {}; s.diag = s.diag || {}; s.badges = s.badges || {}; s.flags = s.flags || {}; s.certs = s.certs || {};
       for (const k of Object.keys(s.days)) {          // older/hand-edited backups may lack fields
         const v = s.days[k] || {};
         s.days[k] = { r: v.r || 0, ok: v.ok || 0, n: v.n || 0, q: v.q || 0, ms: v.ms || 0, xp: v.xp || 0 };
@@ -42,7 +42,7 @@ function load() {
     }
   } catch (e) { console.warn("state load failed", e); }
   /* fresh states are already "migrated" — sndOn2 here so a later load can't override an explicit sound-off */
-  return { v: 1, cards: {}, days: {}, xp: 0, topics: {}, diag: {}, badges: {}, flags: { sndOn2: 1 }, settings: Object.assign({}, DEFAULT_SETTINGS) };
+  return { v: 1, cards: {}, days: {}, xp: 0, topics: {}, diag: {}, badges: {}, certs: {}, flags: { sndOn2: 1 }, settings: Object.assign({}, DEFAULT_SETTINGS) };
 }
 let saveT = null, storageOk = true;
 function flushSave() {
@@ -383,6 +383,11 @@ const I18N = {
     "hard.title": "最难卡片", "hard.sub": "按遗忘次数排序——这些钉子考前要反复敲", "hard.drill": "开始攻坚", "hard.empty": "还没有足够的遗忘数据",
     "ess.title": "论述题触发词", "ess.sub": "看到这些事实 → 想到这些争点", "ess.home": "事实模式→争点 速查表（论文半壁江山是认出争点）",
     "ess.hint": "论述题得分的一半是'认出争点'。触发词双语呈现帮助秒懂情境；争点请用英文记诵——考试必须用英文写。",
+    "trial.title": "认证挑战", "trial.desc": "跨专题抽题·答对85%即获本科目认证证书", "trial.chip": "认证挑战",
+    "trial.pass": "认证通过！本科目已盖章存档", "trial.fail": "还差一点——先补短板，随时再来挑战（不影响已有认证）",
+    "trial.certified": "已认证", "trial.retake": "再考一次可刷新最好成绩",
+    "cert.title": "结业认证证书", "cert.certifies": "兹证明", "cert.line": "已通过下列科目的认证挑战，掌握程度达到结业标准",
+    "cert.score": "成绩", "cert.date": "认证日期", "cert.print": "🖨 打印证书", "cert.back": "返回", "cert.court": "加州律考通 · 金熊法官监考",
     "bridge.title": "通往金门", "bridge.crossed": "已跨越", "bridge.fog": "记忆保持率", "bridge.fogline": "雾正在散去",
     "cab.title": "判例徽章", "cab.sub": "里程碑即判例——收集即复习", "cab.locked": "未解锁",
     "set.sound": "音效", "set.soundd": "翻卡、对错反馈与法槌（可随时关闭）",
@@ -450,6 +455,11 @@ const I18N = {
     "hard.title": "Hardest Cards", "hard.sub": "Ranked by lapses — hammer these nails before exam day", "hard.drill": "Drill them", "hard.empty": "Not enough lapse data yet",
     "ess.title": "Essay Issue Triggers", "ess.sub": "See these facts → raise these issues", "ess.home": "Fact-pattern → issues cheat sheet (half of essay scoring is issue-spotting)",
     "ess.hint": "Half of every essay score is spotting the issues. Cues are bilingual for reading speed; memorize the issues in English — the exam is written in English.",
+    "trial.title": "Certification Trial", "trial.desc": "Stratified questions across topics · 85% earns the subject certificate", "trial.chip": "Trial",
+    "trial.pass": "Certified! This subject is sealed and filed", "trial.fail": "Close — shore up the gaps and retake any time (existing certificates are never lost)",
+    "trial.certified": "Certified", "trial.retake": "Retake any time to raise your best score",
+    "cert.title": "Certificate of Mastery", "cert.certifies": "This certifies that", "cert.line": "has passed the certification trial in the subject below at mastery standard",
+    "cert.score": "Score", "cert.date": "Certified", "cert.print": "🖨 Print certificate", "cert.back": "Back", "cert.court": "CalBar Trainer · Presiding: Judge Bear",
     "bridge.title": "Road to the Golden Gate", "bridge.crossed": "crossed", "bridge.fog": "retention", "bridge.fogline": "the fog is lifting",
     "cab.title": "Case Badges", "cab.sub": "Milestones as landmark cases — collecting is revising", "cab.locked": "Locked",
     "set.sound": "Sounds", "set.soundd": "Card flips, right/wrong feedback & gavel (toggle any time)",

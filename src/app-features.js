@@ -72,6 +72,26 @@ function buildDiag(subj) {
   }
   return shuffleArr(ids);
 }
+/* certification trial: same stratified topic walk, up to TRIAL_N questions.
+   Small decks (remedies/trusts: 14 MCQs) just use the whole pool — the pass
+   bar stays a ratio, so every subject is certifiable. */
+const TRIAL_N = 20, TRIAL_PASS = 0.85;
+function buildTrial(subj) {
+  const byTopic = {};
+  for (const c of DECK[subj].cards) {
+    if (c.type !== "mcq" || isSusp(c.id)) continue;
+    (byTopic[c.topic] = byTopic[c.topic] || []).push(c.id);
+  }
+  const groups = Object.values(byTopic);
+  groups.forEach(shuffleArr);
+  const ids = [];
+  let i = 0;
+  while (ids.length < TRIAL_N && groups.some(g => g.length)) {
+    const g = groups[i % groups.length]; i++;
+    if (g.length) ids.push(g.shift());
+  }
+  return shuffleArr(ids);
+}
 /* apply results: seeds this subject's new cards by score + missed topics */
 function applyDiag(subj, rightIds, wrongIds) {
   if (!S.diag) S.diag = {};

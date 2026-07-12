@@ -458,6 +458,25 @@ details.trig[open] summary { border-bottom: 1px dashed var(--card-edge); }
 .trigrow .cuez { font-size: .82rem; color: var(--ink-faint); margin: 1px 0 4px; }
 .trigrow .iss { font-size: .88rem; line-height: 1.55; color: var(--ink-soft); }
 
+/* ---- certification trial & certificate (认证挑战/结业证书) ---- */
+.certpage { background: var(--card); border: 3px double var(--gold); border-radius: 10px; padding: 10px; box-shadow: var(--shadow-lg); }
+.certinner { border: 1.5px solid var(--gold); border-radius: 6px; padding: 26px 18px; text-align: center; background: var(--gold-bg); }
+.certseal { margin-bottom: 4px; }
+.certhead { font-family: var(--font-serif); font-size: 1.5rem; font-weight: 800; color: var(--navy); letter-spacing: .06em; }
+.certsub { font-size: .8rem; color: var(--ink-faint); letter-spacing: .25em; margin: 2px 0 16px; text-transform: uppercase; }
+.certline { font-size: .85rem; color: var(--ink-soft); margin: 8px 0 2px; }
+.certname { font-family: var(--font-serif); font-size: 2.1rem; font-weight: 800; color: var(--poppy-deep); margin: 2px 0; }
+.certname::after { content: ""; display: block; width: 140px; height: 2px; background: var(--gold); margin: 6px auto 0; }
+.certsubj { font-family: var(--font-serif); font-size: 1.15rem; font-weight: 800; margin: 10px 0 4px; }
+.certmeta { font-size: .85rem; margin: 10px 0 14px; }
+.certfoot { font-size: .74rem; color: var(--ink-faint); border-top: 1px dashed var(--gold); padding-top: 10px; margin-top: 6px; letter-spacing: .04em; }
+@media print {
+  .topbar, .nav, .noprint { display: none !important; }
+  body { background: #fff !important; }
+  #view { padding: 0 !important; max-width: none !important; }
+  .certpage { box-shadow: none; margin: 8vh auto 0; max-width: 640px; }
+}
+
 /* ---- all-done celebration card ---- */
 .donecard { text-align: center; border-left: 4px solid var(--jade); }
 .donecard .dc-emoji { font-size: 2.2rem; margin-bottom: 4px; }
@@ -540,7 +559,7 @@ function load() {
       const s = JSON.parse(raw);
       s.settings = Object.assign({}, DEFAULT_SETTINGS, s.settings);
       s.cards = s.cards || {}; s.days = s.days || {}; s.xp = s.xp || 0;
-      s.topics = s.topics || {}; s.diag = s.diag || {}; s.badges = s.badges || {}; s.flags = s.flags || {};
+      s.topics = s.topics || {}; s.diag = s.diag || {}; s.badges = s.badges || {}; s.flags = s.flags || {}; s.certs = s.certs || {};
       for (const k of Object.keys(s.days)) {          // older/hand-edited backups may lack fields
         const v = s.days[k] || {};
         s.days[k] = { r: v.r || 0, ok: v.ok || 0, n: v.n || 0, q: v.q || 0, ms: v.ms || 0, xp: v.xp || 0 };
@@ -550,7 +569,7 @@ function load() {
     }
   } catch (e) { console.warn("state load failed", e); }
   /* fresh states are already "migrated" — sndOn2 here so a later load can't override an explicit sound-off */
-  return { v: 1, cards: {}, days: {}, xp: 0, topics: {}, diag: {}, badges: {}, flags: { sndOn2: 1 }, settings: Object.assign({}, DEFAULT_SETTINGS) };
+  return { v: 1, cards: {}, days: {}, xp: 0, topics: {}, diag: {}, badges: {}, certs: {}, flags: { sndOn2: 1 }, settings: Object.assign({}, DEFAULT_SETTINGS) };
 }
 let saveT = null, storageOk = true;
 function flushSave() {
@@ -891,6 +910,11 @@ const I18N = {
     "hard.title": "最难卡片", "hard.sub": "按遗忘次数排序——这些钉子考前要反复敲", "hard.drill": "开始攻坚", "hard.empty": "还没有足够的遗忘数据",
     "ess.title": "论述题触发词", "ess.sub": "看到这些事实 → 想到这些争点", "ess.home": "事实模式→争点 速查表（论文半壁江山是认出争点）",
     "ess.hint": "论述题得分的一半是'认出争点'。触发词双语呈现帮助秒懂情境；争点请用英文记诵——考试必须用英文写。",
+    "trial.title": "认证挑战", "trial.desc": "跨专题抽题·答对85%即获本科目认证证书", "trial.chip": "认证挑战",
+    "trial.pass": "认证通过！本科目已盖章存档", "trial.fail": "还差一点——先补短板，随时再来挑战（不影响已有认证）",
+    "trial.certified": "已认证", "trial.retake": "再考一次可刷新最好成绩",
+    "cert.title": "结业认证证书", "cert.certifies": "兹证明", "cert.line": "已通过下列科目的认证挑战，掌握程度达到结业标准",
+    "cert.score": "成绩", "cert.date": "认证日期", "cert.print": "🖨 打印证书", "cert.back": "返回", "cert.court": "加州律考通 · 金熊法官监考",
     "bridge.title": "通往金门", "bridge.crossed": "已跨越", "bridge.fog": "记忆保持率", "bridge.fogline": "雾正在散去",
     "cab.title": "判例徽章", "cab.sub": "里程碑即判例——收集即复习", "cab.locked": "未解锁",
     "set.sound": "音效", "set.soundd": "翻卡、对错反馈与法槌（可随时关闭）",
@@ -958,6 +982,11 @@ const I18N = {
     "hard.title": "Hardest Cards", "hard.sub": "Ranked by lapses — hammer these nails before exam day", "hard.drill": "Drill them", "hard.empty": "Not enough lapse data yet",
     "ess.title": "Essay Issue Triggers", "ess.sub": "See these facts → raise these issues", "ess.home": "Fact-pattern → issues cheat sheet (half of essay scoring is issue-spotting)",
     "ess.hint": "Half of every essay score is spotting the issues. Cues are bilingual for reading speed; memorize the issues in English — the exam is written in English.",
+    "trial.title": "Certification Trial", "trial.desc": "Stratified questions across topics · 85% earns the subject certificate", "trial.chip": "Trial",
+    "trial.pass": "Certified! This subject is sealed and filed", "trial.fail": "Close — shore up the gaps and retake any time (existing certificates are never lost)",
+    "trial.certified": "Certified", "trial.retake": "Retake any time to raise your best score",
+    "cert.title": "Certificate of Mastery", "cert.certifies": "This certifies that", "cert.line": "has passed the certification trial in the subject below at mastery standard",
+    "cert.score": "Score", "cert.date": "Certified", "cert.print": "🖨 Print certificate", "cert.back": "Back", "cert.court": "CalBar Trainer · Presiding: Judge Bear",
     "bridge.title": "Road to the Golden Gate", "bridge.crossed": "crossed", "bridge.fog": "retention", "bridge.fogline": "the fog is lifting",
     "cab.title": "Case Badges", "cab.sub": "Milestones as landmark cases — collecting is revising", "cab.locked": "Locked",
     "set.sound": "Sounds", "set.soundd": "Card flips, right/wrong feedback & gavel (toggle any time)",
@@ -1118,6 +1147,26 @@ function buildDiag(subj) {
   const ids = [];
   let i = 0;
   while (ids.length < DIAG_N && groups.some(g => g.length)) {
+    const g = groups[i % groups.length]; i++;
+    if (g.length) ids.push(g.shift());
+  }
+  return shuffleArr(ids);
+}
+/* certification trial: same stratified topic walk, up to TRIAL_N questions.
+   Small decks (remedies/trusts: 14 MCQs) just use the whole pool — the pass
+   bar stays a ratio, so every subject is certifiable. */
+const TRIAL_N = 20, TRIAL_PASS = 0.85;
+function buildTrial(subj) {
+  const byTopic = {};
+  for (const c of DECK[subj].cards) {
+    if (c.type !== "mcq" || isSusp(c.id)) continue;
+    (byTopic[c.topic] = byTopic[c.topic] || []).push(c.id);
+  }
+  const groups = Object.values(byTopic);
+  groups.forEach(shuffleArr);
+  const ids = [];
+  let i = 0;
+  while (ids.length < TRIAL_N && groups.some(g => g.length)) {
     const g = groups[i % groups.length]; i++;
     if (g.length) ids.push(g.shift());
   }
@@ -1813,7 +1862,7 @@ function applyTheme() {
 matchMedia("(prefers-color-scheme: dark)").addEventListener("change", applyTheme);
 
 /* ---------- router ---------- */
-const routes = { home: vHome, study: vStudy, quiz: vQuiz, browse: vBrowse, deck: vDeck, stats: vStats, settings: vSettings, method: vMethod, guide: vGuide, triage: vTriage, essays: vEssays };
+const routes = { home: vHome, study: vStudy, quiz: vQuiz, browse: vBrowse, deck: vDeck, stats: vStats, settings: vSettings, method: vMethod, guide: vGuide, triage: vTriage, essays: vEssays, cert: vCert };
 function nav(h) { location.hash = "#" + h; }
 function route() {
   const h = (location.hash || "#home").slice(1);
@@ -1822,7 +1871,7 @@ function route() {
   const m = document.getElementById("modalbg"); if (m) m.remove();
   tickTime();
   $("#view").innerHTML = fn(arg) || "";
-  const tab = { home: "home", study: "home", quiz: "home", browse: "browse", deck: "browse", triage: "browse", essays: "browse", stats: "stats", settings: "set", method: "set", guide: "set" }[name] || "home";
+  const tab = { home: "home", study: "home", quiz: "home", browse: "browse", deck: "browse", triage: "browse", essays: "browse", cert: "browse", stats: "stats", settings: "set", method: "set", guide: "set" }[name] || "home";
   document.querySelectorAll(".nav button").forEach(b => b.classList.toggle("on", b.dataset.tab === tab));
   renderTopbar();
   window.scrollTo(0, 0);
@@ -2442,6 +2491,60 @@ function studySummary() {
   return h;
 }
 
+/* ============== certification trials (认证挑战) ============== */
+window.startTrial = (subj) => {
+  const ids = buildTrial(subj);
+  if (ids.length < 10) { toast(t("quiz.notready")); return; }
+  quiz = { mode: "trial", subject: subj, ids, idx: 0, right: 0, wrongIds: [], answered: false, pick: null, shuffle: shuffleArr([0, 1, 2, 3]), xp0: S.xp, zh: false };
+  nav("quiz");
+};
+function trialResults() {
+  const n = quiz.ids.length, sc = Math.round(100 * quiz.right / n);
+  const passed = quiz.right / n >= TRIAL_PASS;
+  const subj = quiz.subject, d = DECK[subj];
+  if (passed) {
+    const prev = (S.certs || {})[subj];
+    if (!prev || sc > prev.p) { S.certs[subj] = { p: sc, n, date: ymd() }; save(); }
+    if (!trialResults._rang) { sfx("gavel"); trialResults._rang = true; setTimeout(() => trialResults._rang = false, 500); }
+  }
+  const line = personaLine(passed ? "doneHi" : sc >= 60 ? "doneMid" : "doneLow");
+  return `
+  <div class="summary">
+    <div class="big">${passed ? "🏛️" : "📖"}</div>
+    <h2>${d.emoji} ${esc(deckName(d))} · ${quiz.right} / ${n}</h2>
+    <p style="font-weight:800;color:${passed ? "var(--jade)" : "var(--amber)"}">${esc(passed ? t("trial.pass") : t("trial.fail"))}</p>
+    <p class="tiny persona-line">💬 ${esc(line)}</p>
+    <div class="rowbtns" style="justify-content:center;margin-top:14px">
+      ${passed ? `<button class="btn primary" onclick="quiz=null;nav('cert/${subj}')">📜 ${esc(t("cert.title"))}</button>` : ""}
+      <button class="btn" onclick="quiz=null;nav('deck/${subj}')">${esc(t("cert.back"))}</button>
+    </div>
+  </div>`;
+}
+function vCert(subj) {
+  const d = DECK[subj], c = (S.certs || {})[subj];
+  if (!d || !c) { setTimeout(() => nav("browse")); return ""; }
+  const zh = S.settings.lang === "zh";
+  return `
+  <button class="backlink noprint" onclick="nav('deck/${subj}')">← ${esc(deckName(d))}</button>
+  <div class="certpage">
+    <div class="certinner">
+      <div class="certseal">${bearSVG("idle", 72)}</div>
+      <div class="certhead">${esc(t("cert.title"))}</div>
+      <div class="certsub">${zh ? "Certificate of Mastery" : "结业认证证书"}</div>
+      <div class="certline">${esc(t("cert.certifies"))}</div>
+      <div class="certname">Ron</div>
+      <div class="certline">${esc(t("cert.line"))}</div>
+      <div class="certsubj">${d.emoji} ${esc(d.nameZh)} · ${esc(d.nameEn)}</div>
+      <div class="certmeta">${esc(t("cert.score"))}: <b>${c.p}%</b> (${c.n} MCQ) · ${esc(t("cert.date"))}: <b>${esc(c.date)}</b></div>
+      <div class="certfoot">⚖️ ${esc(t("cert.court"))}</div>
+    </div>
+  </div>
+  <div class="rowbtns noprint" style="justify-content:center;margin-top:12px">
+    <button class="btn primary" onclick="window.print()">${esc(t("cert.print"))}</button>
+    <button class="btn" onclick="startTrial('${subj}')">🏛️ ${esc(t("trial.retake"))}</button>
+  </div>`;
+}
+
 /* ============================ QUIZ ============================ */
 function quizSetup() {
   const opts = DECKS.filter(d => quizPool(d.subject).length >= 4)
@@ -2467,7 +2570,7 @@ window.startQuiz = () => {
 };
 function vQuiz() {
   if (!quiz) { setTimeout(() => nav("home")); return ""; }
-  if (quiz.idx >= quiz.ids.length) return quiz.mode === "diag" ? diagResults() : quizResults();
+  if (quiz.idx >= quiz.ids.length) return quiz.mode === "diag" ? diagResults() : quiz.mode === "trial" ? trialResults() : quizResults();
   const id = quiz.ids[quiz.idx], c = CARD[id];
   const pct = Math.round(100 * quiz.idx / quiz.ids.length);
   let h = `
@@ -2482,6 +2585,7 @@ function vQuiz() {
       <span class="chip">${DECK[c.deck].emoji} ${esc(deckName(DECK[c.deck]))}</span>
       <span class="chip">${esc(S.settings.lang === "zh" ? c.topicZh : c.topic)}</span>
       ${quiz.mode === "diag" ? `<span class="chip" style="color:var(--sky)">🧪 ${esc(t("diag.chip"))}</span>` : ""}
+      ${quiz.mode === "trial" ? `<span class="chip" style="color:var(--gold)">🏛️ ${esc(t("trial.chip"))}</span>` : ""}
     </div>
     <div class="qtext">${esc(c.q)}</div>
     ${quiz.zh ? `<div class="zh-hint">${esc(c.qZh)}</div>` : ""}
@@ -2627,9 +2731,11 @@ function vDeck(subj) {
       ${st.due ? `<button class="btn primary" onclick="deckReview('${subj}')">▶ ${esc(t("deck.review"))} (${st.due})</button>` : ""}
       ${!diagDone(subj) && quizPool(subj).length >= 8 ? `<button class="btn" onclick="startDiag('${subj}')">🧪 ${esc(t("diag.title"))}</button>` : ""}
       ${st.neu > 0 ? `<button class="btn" onclick="startTriage('${subj}')">🗂 ${esc(t("triage.title"))} (${st.neu})</button>` : ""}
+      ${quizPool(subj).length >= 10 ? `<button class="btn" onclick="startTrial('${subj}')">🏛️ ${esc(t("trial.title"))}</button>` : ""}
       <button class="btn" onclick="deckToggleNew('${subj}')">${esc(off ? t("deck.resume") : t("deck.pause"))}</button>
     </div>
-    ${diagDone(subj) ? `<div class="tiny" style="margin-bottom:6px">🧪 ${esc(t("diag.done"))}: ${Number(S.diag[subj].p) || 0}% · ${esc(String(S.diag[subj].date || ""))}</div>` : ""}`;
+    ${diagDone(subj) ? `<div class="tiny" style="margin-bottom:6px">🧪 ${esc(t("diag.done"))}: ${Number(S.diag[subj].p) || 0}% · ${esc(String(S.diag[subj].date || ""))}</div>` : ""}
+    ${(S.certs || {})[subj] ? `<div class="tiny" style="margin-bottom:6px;color:var(--gold)">🏛️ ${esc(t("trial.certified"))}: ${Number(S.certs[subj].p) || 0}% · ${esc(String(S.certs[subj].date || ""))} · <a href="#cert/${subj}">📜 ${esc(t("cert.title"))}</a></div>` : ""}`;
   const byTopic = {};
   for (const c of d.cards) { (byTopic[S.settings.lang === "zh" ? c.topicZh : c.topic] = byTopic[S.settings.lang === "zh" ? c.topicZh : c.topic] || []).push(c.id); }
   const tnow = now();
@@ -2880,7 +2986,7 @@ function vSettings() {
     <div class="setrow" style="cursor:pointer;color:var(--red)" onclick="doReset()"><span class="lab">🗑 ${esc(t("set.reset"))}</span><span>→</span></div>
   </div>
   <div class="panel tiny">
-    <b>Ron 的加州律考通 · Ron's CalBar Trainer</b> · v1.8 · ${ALL_IDS.length} cards<br><br>
+    <b>Ron 的加州律考通 · Ron's CalBar Trainer</b> · v1.9 · ${ALL_IDS.length} cards<br><br>
     内容由 AI 辅助编写，供复习记忆使用；规则表述以官方资料及你的课程讲义为准，发现疑问请用 ⚑ 标记并查证。<br>
     Content is AI-assisted and for memorization practice; verify anything doubtful against official sources (flag with ⚑).<br><br>
     进度保存在本机浏览器 (localStorage)。换设备或清缓存前请先「导出学习进度」。<br>
@@ -2911,7 +3017,7 @@ window.doImport = (inp) => {
 };
 window.doReset = () => {
   if (!confirm(t("set.resetc"))) return;
-  S = { v: 1, cards: {}, days: {}, xp: 0, topics: {}, diag: {}, badges: {}, flags: { sndOn2: 1 }, settings: S.settings };
+  S = { v: 1, cards: {}, days: {}, xp: 0, topics: {}, diag: {}, badges: {}, certs: {}, flags: { sndOn2: 1 }, settings: S.settings };
   save(); toast(t("toast.reset")); route();
 };
 
@@ -3024,6 +3130,8 @@ function vGuide() {
     <p>统计页会按<b>遗忘次数</b>自动汇总你反复忘记的卡（真实复习数据，摸底测试不算），点「开始攻坚」一键连刷最顽固的 20 张。积累到足够遗忘数据后自动出现——考前把这些钉子逐颗敲平。</p>
     <h4>✍️ 论述题触发词</h4>
     <p>首页入口（设置页也有）。论述题得分的一半是<b>认出事实模式触发了哪些争点</b>——这份速查表按科目列出「看到这些事实 → 要写这些争点」。读题时用中文提示快速对号，写作时用英文争点清单自检有无漏项。临考冲刺阶段每天过一遍。</p>
+    <h4>🏛️ 认证挑战与结业证书</h4>
+    <p>科目页的「认证挑战」＝跨专题抽取选择题的小考（多数科目 20 题），<b>答对 85%</b> 即获该科目「结业认证证书」——可打印、可重考刷新最好成绩。答错的题会照常进入复习队列，考砸了也不亏。把 13 科证书集齐，就是你考前的'资格确认'仪式。</p>
     <h4>🐻 金熊法官、徽章与金门大桥</h4>
     <ul>
       <li><b>金熊法官</b>坐在首页陪你——随你的段位升级法袍，答对点头、答错也只是心疼一下。</li>
@@ -3100,6 +3208,8 @@ function vGuide() {
     <p>The Stats page auto-collects the cards you keep forgetting, ranked by <b>lapses</b> (real review data — diagnostics don't count), with a one-tap drill of the 20 most stubborn. It appears once you have enough lapse history — hammer these nails flat before exam day.</p>
     <h4>✍️ Essay issue triggers</h4>
     <p>Entry on the home screen (and Settings). Half of every essay score is <b>recognizing which issues the facts trigger</b> — this per-subject cheat sheet maps "see these facts → raise these issues." Read cues in Chinese for speed; self-check your answers against the English issue lists. Sweep it daily in the final stretch.</p>
+    <h4>🏛️ Certification trials & certificates</h4>
+    <p>Each deck page offers a <b>Certification Trial</b> — stratified MCQs across every topic (20 for most subjects). Score <b>85%</b> and the subject is certified: a printable Certificate of Mastery, retakeable any time to raise your best score. Missed questions still feed the review queue, so a failed attempt costs nothing. Collecting all 13 is the pre-exam readiness ritual.</p>
     <h4>🐻 Judge Bear, badges & the bridge</h4>
     <ul>
       <li><b>Judge Bear</b> keeps you company — his robes upgrade with your rank; he nods at good recalls and merely winces at lapses.</li>

@@ -16,7 +16,7 @@ function applyTheme() {
 matchMedia("(prefers-color-scheme: dark)").addEventListener("change", applyTheme);
 
 /* ---------- router ---------- */
-const routes = { home: vHome, study: vStudy, quiz: vQuiz, browse: vBrowse, deck: vDeck, stats: vStats, settings: vSettings, method: vMethod, guide: vGuide, triage: vTriage, essays: vEssays };
+const routes = { home: vHome, study: vStudy, quiz: vQuiz, browse: vBrowse, deck: vDeck, stats: vStats, settings: vSettings, method: vMethod, guide: vGuide, triage: vTriage, essays: vEssays, cert: vCert };
 function nav(h) { location.hash = "#" + h; }
 function route() {
   const h = (location.hash || "#home").slice(1);
@@ -25,7 +25,7 @@ function route() {
   const m = document.getElementById("modalbg"); if (m) m.remove();
   tickTime();
   $("#view").innerHTML = fn(arg) || "";
-  const tab = { home: "home", study: "home", quiz: "home", browse: "browse", deck: "browse", triage: "browse", essays: "browse", stats: "stats", settings: "set", method: "set", guide: "set" }[name] || "home";
+  const tab = { home: "home", study: "home", quiz: "home", browse: "browse", deck: "browse", triage: "browse", essays: "browse", cert: "browse", stats: "stats", settings: "set", method: "set", guide: "set" }[name] || "home";
   document.querySelectorAll(".nav button").forEach(b => b.classList.toggle("on", b.dataset.tab === tab));
   renderTopbar();
   window.scrollTo(0, 0);
@@ -645,6 +645,60 @@ function studySummary() {
   return h;
 }
 
+/* ============== certification trials (认证挑战) ============== */
+window.startTrial = (subj) => {
+  const ids = buildTrial(subj);
+  if (ids.length < 10) { toast(t("quiz.notready")); return; }
+  quiz = { mode: "trial", subject: subj, ids, idx: 0, right: 0, wrongIds: [], answered: false, pick: null, shuffle: shuffleArr([0, 1, 2, 3]), xp0: S.xp, zh: false };
+  nav("quiz");
+};
+function trialResults() {
+  const n = quiz.ids.length, sc = Math.round(100 * quiz.right / n);
+  const passed = quiz.right / n >= TRIAL_PASS;
+  const subj = quiz.subject, d = DECK[subj];
+  if (passed) {
+    const prev = (S.certs || {})[subj];
+    if (!prev || sc > prev.p) { S.certs[subj] = { p: sc, n, date: ymd() }; save(); }
+    if (!trialResults._rang) { sfx("gavel"); trialResults._rang = true; setTimeout(() => trialResults._rang = false, 500); }
+  }
+  const line = personaLine(passed ? "doneHi" : sc >= 60 ? "doneMid" : "doneLow");
+  return `
+  <div class="summary">
+    <div class="big">${passed ? "🏛️" : "📖"}</div>
+    <h2>${d.emoji} ${esc(deckName(d))} · ${quiz.right} / ${n}</h2>
+    <p style="font-weight:800;color:${passed ? "var(--jade)" : "var(--amber)"}">${esc(passed ? t("trial.pass") : t("trial.fail"))}</p>
+    <p class="tiny persona-line">💬 ${esc(line)}</p>
+    <div class="rowbtns" style="justify-content:center;margin-top:14px">
+      ${passed ? `<button class="btn primary" onclick="quiz=null;nav('cert/${subj}')">📜 ${esc(t("cert.title"))}</button>` : ""}
+      <button class="btn" onclick="quiz=null;nav('deck/${subj}')">${esc(t("cert.back"))}</button>
+    </div>
+  </div>`;
+}
+function vCert(subj) {
+  const d = DECK[subj], c = (S.certs || {})[subj];
+  if (!d || !c) { setTimeout(() => nav("browse")); return ""; }
+  const zh = S.settings.lang === "zh";
+  return `
+  <button class="backlink noprint" onclick="nav('deck/${subj}')">← ${esc(deckName(d))}</button>
+  <div class="certpage">
+    <div class="certinner">
+      <div class="certseal">${bearSVG("idle", 72)}</div>
+      <div class="certhead">${esc(t("cert.title"))}</div>
+      <div class="certsub">${zh ? "Certificate of Mastery" : "结业认证证书"}</div>
+      <div class="certline">${esc(t("cert.certifies"))}</div>
+      <div class="certname">Ron</div>
+      <div class="certline">${esc(t("cert.line"))}</div>
+      <div class="certsubj">${d.emoji} ${esc(d.nameZh)} · ${esc(d.nameEn)}</div>
+      <div class="certmeta">${esc(t("cert.score"))}: <b>${c.p}%</b> (${c.n} MCQ) · ${esc(t("cert.date"))}: <b>${esc(c.date)}</b></div>
+      <div class="certfoot">⚖️ ${esc(t("cert.court"))}</div>
+    </div>
+  </div>
+  <div class="rowbtns noprint" style="justify-content:center;margin-top:12px">
+    <button class="btn primary" onclick="window.print()">${esc(t("cert.print"))}</button>
+    <button class="btn" onclick="startTrial('${subj}')">🏛️ ${esc(t("trial.retake"))}</button>
+  </div>`;
+}
+
 /* ============================ QUIZ ============================ */
 function quizSetup() {
   const opts = DECKS.filter(d => quizPool(d.subject).length >= 4)
@@ -670,7 +724,7 @@ window.startQuiz = () => {
 };
 function vQuiz() {
   if (!quiz) { setTimeout(() => nav("home")); return ""; }
-  if (quiz.idx >= quiz.ids.length) return quiz.mode === "diag" ? diagResults() : quizResults();
+  if (quiz.idx >= quiz.ids.length) return quiz.mode === "diag" ? diagResults() : quiz.mode === "trial" ? trialResults() : quizResults();
   const id = quiz.ids[quiz.idx], c = CARD[id];
   const pct = Math.round(100 * quiz.idx / quiz.ids.length);
   let h = `
@@ -685,6 +739,7 @@ function vQuiz() {
       <span class="chip">${DECK[c.deck].emoji} ${esc(deckName(DECK[c.deck]))}</span>
       <span class="chip">${esc(S.settings.lang === "zh" ? c.topicZh : c.topic)}</span>
       ${quiz.mode === "diag" ? `<span class="chip" style="color:var(--sky)">🧪 ${esc(t("diag.chip"))}</span>` : ""}
+      ${quiz.mode === "trial" ? `<span class="chip" style="color:var(--gold)">🏛️ ${esc(t("trial.chip"))}</span>` : ""}
     </div>
     <div class="qtext">${esc(c.q)}</div>
     ${quiz.zh ? `<div class="zh-hint">${esc(c.qZh)}</div>` : ""}
@@ -830,9 +885,11 @@ function vDeck(subj) {
       ${st.due ? `<button class="btn primary" onclick="deckReview('${subj}')">▶ ${esc(t("deck.review"))} (${st.due})</button>` : ""}
       ${!diagDone(subj) && quizPool(subj).length >= 8 ? `<button class="btn" onclick="startDiag('${subj}')">🧪 ${esc(t("diag.title"))}</button>` : ""}
       ${st.neu > 0 ? `<button class="btn" onclick="startTriage('${subj}')">🗂 ${esc(t("triage.title"))} (${st.neu})</button>` : ""}
+      ${quizPool(subj).length >= 10 ? `<button class="btn" onclick="startTrial('${subj}')">🏛️ ${esc(t("trial.title"))}</button>` : ""}
       <button class="btn" onclick="deckToggleNew('${subj}')">${esc(off ? t("deck.resume") : t("deck.pause"))}</button>
     </div>
-    ${diagDone(subj) ? `<div class="tiny" style="margin-bottom:6px">🧪 ${esc(t("diag.done"))}: ${Number(S.diag[subj].p) || 0}% · ${esc(String(S.diag[subj].date || ""))}</div>` : ""}`;
+    ${diagDone(subj) ? `<div class="tiny" style="margin-bottom:6px">🧪 ${esc(t("diag.done"))}: ${Number(S.diag[subj].p) || 0}% · ${esc(String(S.diag[subj].date || ""))}</div>` : ""}
+    ${(S.certs || {})[subj] ? `<div class="tiny" style="margin-bottom:6px;color:var(--gold)">🏛️ ${esc(t("trial.certified"))}: ${Number(S.certs[subj].p) || 0}% · ${esc(String(S.certs[subj].date || ""))} · <a href="#cert/${subj}">📜 ${esc(t("cert.title"))}</a></div>` : ""}`;
   const byTopic = {};
   for (const c of d.cards) { (byTopic[S.settings.lang === "zh" ? c.topicZh : c.topic] = byTopic[S.settings.lang === "zh" ? c.topicZh : c.topic] || []).push(c.id); }
   const tnow = now();
@@ -1083,7 +1140,7 @@ function vSettings() {
     <div class="setrow" style="cursor:pointer;color:var(--red)" onclick="doReset()"><span class="lab">🗑 ${esc(t("set.reset"))}</span><span>→</span></div>
   </div>
   <div class="panel tiny">
-    <b>Ron 的加州律考通 · Ron's CalBar Trainer</b> · v1.8 · ${ALL_IDS.length} cards<br><br>
+    <b>Ron 的加州律考通 · Ron's CalBar Trainer</b> · v1.9 · ${ALL_IDS.length} cards<br><br>
     内容由 AI 辅助编写，供复习记忆使用；规则表述以官方资料及你的课程讲义为准，发现疑问请用 ⚑ 标记并查证。<br>
     Content is AI-assisted and for memorization practice; verify anything doubtful against official sources (flag with ⚑).<br><br>
     进度保存在本机浏览器 (localStorage)。换设备或清缓存前请先「导出学习进度」。<br>
@@ -1114,7 +1171,7 @@ window.doImport = (inp) => {
 };
 window.doReset = () => {
   if (!confirm(t("set.resetc"))) return;
-  S = { v: 1, cards: {}, days: {}, xp: 0, topics: {}, diag: {}, badges: {}, flags: { sndOn2: 1 }, settings: S.settings };
+  S = { v: 1, cards: {}, days: {}, xp: 0, topics: {}, diag: {}, badges: {}, certs: {}, flags: { sndOn2: 1 }, settings: S.settings };
   save(); toast(t("toast.reset")); route();
 };
 
@@ -1227,6 +1284,8 @@ function vGuide() {
     <p>统计页会按<b>遗忘次数</b>自动汇总你反复忘记的卡（真实复习数据，摸底测试不算），点「开始攻坚」一键连刷最顽固的 20 张。积累到足够遗忘数据后自动出现——考前把这些钉子逐颗敲平。</p>
     <h4>✍️ 论述题触发词</h4>
     <p>首页入口（设置页也有）。论述题得分的一半是<b>认出事实模式触发了哪些争点</b>——这份速查表按科目列出「看到这些事实 → 要写这些争点」。读题时用中文提示快速对号，写作时用英文争点清单自检有无漏项。临考冲刺阶段每天过一遍。</p>
+    <h4>🏛️ 认证挑战与结业证书</h4>
+    <p>科目页的「认证挑战」＝跨专题抽取选择题的小考（多数科目 20 题），<b>答对 85%</b> 即获该科目「结业认证证书」——可打印、可重考刷新最好成绩。答错的题会照常进入复习队列，考砸了也不亏。把 13 科证书集齐，就是你考前的'资格确认'仪式。</p>
     <h4>🐻 金熊法官、徽章与金门大桥</h4>
     <ul>
       <li><b>金熊法官</b>坐在首页陪你——随你的段位升级法袍，答对点头、答错也只是心疼一下。</li>
@@ -1303,6 +1362,8 @@ function vGuide() {
     <p>The Stats page auto-collects the cards you keep forgetting, ranked by <b>lapses</b> (real review data — diagnostics don't count), with a one-tap drill of the 20 most stubborn. It appears once you have enough lapse history — hammer these nails flat before exam day.</p>
     <h4>✍️ Essay issue triggers</h4>
     <p>Entry on the home screen (and Settings). Half of every essay score is <b>recognizing which issues the facts trigger</b> — this per-subject cheat sheet maps "see these facts → raise these issues." Read cues in Chinese for speed; self-check your answers against the English issue lists. Sweep it daily in the final stretch.</p>
+    <h4>🏛️ Certification trials & certificates</h4>
+    <p>Each deck page offers a <b>Certification Trial</b> — stratified MCQs across every topic (20 for most subjects). Score <b>85%</b> and the subject is certified: a printable Certificate of Mastery, retakeable any time to raise your best score. Missed questions still feed the review queue, so a failed attempt costs nothing. Collecting all 13 is the pre-exam readiness ritual.</p>
     <h4>🐻 Judge Bear, badges & the bridge</h4>
     <ul>
       <li><b>Judge Bear</b> keeps you company — his robes upgrade with your rank; he nods at good recalls and merely winces at lapses.</li>
