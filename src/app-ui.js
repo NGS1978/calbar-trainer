@@ -829,8 +829,18 @@ function vDeck(subj) {
     ${diagDone(subj) ? `<div class="tiny" style="margin-bottom:6px">🧪 ${esc(t("diag.done"))}: ${Number(S.diag[subj].p) || 0}% · ${esc(String(S.diag[subj].date || ""))}</div>` : ""}`;
   const byTopic = {};
   for (const c of d.cards) { (byTopic[S.settings.lang === "zh" ? c.topicZh : c.topic] = byTopic[S.settings.lang === "zh" ? c.topicZh : c.topic] || []).push(c.id); }
+  const tnow = now();
   for (const [topic, ids] of Object.entries(byTopic)) {
-    h += `<div style="margin:10px 0 2px;font-size:.78rem;font-weight:800;color:var(--ink-faint)">${esc(topic)} · ${ids.length}</div>`;
+    let tdue = 0, tneu = 0;
+    for (const id of ids) {
+      const cst = peek(id);
+      if (cst && cst.susp) continue;
+      if (!cst || cst.st === 0) tneu++;
+      else if (cst.due <= tnow) tdue++;
+    }
+    const cnt = (tdue ? ` · <span style="color:var(--poppy)">${tdue} ${esc(t("state.due"))}</span>` : "") +
+                (tneu ? ` · ${tneu} ${esc(t("state.new"))}` : "");
+    h += `<div style="margin:10px 0 2px;font-size:.78rem;font-weight:800;color:var(--ink-faint)">${esc(topic)} · ${ids.length}${cnt}</div>`;
     h += ids.map(cardRow).join("");
   }
   h += `</div>`;
@@ -886,6 +896,28 @@ window.modFlag = (id) => { const c = cs(id); c.flag = !c.flag; save(); toast(t(c
 window.modReset = (id) => { delete S.cards[id]; save(); toast(t("toast.reset")); closeModal(); refreshInPlace(); };
 
 /* ============================ STATS ============================ */
+function hardestPanel() {
+  const hard = hardestList();
+  if (hard.length < 3) return "";                          // needs real lapse history first
+  const zh = S.settings.lang === "zh";
+  let h = `<div class="panel"><h3>🔥 ${esc(t("hard.title"))}<span class="sub">${hard.length}</span></h3>
+  <div class="tiny" style="margin-bottom:8px">${esc(t("hard.sub"))}</div>`;
+  for (const x of hard.slice(0, 8)) {
+    const c = CARD[x.id];
+    h += `<div class="subj" style="cursor:pointer" onclick="openCard('${x.id}')">
+      <span class="em">${DECK[c.deck].emoji}</span>
+      <div class="nm"><b>${esc((zh && c.qZh ? c.qZh : c.q).slice(0, 64))}</b><span>${esc(zh ? c.topicZh : c.topic)}</span></div>
+      <span class="pill" style="flex:none">↻ ${x.lapses}</span>
+    </div>`;
+  }
+  return h + `<div class="rowbtns" style="margin-top:8px"><button class="btn primary" onclick="startHardDrill()">⚔️ ${esc(t("hard.drill"))} (${Math.min(hard.length, 20)})</button></div></div>`;
+}
+window.startHardDrill = () => {
+  const q = hardestList().slice(0, 20).map(x => x.id);
+  if (q.length < 3) { toast(t("hard.empty")); return; }
+  session = { mode: "drill", queue: q, initTotal: q.length, done: 0, ok: 0, att: 0, xp0: S.xp, revealed: false, snap: null, zh: S.settings.zhFirst };
+  nav("study");
+};
 function vStats() {
   const d = today();
   let w = { c: 0, ms: 0 }, all = { c: 0, ms: 0 };
@@ -930,6 +962,7 @@ function vStats() {
     <div class="cell"><b>${Math.round(tot.mastery * 100)}%</b><span>${esc(t("stats.mastery"))}</span></div>
     <div class="cell"><b>${tot.studied}/${tot.total}</b><span>${esc(t("home.subjects"))}</span></div>
   </div>
+  ${hardestPanel()}
   <div class="panel"><h3>📅 ${esc(t("stats.heat"))}</h3><div class="heat">${cells.join("")}</div></div>
   <div class="panel"><h3>📊 ${esc(t("stats.daily"))}</h3>
     <div class="minibars">${barVals.map(v => `<i style="height:${Math.max(3, Math.round(100 * v / maxC))}%" title="${v}"></i>`).join("")}</div>
@@ -1021,7 +1054,7 @@ function vSettings() {
     <div class="setrow" style="cursor:pointer;color:var(--red)" onclick="doReset()"><span class="lab">🗑 ${esc(t("set.reset"))}</span><span>→</span></div>
   </div>
   <div class="panel tiny">
-    <b>Ron 的加州律考通 · Ron's CalBar Trainer</b> · v1.6 · ${ALL_IDS.length} cards<br><br>
+    <b>Ron 的加州律考通 · Ron's CalBar Trainer</b> · v1.7 · ${ALL_IDS.length} cards<br><br>
     内容由 AI 辅助编写，供复习记忆使用；规则表述以官方资料及你的课程讲义为准，发现疑问请用 ⚑ 标记并查证。<br>
     Content is AI-assisted and for memorization practice; verify anything doubtful against official sources (flag with ⚑).<br><br>
     进度保存在本机浏览器 (localStorage)。换设备或清缓存前请先「导出学习进度」。<br>
@@ -1161,6 +1194,8 @@ function vGuide() {
     </ul>
     <h4>📡 弱项雷达</h4>
     <p>系统按<b>专题</b>（不只科目）统计你的复习与演练正确率，首页列出当前最弱的三个专题，点「练」立即针对性加练一轮。做过摸底、复习越多，雷达越准。</p>
+    <h4>🔥 最难卡片</h4>
+    <p>统计页会按<b>遗忘次数</b>自动汇总你反复忘记的卡（真实复习数据，摸底测试不算），点「开始攻坚」一键连刷最顽固的 20 张。积累到足够遗忘数据后自动出现——考前把这些钉子逐颗敲平。</p>
     <h4>🐻 金熊法官、徽章与金门大桥</h4>
     <ul>
       <li><b>金熊法官</b>坐在首页陪你——随你的段位升级法袍，答对点头、答错也只是心疼一下。</li>
@@ -1233,6 +1268,8 @@ function vGuide() {
     </ul>
     <h4>📡 Weakness radar</h4>
     <p>Accuracy is tracked per <b>topic</b>, not just per subject. The home screen names your three weakest topics with a one-tap Drill. The more you review (and diagnose), the sharper it gets.</p>
+    <h4>🔥 Hardest cards</h4>
+    <p>The Stats page auto-collects the cards you keep forgetting, ranked by <b>lapses</b> (real review data — diagnostics don't count), with a one-tap drill of the 20 most stubborn. It appears once you have enough lapse history — hammer these nails flat before exam day.</p>
     <h4>🐻 Judge Bear, badges & the bridge</h4>
     <ul>
       <li><b>Judge Bear</b> keeps you company — his robes upgrade with your rank; he nods at good recalls and merely winces at lapses.</li>

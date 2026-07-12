@@ -142,6 +142,19 @@ function cardR(id) {
   return retrievability(Math.max(0, (now() - c.last) / DAY), c.s);
 }
 
+/* ---------------- hardest cards (lapse-ranked leeches) ----------------
+   Real forgetting only: ranked by lapses recorded at grading time, low
+   stability breaking ties. A diagnostic or triage can't put a card here. */
+function hardestList(minLapses = 2) {
+  const out = [];
+  for (const [id, st] of Object.entries(S.cards)) {
+    if (!CARD[id] || st.susp || (st.lapses || 0) < minLapses || !st.reps) continue;
+    out.push({ id, lapses: st.lapses, s: st.s || 0 });
+  }
+  out.sort((a, b) => b.lapses - a.lapses || a.s - b.s);
+  return out;
+}
+
 /* ---------------- 2+5. badges & stamps (判例徽章 + 印章) ----------------
    Mastery badges need real, demonstrated work — not a lucky diagnostic:
    ≥85% modeled mastery AND ≥40 graded attempts recorded in that deck. */
