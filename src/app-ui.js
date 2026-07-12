@@ -471,7 +471,7 @@ function typedAnswerHTML(c, res) {
       <span class="tiny" style="flex:none">${esc(t("typed.coverage"))}</span></div>`;
   }
   h += `<div class="modelbox"><span class="bt">📖 ${esc(res.tier ? t("typed.model") : (zh ? "标准答案" : "Model answer"))}</span>
-    <div class="a-en">${res.tier ? highlightModel(c.a, res.matched) : esc(c.a)}</div>
+    <div class="a-en">${res.tier ? highlightModel(c.a, res.matched, res.scoreSet) : esc(c.a)}</div>
     <div class="a-zh">${esc(c.aZh)}</div></div>`;
   if (res.tier && res.missedTop.length) h += `<div class="tiny" style="margin-top:5px">🎯 ${esc(t("typed.missed"))}: <b>${res.missedTop.map(esc).join(" · ")}</b></div>`;
   if (res.tier) h += `<div class="tiny" style="margin-top:5px;opacity:.8">${esc(t("typed.note"))}</div>`;
@@ -544,7 +544,7 @@ window.skipTyped = () => {
 window.toggleAMode = () => {
   S.settings.answerMode = S.settings.answerMode === "typed" ? "flip" : "typed";
   save(); toast(S.settings.answerMode === "typed" ? "⌨️ " + t("amode.typed") : "🃏 " + t("amode.flip"));
-  if (session && !session.revealed) rerenderStudy();
+  if (session) rerenderStudy();          // revealed too — the 🃏/⌨️ bar icon must track the setting
 };
 window.pickOpt = (orig) => {
   if (!session || session.revealed) return;
@@ -574,7 +574,7 @@ window.doGrade = (g) => {
   session.snap = grade(id, g);
   session.snap.sess = prevSess;
   tickTime();
-  if (CARD[id].type !== "mcq" && !(session.typed && session.typed.tier)) {   // rated submits already sounded; skip/CJK grades still get feedback
+  if (CARD[id].type !== "mcq" && !(session.typed && session.typed.tier && !session.typed.empty)) {   // rated submits already sounded; skip/CJK/empty grades still get feedback
     if (g >= 3) sfx("tick"); else if (g === 1) sfx("wrong");
     buzz(g === 1 ? [10, 40, 10] : 8);
   }
@@ -1021,7 +1021,7 @@ function vSettings() {
     <div class="setrow" style="cursor:pointer;color:var(--red)" onclick="doReset()"><span class="lab">🗑 ${esc(t("set.reset"))}</span><span>→</span></div>
   </div>
   <div class="panel tiny">
-    <b>Ron 的加州律考通 · Ron's CalBar Trainer</b> · v1.5 · ${ALL_IDS.length} cards<br><br>
+    <b>Ron 的加州律考通 · Ron's CalBar Trainer</b> · v1.5.1 · ${ALL_IDS.length} cards<br><br>
     内容由 AI 辅助编写，供复习记忆使用；规则表述以官方资料及你的课程讲义为准，发现疑问请用 ⚑ 标记并查证。<br>
     Content is AI-assisted and for memorization practice; verify anything doubtful against official sources (flag with ⚑).<br><br>
     进度保存在本机浏览器 (localStorage)。换设备或清缓存前请先「导出学习进度」。<br>

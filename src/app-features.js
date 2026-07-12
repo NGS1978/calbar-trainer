@@ -392,13 +392,50 @@ function fuzzyEq(a, b) {
   return levLe(a, b, n >= 9 ? 2 : 1) || (sa.length >= 5 && sb.length >= 5 && levLe(sa, sb, 1));
 }
 function hasCJK(s) { return (String(s).match(/[一-鿿]/g) || []).length >= 2; }
+/* Scoring-noise strips (calibrated 12/07/2026 by blind-testing complete-but-independently-worded
+   answers): enumeration markers "(1) (a) (iv)" scored as 1.6×-weighted digits and punished prose
+   answers ~12% on the 126 affected cards; case-cite parentheticals "(Byrne v. Boadle)" and
+   "Classic:/E.g." tails demanded illustration, not law. All strips are SCORING-side only — the
+   displayed model answer stays complete. Markers must not hug a word/digit, so rule cites like
+   12(b)(6), 4(k)(1)(A), 2-207(2) survive intact. */
+const ENUM_MARK = /(^|[\s:;,—–-])\((?:\d{1,2}|[a-z]|[ivx]{1,4})\)/gi;   // both sides
+const CASE_CITE = /\([^()]*\bv\.?\s[^()]*\)/g;                          // model side only
+const EG_TAIL = /(?:^|[.;!?])\s*(?:classic|e\.?g\.?|example|illus(?:tration)?)\s*[:,][^.;]*[.;]?/gi;
+function scoringModel(model) {
+  const t = String(model).replace(ENUM_MARK, "$1 ").replace(CASE_CITE, " ")
+    .replace(EG_TAIL, m => (/^[.;!?]/.test(m) ? m[0] : "") + " ");
+  return typedTokens(t).length ? t : String(model);    // never strip a model down to nothing
+}
+/* P/D/K are house style in model answers and natural bar shorthand in typed ones */
+const TOK_MAP = { "p's": "plaintiff", "d's": "defendant", "k's": "contract" };
+const mapTok = w => TOK_MAP[w] || w;
+/* input-only, additive expansions: bare P/D/K fall below the 2-char token floor, graders accept
+   standard abbreviations, and "thirty days" must credit "30 days" (numbers weigh 1.6×) */
+const NUM_WORDS = { one: "1", two: "2", three: "3", four: "4", five: "5", six: "6", seven: "7",
+  eight: "8", nine: "9", ten: "10", fifteen: "15", twenty: "20", thirty: "30", sixty: "60", ninety: "90" };
+const TYPED_ABBR = { sof: ["statute", "frauds"], sol: ["statute", "limitations"], pj: ["personal", "jurisdiction"],
+  smj: ["subject", "matter", "jurisdiction"], rap: ["rule", "against", "perpetuities"], bfp: ["bona", "fide", "purchaser"],
+  iied: ["intentional", "infliction", "emotional", "distress"], nied: ["negligent", "infliction", "emotional", "distress"],
+  jmol: ["judgment", "matter", "law"], msj: ["summary", "judgment"], acp: ["attorney", "client", "privilege"],
+  jt: ["joint", "tenancy"], fsa: ["fee", "simple", "absolute"], cp: ["community", "property"] };
+function typedInputTokens(input) {
+  const out = typedTokens(String(input).replace(ENUM_MARK, "$1 ")).map(mapTok);
+  const extra = [];
+  for (const w of out) {
+    if (NUM_WORDS[w]) extra.push(NUM_WORDS[w]);
+    if (TYPED_ABBR[w]) extra.push(...TYPED_ABBR[w]);
+  }
+  const singles = (String(input).toLowerCase().match(/\b[pdk]\b/g) || [])
+    .map(x => x === "p" ? "plaintiff" : x === "d" ? "defendant" : "contract");
+  return out.concat(extra, singles);
+}
 function scoreTyped(model, input) {
-  const uniq = [...new Set(typedTokens(model))];
-  const ut = [...new Set(typedTokens(input))].slice(0, 150);   // paste-bomb guard
+  const uniq = [...new Set(typedTokens(scoringModel(model)).map(mapTok))];
+  const ut = [...new Set(typedInputTokens(input))].slice(0, 150);   // paste-bomb guard
   if (!uniq.length) {                            // degenerate model — whole-string fuzzy fallback
     const a = String(model).toLowerCase().trim(), b = String(input).toLowerCase().trim();
     const ok = a === b || (a.length >= 5 && levLe(a, b, Math.ceil(a.length / 5)));
-    return { pct: ok ? 1 : 0, tier: ok ? "sharp" : "wrong", sugg: ok ? 3 : 1, matched: ok ? new Set(typedTokens(model)) : new Set(), missedTop: [] };
+    return { pct: ok ? 1 : 0, tier: ok ? "sharp" : "wrong", sugg: ok ? 3 : 1, matched: ok ? new Set(typedTokens(model)) : new Set(), missedTop: [], scoreSet: null };
   }
   let totalW = 0, hitW = 0;
   const matched = new Set(), missed = [];
@@ -410,21 +447,25 @@ function scoreTyped(model, input) {
   }
   const pct = totalW ? hitW / totalW : 0;
   missed.sort((x, y) => y.wgt - x.wgt || y.w.length - x.w.length);
+  /* cuts blind-calibrated: complete answers land 59–100% under this scorer (paraphrase tax is
+     real), halves ~12–49%, wrong-area ~16–20%. Err conservative at the good-cut: a Hard where
+     Good was deserved costs one extra review; the reverse hides a lapse from FSRS. */
   let tier, sugg;                                 // sugg = FSRS grade suggestion (Easy stays manual)
-  if (pct >= 0.92) { tier = "sharp"; sugg = 3; }
-  else if (pct >= 0.75) { tier = "good"; sugg = 3; }
-  else if (pct >= 0.45) { tier = "pass"; sugg = 2; }
+  if (pct >= 0.80) { tier = "sharp"; sugg = 3; }
+  else if (pct >= 0.60) { tier = "good"; sugg = 3; }
+  else if (pct >= 0.35) { tier = "pass"; sugg = 2; }
   else { tier = "wrong"; sugg = 1; }
-  return { pct, tier, sugg, matched, missedTop: missed.slice(0, 8).map(m => m.w) };
+  return { pct, tier, sugg, matched, missedTop: missed.slice(0, 8).map(m => m.w), scoreSet: new Set(uniq) };
 }
-/* rebuild the model answer with hits green / misses amber (escaping-safe) */
-function highlightModel(model, matched) {
+/* rebuild the model answer with hits green / misses amber (escaping-safe); tokens outside the
+   scoring set (enumeration digits, cites, example tails) stay neutral so amber = a real gap */
+function highlightModel(model, matched, scoreSet) {
   let out = "", last = 0, m;
   const re = /[A-Za-z][A-Za-z']*|\d+(?:\.\d+)?/g;      // hyphen = separator, mirrors typedTokens
   while ((m = re.exec(model))) {
     out += esc(model.slice(last, m.index));
-    const tok = m[0], lw = tok.toLowerCase().replace(/^'+|'+$/g, "");
-    const scoreable = lw && !TYPED_STOP.has(lw) && (lw.length >= 2 || /^\d/.test(lw));
+    const tok = m[0], lw = mapTok(tok.toLowerCase().replace(/^'+|'+$/g, ""));
+    const scoreable = lw && !TYPED_STOP.has(lw) && (lw.length >= 2 || /^\d/.test(lw)) && (!scoreSet || scoreSet.has(lw));
     if (!scoreable) out += esc(tok);                    // unscoreable tokens stay neutral, never "missed"
     else if (matched.has(lw)) out += `<mark class="hit">${esc(tok)}</mark>`;
     else out += `<mark class="miss">${esc(tok)}</mark>`;

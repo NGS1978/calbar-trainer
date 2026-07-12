@@ -3,7 +3,7 @@
 const http = require("http");
 const fs = require("fs");
 const path = require("path");
-const PORT = 8377;
+const PORT = Number(process.env.PORT) || 8377;   // PORT env wins so parallel sessions don't collide
 const MIME = { ".html": "text/html; charset=utf-8", ".js": "text/javascript", ".json": "application/json", ".css": "text/css", ".svg": "image/svg+xml" };
 http.createServer((req, res) => {
   let p = decodeURIComponent((req.url || "/").split("?")[0]);
