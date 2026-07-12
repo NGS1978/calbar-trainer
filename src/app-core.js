@@ -22,7 +22,7 @@ const LS_KEY = "cbt1";
 const DEFAULT_SETTINGS = {
   lang: "zh", examDate: "2027-02-23", newPerDay: 20, dailyGoal: 60,
   retention: 0.9, theme: "auto", zhFirst: false, quizN: 10, deckOff: {},
-  sound: true, intake: "smart", hideDiag: false
+  sound: true, intake: "smart", hideDiag: false, answerMode: "flip"
 };
 let S = load();
 function load() {
@@ -383,6 +383,13 @@ const I18N = {
     "bridge.title": "通往金门", "bridge.crossed": "已跨越", "bridge.fog": "记忆保持率", "bridge.fogline": "雾正在散去",
     "cab.title": "判例徽章", "cab.sub": "里程碑即判例——收集即复习", "cab.locked": "未解锁",
     "set.sound": "音效", "set.soundd": "翻卡、对错反馈与法槌（可随时关闭）",
+    "set.amode": "作答方式", "set.amoded": "键入=像考试一样默写规则，自动评分", "amode.flip": "翻卡", "amode.typed": "键入",
+    "typed.ph": "凭记忆键入答案（英文）…", "typed.submit": "提交作答", "typed.skip": "想不出来？直接看答案",
+    "typed.yours": "你的作答", "typed.model": "标准答案（绿=已覆盖 · 黄=遗漏要点）", "typed.coverage": "要点覆盖率",
+    "typed.missed": "遗漏要点", "typed.cjk": "检测到中文作答——考试须用英文书写，请对照答案自评",
+    "typed.empty": "（未作答）", "typed.hint": "回车提交 · Shift+回车换行",
+    "tier.wrong": "待补", "tier.pass": "及格", "tier.good": "良好", "tier.sharp": "精准",
+    "typed.note": "评分基于要点覆盖，仅供参考——同义改写可能被低估，最终以你的判断为准",
     "set.intake": "新卡顺序", "set.intake.smart": "弱项优先", "set.intake.even": "均衡轮换",
     "pace.remaining": "未学新卡", "pace.finish": "按当前速度学完还需", "pace.suggest": "建议每日新卡",
     "pace.ontrack": "进度良好 — 考前将有充足纯复习期", "pace.behind": "偏慢 — 建议提高每日新卡量",
@@ -440,6 +447,13 @@ const I18N = {
     "bridge.title": "Road to the Golden Gate", "bridge.crossed": "crossed", "bridge.fog": "retention", "bridge.fogline": "the fog is lifting",
     "cab.title": "Case Badges", "cab.sub": "Milestones as landmark cases — collecting is revising", "cab.locked": "Locked",
     "set.sound": "Sounds", "set.soundd": "Card flips, right/wrong feedback & gavel (toggle any time)",
+    "set.amode": "Answer mode", "set.amoded": "Typed = write rules from memory, exam-style, auto-rated", "amode.flip": "Flip", "amode.typed": "Typed",
+    "typed.ph": "Type the answer from memory (in English)…", "typed.submit": "Submit", "typed.skip": "Can't recall? Show the answer",
+    "typed.yours": "Your answer", "typed.model": "Model answer (green = covered · amber = missed)", "typed.coverage": "Element coverage",
+    "typed.missed": "Missed elements", "typed.cjk": "Chinese detected — the exam must be written in English; self-grade against the model",
+    "typed.empty": "(no answer)", "typed.hint": "Enter to submit · Shift+Enter for a new line",
+    "tier.wrong": "Missed", "tier.pass": "Pass", "tier.good": "Good", "tier.sharp": "Sharp",
+    "typed.note": "The rating measures element coverage and is advisory — paraphrases can score low; your judgment is final",
     "set.intake": "New-card order", "set.intake.smart": "Weakest first", "set.intake.even": "Even rotation",
     "pace.remaining": "unseen cards", "pace.finish": "days to finish at current pace", "pace.suggest": "suggested new/day",
     "pace.ontrack": "On track — ample pure-review runway before the exam", "pace.behind": "Behind — consider raising new cards per day",

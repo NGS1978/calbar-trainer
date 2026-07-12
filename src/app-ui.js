@@ -391,6 +391,7 @@ function vStudy() {
     <div class="prog"><i style="width:${pct}%"></i></div>
     <span class="cnt">${remaining}</span>
     <button onclick="undoLast()" title="${esc(t("study.undo"))}" aria-label="${esc(t("study.undo"))}">↩︎</button>
+    <button onclick="toggleAMode()" title="${esc(t("set.amode"))}" aria-label="${esc(t("set.amode"))}">${S.settings.answerMode === "typed" ? "⌨️" : "🃏"}</button>
     <button onclick="toggleFlag('${id}')" title="${esc(t("study.edit"))}" aria-label="${esc(t("study.edit"))}" style="${flagged ? "color:var(--amber)" : ""}">⚑</button>
   </div>
   <div class="qcard" id="qcard">
@@ -406,6 +407,7 @@ function vStudy() {
   <div class="kbd-hint">${esc(t("study.kbd"))}</div>`;
   return h;
 }
+function typedModeActive(c) { return S.settings.answerMode === "typed" && c.type !== "mcq"; }
 function cardFace(c, revealed, zh, shuffle) {
   let h = "";
   if (c.type === "cloze") {
@@ -415,6 +417,16 @@ function cardFace(c, revealed, zh, shuffle) {
   }
   if (zh) h += `<div class="zh-hint">${esc(c.qZh)}</div>`;
   h += `<button class="hintbtn" onclick="toggleZh()">${zh ? esc(t("study.zhHide")) : "🀄 " + esc(t("study.zhHint"))}</button>`;
+
+  if (!revealed && typedModeActive(c)) {
+    h += `<div class="typedbox">
+      <textarea id="typedin" rows="3" maxlength="1500" placeholder="${esc(t("typed.ph"))}" autocapitalize="off" autocomplete="off" spellcheck="false"
+        oninput="session.typedDraft=this.value"
+        onkeydown="if(event.key==='Enter'&&!event.shiftKey&&!event.isComposing){event.preventDefault();submitTyped();}">${esc(session && session.typedDraft || "")}</textarea>
+      <div class="typedmeta"><span class="tiny">${esc(t("typed.hint"))}</span>
+        <button class="hintbtn" style="margin:0" onclick="skipTyped()">${esc(t("typed.skip"))}</button></div>
+    </div>`;
+  }
 
   if (c.type === "mcq") {
     const map = shuffle || [0, 1, 2, 3];
@@ -430,27 +442,51 @@ function cardFace(c, revealed, zh, shuffle) {
     });
     h += `</div>`;
   }
-  if (revealed) h += answerHTML(c);
+  if (revealed) h += (session && session.typed && c.type !== "mcq") ? typedAnswerHTML(c, session.typed) : answerHTML(c);
+  return h;
+}
+function boxesHTML(c) {
+  let h = "";
+  if (c.explainZh) h += `<div class="box explain"><span class="bt">📘 ${esc(t("box.explain"))}</span>${esc(c.explainZh)}</div>`;
+  if (c.caNote) h += `<div class="box ca"><span class="bt">🐻 ${esc(t("box.ca"))}</span>${esc(c.caNote)}<br><span class="muted">${esc(c.caNoteZh || "")}</span></div>`;
+  if (c.mnemonic) h += `<div class="box mn"><span class="bt">💡 ${esc(t("box.mn"))}</span>${esc(c.mnemonic)}</div>`;
   return h;
 }
 function answerHTML(c) {
   let h = `<div class="answer">`;
   if (c.type === "basic" || c.type === "cloze") h += `<div class="a-en">${esc(c.a)}</div><div class="a-zh">${esc(c.aZh)}</div>`;
   if (c.type === "mcq" && c.explain) h += `<div class="a-en" style="font-size:.95rem">${esc(c.explain)}</div>`;
-  if (c.explainZh) h += `<div class="box explain"><span class="bt">📘 ${esc(t("box.explain"))}</span>${esc(c.explainZh)}</div>`;
-  if (c.caNote) h += `<div class="box ca"><span class="bt">🐻 ${esc(t("box.ca"))}</span>${esc(c.caNote)}<br><span class="muted">${esc(c.caNoteZh || "")}</span></div>`;
-  if (c.mnemonic) h += `<div class="box mn"><span class="bt">💡 ${esc(t("box.mn"))}</span>${esc(c.mnemonic)}</div>`;
-  return h + `</div>`;
+  return h + boxesHTML(c) + `</div>`;
+}
+function typedAnswerHTML(c, res) {
+  const zh = S.settings.lang === "zh";
+  let h = `<div class="answer">`;
+  h += `<div class="youranswer"><span class="bt">✍️ ${esc(t("typed.yours"))}</span>${(res.skipped || res.empty)
+    ? `<span class="muted">${esc(t("typed.empty"))}</span>` : esc(session.typedDraft || "")}</div>`;
+  if (res.cjk) h += `<div class="tiny" style="margin:6px 0;color:var(--amber)">${esc(t("typed.cjk"))}</div>`;
+  else if (res.tier) {
+    const pctR = Math.round(res.pct * 100);
+    h += `<div class="coverage"><span class="tierchip tier-${res.tier}">${esc(t("tier." + res.tier))}</span>
+      <div class="covbar"><i style="width:${pctR}%" class="cov-${res.tier}"></i></div><b>${pctR}%</b>
+      <span class="tiny" style="flex:none">${esc(t("typed.coverage"))}</span></div>`;
+  }
+  h += `<div class="modelbox"><span class="bt">📖 ${esc(res.tier ? t("typed.model") : (zh ? "标准答案" : "Model answer"))}</span>
+    <div class="a-en">${res.tier ? highlightModel(c.a, res.matched) : esc(c.a)}</div>
+    <div class="a-zh">${esc(c.aZh)}</div></div>`;
+  if (res.tier && res.missedTop.length) h += `<div class="tiny" style="margin-top:5px">🎯 ${esc(t("typed.missed"))}: <b>${res.missedTop.map(esc).join(" · ")}</b></div>`;
+  if (res.tier) h += `<div class="tiny" style="margin-top:5px;opacity:.8">${esc(t("typed.note"))}</div>`;
+  return h + boxesHTML(c) + `</div>`;
 }
 function actionBar(id) {
   const c = CARD[id];
   if (!session.revealed) {
     if (c.type === "mcq") return "";   // picking an option reveals
+    if (typedModeActive(c)) return `<button class="revealbtn" onclick="submitTyped()">⌨️ ${esc(t("typed.submit"))}</button>`;
     return `<button class="revealbtn" onclick="reveal()">${esc(t("study.reveal"))}</button>`;
   }
   const iv = previewIvls(id);
   const names = [t("study.again"), t("study.hard"), t("study.good"), t("study.easy")];
-  const sugg = session.mcqPick != null ? (session.mcqRight ? 3 : 1) : 0;
+  const sugg = session.mcqPick != null ? (session.mcqRight ? 3 : 1) : (session.typed ? session.typed.sugg : 0);
   return `<div class="grades">` + [1, 2, 3, 4].map(g =>
     `<button class="grade g${g}${g === sugg ? " suggest" : ""}" onclick="doGrade(${g})">${esc(names[g - 1])}<small>${esc(iv[g - 1])}</small></button>`).join("") + `</div>`;
 }
@@ -481,6 +517,35 @@ window.reveal = () => {
   } else rerenderStudy();
   setTimeout(showAnswer, 60);
 };
+window.submitTyped = () => {
+  if (!session || session.revealed) return;
+  const id = session.cur || currentId(); if (!id) return;
+  const c = CARD[id];
+  const box = document.getElementById("typedin");
+  const input = ((box && box.value) || session.typedDraft || "").trim();
+  session.typedDraft = input;
+  let res;
+  if (input.length < 2) res = { pct: 0, tier: "wrong", sugg: 1, matched: new Set(), missedTop: [], empty: true };
+  else if (hasCJK(input)) res = { pct: 0, tier: null, sugg: 0, matched: new Set(), missedTop: [], cjk: true };
+  else res = scoreTyped(c.a, input);
+  session.typed = res; session.revealed = true;
+  if (res.tier && !res.empty) { sfx(res.sugg >= 3 ? "right" : res.sugg === 2 ? "tick" : "wrong"); buzz(res.sugg === 1 ? [10, 40, 10] : 8); }
+  else sfx("flip");
+  rerenderStudy();
+  setTimeout(showAnswer, 60);
+};
+window.skipTyped = () => {
+  if (!session || session.revealed) return;
+  session.typed = { pct: 0, tier: null, sugg: 1, matched: new Set(), missedTop: [], skipped: true };
+  session.revealed = true; sfx("flip");
+  rerenderStudy();
+  setTimeout(showAnswer, 60);
+};
+window.toggleAMode = () => {
+  S.settings.answerMode = S.settings.answerMode === "typed" ? "flip" : "typed";
+  save(); toast(S.settings.answerMode === "typed" ? "⌨️ " + t("amode.typed") : "🃏 " + t("amode.flip"));
+  if (session && !session.revealed) rerenderStudy();
+};
 window.pickOpt = (orig) => {
   if (!session || session.revealed) return;
   const id = session.cur || currentId(), c = CARD[id];
@@ -509,7 +574,7 @@ window.doGrade = (g) => {
   session.snap = grade(id, g);
   session.snap.sess = prevSess;
   tickTime();
-  if (CARD[id].type !== "mcq") {                              // MCQs already sounded & buzzed at pick
+  if (CARD[id].type !== "mcq" && !(session.typed && session.typed.tier)) {   // rated submits already sounded; skip/CJK grades still get feedback
     if (g >= 3) sfx("tick"); else if (g === 1) sfx("wrong");
     buzz(g === 1 ? [10, 40, 10] : 8);
   }
@@ -524,6 +589,7 @@ window.doGrade = (g) => {
     session.queue.splice(pos, 0, id);
   } else session.done++;
   session.revealed = false; session.mcqPick = null; session.shuffle = null; session.cur = null;
+  session.typed = null; session.typedDraft = "";
   session.lastG = g;
   const after = today().r + today().n + today().q;
   if (before === 0 && after > 0) setTimeout(() => toast("🔥 " + streak() + " " + t("home.streakd")), 800);   // the grade that opened the day
@@ -538,6 +604,7 @@ window.undoLast = () => {
   if (session.snap.sess) { session.att = session.snap.sess.att; session.ok = session.snap.sess.ok; session.done = session.snap.sess.done; }
   session.snap = null; session.revealed = false; session.shuffle = null; session.cur = id;
   session.mcqPick = null; session.mcqRight = false;           // stale pick must not steer the next suggestion
+  session.typed = null; session.typedDraft = "";
   toast(t("toast.undone"));
   rerenderStudy();
 };
@@ -924,6 +991,11 @@ function vSettings() {
       <span class="seg">
         ${["auto", "light", "dark"].map(v => `<button class="${s.theme === v ? "on" : ""}" onclick="setOpt('theme','${v}')">${esc(t("set.theme." + v))}</button>`).join("")}
       </span></div>
+    <div class="setrow"><span class="lab">⌨️ ${esc(t("set.amode"))}<small>${esc(t("set.amoded"))}</small></span>
+      <span class="seg">
+        <button class="${s.answerMode !== "typed" ? "on" : ""}" onclick="setOpt('answerMode','flip')">${esc(t("amode.flip"))}</button>
+        <button class="${s.answerMode === "typed" ? "on" : ""}" onclick="setOpt('answerMode','typed')">${esc(t("amode.typed"))}</button>
+      </span></div>
     <div class="setrow"><span class="lab">🀄 ${esc(t("set.zhfirst"))}<small>${esc(t("set.zhfirstd"))}</small></span>
       <span class="seg">
         <button class="${s.zhFirst ? "on" : ""}" onclick="setOpt('zhFirst',true)">ON</button>
@@ -949,7 +1021,7 @@ function vSettings() {
     <div class="setrow" style="cursor:pointer;color:var(--red)" onclick="doReset()"><span class="lab">🗑 ${esc(t("set.reset"))}</span><span>→</span></div>
   </div>
   <div class="panel tiny">
-    <b>Ron 的加州律考通 · Ron's CalBar Trainer</b> · v1.4 · ${ALL_IDS.length} cards<br><br>
+    <b>Ron 的加州律考通 · Ron's CalBar Trainer</b> · v1.5 · ${ALL_IDS.length} cards<br><br>
     内容由 AI 辅助编写，供复习记忆使用；规则表述以官方资料及你的课程讲义为准，发现疑问请用 ⚑ 标记并查证。<br>
     Content is AI-assisted and for memorization practice; verify anything doubtful against official sources (flag with ⚑).<br><br>
     进度保存在本机浏览器 (localStorage)。换设备或清缓存前请先「导出学习进度」。<br>
@@ -1052,6 +1124,13 @@ function vGuide() {
       <li>答案区的框：<b>📘 解析</b>=中文要点与记忆法；<b>🐻 加州区别</b>=加州与联邦/多数规则不同之处（<b>加州考试的得分点，重点记</b>）；<b>💡 记忆钩</b>=助记口诀。</li>
       <li><b>⚑ 标记</b>：对内容存疑时标记，之后在题库里核对讲义；<b>⏸ 暂停</b>（卡片详情里）：这张卡不再出现；<b>↩︎ 撤销</b>：撤回上一次评分。</li>
     </ul>
+    <h4>⌨️ 键入模式——为论述题练的杀手锏</h4>
+    <ul>
+      <li>笔试占总分一半，考的是<b>凭记忆写出规则</b>，不是认出选项。设置里把作答方式切到「键入」（学习页面顶部 🃏/⌨️ 可随时切换），问答与挖空卡会变成一个输入框：像考试一样把规则默写出来。</li>
+      <li>提交后自动评分：<b>要点覆盖率</b>——标准答案里的关键要素你写中了多少。绿色=已覆盖，黄色=遗漏要点（论述题丢分最常见的原因就是漏要素）。</li>
+      <li>评分只是建议（同义改写可能被低估）——四个评分键最终由你按实际情况选。回车提交，Shift+回车换行；想不出来点「直接看答案」。</li>
+      <li>请用英文作答（考试语言）；写中文不评分，改为自评。</li>
+    </ul>
     <h4>🎯 四个评分键（核心！）</h4>
     <ul>
       <li><b>重来</b>=没想起来 · <b>困难</b>=很吃力 · <b>记得</b>=正常想起（大多数按这个）· <b>轻松</b>=秒答。</li>
@@ -1117,6 +1196,13 @@ function vGuide() {
       <li><b>🀄 中文</b> button toggles the Chinese rendering; Settings can make it default-on.</li>
       <li>Answer boxes: <b>📘 解析</b> = key points & memory hooks; <b>🐻 California distinction</b> = where CA differs (this is where CA exam points live); <b>💡 mnemonic</b>.</li>
       <li><b>⚑ Flag</b> doubtful content to verify later; <b>⏸ Suspend</b> (card detail) removes a card from rotation; <b>↩︎ Undo</b> reverses the last grade.</li>
+    </ul>
+    <h4>⌨️ Typed mode — built for the essays</h4>
+    <ul>
+      <li>Half the exam is written: you must <b>produce</b> rules from memory, not recognize them. Switch Answer mode to "Typed" (Settings, or the 🃏/⌨️ button in study) and recall/cloze cards become a text box — write the rule as you would on exam day.</li>
+      <li>Submissions are auto-rated on <b>element coverage</b>: how many of the model answer's load-bearing terms you hit. Green = covered, amber = missed (omitted elements are the #1 essay point-loser).</li>
+      <li>The rating is advisory — paraphrases can score low — so the four grade buttons remain yours to choose. Enter submits, Shift+Enter breaks a line, and "Show the answer" bails out.</li>
+      <li>Answer in English (the exam language); Chinese input skips auto-rating and asks you to self-grade.</li>
     </ul>
     <h4>🎯 The four grade buttons (the core!)</h4>
     <ul>
@@ -1192,10 +1278,18 @@ document.addEventListener("keydown", e => {
     const id = session.cur || currentId(); if (!id) return;
     const c = CARD[id];
     if (!session.revealed) {
-      if ((e.key === " " || e.key === "Enter") && c.type !== "mcq") { e.preventDefault(); reveal(); }
+      if ((e.key === " " || e.key === "Enter") && c.type !== "mcq") {
+        e.preventDefault();
+        if (typedModeActive(c)) { const b = document.getElementById("typedin"); if (b) b.focus(); }
+        else reveal();
+      }
       else if (c.type === "mcq" && "1234".includes(e.key)) { pickOpt(session.shuffle ? session.shuffle["1234".indexOf(e.key)] : parseInt(e.key, 10) - 1); }
     } else if ("1234".includes(e.key)) doGrade(parseInt(e.key, 10));
-    else if (e.key === " " || e.key === "Enter") { e.preventDefault(); doGrade(session.mcqPick != null ? (session.mcqRight ? 3 : 1) : 3); }
+    else if (e.key === " " || e.key === "Enter") {
+      e.preventDefault();
+      const g = session.mcqPick != null ? (session.mcqRight ? 3 : 1) : session.typed ? session.typed.sugg : 3;
+      if (g) doGrade(g);          // no silent default where the UI shows no suggestion (CJK self-grade)
+    }
   } else if (h === "quiz" && quiz && quiz.idx < quiz.ids.length) {
     if (!quiz.answered && "1234".includes(e.key)) quizPick(quiz.shuffle["1234".indexOf(e.key)]);
     else if (quiz.answered && (e.key === " " || e.key === "Enter")) { e.preventDefault(); quizNext(); }

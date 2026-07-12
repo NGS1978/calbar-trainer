@@ -345,6 +345,94 @@ function greetLine() {
   return personaLine(hasHistory && idle >= 3 ? "comeback" : "greet");
 }
 
+/* ---------------- typed-recall scoring (键入模式) ----------------
+   The written bar is production, not recognition: graders award points for
+   stating each rule ELEMENT. We score a typed answer by coverage of the model
+   answer's load-bearing terms (fuzzy-matched for typos/stems), then suggest an
+   FSRS grade the learner can override. Legally critical little words (not,
+   must, may, only, unless…) are deliberately NOT stopwords.                  */
+const TYPED_STOP = new Set(("the a an of to and or in for that with by be as on at it its is are was were this these those " +
+  "there which who whom whose from into then than but when where after before during under over between both each any all " +
+  "such other same more most also very can could would should will shall does do did done has have had having he she they " +
+  "them their his her him we you your i s t d ll re ve about against because while what how why through per via due so out own").split(" "));
+TYPED_STOP.delete("will");   // "will" is a noun of art in the Wills deck — must stay scoreable
+function typedTokens(s) {
+  /* len ≥2 keeps legal Latin (de novo, per se, ex parte); stopwords catch the junk.
+     Hyphens are separators so "long-arm" credits "long arm" and vice versa. */
+  return (String(s).toLowerCase().match(/[a-z][a-z']*|\d+(?:\.\d+)?/g) || [])
+    .map(w => w.replace(/^'+|'+$/g, ""))
+    .filter(w => w && !TYPED_STOP.has(w) && (w.length >= 2 || /^\d/.test(w)));
+}
+/* light derivational stemmer so "avail itself" credits "availment", "arises"≈"arise" */
+function stemW(w) {
+  const s = w.replace(/(ations|ation|ments|ment|tions|tion|ities|ity|ingly|ing|edly|ied|ed|ies|ily|ly|es|s|al)$/, "");
+  return s.length >= 4 ? s : w;
+}
+function levLe(a, b, max) {                      // bounded Levenshtein: true if distance ≤ max
+  if (Math.abs(a.length - b.length) > max) return false;
+  let prev = [...Array(b.length + 1).keys()];
+  for (let i = 1; i <= a.length; i++) {
+    const cur = [i];
+    let rowMin = i;
+    for (let j = 1; j <= b.length; j++) {
+      cur[j] = Math.min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+      if (cur[j] < rowMin) rowMin = cur[j];
+    }
+    if (rowMin > max) return false;
+    prev = cur;
+  }
+  return prev[b.length] <= max;
+}
+function fuzzyEq(a, b) {
+  if (a === b) return true;
+  const sa = stemW(a), sb = stemW(b);
+  if (sa === sb && sa.length >= 4) return true;  // availment/avail, arising/arise, contacts/contact
+  const n = Math.max(a.length, b.length);
+  if (n < 5) return false;                       // short words must otherwise match exactly
+  return levLe(a, b, n >= 9 ? 2 : 1) || (sa.length >= 5 && sb.length >= 5 && levLe(sa, sb, 1));
+}
+function hasCJK(s) { return (String(s).match(/[一-鿿]/g) || []).length >= 2; }
+function scoreTyped(model, input) {
+  const uniq = [...new Set(typedTokens(model))];
+  const ut = [...new Set(typedTokens(input))].slice(0, 150);   // paste-bomb guard
+  if (!uniq.length) {                            // degenerate model — whole-string fuzzy fallback
+    const a = String(model).toLowerCase().trim(), b = String(input).toLowerCase().trim();
+    const ok = a === b || (a.length >= 5 && levLe(a, b, Math.ceil(a.length / 5)));
+    return { pct: ok ? 1 : 0, tier: ok ? "sharp" : "wrong", sugg: ok ? 3 : 1, matched: ok ? new Set(typedTokens(model)) : new Set(), missedTop: [] };
+  }
+  let totalW = 0, hitW = 0;
+  const matched = new Set(), missed = [];
+  for (const w of uniq) {
+    const wgt = /^\d/.test(w) ? 1.6 : w.length >= 8 ? 1.5 : 1;
+    totalW += wgt;
+    if (ut.some(u => fuzzyEq(u, w))) { hitW += wgt; matched.add(w); }
+    else missed.push({ w, wgt });
+  }
+  const pct = totalW ? hitW / totalW : 0;
+  missed.sort((x, y) => y.wgt - x.wgt || y.w.length - x.w.length);
+  let tier, sugg;                                 // sugg = FSRS grade suggestion (Easy stays manual)
+  if (pct >= 0.92) { tier = "sharp"; sugg = 3; }
+  else if (pct >= 0.75) { tier = "good"; sugg = 3; }
+  else if (pct >= 0.45) { tier = "pass"; sugg = 2; }
+  else { tier = "wrong"; sugg = 1; }
+  return { pct, tier, sugg, matched, missedTop: missed.slice(0, 8).map(m => m.w) };
+}
+/* rebuild the model answer with hits green / misses amber (escaping-safe) */
+function highlightModel(model, matched) {
+  let out = "", last = 0, m;
+  const re = /[A-Za-z][A-Za-z']*|\d+(?:\.\d+)?/g;      // hyphen = separator, mirrors typedTokens
+  while ((m = re.exec(model))) {
+    out += esc(model.slice(last, m.index));
+    const tok = m[0], lw = tok.toLowerCase().replace(/^'+|'+$/g, "");
+    const scoreable = lw && !TYPED_STOP.has(lw) && (lw.length >= 2 || /^\d/.test(lw));
+    if (!scoreable) out += esc(tok);                    // unscoreable tokens stay neutral, never "missed"
+    else if (matched.has(lw)) out += `<mark class="hit">${esc(tok)}</mark>`;
+    else out += `<mark class="miss">${esc(tok)}</mark>`;
+    last = m.index + tok.length;
+  }
+  return out + esc(model.slice(last));
+}
+
 /* ---------------- haptics (Android; silently no-op elsewhere) ---------------- */
 function buzz(pattern) { try { if (navigator.vibrate) navigator.vibrate(pattern); } catch (_) {} }
 

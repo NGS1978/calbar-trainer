@@ -403,6 +403,30 @@ a { color: var(--sky); }
 .tri-known { background: linear-gradient(160deg, #43a463, #2f8f4e); }
 .tri-learn { background: linear-gradient(160deg, #4a86c9, #2f6fb3); }
 
+/* ---- typed-recall mode (键入) ---- */
+.typedbox { margin-top: 14px; }
+.typedbox textarea {
+  width: 100%; min-height: 84px; resize: vertical;
+  font-family: var(--font-ui); font-size: 1rem; line-height: 1.5; color: var(--ink);
+  background: var(--chip); border: 1.5px solid var(--card-edge); border-radius: 12px; padding: 11px 13px;
+}
+.typedbox textarea:focus { outline: none; border-color: var(--poppy); box-shadow: 0 0 0 3px color-mix(in srgb, var(--poppy) 18%, transparent); }
+.typedmeta { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 4px; }
+.youranswer { background: var(--chip); border-radius: 12px; padding: 10px 12px; font-size: .95rem; line-height: 1.55; white-space: pre-wrap; overflow-wrap: break-word; }
+.youranswer .bt, .modelbox .bt { font-weight: 800; font-size: .72rem; display: block; margin-bottom: 3px; color: var(--ink-faint); letter-spacing: .5px; }
+.coverage { display: flex; align-items: center; gap: 9px; margin: 10px 0 8px; }
+.coverage b { font-family: var(--font-serif); font-size: 1.05rem; }
+.covbar { flex: 1; height: 9px; border-radius: 5px; background: var(--chip); overflow: hidden; }
+.covbar i { display: block; height: 100%; border-radius: 5px; transition: width .5s cubic-bezier(.25,.9,.35,1); }
+.cov-wrong { background: var(--red); } .cov-pass { background: var(--amber); }
+.cov-good { background: var(--jade); } .cov-sharp { background: linear-gradient(90deg, var(--jade), var(--sky)); }
+.tierchip { font-size: .74rem; font-weight: 800; padding: 3px 11px; border-radius: 999px; color: #fff; flex: none; }
+.tier-wrong { background: var(--red); } .tier-pass { background: var(--amber); }
+.tier-good { background: var(--jade); } .tier-sharp { background: var(--sky); }
+.modelbox { margin-top: 8px; border: 1px dashed var(--card-edge); border-radius: 12px; padding: 10px 12px; }
+mark.hit { background: color-mix(in srgb, var(--jade) 22%, transparent); color: inherit; border-radius: 3px; padding: 0 1px; }
+mark.miss { background: color-mix(in srgb, var(--amber) 30%, transparent); color: inherit; border-radius: 3px; padding: 0 1px; box-shadow: inset 0 -2px 0 var(--amber); }
+
 /* ---- all-done celebration card ---- */
 .donecard { text-align: center; border-left: 4px solid var(--jade); }
 .donecard .dc-emoji { font-size: 2.2rem; margin-bottom: 4px; }
